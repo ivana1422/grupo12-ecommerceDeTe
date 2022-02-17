@@ -41,3 +41,5 @@ Nuestro público objetivo es aquel que esta interesado en aprender de sabores y 
 			
            Me considero una persona entretenida, tengo como pasatiempo jugar futbol , mi objetivo es aprender a programar y vivir de eso. 
 
+* Ivana Saucedo: 
+                Me considero una persona pacifica, autodidacta, en mis tiempos libres me gusta salir a caminar,conocer lugares, mi objetivo es aprender y poder demostar mis conocimientos con las herramientas que nos brindan.
