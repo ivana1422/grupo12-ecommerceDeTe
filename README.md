@@ -37,3 +37,7 @@ Nuestro público objetivo es aquel que esta interesado en aprender de sabores y 
 			
            Me considero una persona organizada, tengo como pasatiempo jugar videojuegos y dibujar, mi objetivo es ser un buen programador. 
 
+* Troche Alberto: 
+			
+           Me considero una persona entretenida, tengo como pasatiempo jugar futbol , mi objetivo es aprender a programar y vivir de eso. 
+
