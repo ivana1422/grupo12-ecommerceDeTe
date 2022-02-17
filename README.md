@@ -32,3 +32,8 @@ Nuestro público objetivo es aquel que esta interesado en aprender de sabores y 
 * Adrián González: 
 			
             Me considero una persona tranquila, me gusta escuchar música en general y mi meta actual es terminar este curso, pero solo es el comienzo! 
+
+* Taiel Fernandez Jara: 
+			
+           Me considero una persona organizada, tengo como pasatiempo jugar videojuegos y dibujar, mi objetivo es ser un buen programador. 
+
