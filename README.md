@@ -48,4 +48,4 @@ Nuestro público objetivo es aquel que esta interesado en aprender de sabores y 
 
 ### Link al tablero de trabajo en Trello.
 
-* [https://trello.com/b/rkgWebcJ/pi-grupo-12-comisi%C3%B3n-13](Trello.com.ar "E-commerce de Té")
+* [https://trello.com/b/rkgWebcJ/pi-grupo-12-comisi%C3%B3n-13](trello.com.ar "E-commerce de Té")
