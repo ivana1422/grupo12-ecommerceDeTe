@@ -46,6 +46,6 @@ Nuestro público objetivo es aquel que esta interesado en aprender de sabores y 
             Me considero una persona pacifica, autodidacta, en mis tiempos libres me gusta salir a caminar,conocer lugares, mi objetivo es aprender y poder demostar mis conocimientos con las herramientas que nos brindan.
            
 
-            
+### Link al tablero de trabajo en Trello.
 
-
+* [https://trello.com/b/rkgWebcJ/pi-grupo-12-comisi%C3%B3n-13](Trello.com.ar "E-commerce de Té")
