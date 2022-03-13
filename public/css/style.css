@@ -45,15 +45,13 @@ header{
     
 }
 
-label.header-menu i:hover{
-    padding:7px;
-    background-color: #FFC4E1;
-    border-radius: 50%;
-    margin:0;
+button#btn-menu{
+    background:none;
+    border: none;
 }
 
-div.header-menu i:hover{
-    padding:10px;
+.header-menu i:hover{
+    padding:7px;
     background-color: #FFC4E1;
     border-radius: 50%;
     margin:0;
@@ -67,27 +65,23 @@ div.header-menu i:hover{
     transition: 200ms all;
 }
 
-input#input-check{
-    display: none;
-}
-
-input#input-check:checked + nav.nav-bar{
-    left: 0;
-}
 
 nav.nav-bar{
-    position:absolute;
-    width: 250px;
-    height: 50vh;
-    background-color: #FFC4E1;
-    top: 73px;
-    left: -250px;
-    padding: 15px;
-    border-radius: 5px;
-    display: flex;
+    display: none;
     align-items:flex-start;
     justify-content: center;
-    transition: left 450ms;
+    width: 250px;
+    height: 50vh;
+    
+    background-color: #FFC4E1;
+    position: absolute;
+    top: 73px;
+    left:0; 
+    
+    padding: 15px;
+    border-radius: 5px;
+    
+    
 }
 
 ul.li-container{
@@ -134,6 +128,11 @@ ul.li-container li a i{
     color: var(--verde);
     text-shadow: 0 0 2px var(--gris);
 }
+
+nav.active{
+    display: flex;
+}
+
 
 .img-header{
     width: 23%;
