@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tea | Tienda de té</title>
+    <link rel="shortcut icon" href="/img/Logo.png">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet"> 
@@ -12,24 +13,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/style.css">
+    
 </head>
 <body>
 
     <header>
-        <div class="burguer-menu header-menu">
-            <a href="#"><i class="fa-solid fa-bars"></i></a>
-        </div>
+        
+        <button class="burguer-menu header-menu" id="btn-menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <nav class="nav-bar" id="menu">
+            <ul class="li-container">
+                <li><a href=""><i class="fa-solid fa-piggy-bank"></i><p>Ofertas</p></a></li>
+                <li><a href=""><i class="fa-brands fa-product-hunt"></i><p>Productos</p></a></li>
+                <li><a href=""><i class="fa-solid fa-cart-arrow-down"></i><p>Mis compras</p></a></li>
+                <li><a href=""><i class="fa-solid fa-user"></i><p class="hidden">Iniciar Sesión</p></a></li>
+                <li><a href=""><i class="fa-solid fa-database"></i><p class="hidden">Mis Datos</p></a></li>
+                <li><a href="register.html"><i class="fa-solid fa-address-card"></i><p class="hidden">Registrarse</p></a></li>
+                
+            </ul>
+        </nav>
         
         <img src="/img/Logo.png" alt="Logo" class="img-header">
-        
+         
         <div class="carrito header-menu">
-            <a href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>
+            <i class="fa-solid fa-cart-arrow-down"></i>
         </div>
 
-        
     </header>
     
     <main>
+
+        
         <section>
             <article class="back-img">
                 <div class="sup">
@@ -39,28 +55,73 @@
                     </button>
                 </div>
             </article>
-
+            
             <article class="back-grad">
+
+                
+                
                 <div class="container-products">
+                    <h3>EXTRA SALE!</h3>
                     <div class="item-products">
                         <a href="#">
                             <img src="/img/products/te-verde.jpg" alt="Te Verde" class="img-products">
                             <h4>Te Verde</h4>
-                            <p>$350</p>
+                            <p class="offer">$500</p>
+                            <p class="actual">$350</p>
                         </a>
                     </div>
                     <div class="item-products">
                         <a href="#">
                             <img src="/img/products/te-rojo.jpg" alt="Te Rojo" class="img-products">
                             <h4>Te Rojo</h4>
-                            <p>$350</p>
+                            <p class="offer">$500</p>
+                            <p class="actual">$350</p>
                         </a>
                     </div>
                     <div class="item-products">
                         <a href="#">
                             <img src="/img/products/te-negro.jpg" alt="Te Negro" class="img-products">
                             <h4>Te Negro</h4>
-                            <p>$350</p>
+                            <p class="offer">$500</p>
+                            <p class="actual">$350</p>
+                        </a>
+                    </div>
+                    <div class="item-products">
+                        <a href="#">
+                            <img src="/img/products/cuchara1.jpg" alt="Mielera" class="img-products">
+                            <h4>Mielera</h4>
+                            <p class="offer">$150</p>
+                            <p class="actual">$90</p>
+                        </a>
+                    </div>
+
+                    <h3>PRODUCTOS DESTACADOS</h3>
+                    <div class="item-products">
+                        <a href="#">
+                            <img src="/img/products/infusor.jpg" alt="Infusor" class="img-products">
+                            <h4>Infusor Artesanal</h4>
+                            <p class="actual">$720</p>
+                        </a>
+                    </div>
+                    <div class="item-products">
+                        <a href="#">
+                            <img src="/img/products/otra cuchara.jpg" alt="Cucharita" class="img-products">
+                            <h4>Cucharita</h4>
+                            <p class="actual">$80</p>
+                        </a>
+                    </div>
+                    <div class="item-products">
+                        <a href="#">
+                            <img src="/img/products/pavita 2.jpg" alt="Tetera" class="img-products">
+                            <h4>Tetera Artesanal</h4>
+                            <p class="actual">$1980</p>
+                        </a>
+                    </div>
+                    <div class="item-products">
+                        <a href="#">
+                            <img src="/img/products/pavita 3.jpg" alt="Te Negro" class="img-products">
+                            <h4>Juego de tetera</h4>
+                            <p class="actual">$4600</p>
                         </a>
                     </div>
 
@@ -81,14 +142,14 @@
                         <p>¿Preferís pagar en efectivo?</p>
                         <p>Cuando compres, te daremos un código para que puedas pagar en cualquier sucursal.</p>
                     </div>
-                    <hr>
+                    
                     <div class="formulario">
                         <form action="index.html" method="get">
                             <label for="newsletter">
                                 Dejanos tu mail para recibir todas las ofertas!
                                 <input type="email" name="email" id="newsletter" placeholder="Ingresa tu @mail">
                             </label>
-                            <button type="submit"> ENVIAR!</button>
+                            <button type="submit" id="newsletter"> ENVIAR!</button>
                         </form>
                     </div>
                 </div>   
@@ -114,12 +175,13 @@
         <article class="middle-footer">
             <div class="middle-box middle-box1">
                 <p>Atención al cliente</p>
-                <a href="#" class="tel">0800-222-1111</a>
+                <a href="#" class="tel">0800-222-1111</a><br>
+                <a href="#" class="tel">clientes@tea.com.ar</a>
             </div>
 
             <div class="middle-box middle-box2">
-                <p>Escribinos por whatsapp</p>
-                <a href="#" class="wsp"><i class="fa-brands fa-whatsapp"></i></a>
+                
+                <a href="#" class="wsp"><img src="/img/wsp.png" alt=""></a>
             </div>
             
         </article>
@@ -129,5 +191,6 @@
         </article>
 
     </footer>
+    <script src="/js/index.js"></script>
 </body>
 </html>
