@@ -26,6 +26,13 @@ a{
     text-decoration: none;
 }
 
+ul{
+    margin-bottom: 0;
+}
+
+p{
+    margin-bottom: 0;
+}
 /*************
     HEADER!
 *************/
@@ -96,7 +103,7 @@ ul.li-container li{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     
 }
 
