@@ -149,66 +149,6 @@ nav.active{
 
 
 
-
-/***********
-    MAIN!
-imagen superior
-***********/
-/*
-section article.back-img{
-    width: 100%;
-    height: 35vh;
-    background-image: url("../img/fill.jpg");
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-section article div.sup{
-    background-color: white;
-    opacity: 0.9;
-    width: 60%;
-    height:60%;
-    padding: 1rem;
-    border-radius: 6% 6% 6% 6% / 15% 15% 15% 15%;
-    font-family: 'Redressed', cursive;
-    text-align:center;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-section article div.sup p{
-    font-size: 2rem;
-    opacity: 1;
-    padding: 0.5rem;
-}
-
-section article div.sup button{
-    background-color: white;
-    opacity: 12;
-    border-radius: 6% 6% 6% 6% / 15% 15% 15% 15%;
-    border: solid 0.1rem black;
-    padding: 0.4rem;
-    color: black;
-}
-
-section article div.sup button:hover{
-    transform: scale(1.1);
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    transition: 0.5s;
-}
-
-section article div.sup button a{
-    text-decoration: none;
-    color:black;
-}
-*/
 /***********
     MAIN!
   Productos
