@@ -140,9 +140,14 @@ nav.active{
 
 
 .img-header{
-    width: 23%;
+    width: 100%;
     max-width: 83px;
     margin: 0;
+}
+
+a.logo-container{
+    width: 23%;
+    max-width: 83px;
 }
 
 
@@ -354,7 +359,7 @@ footer{
     background-color: #c5c5c5;
 }
 
-footer article.logo-footer{
+footer a.logo-footer{
     width: 25%;
     max-width: 100px;
     margin:20px;
@@ -362,7 +367,7 @@ footer article.logo-footer{
     justify-content: center;
 }
 
-footer article.logo-footer img#img-footer{
+footer a.logo-footer img#img-footer{
     width: 100%;
     max-width: 90px;
 }
