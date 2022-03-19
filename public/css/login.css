@@ -1,0 +1,130 @@
+@import url(style.css);
+@import url(formulario.css);
+section.login.input_check-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.8rem
+    
+    }
+    
+    section.login{
+    max-width: 375px;
+    }
+:root{
+    --verde: #98DBC6;
+    --gris: #7C7E82;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0%;
+}
+body{
+    background: rgb(91,200,172);
+    background:linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%);
+}
+main.login{
+    font-size: larger;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    font-family: 'Redressed', cursive;
+    
+}
+a{
+color: black;
+text-decoration: none;
+font-size: 1.3rem;
+
+}
+ 
+ main.login h2{
+ margin-bottom: 1rem;
+ text-align: center;
+ font-weight: 400;
+}
+
+main.login hr{
+    background-color:#FFC4E1;
+    height: 2px;
+    margin-bottom: 1rem;
+    width: 100%;
+
+}
+main.login section.lg-container{
+ border-radius: 15px;
+ padding: 1rem;
+ width: 100%;
+ background-color: rgba(226, 226, 226, 0.685);
+ box-shadow: 0px 2px 2px #000;
+ 
+}
+
+
+main.login lg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main.login  .input-container,
+main.login   div.btn-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: "redressed";
+}
+
+main.login span.error-message{
+    color: red;
+    font-size: 10px;
+    margin: 0 auto;
+    display: none;
+ 
+}
+main.login  input.input-style{
+  border: none;
+  border-radius: 1rem;
+  height: 30px;
+  padding: 7px;
+  margin-bottom: 3px;
+}
+main.login  input:focus{
+    outline: none;
+}
+
+main.login  label{
+    font-size: 14px;
+    
+}
+button.btn {
+   width: 100px;
+   padding: 5px;
+   text-align: center;
+   background-color: #FFC4E1;
+   border-radius: 5px;
+   border:solid 0.5px #000000;
+   box-shadow: 0px 2px 2px #000;
+   cursor: pointer;
+    
+    margin: 5px auto 0 ;
+
+}
+.btnsubmit{
+    background-color: #FFC4E1;
+}
+ button:hover{
+   transform: scale(1.1);
+   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+   transition: 0.5s;
+}
+span#center{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
