@@ -26,7 +26,8 @@ body{
 }
 main.login{
     font-size: larger;
-    min-height: 100vh;
+    height: 100%;
+    min-height: 469px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,6 +125,11 @@ button.btn {
    transition: 0.5s;
 }
 span#center{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+span#olvidoContrasenia{
     display: inline-block;
     width: 100%;
     text-align: center;
