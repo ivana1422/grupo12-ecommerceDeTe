@@ -7,12 +7,27 @@ app.use(express.static(path.join(__dirname, "public")))
 
 PORT = 3030;
 
+
 app.get("/", function(req,res){
     res.sendFile(path.join(__dirname, "/views/index.html"))
 })
 
 app.get("/index.html", function(req,res){
     res.sendFile(path.join(__dirname, "/views/index.html"))
+})
+
+app.get("/login", function(req,res){
+    res.sendFile(path.join(__dirname, "/views/login.html"))
+})
+app.get("/login.html", function(req,res){
+    res.sendFile(path.join(__dirname, "/views/login.html"))
+})
+ app.get("/register", function(req,res){
+     res.sendFile(path.join(__dirname,"/views/register.html" ))
+ })
+
+ app.get("/register.html", function(req,res){
+    res.sendFile(path.join(__dirname,"/views/register.html" ))
 })
 
 
