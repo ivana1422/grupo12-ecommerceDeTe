@@ -159,10 +159,9 @@ a.logo-container{
 
 
 section article.back-grad{
-    width: 100%;
-    
-    background: rgb(91,200,172);
-    background: linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%); 
+    background-image: url("/img/back-img.png");
+    background-size:contain;
+    background-attachment: fixed;
     display:flex;
     flex-direction: column;
     justify-content: center;

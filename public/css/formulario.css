@@ -1,5 +1,5 @@
-@import url(style.css);
-@import url(register.css);
+@import url("style.css");
+@import url("register.css");
 :root{
     --verde: #98DBC6;
     --gris: #7C7E82;

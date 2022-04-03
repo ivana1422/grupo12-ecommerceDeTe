@@ -1,5 +1,5 @@
-@import url(style.css);
-@import url(formulario.css);
+@import url("style.css");
+@import url("formulario.css");
 section.login.input_check-container{
     display: flex;
     flex-direction: column;

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "email": "",
+        "pass": "",
+        "pass2": ""
+    },
+    {
+        "id": 1,
+        "email": "adriramone90@gmail.com",
+        "pass": "asda",
+        "pass2": "asdas"
+    },
+    {
+        "id": 2,
+        "email": "adriramone90@gmail.com",
+        "pass": "asda",
+        "pass2": "asdas"
+    },
+    {
+        "id": 3,
+        "email": "adriramone90@gmail.com",
+        "pass": "sadas",
+        "pass2": "asdas"
+    },
+    {
+        "id": 4,
+        "email": "adriramone90@gmail.com",
+        "pass": "asdas",
+        "pass2": "asdas"
+    }
+]
