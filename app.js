@@ -31,6 +31,15 @@ app.get("/login.html", function(req,res){
 })
 
 
+app.get('/productTeVerde', function (req, res) {
+    res.sendFile(path.join(__dirname, '/views/productTeVerde.html'))
+});
+
+app.get('/productTeVerde.html', function (req, res) {
+    res.sendFile(path.join(__dirname, '/views/productTeVerde.html'))
+});
+
+
 app.listen(3030, function(){
     console.log("Puerto abierto")
 })
