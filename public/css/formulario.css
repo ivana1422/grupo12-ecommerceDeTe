@@ -16,7 +16,8 @@ body{
 }
  main.forms{
      font-size: larger;
-     min-height: 100vh;
+     height: 100%;
+     min-height: 469px;
      display: flex;
      justify-content: center;
      align-items: center;
