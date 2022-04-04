@@ -9,6 +9,7 @@
 :root{
     --verde: #98DBC6;
     --gris: #7C7E82;
+    
 }
 
 html{
@@ -55,6 +56,11 @@ button#btn-menu{
     border: none;
 }
 
+button#btn-menu:hover{
+    border:none;
+    box-shadow: none;
+}
+
 .header-menu i:hover{
     padding:7px;
     background-color: #FFC4E1;
@@ -62,7 +68,8 @@ button#btn-menu{
     margin:0;
 }
 
-.header-menu i{
+.header-menu i,
+.header-menu a i{
     font-size: 3rem;
     color:var(--verde);
     text-shadow: 0 0 2px var(--gris);
@@ -149,16 +156,38 @@ a.logo-container{
     width: 23%;
     max-width: 83px;
 }
+/*Correcciones bootstrap*/
+.carousel-control-next:hover,
+.carousel-control-prev:hover{
+    background:none;
+    border:none;
+    box-shadow: none;
+}
 
+.carousel-indicators{
+    margin-bottom: .5rem;
+}
 
+.carousel-indicators button:hover{
+    background:none;
+    border:none;
+    box-shadow: none;
+}
 
+.carousel-indicators button{
+    color: #000;
+}
 /***********
     MAIN!
   Productos
 ***********/
 
 
-section article.back-grad{
+.back-grad{
+    /*width: 100%;
+    
+    background: rgb(91,200,172);
+    background: linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%); */
     background-image: url("/img/back-img.png");
     background-size:contain;
     background-attachment: fixed;
@@ -193,7 +222,8 @@ section article.back-grad{
 .item-products{
     width: 30%;
     max-width: 200px;
-    min-width: 180px;
+    min-width: 236px;
+    min-height: 277px;
     padding: 1rem;
     background: #FFFFFF;
     border: .1rem solid #7C7E82;
@@ -207,7 +237,25 @@ section article.back-grad{
     
     font-family: "redressed";
     text-align: center;
-    margin: 10px;
+    margin: 5px;
+}
+
+.item-products a{
+    display: flex;
+    
+    flex-direction: column;
+  justify-content: space-between;
+    align-items: center;
+    height: 270px;
+    
+}
+
+.item-products a div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 32%;
 }
 
 .img-products{
@@ -216,9 +264,12 @@ section article.back-grad{
     border: 0.1rem solid #7C7E82;
 }
 
+
+
 .item-products h4{
     color:#000000;
     font-size: 2rem;
+    font-family: 'Baloo 2';
 }
 
 .item-products p{
@@ -356,6 +407,7 @@ footer{
     justify-content: center;
     text-align: center;
     background-color: #c5c5c5;
+    width:100%;
 }
 
 footer a.logo-footer{
