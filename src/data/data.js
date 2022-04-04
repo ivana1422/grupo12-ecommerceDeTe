@@ -9,3 +9,4 @@ module.exports = {
 
     writeUsers: (data)=> fs.writeFileSync(path.join(__dirname, "/users.json"),JSON.stringify(data))
 }
+
