@@ -1,46 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tea | Tienda de té</title>
-    <link rel="shortcut icon" href="/img/Logo.png">
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet"> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="/css/products.css">
-    
-</head>
+    <%-include("./partials/head")%>
 <body>
-    <header>
-        
-        <button class="burguer-menu header-menu" id="btn-menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        
-        <nav class="nav-bar" id="menu">
-            <ul class="li-container">
-                <li><a href=""><i class="fa-solid fa-piggy-bank"></i><p>Ofertas</p></a></li>
-                <li><a href=""><i class="fa-brands fa-product-hunt"></i><p>Productos</p></a></li>
-                <li><a href=""><i class="fa-solid fa-cart-arrow-down"></i><p>Mis compras</p></a></li>
-                <li><a href=""><i class="fa-solid fa-user"></i><p class="hidden">Iniciar Sesión</p></a></li>
-                <li><a href=""><i class="fa-solid fa-database"></i><p class="hidden">Mis Datos</p></a></li>
-                <li><a href=""><i class="fa-solid fa-address-card"></i><p class="hidden">Registrarse</p></a></li>
-                
-            </ul>
-        </nav>
-        
-        <a href="/" class="logo-container"><img src="/img/Logo.png" alt="Logo" class="img-header"></a>
-         
-        <div class="carrito header-menu">
-            <i class="fa-solid fa-cart-arrow-down"></i>
-        </div>
-
-    </header>
+    <%-include("./partials/header")%>
 
     <main>
         <section>
@@ -49,8 +11,8 @@
                     <div class="primerCaja">
                         <h2>Te Verde en Hebras</h2>
                         <div class="img-container">
-                            <img src="/img/products/te verde 2.jpg">
-                            <img src="/img/products/te verde 3.jpg">
+                            <img src="/img/products/<%=productoSolicitado.image[0]%>">
+                            <img src="/img/products/<%=productoSolicitado.image[1]%>">
                         </div>
                         <div class="tercerCaja"> 
                                 <select name="" id="">
@@ -95,39 +57,7 @@
             </article>
         </section>
     </main>
-    <footer>
-        <a href="/" class="logo-footer">
-            <img src="/img/Logo.png" alt="logo" id="img-footer">
-        </a>
-
-        <article class="media-socials">
-            <p>Seguinos!</p>
-            <div class="redes">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            </div>
-        </article>
-
-        <article class="middle-footer">
-            <div class="middle-box middle-box1">
-                <p>Atención al cliente</p>
-                <a href="#" class="tel">0800-222-1111</a><br>
-                <a href="#" class="tel">clientes@tea.com.ar</a>
-            </div>
-
-            <div class="middle-box middle-box2">
-                
-                <a href="#" class="wsp"><img src="/img/wsp.png" alt=""></a>
-            </div>
-            
-        </article>
-
-        <article class="copyright">
-            <p>Copyright 2022 - Todos los derechos reservados</p>
-        </article>
-
-    </footer>
+    <%-include("./partials/footer")%>
     <script src="/js/index.js"></script>
 </body>
 </html>

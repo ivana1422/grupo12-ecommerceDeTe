@@ -1,6 +1,6 @@
-const empress = require('express');
+const express = require('express');
 const router = express.Router();
-const productsControllers = require('../controllers/productsController');
+const productsController = require('../controllers/productsControllers');
 
-router.get('/:id', productsControllers.productDetail);
+router.get('/:id', productsController.productDetail);
 
