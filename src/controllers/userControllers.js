@@ -4,4 +4,16 @@ module.exports= {
             titulo: "Iniciar sesion"
         })
     }
+
+   
+
+}
+
+module.exports={
+    register: (req,res) =>{
+        res.render('register',{
+            titulo: 'Registrarse'
+        }
+        )
+    }
 }
