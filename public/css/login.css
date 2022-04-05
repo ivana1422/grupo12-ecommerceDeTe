@@ -20,10 +20,7 @@ section.login.input_check-container{
     margin: 0;
     padding: 0%;
 }
-body{
-    background: rgb(91,200,172);
-    background:linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%);
-}
+
 main.login{
     font-size: larger;
     height: 100%;
@@ -32,8 +29,8 @@ main.login{
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
-    font-family: 'Redressed', cursive;
-    
+    font-family: "baloo 2";
+    background: none;
 }
 a{
 color: black;
