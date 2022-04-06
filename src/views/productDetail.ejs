@@ -9,7 +9,7 @@
             <article>
                 <div class="containerCaja1-2">
                     <div class="primerCaja">
-                        <h2>Te Verde en Hebras</h2>
+                        <h2><%=productoSolicitado.name%></h2>
                         <div class="img-container">
                             <img src="/img/products/<%=productoSolicitado.image[0]%>">
                             <img src="/img/products/<%=productoSolicitado.image[1]%>">
@@ -30,17 +30,18 @@
                         
                     <div class="segundaCaja">
                         <h2>Detalles</h2>
-                        <p>-Te verde en Hebras, el favorito de todos, por su frescura y su dejo frutal </p>
-                        <p class="precio">$350</p>
-                        <p>Ingredientes:</p>
-                        <ul>
-                            <li>Hebras de Yunnan</li>
-                            <li>arandanos rojos</li>
-                            <li>petalos de rosas</li>
-                            <li>cardamomo</li>
-                            <li>con aroma frutal</li>
-                        </ul>
-                        <p>Excelente mezcla de sabores para disfrutar de un rico te por la tarde!</p>
+                        <p>-<%=productoSolicitado.description%> </p>
+                        <p class="precio"><%=productoSolicitado.price%></p>
+                        <% if(productoSolicitado.ingredients){ %>
+                            <p>Ingredientes:</p>
+                            <ul>
+                                <% for(let i = 0; i < productoSolicitado.ingredients.length; i++) { %>
+                                <li><%= productoSolicitado.ingredients[i]%></li>
+                                <%}%>
+                            </ul>
+                         <%}%>
+                        
+                        <p><%=productoSolicitado.coment%></p>
                     </div>
                 </div>
 
