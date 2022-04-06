@@ -4,6 +4,8 @@ const userRouter= require('../src/routes/userRouter');
 const indexRouter = require("../src/routes/indexRouter");
 const productsRouter = require("../src/routes/productsRouter")
 
+
+
 let path = require("path")
 
 app.use(express.static(path.join(__dirname, "../public")))
