@@ -2,7 +2,8 @@ let express = require("express");
 let app = express();
 const userRouter= require('../src/routes/userRouter');
 const indexRouter = require("../src/routes/indexRouter");
-const productsRouter = require("../src/routes/productsRouter")
+const productsRouter = require("../src/routes/productsRouter");
+const adminRouter = require("../src/routes/routesAdmin/adminRouter")
 
 let path = require("path")
 
@@ -11,6 +12,7 @@ app.use(express.static(path.join(__dirname, "../public")))
 app.use('/', userRouter);
 app.use("/", indexRouter);
 app.use("/producto", productsRouter);
+app.use("/admin", adminRouter);
 
 PORT = 3030;
 

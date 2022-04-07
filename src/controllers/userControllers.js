@@ -1,6 +1,6 @@
 module.exports= {
     login: (req,res)=>{
-        res.render("login",{
+        res.render("users/login",{
             titulo: "Iniciar sesion"
         })
     },
@@ -11,7 +11,7 @@ module.exports= {
 
 
     register: (req,res) =>{
-        res.render('register',{
+        res.render('users/register',{
             titulo: 'Registrarse'
         }
         )
