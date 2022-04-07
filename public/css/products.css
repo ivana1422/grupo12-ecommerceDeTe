@@ -148,6 +148,9 @@ a.logo-container{
 
 /* finaliza header */
 
+
+
+
 main {
     background: linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%);
 }
@@ -171,7 +174,7 @@ main section article {
     padding: 20px;
 }
 
-.img-container {
+/* .img-container {
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -180,8 +183,14 @@ main section article {
 .img-container img {
     object-fit: cover;
     width: 350px;
-}
+} */
 
+
+.carousel-inner {
+    position: relative;
+    width: 350px;
+    overflow: hidden;
+}
 
 
 .primerCaja h2 {
