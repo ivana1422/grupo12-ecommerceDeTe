@@ -112,9 +112,10 @@ header{
 /*main*/
 
 .art-title{
-    margin: 10px 0;
+    
     text-align: center;
-    margin-top: 25px;
+    margin-top: 15px;
+    
     
 }
 
@@ -182,20 +183,34 @@ main{
 .art-search form button{
     padding: 5px;
     position: absolute;
-    right: 5px;
+    right: 15px;
     border: none;
     background: none;
 }
 
 article.container-fluid{
     max-width: 850px;
+    text-overflow: hidden;
+}
+
+.backToHome{
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.btn-edit{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     
 }
 
-.btn-edit a,
-.btn-edit form{
-    
-    display: inline-block;
+
+
+.btn-edit a{
+    width: 40px;
+    height: 40px;
 }
 
 footer{
@@ -207,6 +222,8 @@ footer{
 footer h4{
     font-size: 16px;
 }
+
+
 
 @media (max-width:520px){
     .nav-bar{

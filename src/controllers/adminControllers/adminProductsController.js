@@ -16,9 +16,12 @@ module.exports = {
             }
         });
 
+        
+
         let newProduct = {
             ...req.body,
-            id:lastId + 1
+            id:lastId + 1,
+            image: []
         }
 
         getProducts.push(newProduct)
@@ -26,5 +29,23 @@ module.exports = {
         writeProducts(getProducts)
 
         res.redirect("/admin")
+    },
+
+    editProduct: (req,res)=>{
+        let idProducto = +req.params.id;
+
+        let productoSolicitado = getProducts.find((product)=>{
+            product.id === idProducto
+        })
+
+        res.render("admin/products/editProducts",{
+            producto: productoSolicitado,
+
+            titulo: productoSolicitado.name 
+        })
+    },
+
+    productoEditado: (req,res)=>{
+
     }
 }

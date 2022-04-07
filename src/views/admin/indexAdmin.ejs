@@ -13,7 +13,7 @@
         </article>
         <article>
             <button class="btn-add">
-                <a href="">
+                <a href="/admin/productos/agregar">
                     <i class="fa-solid fa-plus"></i> Nuevo Producto
                 </a>
             </button>
@@ -39,10 +39,10 @@
                     <% productos.forEach(producto => { %>
                         <tr class="text-center">
                             <th scope="row"><%=producto.id%></th>
-                            <td><%=producto.name%></td>
+                            <td class="texto-corto"><%=producto.name%></td>
                             <td>$<%=producto.price%></td>
                             
-                            <td class="btn-edit h-100">
+                            <td class="btn-edit">
                               <a href="" class="btn btn-success">
                                 <i class="fa-solid fa-pen-to-square"></i>
                               </a>
@@ -58,7 +58,7 @@
               </table>
         </article>
 
-        <a href="/">Salir del administrador</a>
+        <a href="/" class="backToHome">Salir del administrador</a>
     </main>
 
     <%-include("./partials/footerAdmin")%>
