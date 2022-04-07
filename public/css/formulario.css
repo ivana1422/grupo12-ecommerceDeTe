@@ -11,10 +11,14 @@
     padding: 0%;
 }
 body{
-    background: rgb(91,200,172);
-    background:linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%);
+    /*background: rgb(91,200,172);
+    background:linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%);*/
+    
 }
  main.forms{
+    background-image: url("/img/back-img.png");
+    background-size:contain;
+    background-attachment: fixed;
      font-size: larger;
      height: 100%;
      min-height: 469px;
@@ -22,7 +26,7 @@ body{
      justify-content: center;
      align-items: center;
      padding: 0 1rem;
-     font-family: 'Redressed', cursive;
+     font-family: 'Baloo 2', cursive;
      
  }
  a{
@@ -68,7 +72,7 @@ main.forms section.form-container{
      flex-direction: column;
      width: 100%;
      margin-bottom: 10px;
-     font-family: "redressed";
+     font-family: "Baloo 2";
  }
 
  main.forms form span.error-message{

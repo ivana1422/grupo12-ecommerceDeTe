@@ -159,17 +159,21 @@ main section article {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .containerCaja1-2 {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .primerCaja {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
     padding: 20px;
 }
@@ -186,21 +190,35 @@ main section article {
 } */
 
 
-.carousel-inner {
+/*.carousel-inner {
     position: relative;
     width: 400px;
     overflow: hidden;
+}*/
+
+.carousel-edit1{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    margin: 0 5px; 
+}
+
+
+.carousel-img{
+    width:100%;
 }
 
 
 .primerCaja h2 {
-    font-family: 'redressed';
+    font-family: 'Baloo 2';
     text-align: center;
 }
 
 .tercerCaja{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .tercerCaja select {
@@ -220,7 +238,7 @@ main section article {
     background-color: #FFC4E1;
     border-style: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 20px 15px;
+    padding: 12px 10px;
 
 }
 
@@ -238,7 +256,7 @@ main section article {
 
 
 .segundaCaja h2 {
-    font-family: 'redressed';
+    font-family: 'Baloo 2';
     margin-bottom: 20px;
     text-align: center;
 }
@@ -272,17 +290,15 @@ main section article {
 
 .cuartaCaja h2 {
     text-align: left;
-    margin-left: 40px;
-    margin-bottom: 20px;
-    font-family: 'redressed';
+    font-family: 'Baloo 2';
     font-size: 40px;
 }
 
 .cuartaCaja div {
     text-align: left;
-    margin-left: 40px;
+    
     border-style: solid;
-    border-radius: 25%;
+    border-radius: 20px;
     padding: 50px;
     background-color: white;
 }
@@ -457,12 +473,10 @@ footer article.copyright p{
     
     .containerCaja1-2 {
         flex-flow: row wrap;
-        padding-left: 50px;
+        
     }
 
-    .primerCaja{
-        padding-left: 120px;
-    }
+    
 
     .segundaCaja {
         padding: 40px;
@@ -546,7 +560,7 @@ footer article.copyright p{
 
     .cuartaCaja div {
         border-style: solid;
-        border-radius: 25%;
+        border-radius: 20px;
         padding: 40px;
         background-color: white;
     }
@@ -558,7 +572,7 @@ footer article.copyright p{
 }
 
 @media (max-width: 375px) {
-    .carousel-inner {
+    /*.carousel-inner {
         width: 350px;
     }
 
@@ -566,11 +580,11 @@ footer article.copyright p{
         width: 350px;
         height: 350px;
         object-fit: cover;
-    }
+    }*/
 }
 
 @media (max-width: 320px) {
-    .carousel-inner {
+    /*.carousel-inner {
         width: 300px;
     }
 
@@ -579,7 +593,7 @@ footer article.copyright p{
         height: 300px;
         object-fit: cover;
         padding-left: 0px;
-    }
+    }*/
 
     .tercerCaja input{
         width: 100px;
