@@ -5,6 +5,8 @@ const indexRouter = require("../src/routes/indexRouter");
 const productsRouter = require("../src/routes/productsRouter");
 const adminRouter = require("../src/routes/routesAdmin/adminRouter")
 
+
+
 let path = require("path")
 
 app.use(express.static(path.join(__dirname, "../public")))

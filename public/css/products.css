@@ -148,6 +148,9 @@ a.logo-container{
 
 /* finaliza header */
 
+
+
+
 main {
     background: linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%);
 }
@@ -171,7 +174,7 @@ main section article {
     padding: 20px;
 }
 
-.img-container {
+/* .img-container {
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -180,8 +183,14 @@ main section article {
 .img-container img {
     object-fit: cover;
     width: 350px;
-}
+} */
 
+
+.carousel-inner {
+    position: relative;
+    width: 400px;
+    overflow: hidden;
+}
 
 
 .primerCaja h2 {
@@ -447,7 +456,12 @@ footer article.copyright p{
 @media (max-width: 768px){
     
     .containerCaja1-2 {
-        flex-flow: column wrap;
+        flex-flow: row wrap;
+        padding-left: 50px;
+    }
+
+    .primerCaja{
+        padding-left: 120px;
     }
 
     .segundaCaja {
@@ -500,6 +514,11 @@ footer article.copyright p{
 
 @media (max-width: 425px) {
 
+    .containerCaja1-2 {
+        flex-flow: row wrap;
+        padding-left: 6px;
+    }
+    
     .primerCaja {
         display: flex;
         flex-direction: column;
@@ -538,6 +557,41 @@ footer article.copyright p{
     }
 }
 
+@media (max-width: 375px) {
+    .carousel-inner {
+        width: 350px;
+    }
 
+    .d-block{
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+    }
+}
 
+@media (max-width: 320px) {
+    .carousel-inner {
+        width: 300px;
+    }
 
+    .d-block{
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        padding-left: 0px;
+    }
+
+    .tercerCaja input{
+        width: 100px;
+        height: 50px;
+        font-size: 10px;
+        
+    }
+
+    .tercerCaja select{
+        width: 80px;
+        height: 50px;
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}
