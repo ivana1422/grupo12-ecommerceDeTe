@@ -22,6 +22,7 @@ main form{
     justify-content: center;
     align-items: center;
     padding: 15px;
+    max-width: 550px;
 }
 
 .inp-cont{
@@ -38,6 +39,11 @@ main form{
     border-radius: 3px;
     outline:none;
     width: 100%;
+}
+
+.inp-cont input:focus,
+.inp-cont textarea:focus{
+    border: 2px solid var(--rosaOscuro)
 }
 
 .inp-cont textarea{

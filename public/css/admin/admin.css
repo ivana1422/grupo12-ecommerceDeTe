@@ -201,9 +201,13 @@ article.container-fluid{
 
 .btn-edit{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     
+}
+
+.btn-edit form{
+    width: fit-content;
 }
 
 

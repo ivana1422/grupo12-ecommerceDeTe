@@ -7,25 +7,25 @@
     <main class="addP">
 
         <h2><%=postHeader%></h2>
-        <form action="" method="POST">
+        <form action="/admin/productos/editar/<%-producto.id%>?_method=PUT" method="POST">
             <div class="inp-cont">
                 <label for="name">Nombre del producto</label>
-                <input type="text" name="name" placeholder="Ej: Te Chino" id="name">
+                <input type="text" name="name" value="<%=producto.name%>" id="name">
             </div>
             
             <div class="inp-cont">
                 <label for="price">Precio</label>
-                <input type="number" name="price" placeholder="Ej: 500" id="price">
+                <input type="number" name="price" value="<%=producto.price%>" id="price">
             </div>
             
             <div class="inp-cont">
                 <label for="description">Descripción del producto</label>
-                <textarea name="description" id="description" cols="25" rows="10" placeholder="Descripción detallada del producto"></textarea>
+                <textarea name="description" id="description" cols="25" rows="10" ><%=producto.description%></textarea>
             </div>
             
             <div class="inp-cont">
                 <label for="coment">Comentario adicional</label>
-                <textarea name="coment" id="coment" cols="25" rows="10" placeholder="Comentario adicional sobre el producto"></textarea>
+                <textarea name="coment" id="coment" cols="25" rows="10" ><%=producto.coment%></textarea>
             </div>
             
             <div class="inp-cont file-cont">

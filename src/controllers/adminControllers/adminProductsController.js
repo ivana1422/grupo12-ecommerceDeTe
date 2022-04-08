@@ -8,6 +8,7 @@ module.exports = {
         })
     },
     createProduct: (req,res)=>{
+        
         let lastId = 0;
 
         getProducts.forEach(producto => {
@@ -15,8 +16,6 @@ module.exports = {
                 lastId = producto.id;
             }
         });
-
-        
 
         let newProduct = {
             ...req.body,
@@ -33,19 +32,83 @@ module.exports = {
 
     editProduct: (req,res)=>{
         let idProducto = +req.params.id;
+        
+        let producto = getProducts.find(producto => producto.id === idProducto)
+        
+        
 
-        let productoSolicitado = getProducts.find((product)=>{
-            product.id === idProducto
+        res.render('admin/products/editProducts', {
+            postHeader: "Editar Producto",
+            titulo: "Edición",
+            producto
         })
 
-        res.render("admin/products/editProducts",{
-            producto: productoSolicitado,
+        
 
-            titulo: productoSolicitado.name 
-        })
     },
 
     productoEditado: (req,res)=>{
+        let idProducto = +req.params.id;
 
+        
+
+        getProducts.forEach(producto => {
+            if(producto.id === idProducto){
+                producto.name = req.body.name
+                producto.description = req.body.description
+                producto.price = req.body.price
+                producto.coment = req.body.coment
+                
+            }
+        })
+ 
+        writeProducts(getProducts);
+
+        res.redirect('/admin');
+    },
+
+    delete: (req,res)=>{
+        let idProducto = +req.params.id;
+
+        getProducts.forEach(producto =>{
+            if(producto.id === idProducto){
+                let productoEliminado = getProducts.indexOf(producto);
+
+                getProducts.splice(productoEliminado,1)
+            }
+        })
+
+        writeProducts(getProducts);
+
+        res.redirect("/admin")
+    },
+
+    search: (req, res) => {
+        let search = req.query.search;
+
+        let searchProduct = search.toLowerCase()
+
+        result = [];
+
+        getProducts.forEach(producto =>{
+
+            const removeAccents = (str) => {
+                return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+              } 
+
+            let temp = removeAccents(producto.name.toLowerCase())
+
+            //let temp = removeAccents(string)
+
+            if(temp.includes(searchProduct)){
+                result.push(producto)
+            }
+        })
+
+        res.render('admin/resultAdmin',{
+           titulo: `resultados de ${searchProduct}`,
+           postHeader: `resultados de ${searchProduct}`,
+           productos: result
+         })
     }
 }
