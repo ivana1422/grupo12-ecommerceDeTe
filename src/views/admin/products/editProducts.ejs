@@ -7,7 +7,7 @@
     <main class="addP">
 
         <h2><%=postHeader%></h2>
-        <form action="/admin/productos/editar/<%-producto.id%>?_method=PUT" method="POST">
+        <form action="/admin/productos/editar/<%-producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="inp-cont">
                 <label for="name">Nombre del producto</label>
                 <input type="text" name="name" value="<%=producto.name%>" id="name">

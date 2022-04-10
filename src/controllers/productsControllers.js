@@ -11,7 +11,7 @@ module.exports = {
 
 
         res.render("products/productDetail", {
-            productoSolicitado, 
+            productoSolicitado,
             titulo: "Tea | Detalle de Producto"
         })
     }

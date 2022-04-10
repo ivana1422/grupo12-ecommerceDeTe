@@ -1,15 +1,18 @@
 const express = require("express");
-const router = express.Router()
+const router = express.Router();
+
 
 const adminController = require("../../controllers/adminControllers/adminController")
 const adminProductsController = require("../../controllers/adminControllers/adminProductsController")
 
+//Se require el modulo de multer
+const uploadImgProducts = require("../../middlewares/uploadImgProducts")
 
 router.get("/", adminController.listaProductos);
 
 router.get("/productos/agregar", adminProductsController.addProduct);
 
-router.post("/productos", adminProductsController.createProduct);
+router.post("/productos", uploadImgProducts.single("image") ,adminProductsController.createProduct); //Se añade el middleware con metodo single y el name del input file
 
 router.get("/productos/editar/:id", adminProductsController.editProduct);
 
