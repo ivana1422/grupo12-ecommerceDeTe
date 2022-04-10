@@ -11,8 +11,8 @@
 ## HACER MÁS..
 
 * Usar trello al iniciar o terminar una tarea.
-* Mantener un ritmo diario de prácticas de las diferentes herramientas.
-* Leer documentación.
+* Practicar mas el codigo para que salga mas fluido.
+* Juntarse mas en equipo para ayudarnos. 
 
 ## EMPEZAR A HACER..
 
@@ -26,3 +26,4 @@
 
 * Procrastinar.
 * No aprovechar el tiempo.
+* No Estar al dia con el curso.
