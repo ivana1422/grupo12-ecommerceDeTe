@@ -21,7 +21,8 @@ module.exports = {
         let newProduct = {
             ...req.body,
             id:lastId + 1,
-            image: [req.file.filename]
+            image: req.file ? req.file.filename : "default.jpg",
+            ingredients: [req.body.ingredient1,req.body.ingredient2,req.body.ingredient3]
         }
 
         getProducts.push(newProduct)
