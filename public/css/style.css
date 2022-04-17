@@ -114,14 +114,19 @@ ul.li-container{
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
+    justify-content: space-evenly;
+    height: 100%;
+
 
 }
 ul.li-container li{
     list-style: none;
     width: 100%;
+    
     display: flex;
     justify-content: center;
     margin-bottom: 0;
+    
     
 }
 
@@ -129,12 +134,14 @@ ul.li-container li a{
     
     color: #000;
     display: flex;
-    padding: 5px;
+    padding: 10px;
     width: 80%;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     justify-content: space-between;
     user-select: none;
+    align-items: center;
+
     transition: 450ms all;
     
    
