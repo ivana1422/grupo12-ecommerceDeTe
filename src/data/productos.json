@@ -1,5 +1,63 @@
 [
     {
+        "id": 1,
+        "name": "Té negro en hebras cortas",
+        "weight": "Lata 65g",
+        "description": "Té negro en hebras cortas, cosechado y producido en Misiones, Argentina.",
+        "price": 350,
+        "ingredients": [
+            "Canela",
+            "Arandanos",
+            "Clavo de dolor",
+            "Ralladura de Naranja"
+        ],
+        "image": [
+            "te-negro.jpg",
+            "te-negro2.jpg",
+            "te-negro3.jpg"
+        ],
+        "coment": "Excelente mezcla de sabores para disfrutar de un rico te por la tarde!"
+    },
+    {
+        "id": 2,
+        "name": "Té verde en hebras cortas",
+        "weight": "Lata 65g",
+        "description": "Té verde en hebras cortas, cosechado y producido en Misiones, Argentina.",
+        "price": 350,
+        "ingredients": [
+            "Durazno",
+            "Pétalos de rosas amarillas",
+            "cardamomo",
+            "con aroma frutal"
+        ],
+        "image": [
+            "te-verde.jpg",
+            "te-verde2.jpg",
+            "te-verde3.jpg"
+        ],
+        "coment": "Excelente mezcla de sabores para disfrutar de un rico te por la tarde, de sabor dulce y delicado!"
+    },
+    {
+        "id": 3,
+        "name": "Té rojo en hebras cortas",
+        "weight": "Lata 65g",
+        "description": "Té rojo en hebras cortas, cosechado y producido en Misiones, Argentina.",
+        "price": 350,
+        "ingredients": [
+            "Hebras de Yunnan",
+            "Cacao",
+            "Coco",
+            "Vainilla",
+            "Con trozitos de Toffee"
+        ],
+        "image": [
+            "te-rojo.jpg",
+            "te-rojo2.jpg",
+            "te-rojo3.jpg"
+        ],
+        "coment": "Excelente mezcla de sabores, Dulce y entrador!"
+    },
+    {
         "id": 4,
         "name": "Tetera Artesanal de Cerámica",
         "description": "Teteras de cerámica hechas a mano, Capacidad 1 litro. Combinable con set de cuencos. Inscripción: Iguazú",
