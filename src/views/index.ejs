@@ -5,7 +5,6 @@
 <body>
 
     <%-include("./partials/header")%>
-    
     <main class="back-grad">
 
         <section>
@@ -36,11 +35,8 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-            
             <article class="back-grad">
 
-                
-                
                 <div class="container-products">
                     <h3>EXTRA SALE!</h3>
 
@@ -57,7 +53,6 @@
                         </div>
                     <% } %>
 
-                    
                     <h3>PRODUCTOS DESTACADOS</h3>
 
                     <% for( let i = 4; i <= 7; i++ ) { %>
@@ -67,12 +62,11 @@
                                 <div>
                                     <h4><%=productos[i].name%></h4>
                                     <p class="actual">$<%=productos[i].price%></p>
-                                </div>       
+                                </div>
                             </a>
                         </div>
                     <% } %>
 
-                    
                 </div>
 
                 <div class="medios-pago">
@@ -90,7 +84,6 @@
                         <p>¿Preferís pagar en efectivo?</p>
                         <p>Cuando compres, te daremos un código para que puedas pagar en cualquier sucursal.</p>
                     </div>
-                    
                     <div class="formulario">
                         <form action="index.html" method="get">
                             <label for="newsletter">
@@ -100,13 +93,12 @@
                             <button type="submit" id="newsletter"> ENVIAR!</button>
                         </form>
                     </div>
-                </div>   
+                </div>
 
             </article>
 
         </section>
     </main>
-    
     <%-include("./partials/footer")%>
 
 </body>

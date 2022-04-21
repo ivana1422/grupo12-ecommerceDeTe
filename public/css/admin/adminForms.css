@@ -74,6 +74,19 @@ main form{
     background-color: var(--rosaOscuro);
 }
 
+.label-ing{
+    display: flex;
+}
+
+.label-ing input{
+    width: 15px;
+    margin: 5px;
+}
+
+.check-ing .ingrediente{
+    margin-bottom: 5px;
+}
+
 .backTo{
     width: 100%;
     text-align: center;
@@ -83,3 +96,4 @@ main form{
     color: var(--negro);
     text-decoration:none;
 }
+

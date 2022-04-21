@@ -8,7 +8,7 @@ module.exports = {
         })
     },
     createProduct: (req,res)=>{
-        
+
         let lastId = 0;
 
         getProducts.forEach(producto => {
@@ -17,10 +17,12 @@ module.exports = {
             }
         });
 
+
         let newProduct = {
             ...req.body,
             id:lastId + 1,
-            image: []
+            image: req.file ? req.file.filename : "default.jpg",
+            ingredients: [req.body.ingredient1,req.body.ingredient2,req.body.ingredient3]
         }
 
         getProducts.push(newProduct)
@@ -32,10 +34,7 @@ module.exports = {
 
     editProduct: (req,res)=>{
         let idProducto = +req.params.id;
-        
         let producto = getProducts.find(producto => producto.id === idProducto)
-        
-        
 
         res.render('admin/products/editProducts', {
             postHeader: "Editar Producto",
@@ -43,14 +42,12 @@ module.exports = {
             producto
         })
 
-        
 
     },
 
     productoEditado: (req,res)=>{
         let idProducto = +req.params.id;
 
-        
 
         getProducts.forEach(producto => {
             if(producto.id === idProducto){
@@ -58,10 +55,9 @@ module.exports = {
                 producto.description = req.body.description
                 producto.price = req.body.price
                 producto.coment = req.body.coment
-                
             }
         })
- 
+
         writeProducts(getProducts);
 
         res.redirect('/admin');
@@ -94,7 +90,7 @@ module.exports = {
 
             const removeAccents = (str) => {
                 return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-              } 
+              }
 
             let temp = removeAccents(producto.name.toLowerCase())
 
