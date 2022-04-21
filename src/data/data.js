@@ -13,10 +13,7 @@ let escribirJson=(rutaJson, data)=>{
 module.exports = {
     getProducts: leerJson("/productos.json"),
 
-    writeProducts: (data)=> escribirJson("/productos.json",data),
+    writeProducts: (data)=> escribirJson("/productos.json",data)
 
-    getUsers: leerJson("/users.json"),
-
-    writeUsers: (data)=> escribirJson("/users.json", data)
 }
 
