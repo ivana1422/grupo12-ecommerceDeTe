@@ -10,7 +10,6 @@
     display: flex;
     width: 100%;
     height: 100%;
-    padding: 15px;
 }
 
 .detalle-pedido{
@@ -41,7 +40,7 @@
     margin-bottom: 1%;
 }
 
-button {
+.boton-rosa {
     background-color: #FFC4E1;
     border-style: none;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
@@ -84,4 +83,60 @@ button:hover{
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+/* queries */
+@media (max-width: 1440px){
+    .contenedor {
+        padding: 15px;
+    }
+
+    .botones{
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 425px){
+    .contenedor {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .detalle-pedido {
+        height: 100%;
+        width: 100%;
+    }
+
+    .botones {
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+
+    .detalle-subtotal {
+        width: 80%;
+    }
+
+    .subtotal-div-info {
+        margin-left: 0px;
+    }
+
+    .detalle-subtotal{
+        width: 100%;
+    }
+}   
+
+@media (max-width: 320px){
+    .boton-rosa {
+        width: 40%;
+    }
+
+    .contenedor{
+        padding: none;
+    }
+
+    .subtotal-div-info {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
 }
