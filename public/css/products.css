@@ -151,10 +151,6 @@ a.logo-container{
 
 
 
-main {
-    background: linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%);
-}
-
 main section article {
     display: flex;
     flex-direction: column;
