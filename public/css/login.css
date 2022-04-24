@@ -3,7 +3,9 @@
 section.login.input_check-container{
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.8rem
+    margin-bottom: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+
     
     }
     
@@ -75,7 +77,7 @@ main.login   div.btn-container{
     flex-direction: column;
     width: 100%;
     margin-bottom: 10px;
-    font-family: "redressed";
+    
 }
 
 main.login span.error-message{
@@ -91,6 +93,7 @@ main.login  input.input-style{
   height: 30px;
   padding: 7px;
   margin-bottom: 3px;
+  font-size: 70%;
 }
 main.login  input:focus{
     outline: none;
@@ -115,6 +118,7 @@ button.btn {
 }
 .btnsubmit{
     background-color: #FFC4E1;
+    
 }
  button:hover{
    transform: scale(1.1);
