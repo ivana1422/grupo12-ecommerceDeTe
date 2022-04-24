@@ -9,6 +9,19 @@
 :root{
     --verde: #98DBC6;
     --gris: #7C7E82;
+
+    --grisClaro: #E5E5E5;
+    --grisOscuro: #7C7E82;
+    --rosaClaro: #FFC4E1;
+    --rosaOscuro: #F18D9E;
+    --verdeClaro: #98DBC6;
+    --verdeOscuro: #5BC8AC;
+    --amarillo: #E6D72A;
+    --negro: #000;
+    --blanco: #fff;
+
+    --fontPrincipal: 'Baloo 2';
+    --fontSecundaria: 'Poppins', sans-serif;
     
 }
 
@@ -101,14 +114,19 @@ ul.li-container{
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
+    justify-content: space-evenly;
+    height: 100%;
+
 
 }
 ul.li-container li{
     list-style: none;
     width: 100%;
+    
     display: flex;
     justify-content: center;
     margin-bottom: 0;
+    
     
 }
 
@@ -116,12 +134,14 @@ ul.li-container li a{
     
     color: #000;
     display: flex;
-    padding: 5px;
+    padding: 10px;
     width: 80%;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     justify-content: space-between;
     user-select: none;
+    align-items: center;
+
     transition: 450ms all;
     
    
@@ -235,7 +255,7 @@ a.logo-container{
     justify-content: center;
     align-items: center;
     
-    font-family: "redressed";
+    font-family: "Baloo 2";
     text-align: center;
     margin: 5px;
 }
@@ -381,20 +401,23 @@ div.medios-pago div.efectivo i{
 }
 
 .medios-pago div.formulario form button{
-    width: 100px;
-    padding: 5px;
-    text-align: center;
-    background-color: #FFC4E1;
-    border-radius: 5px;
-    border:solid 0.5px #000000;
-    box-shadow: 0px 2px 2px #000;
+    background-color: transparent;
+    width: 150px;
+    border: 2px solid;
+    border-radius: 3px;
     cursor: pointer;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: var(--negro);
+    outline: none;
+    border-color: var(--rosaClaro);
+    box-shadow: 0 0 40px 40px var(--rosaClaro) inset;
+    transition: box-shadow 0.1s ease-in-out;
+    
 }
 
 .medios-pago div.formulario form button:hover{
-    transform: scale(1.1);
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    transition: 0.5s;
+    box-shadow: 0 0 10px 0 var(--rosaClaro) inset, 0 0 10px 4px var(--rosaClaro);
 }
 
 

@@ -11,7 +11,11 @@
     padding: 0%;
 }
 
+
  main.forms{
+    background-image: url("/img/back-img.png");
+    background-size:contain;
+    background-attachment: fixed;
      font-size: larger;
      height: 100%;
      min-height: 469px;
@@ -24,6 +28,7 @@
      background-attachment: fixed;
      font-family: 'Poppins', sans-serif;
  
+     font-family: 'Baloo 2', cursive;
      
  }
  a{
@@ -70,6 +75,7 @@ main.forms section.form-container{
      width: 100%;
      margin-bottom: 10px;
      
+     font-family: "Baloo 2";
  }
 
  main.forms form span.error-message{
@@ -95,7 +101,8 @@ main.forms section.form-container{
      font-size: 14px;
      
  }
- button.btn {
+ 
+ /*button.btn {
     width: 100px;
     padding: 5px;
     text-align: center;
@@ -116,4 +123,25 @@ main.forms section.form-container{
     transform: scale(1.1);
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     transition: 0.5s;
+}*/
+
+button.btn{
+    background-color: transparent;
+    width: 150px;
+    border: 2px solid;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: var(--negro);
+    outline: none;
+    border-color: var(--rosaClaro);
+    box-shadow: 0 0 40px 40px var(--rosaClaro) inset;
+    transition: box-shadow 0.1s ease-in-out;
+    
 }
+
+button.btn:hover{
+    box-shadow: 0 0 10px 0 var(--rosaClaro) inset, 0 0 10px 4px var(--rosaClaro);
+}
+

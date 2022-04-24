@@ -2,11 +2,22 @@ const { json } = require("express/lib/response");
 const fs = require("fs");
 const path = require("path");
 
+let leerJson =(rutaJson)=>{
+    return JSON.parse(fs.readFileSync(path.join(__dirname, rutaJson),"utf-8"))
+}
+
+let escribirJson=(rutaJson, data)=>{
+    return fs.writeFileSync(path.join(__dirname, rutaJson),JSON.stringify(data))
+}
+
 module.exports = {
-    getProducts: JSON.parse(fs.readFileSync(path.join(__dirname,"/productos.json"),"utf-8")),
+    getProducts: leerJson("/productos.json"),
 
-    getUsers: JSON.parse(fs.readFileSync(path.join(__dirname,"/users.json"),"utf-8")),
+    writeProducts: (data)=> escribirJson("/productos.json",data),
 
-    writeUsers: (data)=> fs.writeFileSync(path.join(__dirname, "/users.json"),JSON.stringify(data))
+    getUsers: leerJson("/users.json"),
+
+    writeUsers: (data)=> escribirJson("/users.json", data),
+
 }
 
