@@ -28,7 +28,7 @@
 * No aprovechar el tiempo.
 
 
-# RETROSPECTIVA DE 3er SPRINT
+# RETROSPECTIVA DE 4to SPRINT
 
 ## SEGUIR HACIENDO..
 
