@@ -17,9 +17,6 @@
 * comunicarse mejor. 
 * Estar al dia con el curso.
 
-## HACER MENOS..
-
-
 ## DEJAR DE HACER..
 
 * No aprovechar el tiempo.
