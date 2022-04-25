@@ -1,3 +1,7 @@
+const process = require('process');
+require('dotenv').config();
+const PORT = process.env.PORT || 3030;
+
 let express = require("express");
 let app = express();
 let bodyParser = require("body-parser")
@@ -17,9 +21,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
-
-PORT = 3030;
-
 app.set("view engine","ejs");
 app.set("views", path.join(__dirname, "/views"));
 
@@ -32,7 +33,7 @@ app.use("/admin", adminRouter);
 app.use("/carrito", carritoRouter);
 
 
-app.listen(3030, function(){
+app.listen(PORT, function(){
     console.log(`Servidor abierto en puerto ${PORT}`)
 })
 

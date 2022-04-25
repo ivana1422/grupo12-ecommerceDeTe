@@ -12,7 +12,7 @@ router.get("/", adminController.listaProductos);
 
 router.get("/productos/agregar", adminProductsController.addProduct);
 
-router.post("/productos", uploadImgProducts.single("image") ,adminProductsController.createProduct); //Se añade el middleware con metodo single y el name del input file
+router.post("/productos", uploadImgProducts.array("image", 3) ,adminProductsController.createProduct); //Se añade el middleware con metodo single y el name del input file
 
 router.get("/productos/editar/:id", adminProductsController.editProduct);
 
