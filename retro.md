@@ -2,10 +2,7 @@
 
 ## SEGUIR HACIENDO..
 
-* Distribución de tareas de manera equitativa.
-* Aportar ideas.
-* Permanecer en comunicación constante.
-* Mantener el trabajo en equipo.
+* Entregar al dia las tareas.
 * Aceptar las críticas constructivas.
 
 ## HACER MÁS..
@@ -15,18 +12,19 @@
 
 ## EMPEZAR A HACER..
 
-* Poner fechas límites a las tareas.
 * Hacer tareas de maneras equitativas entre todos. 
-* conectarse mas para poder charlar y ayudarnos con el proyecto. 
-* comunicarse mucho mejor. 
+* conectarse para poder charlar y ayudarnos con el proyecto. 
+* comunicarse mejor. 
+* Estar al dia con el curso.
 
 ## HACER MENOS..
-
-* No buscar en fuentes alternativas de información.
-* Dejar para ultimo momento las cosas, procrastinar 
 
 
 ## DEJAR DE HACER..
 
 * No aprovechar el tiempo.
 * No Estar al dia con el curso.
+* No contestar a tiempo los mensajes del grupo. 
+* Dejar para ultimo momento las tereas que tenemos.
+* No asumir los propios errores.
+
