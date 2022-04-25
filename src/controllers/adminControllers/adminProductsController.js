@@ -1,4 +1,6 @@
 const {getProducts, writeProducts} = require("../../data/data");
+const fs = require("fs")
+const path = require("path")
 
 module.exports = {
     addProduct: (req, res)=>{
@@ -22,8 +24,6 @@ module.exports = {
         req.files.forEach((file)=>{
             images.push(file.filename)
         })
-
-        
 
         let newProduct = {
             ...req.body,
@@ -71,7 +71,9 @@ module.exports = {
     },
 
     delete: (req,res)=>{
+
         let idProducto = +req.params.id;
+
 
         getProducts.forEach(producto =>{
             if(producto.id === idProducto){
