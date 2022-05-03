@@ -13,6 +13,7 @@ module.exports = {
 
         let lastId = 0;
 
+
         getProducts.forEach(producto => {
             if(producto.id > lastId){
                 lastId = producto.id;
@@ -26,8 +27,11 @@ module.exports = {
         })
 
         let newProduct = {
-            ...req.body,
             id:lastId + 1,
+            name : req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            coment : req.body.coment,
             image: req.files ? [...images] : ["default.jpg"],
             ingredients: [req.body.ingredient1,req.body.ingredient2,req.body.ingredient3]
         }
@@ -53,15 +57,23 @@ module.exports = {
     },
 
     productoEditado: (req,res)=>{
-        let idProducto = +req.params.id;
 
+        //let idProducto = +req.params.id;
+
+        let images = []
+
+        req.files.forEach((file)=>{
+            images.push(file.filename)
+        })
 
         getProducts.forEach(producto => {
-            if(producto.id === idProducto){
-                producto.name = req.body.name
-                producto.description = req.body.description
-                producto.price = req.body.price
-                producto.coment = req.body.coment
+            if(producto.id === +req.params.id){
+                producto.name = req.body.name ? req.body.name : producto.name
+                producto.description = req.body.description ? req.body.description : producto.description
+                producto.price = req.body.price ? req.body.price : producto.price
+                producto.coment = req.body.coment ? req.body.coment : producto.coment
+                producto.image = req.files ? [...images] : producto.image
+                producto.ingredients = req.body.ingredient1 && req.body.ingredient2 && req.body.ingredient3 ? [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3] : producto.ingredients
             }
         })
 

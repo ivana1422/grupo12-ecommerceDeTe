@@ -16,7 +16,7 @@ router.post("/productos", uploadImgProducts.array("image", 3) ,adminProductsCont
 
 router.get("/productos/editar/:id", adminProductsController.editProduct);
 
-router.put("/productos/editar/:id", adminProductsController.productoEditado);
+router.put("/productos/editar/:id", uploadImgProducts.array("image", 3), adminProductsController.productoEditado);
 
 router.delete("/productos/eliminar/:id", adminProductsController.delete);
 
