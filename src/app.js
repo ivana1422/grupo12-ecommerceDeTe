@@ -17,7 +17,7 @@ const carritoRouter = require("../src/routes/carritoRouter");
 
 //Middlewares
 app.use(express.static(path.join(__dirname, "../public")))
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
