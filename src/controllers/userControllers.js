@@ -1,13 +1,47 @@
+const {getUsers, writeUsers}= require("../data/data")
+
+const {validationResult}=require("express-validator")
+
 module.exports= {
     login: (req,res)=>{
         res.render("users/login",{
-            titulo: "Iniciar sesion"
+            titulo: "Iniciar sesion",
+            session:req.session
         })
+    },
+
+    processLogin: (req,res)=>{
+        let errors = validationResult(req);
+
+        if(errors.isEmpty()){
+            let user = getUsers.find(user => user.email === req.body.email)
+
+            req.session.user = {
+            name: user.nombre,
+            email: user.email,
+            avatar: user.avatar,
+            rol:user.rol
+            }
+
+            res.locals.user = req.session.user
+
+            res.redirect("/")
+        } else {
+            res.render("users/login",{
+                titulo:"Iniciar Sesión",
+                errors:errors.mapped(),
+                old:req.body,
+                session:req.session
+            })
+        }
+
+        
     },
 
     register: (req,res) =>{
         res.render('users/register',{
-            titulo: 'Registrarse'
+            titulo: 'Registrarse',
+            session:req.session
         }
         )
     }

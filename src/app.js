@@ -7,6 +7,7 @@ let app = express();
 let bodyParser = require("body-parser")
 let path = require("path")
 const methodOverride = require('method-override');
+const session = require("express-session");
 
 
 const userRouter= require('../src/routes/userRouter');
@@ -21,6 +22,13 @@ app.use(express.static(path.join(__dirname, "../public")))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(session({
+    secret: "t3A",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {}
+}))
+
 app.set("view engine","ejs");
 app.set("views", path.join(__dirname, "/views"));
 

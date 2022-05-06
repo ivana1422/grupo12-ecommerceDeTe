@@ -6,7 +6,8 @@ module.exports = {
     addProduct: (req, res)=>{
         res.render("admin/products/addProducts",{
             titulo: "Nuevo producto",
-            postHeader: "Ingrese los datos del nuevo producto"
+            postHeader: "Ingrese los datos del nuevo producto",
+            session:req.session
         })
     },
     createProduct: (req,res)=>{
@@ -50,7 +51,8 @@ module.exports = {
         res.render('admin/products/editProducts', {
             postHeader: "Editar Producto",
             titulo: "Edición",
-            producto
+            producto,
+            session:req.session
         })
 
 
@@ -125,7 +127,8 @@ module.exports = {
         res.render('admin/resultAdmin',{
            titulo: `resultados de ${searchProduct}`,
            postHeader: `resultados de ${searchProduct}`,
-           productos: result
+           productos: result,
+           session:req.session
          })
     }
 }
