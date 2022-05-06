@@ -8,6 +8,7 @@ let bodyParser = require("body-parser")
 let path = require("path")
 const methodOverride = require('method-override');
 
+
 const userRouter= require('../src/routes/userRouter');
 const indexRouter = require("../src/routes/indexRouter");
 const productsRouter = require("../src/routes/productsRouter");
@@ -20,7 +21,6 @@ app.use(express.static(path.join(__dirname, "../public")))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
-
 app.set("view engine","ejs");
 app.set("views", path.join(__dirname, "/views"));
 
