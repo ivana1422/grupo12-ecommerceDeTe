@@ -5,8 +5,7 @@ const fileUpload = require('../data/multer/multer');
 
 //validations
 const loginValidator = require("../validations/loginValidator");
-const userController= require("../controllers/userControllers");
-const validateRegister = require('../data/validations/validations');
+const validateRegister = require('../validations/registerValidator');
 
 router.get("/login", userController.login);
 router.post("login", loginValidator,userController.processLogin)
