@@ -9,6 +9,7 @@ let path = require("path")
 const methodOverride = require('method-override');
 const session = require("express-session");
 
+
 const userRouter= require('../src/routes/userRouter');
 const indexRouter = require("../src/routes/indexRouter");
 const productsRouter = require("../src/routes/productsRouter");
