@@ -12,25 +12,54 @@
         <section class="form-container register">
             <h2>Registrate</h2>
             <hr>
-            <form action="" method="">
+            <form action="/register" method="post" enctype="multipart/form-data">
                 <div class="input-container">
-                    <input type="email" class="input-style" name="email" placeholder="Ingrese su email">
-                    <span class="error-message">Debe ingresar su email</span>
+                    <input type="name" class="input-style" name="name" placeholder="Ingrese su nombre" value="<%= locals.old && old.name %>">
+                    <% if (locals.errors && errors.name) { %>
+                    <span class="error-message"><%= errors.name.msg %> </span>
+                    <% } %> 
                 </div>
                 <div class="input-container">
-                    <input type="password" class="input-style" name="pass" placeholder="Ingrese una contraseña">
-                    <span class="error-message">Debe ingresar su contraseña</span>
+                    <input type="name" class="input-style" name="lastName" placeholder="Ingrese su apellido" value="<%= locals.old && old.lastName %>">
+                    <% if (locals.errors && errors.lastName) { %>
+                        <span class="error-message"><%= errors.lastName.msg %> </span>
+                     <% } %>  
                 </div>
                 <div class="input-container">
-                    <input type="password" class="input-style" name="pass2" placeholder="Confirmar contraseña">
-                    <span class="error-message">Debe re-ingresar su contraseña</span>
+                    <input type="email" class="input-style" name="email" placeholder="Ingrese su email" value="<%= locals.old && old.email %>">
+                    <% if (locals.errors && errors.email) { %>
+                        <span class="error-message"><%= errors.email.msg %> </span>
+                     <% } %> 
+                </div>
+                <div class="input-container">
+                    <label class="labelMulter">Imagen de perfil</label>
+                    <input type="file" class="inputMulter" name="avatar">
+                    <% if (locals.errors && errors.avatar) { %>
+                        <span class="error-message"><%= errors.avatar.msg %> </span>
+                     <% } %> 
+                </div>
+                <div class="input-container">
+                    <input type="password" class="input-style" name="pass" placeholder="Ingrese una contraseña" value="<%= locals.old && old.pass %>">
+                    <% if (locals.errors && errors.pass) { %>
+                        <span class="error-message"><%= errors.pass.msg %> </span>
+                    <% } %> 
+                </div>
+                <div class="input-container">
+                    <input type="password" class="input-style" name="pass2" placeholder="Confirmar contraseña" value="<%= locals.old && old.pass2 %>">
+                    <% if (locals.errors && errors.pass2) { %>
+                        <span class="error-message"><%= errors.pass2.msg %> </span>
+                    <% }else if ( locals.errors && errors.pass2) { %>
+                        <span class="error-message"><%= errors.pass2.msg %> </span>
+                    <% } %>  
                 </div>
                 <div class="input_check-container">
-                    <label for="recordar"> Acepto los <a href="">términos y condiciones</a> <input type="checkbox" name="terms" id="recordar"></label>
-                    <span class="error-message">Debe aceptar los términos y condiciones</span>
+                    <label for="recordar"> Acepto los <a href="">términos y condiciones</a> 
+                        <input type="checkbox" name="terms" id="recordar"></label>
+                    <% if (locals.errors && errors.terms) { %>
+                        <span class="error-message"><%= errors.terms.msg %> </span>
+                     <% } %> 
                 </div>
                 <div class="btn-container">
-                    <span class="error-message">Hubo un error en el registro</span>
                     <button type="submit" class="btn btn-submit">Registrate</button>
                 </div>
                 <span><a href="login.html">¿Ya tenes cuenta?Ingresá</a></span>
