@@ -1,15 +1,19 @@
 const {getProducts, writeProducts} = require("../../data/data");
+const fs = require("fs")
+const path = require("path")
 
 module.exports = {
     addProduct: (req, res)=>{
         res.render("admin/products/addProducts",{
             titulo: "Nuevo producto",
-            postHeader: "Ingrese los datos del nuevo producto"
+            postHeader: "Ingrese los datos del nuevo producto",
+            session:req.session
         })
     },
     createProduct: (req,res)=>{
 
         let lastId = 0;
+
 
         getProducts.forEach(producto => {
             if(producto.id > lastId){
@@ -17,11 +21,19 @@ module.exports = {
             }
         });
 
+        let images = []
+
+        req.files.forEach((file)=>{
+            images.push(file.filename)
+        })
 
         let newProduct = {
-            ...req.body,
             id:lastId + 1,
-            image: req.file ? req.file.filename : "default.jpg",
+            name : req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            coment : req.body.coment,
+            image: req.files ? [...images] : ["default.jpg"],
             ingredients: [req.body.ingredient1,req.body.ingredient2,req.body.ingredient3]
         }
 
@@ -39,22 +51,31 @@ module.exports = {
         res.render('admin/products/editProducts', {
             postHeader: "Editar Producto",
             titulo: "Edición",
-            producto
+            producto,
+            session:req.session
         })
 
 
     },
 
     productoEditado: (req,res)=>{
-        let idProducto = +req.params.id;
 
+        //let idProducto = +req.params.id;
+
+        let images = []
+
+        req.files.forEach((file)=>{
+            images.push(file.filename)
+        })
 
         getProducts.forEach(producto => {
-            if(producto.id === idProducto){
-                producto.name = req.body.name
-                producto.description = req.body.description
-                producto.price = req.body.price
-                producto.coment = req.body.coment
+            if(producto.id === +req.params.id){
+                producto.name = req.body.name ? req.body.name : producto.name
+                producto.description = req.body.description ? req.body.description : producto.description
+                producto.price = req.body.price ? req.body.price : producto.price
+                producto.coment = req.body.coment ? req.body.coment : producto.coment
+                producto.image = req.files ? [...images] : producto.image
+                producto.ingredients = req.body.ingredient1 && req.body.ingredient2 && req.body.ingredient3 ? [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3] : producto.ingredients
             }
         })
 
@@ -64,7 +85,9 @@ module.exports = {
     },
 
     delete: (req,res)=>{
+
         let idProducto = +req.params.id;
+
 
         getProducts.forEach(producto =>{
             if(producto.id === idProducto){
@@ -104,7 +127,8 @@ module.exports = {
         res.render('admin/resultAdmin',{
            titulo: `resultados de ${searchProduct}`,
            postHeader: `resultados de ${searchProduct}`,
-           productos: result
+           productos: result,
+           session:req.session
          })
     }
 }
