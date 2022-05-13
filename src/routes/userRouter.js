@@ -6,8 +6,12 @@ const loginValidator = require("../validations/loginValidator")
 
 const userController= require("../controllers/userControllers")
 
-router.get("/login", userController.login);
+
+//middlewares
+const userOnline = require("../middlewares/userOnline")
+
+router.get("/login",userOnline, userController.login);
 router.post("login", loginValidator,userController.processLogin)
-router.get("/register", userController.register);
+router.get("/register", userOnline,userController.register);
 
 module.exports= router;
