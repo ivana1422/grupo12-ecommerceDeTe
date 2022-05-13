@@ -15,8 +15,14 @@ let validateRegister = [
     // verificacion para multer
     body("avatar")
     .custom((value, {req})=>{
-        if (req.file.mimetype === "image/png" || req.file.mimetype === "image/jpeg"){return true}
-        return false
+        if(!req.file){
+            return true
+        }else if (req.file.mimetype === "image/png" || req.file.mimetype === "image/jpeg"){
+            return true
+        }else{
+            return false
+        }
+        
     }).withMessage('Debes seleccionar un archivo de imagen valido'),
     body('terms').notEmpty().withMessage('Debe aceptar los terminos y condiciones')
 ]

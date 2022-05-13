@@ -78,7 +78,7 @@ main.forms section.form-container{
      color: red;
      font-size: 10px;
      margin: 0 auto;
-     display: none;
+     display: inline-block;
   
  }
  main.forms form input.input-style{
