@@ -17,9 +17,9 @@ let validateRegister = [
     .custom((value, {req})=>{
         if(!req.file){
             return true
-        } else if(req.file && (req.file.mimetype === "image/png" || req.file.mimetype === "image/jpg")){
+        }else if (req.file.mimetype === "image/png" || req.file.mimetype === "image/jpeg"){
             return true
-        } else {
+        }else{
             return false
         }
         
