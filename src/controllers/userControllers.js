@@ -78,7 +78,8 @@ module.exports= {
             res.render('users/register',{
                 titulo: 'Registrarse',
                 errors: errors.mapped(),
-                old: req.body
+                old: req.body,
+                session:req.session
             })
         }
     }
