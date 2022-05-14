@@ -6,15 +6,15 @@
     
     <nav class="nav-bar" id="menu">
         <ul class="li-container">
-            <li><a href=""><i class="fa-solid fa-piggy-bank"></i><p>Nuestros Productos</p></a></li>
-            <li><a href=""><i class="fa-brands fa-product-hunt"></i><p>Sobre Nosotros</p></a></li>
+            <li><a href=""><i class="fa-solid fa-piggy-bank"></i>Nuestros Productos</a></li>
+            <li><a href=""><i class="fa-brands fa-product-hunt"></i>Sobre Nosotros</a></li>
 
             <% if (session.user) { %>
                 <li><a href="/carrito"><i class="fa-solid fa-cart-arrow-down"></i>Mi Carrito</a></li>
                 <li><a href=""><i class="fa-solid fa-user-pen"></i>Mi Perfil</a></li>
                 <li><a href="/logout"><i class="fa-solid fa-arrow-right-to-bracket"></i></i>Cerrar Sesión</a></li>
                 <div class="avatar-container">
-                    <img class="avatar" src="/img/users/<%=session.user.avatar%>" alt="">
+                    <img class="avatar" src="/img/users/<%=session.user.img%>" alt="">
                     <% if (typeof session.user != "undefined") { %>
                         <div class="user-online"></div>
                     <% } %>

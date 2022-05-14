@@ -14,14 +14,14 @@ module.exports= {
 
     processLogin: (req,res)=>{
         let errors = validationResult(req);
-
+        
         if(errors.isEmpty()){
             let user = getUsers.find(user => user.email === req.body.email)
 
             req.session.user = {
             name: user.nombre,
             email: user.email,
-            avatar: user.avatar,
+            img: user.img,
             rol:user.rol
             }
 
@@ -64,7 +64,7 @@ module.exports= {
                 name: req.body.name,
                 lastName: req.body.lastName,
                 email: req.body.email,
-                pass: bcrypt.hashSync(req.body.pass, 10), 
+                pass: bcrypt.hashSync(req.body.pass, 10),
                 img: req.file ? req.file.filename : "defaultAvatar.png",
                 rol: "user"
             }
@@ -78,8 +78,15 @@ module.exports= {
             res.render('users/register',{
                 titulo: 'Registrarse',
                 errors: errors.mapped(),
-                old: req.body
+                old: req.body,
+                session:req.session
             })
         }
+    },
+    logout:(req, res)=>{
+        
+        req.session.destroy();
+
+        res.redirect("/");
     }
 }
