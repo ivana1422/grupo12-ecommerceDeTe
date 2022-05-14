@@ -96,7 +96,7 @@ nav.nav-bar{
     align-items:flex-start;
     justify-content: center;
     width: 250px;
-    height: 70vh;
+    height: fit-content;
     
     background-color: #FFC4E1;
     position: absolute;
@@ -115,7 +115,7 @@ ul.li-container{
     width: 100%;
     align-items: flex-start;
     justify-content: space-evenly;
-    height: 100%;
+    height: fit-content;
 
 
 }
@@ -135,17 +135,18 @@ ul.li-container li a{
     color: #000;
     display: flex;
     padding: 10px;
-    width: 80%;
+    width: 100%;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     justify-content: space-between;
     user-select: none;
     align-items: center;
-
+    font-size: 16px;
     transition: 450ms all;
     
    
 }
+
 
 ul.li-container li a:hover{
     background-color: var(--verde);
@@ -632,7 +633,18 @@ footer article.copyright p{
         padding: 0 5px;
     }
 
-    
+    .avatar-container{
+        width: 73px;
+        height: 73px;
+        order: 1;
+        margin: 0;
+        
+    }
+
+    img.avatar{
+        width: 50px;
+        height: 50px;
+    }
 
     
 }
