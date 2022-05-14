@@ -1,4 +1,4 @@
-const userAdminCheck = (req, res, next){
+const userAdminCheck = (req, res, next) =>{
     if(req.session.user.rol === "admin"){
         next()
     }else{
