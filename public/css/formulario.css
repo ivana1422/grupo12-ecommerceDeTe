@@ -10,14 +10,20 @@
     margin: 0;
     padding: 0%;
 }
+<<<<<<< HEAD
 
+=======
+body{
+    height: 100vh;
+}
+>>>>>>> 5c1fcd189e60a1e5d7feff37a1ebdb99e554ce6a
 
  main.forms{
     background-image: url("/img/back-img.png");
     background-size:contain;
     background-attachment: fixed;
      font-size: larger;
-     height: 100%;
+     height: 80%;
      min-height: 469px;
      display: flex;
      justify-content: center;
@@ -82,7 +88,7 @@ main.forms section.form-container{
      color: red;
      font-size: 10px;
      margin: 0 auto;
-     display: none;
+     display: inline-block;
   
  }
  main.forms form input.input-style{
