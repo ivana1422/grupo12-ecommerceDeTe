@@ -7,7 +7,7 @@ let loginValidator = [
                 .notEmpty()
                 .isEmail().withMessage('Debe ingresar un email válido').bail(),
 
-    body('custom').custom((value,{req})=>{
+    body('pass').custom((value,{req})=>{
         let user = getUsers.find(user => user.email === req.body.email)
 
         if(bcrypt.compareSync(req.body.pass,user.pass)){

@@ -621,7 +621,7 @@ footer article.copyright p{
     }
 
     ul.li-container li a{
-        font-size: 14px;
+        font-size: 13px;
         width: fit-content;
         flex-direction: column;
         align-items: center;
