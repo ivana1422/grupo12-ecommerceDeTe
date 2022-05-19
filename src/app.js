@@ -8,7 +8,7 @@ let bodyParser = require("body-parser")
 let path = require("path")
 const methodOverride = require('method-override');
 const session = require("express-session");
-
+const cookieParser= require('cookie-parser')
 
 const userRouter= require('../src/routes/userRouter');
 const indexRouter = require("../src/routes/indexRouter");
@@ -28,7 +28,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: {}
 }))
-
+app.use(cookieParser())
 app.set("view engine","ejs");
 app.set("views", path.join(__dirname, "/views"));
 

@@ -24,7 +24,12 @@ module.exports= {
             img: user.img,
             rol:user.rol
             }
-
+             if(req.body.remember){
+                 const TIME_IN_MILISECONS=60000;
+                 req.cookie('tea',req.session.user,{expires: newDate (Date.now()+ TIME_IN_MILISECONS),
+                httpOnly: true,
+            secure:true,})
+             }
             res.locals.user = req.session.user
 
             res.redirect("/")
@@ -88,5 +93,9 @@ module.exports= {
         req.session.destroy();
 
         res.redirect("/");
+         if(req.cookies.tea){
+        res.cookie('tea',"",{maxAge:-1})
     }
+    }
+   
 }
