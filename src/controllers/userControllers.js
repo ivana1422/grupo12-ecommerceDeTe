@@ -26,9 +26,10 @@ module.exports= {
             }
              if(req.body.remember){
                  const TIME_IN_MILISECONS=60000;
-                 req.cookie('tea',req.session.user,{expires: newDate (Date.now()+ TIME_IN_MILISECONS),
-                httpOnly: true,
-            secure:true,})
+                 res.cookie('tea',req.session.user,{
+                    expires: new Date (Date.now()+ TIME_IN_MILISECONS),
+                    httpOnly: true,
+                    secure:true,})
              }
             res.locals.user = req.session.user
 
@@ -92,10 +93,10 @@ module.exports= {
         
         req.session.destroy();
 
-        res.redirect("/");
          if(req.cookies.tea){
         res.cookie('tea',"",{maxAge:-1})
-    }
+        }
+        res.redirect("/");
     }
    
 }
