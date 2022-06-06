@@ -46,7 +46,26 @@ let config= {
     tableName: "products",
     timestamps:false,
 }
-const User= sequelize.define(alias,cols,config)
+const User= sequelize.define(alias,cols,config);
+
+product.associate=(models)=>{
+    product.haaMany(models.images,{
+        as:"images",
+        foreignKey:"produc_id"
+    });
+    
+    product.haaMany=(models.ingredients,{
+        as:"ingredients",
+        foreignKey:"produc_id"
+        });
+
+
+
+
+
+
+
+
 product.belongsToMany(models.categories,{
     as:"categories",
     through:"product_category",
@@ -57,4 +76,4 @@ product.belongsToMany(models.categories,{
 })
 return product;
  
-}
+}}
