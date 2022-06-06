@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+    <%-include("../partials/head")%>
+<body>
+    <%-include("../partials/header")%>
+
+    <main class="back-grad__profile">
+        <section class="profile__body">
+            <article class="profile__avatar">
+                <div>
+                    <div>
+                        <img src="/img/users/<%=session.user.img%>" alt="<%=session.user.name%>">
+                    </div>
+                    <div>
+                        <a href="">Editar mi perfil</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div>
+                        <a href="">Cambiar contraseña</a>
+                    </div>
+                    
+                    <div>
+                        <a href="">eliminar mi cuenta</a>
+                    </div>
+                </div>
+            </article>
+            <article class="profile__data">
+                <div class="profile__data__container">
+                    <h5 class="profile__data__h5">Nombre</h5>
+                    <p class="profile__data__p"><%=session.user.name%></p>
+                </div>
+                <div class="profile__data__container">
+                    <h5 class="profile__data__h5">Apellido</h5>
+                    <p class="profile__data__p"><%=session.user.lastName%></p>
+                </div>
+                <div class="profile__data__container">
+                    <h5 class="profile__data__h5">Correo electronico</h5>
+                    <p class="profile__data__p"><%=session.user.email%></p>
+                </div>
+                <div class="profile__data__container">
+                    <h5 class="profile__data__h5">Domicilio</h5>
+                    <p class="profile__data__p">aca va el domicilio</p>
+                </div>
+                
+            </article>
+        </section>
+    </main>
+
+    <%-include("../partials/footer")%>
+</body>
+</html>

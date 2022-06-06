@@ -3,6 +3,14 @@ const fs = require("fs")
 const path = require("path")
 
 module.exports = {
+    listaProductos: (req,res) =>{
+        res.render("admin/products/indexProductsAdmin",{
+            titulo: "Administrador de productos",
+            postHeader: "Lista de Productos",
+            productos: getProducts,
+            session:req.session
+        })
+    },
     addProduct: (req, res)=>{
         res.render("admin/products/addProducts",{
             titulo: "Nuevo producto",
@@ -124,7 +132,7 @@ module.exports = {
             }
         })
 
-        res.render('admin/resultAdmin',{
+        res.render('admin/products/resultProductsAdmin',{
            titulo: `resultados de ${searchProduct}`,
            postHeader: `resultados de ${searchProduct}`,
            productos: result,

@@ -11,7 +11,7 @@
 
             <% if (session.user) { %>
                 <li><a href="/carrito"><i class="fa-solid fa-cart-arrow-down"></i>Mi Carrito</a></li>
-                <li><a href=""><i class="fa-solid fa-user-pen"></i>Mi Perfil</a></li>
+                <li><a href="/profile"><i class="fa-solid fa-user-pen"></i>Mi Perfil</a></li>
                 <% if (session.user && session.user.rol == "admin") { %>
                     <li><a href="/admin"><i class="fa-solid fa-user-shield"></i>Admin</a></li>
                 <% } %>

@@ -34,5 +34,23 @@
         "pass": "$2a$10$lYRTP/7rMqNeCp.rkF6HKu18fb990lqQJf3B7SE7oWOaCGUz5Hx22",
         "img": "defaultAvatar.png",
         "rol": "user"
+    },
+    {
+        "id": 5,
+        "name": "admin",
+        "lastName": "Condori",
+        "email": "adriramone90@gmail.com",
+        "pass": "$2a$10$ge8K9VLLmJPRQ0.HgvdkzeIyqy3gyfWB8Pr0j0bwUucYrQpahZVoO",
+        "img": "defaultAvatar.png",
+        "rol": "user"
+    },
+    {
+        "id": 6,
+        "name": "admin",
+        "lastName": "admin",
+        "email": "admin@mail.com",
+        "pass": "$2a$10$pVBVDva6yYj/rL/wgPj8Xu9.1QB/5DQbVV1omAdI8G8BBcmQAgniK",
+        "img": "defaultAvatar.png",
+        "rol": "admin"
     }
 ]

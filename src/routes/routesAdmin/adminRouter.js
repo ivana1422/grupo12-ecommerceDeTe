@@ -12,7 +12,11 @@ const uploadImgProducts = require("../../middlewares/uploadImgProducts");
 const userActive = require("../../middlewares/userActive");
 const userAdminCheck = require('../../middlewares/userAdminCheck');
 
-router.get("/", userActive, userAdminCheck, adminController.listaProductos);
+//Index
+router.get("/", userActive, userAdminCheck, adminController.indexAdmin);
+
+//CRUD Products
+router.get("/productos", userActive, userAdminCheck, adminProductsController.listaProductos);
 
 router.get("/productos/agregar", userActive, userAdminCheck, adminProductsController.addProduct);
 
@@ -25,5 +29,9 @@ router.put("/productos/editar/:id", uploadImgProducts.array("image", 3), adminPr
 router.delete("/productos/eliminar/:id", adminProductsController.delete);
 
 router.get('/productos/buscar', userActive, userAdminCheck, adminProductsController.search);
+
+//CRUD Usuarios
+
+//CRUD Categorias
 
 module.exports = router

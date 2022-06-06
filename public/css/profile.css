@@ -1,0 +1,82 @@
+@import url("style.css");
+
+.back-grad__profile{
+    /*width: 100%;
+    
+    background: rgb(91,200,172);
+    background: linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%); */
+    background-image: url("/img/back-img.png");
+    background-size:contain;
+    background-attachment: fixed;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 77.5vh;
+    
+}
+
+
+
+.profile__body{
+    width:70%;
+    background-color: white;
+    opacity: 0.7;
+    height: 80%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profile__avatar,.profile__data{
+    box-shadow: 0 0 4px black;
+    height: 100%;
+    
+}
+
+.profile__avatar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: center;
+}
+
+.profile__avatar div div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.profile__avatar div img{
+    width: 150px;
+    border-radius: 50%;
+}
+
+.profile__data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    width: 50%;
+}
+
+.profile__data__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile__data__h5{
+    font-size: 20px;
+}
+
+.profile__data__p{
+    font-size: 25px;
+}

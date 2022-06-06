@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <%-include("../partials/headAdmin")%>
+<body>
+    <%-include("../partials/headerAdmin")%>
+
+    <main class="addP">
+
+        <h2><%=postHeader%></h2>
+        <form action="/admin/usuarios" method="POST" enctype="multipart/form-data">
+            <div class="inp-cont">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" placeholder="Juan" id="name">
+            </div>
+
+            <div class="inp-cont">
+                <label for="surname">Apellido</label>
+                <input type="text" name="surname" placeholder="Perez" id="surname">
+            </div>
+
+            <div class="inp-cont">
+                <label for="email">Email</label>
+                <input type="text" name="email" placeholder="user@mail.com" id="email">
+            </div>
+
+            <div class="inp-cont">
+                <label for="pass">Contraseña</label>
+                <input type="text" name="pass" placeholder="8 carácteres como mínimo" id="pass">
+            </div>
+
+            <div class="inp-cont">
+                <label for="rol">Rol de usuario</label>
+                <input type="number" name="rol" placeholder="0 para user / 1 para admin" id="rol">
+            </div>
+
+            <div class="inp-cont file-cont">
+                <label for="avatar"><i class="fa-solid fa-file-arrow-up"></i>Foto de perfil</label>
+                <input type="file" name="avatar" id="avatar">
+            </div>
+
+            <div class="inp-cont">
+                <label for="location">Domicilio</label>
+                <input type="text" name="location" placeholder="Ej: Pilar 240" id="location">
+            </div>
+
+            <div class="inp-cont">
+                <button type="submit" class="btn-add">Crear</button>
+            </div>
+        </form>
+
+        <div class="backTo">
+            <a href="/admin"><i class="fa-solid fa-circle-arrow-left"></i> Volver</a>
+        </div>
+    </main>
+
+    <%-include("../partials/footerAdmin")%>
+</body>
+</html>
