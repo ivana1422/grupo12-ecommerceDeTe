@@ -1,4 +1,4 @@
-create database tea_prueba;
+create database tea;
 
 use tea;
 

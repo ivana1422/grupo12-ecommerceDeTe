@@ -1,4 +1,4 @@
-use tea_prueba;
+use tea;
 
 insert into address (location) values 
 ('7184 Goodland Point'),('36695 Carey Parkway'),('285 Forest Run Avenue'),('990 Hermina Parkway'),('8 Commercial Court'),
