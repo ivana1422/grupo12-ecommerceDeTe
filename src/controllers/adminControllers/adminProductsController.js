@@ -1,15 +1,23 @@
 const {getProducts, writeProducts} = require("../../data/data");
-const fs = require("fs")
-const path = require("path")
+const fs = require("fs");
+const path = require("path");
+const db = require("../../database/models");
+const { validationResult } = require("express-validator");
 
 module.exports = {
     listaProductos: (req,res) =>{
-        res.render("admin/products/indexProductsAdmin",{
-            titulo: "Administrador de productos",
-            postHeader: "Lista de Productos",
-            productos: getProducts,
-            session:req.session
+
+        db.products.findAll()
+        .then((product) => {
+            res.render("admin/products/indexProductsAdmin",{
+                titulo: "Administrador de productos",
+                postHeader: "Lista de Productos",
+                product,
+                session:req.session
+            })
         })
+        .catch((error) => { res.send(error)})
+
     },
     addProduct: (req, res)=>{
         res.render("admin/products/addProducts",{
@@ -20,55 +28,49 @@ module.exports = {
     },
     createProduct: (req,res)=>{
 
-        let lastId = 0;
-
-
-        getProducts.forEach(producto => {
-            if(producto.id > lastId){
-                lastId = producto.id;
-            }
-        });
-
         let images = []
 
         req.files.forEach((file)=>{
             images.push(file.filename)
         })
 
-        let newProduct = {
-            id:lastId + 1,
+        db.products.create({
             name : req.body.name,
             description: req.body.description,
             price: req.body.price,
             coment : req.body.coment,
             image: req.files ? [...images] : ["default.jpg"],
-            ingredients: [req.body.ingredient1,req.body.ingredient2,req.body.ingredient3]
-        }
-
-        getProducts.push(newProduct)
-
-        writeProducts(getProducts)
-
-        res.redirect("/admin")
+            ingredients: [req.body.ingredient1,req.body.ingredient2,req.body.ingredient3],
+            stock: req.body.stock ? req.body.stock : req.body.stock = 0 
+        })
+        .then((result) => {
+            res.redirect("/admin")
+        })
+        .catch((error) => {
+            res.send(error)
+        })
     },
 
     editProduct: (req,res)=>{
         let idProducto = +req.params.id;
-        let producto = getProducts.find(producto => producto.id === idProducto)
 
-        res.render('admin/products/editProducts', {
-            postHeader: "Editar Producto",
-            titulo: "Edición",
-            producto,
-            session:req.session
-        })
-
-
+        db.products.findByPk(idProducto)
+        .then((product) => { 
+            res.render('admin/products/editProducts', {
+                    postHeader: "Editar Producto",
+                    titulo: "Edición",
+                    product,
+                    session:req.session
+                })
+         })
+        .catch((error) => {
+            res.send(error)
+         })
     },
 
     productoEditado: (req,res)=>{
 
-        //let idProducto = +req.params.id;
+        let idProducto = +req.params.id;
 
         let images = []
 
@@ -76,38 +78,45 @@ module.exports = {
             images.push(file.filename)
         })
 
-        getProducts.forEach(producto => {
-            if(producto.id === +req.params.id){
-                producto.name = req.body.name ? req.body.name : producto.name
-                producto.description = req.body.description ? req.body.description : producto.description
-                producto.price = req.body.price ? req.body.price : producto.price
-                producto.coment = req.body.coment ? req.body.coment : producto.coment
-                producto.image = req.files ? [...images] : producto.image
-                producto.ingredients = req.body.ingredient1 && req.body.ingredient2 && req.body.ingredient3 ? [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3] : producto.ingredients
+        db.products.update({
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            coment: req.body.coment,
+            image: req.files ? [...images] : producto.image,
+            ingredients: [req.body.ingredient1,req.body.ingredient2,req.body.ingredient3],
+            tock: req.body.stock ? req.body.stock : req.body.stock = 0 
+
+        },{
+            where: {
+                id: idProducto
             }
         })
-
-        writeProducts(getProducts);
-
-        res.redirect('/admin');
+        .then((result) => {
+            if(result){
+                res.redirect('/admin')
+            }else{
+                res.send("ocurrio un error")
+            }
+        })
+        .catch((error) => { res.send(error)})
     },
 
     delete: (req,res)=>{
 
-        let idProducto = +req.params.id;
-
-
-        getProducts.forEach(producto =>{
-            if(producto.id === idProducto){
-                let productoEliminado = getProducts.indexOf(producto);
-
-                getProducts.splice(productoEliminado,1)
+        db.products.destroy({
+            where: {
+                id: req.params.id
             }
         })
-
-        writeProducts(getProducts);
-
-        res.redirect("/admin")
+        .then((result) => {
+            if(result){
+                res.redirect('/admin')
+            }else{
+                res.send("No se pudo eliminar")
+            }
+        })
+        .catch( error => res.send(error))
     },
 
     search: (req, res) => {
@@ -115,28 +124,32 @@ module.exports = {
 
         let searchProduct = search.toLowerCase()
 
-        result = [];
 
-        getProducts.forEach(producto =>{
+        db.products.findAll()
+        .then((e) => {
 
-            const removeAccents = (str) => {
-                return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-              }
+            let result = []
 
-            let temp = removeAccents(producto.name.toLowerCase())
+            e.forEach((producto) => {
+                const removeAccents = (str) => {
+                    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                  }
+    
+                let temp = removeAccents(producto.name.toLowerCase())
+    
+    
+                if(temp.includes(searchProduct)){
+                    result.push(producto)
+                }
+            })
 
-            //let temp = removeAccents(string)
-
-            if(temp.includes(searchProduct)){
-                result.push(producto)
-            }
+            res.render('admin/products/resultProductsAdmin',{
+                titulo: `resultados de ${searchProduct}`,
+                postHeader: `resultados de ${searchProduct}`,
+                producto: result,
+                session:req.session
+              })
         })
-
-        res.render('admin/products/resultProductsAdmin',{
-           titulo: `resultados de ${searchProduct}`,
-           postHeader: `resultados de ${searchProduct}`,
-           productos: result,
-           session:req.session
-         })
+        .catch((error) => { res.send(error)})
     }
 }

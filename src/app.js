@@ -4,12 +4,12 @@ const PORT = process.env.PORT || 3030;
 
 let express = require("express");
 let app = express();
-let bodyParser = require("body-parser")
+let bodyParser = require("body-parser");
 let path = require("path")
 const methodOverride = require('method-override');
 const session = require("express-session");
-const cookieParser= require('cookie-parser')
-const reloginCookie = require("./middlewares/reloginCookie")
+const cookieParser= require('cookie-parser');
+const reloginCookie = require("./middlewares/reloginCookie");
 
 
 const userRouter= require('../src/routes/userRouter');
@@ -29,9 +29,9 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {}
-}))
-app.use(cookieParser())
-app.use(reloginCookie)
+}));
+app.use(cookieParser());
+app.use(reloginCookie);
 
 
 app.set("view engine","ejs");

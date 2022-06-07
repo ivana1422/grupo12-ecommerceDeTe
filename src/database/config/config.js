@@ -4,7 +4,8 @@
     "password": null,
     "database": "tea",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": "33065"
   },
   "test": {
     "username": "root",
