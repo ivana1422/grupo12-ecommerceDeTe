@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <%-include("../partials/headAdmin")%>
+<body>
+    <%-include("../partials/headerAdmin")%>
+    
+    <main class="addP">
+
+        <h2><%=postHeader%></h2>
+        <form action="/admin/categorias/editar/<%-producto.id%>?_method=PUT" method="POST">
+            <div class="inp-cont">
+                <label for="name">Nombre de la categoría</label>
+                <input type="text" name="name" value="<%=category.name%>" id="name">
+            </div>
+            
+            <div class="inp-cont ">
+                <button type="submit" class="btn-add">Guardar</button>
+            </div>
+        </form>
+
+        <div class="backTo">
+            <a href="/admin"><i class="fa-solid fa-circle-arrow-left"></i> Volver</a>
+        </div>
+    </main>
+
+    <%-include("../partials/footerAdmin")%>
+</body>
+</html>

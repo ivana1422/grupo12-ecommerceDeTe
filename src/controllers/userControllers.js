@@ -1,6 +1,7 @@
 const {getUsers, writeUsers} = require('../data/data');
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
+const session = require('express-session');
 
 
 
@@ -19,8 +20,10 @@ module.exports= {
             let user = getUsers.find(user => user.email === req.body.email)
 
             req.session.user = {
-            name: user.nombre,
+            name: user.name,
+            lastName: user.lastName,
             email: user.email,
+            pass:user.pass,
             img: user.img,
             rol:user.rol
             }
@@ -89,6 +92,15 @@ module.exports= {
             })
         }
     },
+
+    profile:(req,res)=>{
+        
+        res.render("users/profile",{
+            titulo:"Mi perfil",
+            session:req.session
+        })
+    },
+
     logout:(req, res)=>{
         
         req.session.destroy();
