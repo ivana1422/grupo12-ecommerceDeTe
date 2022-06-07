@@ -33,5 +33,5 @@ router.get('/productos/buscar', userActive, userAdminCheck, adminProductsControl
 //CRUD Usuarios
 
 //CRUD Categorias
-
+ 
 module.exports = router
