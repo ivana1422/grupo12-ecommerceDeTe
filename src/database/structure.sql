@@ -1,4 +1,4 @@
-create database tea;
+create database tea_prueba;
 
 use tea;
 
@@ -22,8 +22,6 @@ create table users (
   avatar varchar(100),
   rol tinyint(4) not null default 0,
   address_id int(11) not null,
-  created_at date,
-  updated_at date,
   foreign key (address_id) references address(id)
  );
 
@@ -47,7 +45,7 @@ create table products (
 
 create table images (
   id int not null auto_increment primary key,
-  src varchar(200),
+  src varchar(200) not null,
   product_id int not null,
   foreign key(product_id) references products(id)
 );
@@ -75,7 +73,7 @@ create table product_category (
 /*ORDENES DE COMPRA (CARRITO)*/
 
 /*state determina con: 
- * 0 carrito no vendido (stock de productos aún vigentes)
+ * 0 carrito no vendido (stock de productos aï¿½n vigentes)
  * 1 carrito vendido (se resta la cant de productos del carrito del stock total de productos)*/
 
 create table orders (

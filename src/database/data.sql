@@ -1,4 +1,4 @@
-use tea;
+use tea_prueba;
 
 insert into address (location) values 
 ('7184 Goodland Point'),('36695 Carey Parkway'),('285 Forest Run Avenue'),('990 Hermina Parkway'),('8 Commercial Court'),
@@ -39,18 +39,18 @@ insert into users (name, surname, email, pass, avatar, rol, address_id) values
 ('Beaufort', 'Gauche', 'bgaucheo@gizmodo.com', 'j8F3Te2qtzqG', 'https://robohash.org/nullarepellendusiure.png?size=50x50&set=set1', 1, 11);
 
 insert into products(name, price, description,coment,weight,offer,stock,discount) values 
-('Té negro en hebras cortas',350,'Té negro en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde!','Lata 65g',1,10,10),
-('Té verde en hebras cortas',350,'Té verde en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde, de sabor dulce y delicado!','Lata 65g',1,10,10),
-('Té rojo en hebras cortas',350,'Té rojo en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores, Dulce y entrador!','Lata 65g',1,5,10),
-('Tetera Artesanal de Cerámica',1980,'Teteras de cerámica hechas a mano, Capacidad 1 litro. Combinable con set de cuencos','Hermosa tetera para disfrutar de un rico te en hebras', null, 1,3,5),
-('Cucharita de la Aldea',80,'Cucharita hecha en bambú o cedro, ideal para servir hebras o azúcar','Cucharita de calidad!',null,0,30,0),
-('Infusor artesanal con cordón',720,'Infusor hecho a mano con fibras naturales.','Infusor estetico y de buena calidad! Sirve para todo tipo de tazas',null,0,10,0),
-('Mielera de la Aldea',90,'Mielera en madera ideal para acompañar tus momentos de conexión con las hebras misioneras.','Excelente producto para disfrutar aún mas de nuestros tes',null,0,5,0),
-('Cuenco de cerámica',820,'Cuenco de cerámica hecho a mano. Con inscripción Iguazú. Combinable con teteras.','Cuenco artesanal para las buenas energias',null,0,3,0);
+('Tï¿½ negro en hebras cortas',350,'Tï¿½ negro en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde!','Lata 65g',1,10,10),
+('Tï¿½ verde en hebras cortas',350,'Tï¿½ verde en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde, de sabor dulce y delicado!','Lata 65g',1,10,10),
+('Tï¿½ rojo en hebras cortas',350,'Tï¿½ rojo en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores, Dulce y entrador!','Lata 65g',1,5,10),
+('Tetera Artesanal de Cerï¿½mica',1980,'Teteras de cerï¿½mica hechas a mano, Capacidad 1 litro. Combinable con set de cuencos','Hermosa tetera para disfrutar de un rico te en hebras', null, 1,3,5),
+('Cucharita de la Aldea',80,'Cucharita hecha en bambï¿½ o cedro, ideal para servir hebras o azï¿½car','Cucharita de calidad!',null,0,30,0),
+('Infusor artesanal con cordï¿½n',720,'Infusor hecho a mano con fibras naturales.','Infusor estetico y de buena calidad! Sirve para todo tipo de tazas',null,0,10,0),
+('Mielera de la Aldea',90,'Mielera en madera ideal para acompaï¿½ar tus momentos de conexiï¿½n con las hebras misioneras.','Excelente producto para disfrutar aï¿½n mas de nuestros tes',null,0,5,0),
+('Cuenco de cerï¿½mica',820,'Cuenco de cerï¿½mica hecho a mano. Con inscripciï¿½n Iguazï¿½. Combinable con teteras.','Cuenco artesanal para las buenas energias',null,0,3,0);
 
 insert into ingredients (name,product_id)values
 ('Canela',1),('Arandanos',1),('Clavo de olor',1),('Ralladura de naranja',1),
-('Durazno',2),('Pétalos de rosas amarillas',2),('Cardamomo',2),('Aroma frutal',2),
+('Durazno',2),('Pï¿½talos de rosas amarillas',2),('Cardamomo',2),('Aroma frutal',2),
 ('Hebras de Yunnan', 3),('Cacao',3),('Coco',3),('Trocitos de Toffee',3),('Vainilla',3);
 
 insert into images(src, product_id) values
@@ -64,7 +64,7 @@ insert into images(src, product_id) values
 ('cuenca.jpg',8),('cuenca2.jpg',8);
 
 insert into categories (name) values
-('Té Puro'),('Té Aromatizado'),('Infusión Herbal'),('Accesorios');
+('Tï¿½ Puro'),('Tï¿½ Aromatizado'),('Infusiï¿½n Herbal'),('Accesorios');
 
 insert into product_category (product_id,category_id) values
 (1,1),(1,2),(1,3),

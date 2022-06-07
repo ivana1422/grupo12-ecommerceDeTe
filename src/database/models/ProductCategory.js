@@ -1,6 +1,6 @@
 
 
-module.exports= (sequelize,dataType)  =>{
+module.exports= (sequelize,dataTypes)  =>{
     let alias= "product_category";
     let cols= {
         id:{
@@ -18,8 +18,7 @@ module.exports= (sequelize,dataType)  =>{
          category_id:{
                     type:dataTypes.INTEGER,
                      allowNull: false,
-                     
-        
+
                     },
         
         }
@@ -28,14 +27,8 @@ module.exports= (sequelize,dataType)  =>{
             tableName: "product_category",
             timestamps:false,
         }
-           const User= sequelize.define(alias,cols,config)
-           product.belongsToMany(models.categories,{
-           as:"product_category",
-           through:"product_category",
-           foreignkey:"product_id",
-           otherkey:"category_id",
-           timestamps:false,
+           const ProductCategory= sequelize.define(alias,cols,config)
 
-})
-         return product_category;
+
+         return ProductCategory;
 }

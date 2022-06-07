@@ -2,7 +2,7 @@ module.exports= (sequelize,dataType)  =>{
     let alias= "users";
     let cols= {
         id:{
-        type:dataTypes.INTEGER,
+        type:dataType.INTEGER,
          primaryKey:true,
          autoIncrement: true,
          allowNull: false,
@@ -10,45 +10,49 @@ module.exports= (sequelize,dataType)  =>{
     },
     name:{
         type:dataType.STRING(50),
-        aloowNull:false,
+        allowNull:false,
     },
     surname:{
         type:dataType.STRING(50),
-        aloowNull:false,
+        allowNull:false,
     },
     pass:{
         type:dataType.STRING(50),
-        aloowNull:false,
+        allowNull:false,
     },
     avatar:{
-        type:dataType.STRING(100),
-        aloowNull:true,
+        type:dataType.STRING(100)
     },
     rol:{
-        type:dataType.BOOLEANO,
-        aloowNull:false,
+        type:dataType.BOOLEAN,
+        allowNull:false,
     },
-    adress_id:{
+    address_id:{
         type:dataType.INTEGER,
-        aloowNull:false,
+        allowNull:false,
     },
     email:{
         type:dataType.STRING(50),
-        aloowNull:false,
-    },
-    created_at:{
-        type:dataType.DATE,
-        aloowNull:false,
-    },
-    updated_at:{
-        type:dataType.DATE,
-        aloowNull:false,
-    },
+        allowNull:false,
+    }
 }
 let config= {
-    tableName: ""
+    tableName: "users",
+    timestamps:false
 }
 const User= sequelize.define(alias,cols,config)
+
+User.associate=(models)=>{
+    User.belongsTo(models.address,{
+        as:"address",
+        foreignKey:"address_id"
+    })
+
+    User.hasMany(models.orders,{
+        as:"orders",
+        foreignKey:"user_id"
+    })
+}
 return User;
  
 }
