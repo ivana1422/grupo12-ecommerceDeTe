@@ -6,7 +6,7 @@
     <main class="addP">
 
         <h2><%=postHeader%></h2>
-        <form action="/admin/categories/editCategory/<%-producto.id%>?_method=PUT" method="POST">
+        <form action="/admin/categories/editCategory/<%-category.id%>?_method=PUT" method="POST">
             <div class="inp-cont">
                 <label for="name">Nombre de la categoría</label>
                 <input type="text" name="name" value="<%=category.name%>" id="name">

@@ -5,7 +5,7 @@
     "database": "tea",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": "33065"
+    "port": "3306"
   },
   "test": {
     "username": "root",

@@ -9,7 +9,8 @@ module.exports = {
     list: (req, res) => {
         db.categories.findAll()
         .then((categorias) => {
-            res.render("admin/categories/listCategories", {
+            res.render("admin/categories/indexCategoryAdmin", {
+                postHeader: "Lista de Categorías",
                 titulo: "Categorias",
                 categorias
             })
@@ -19,6 +20,7 @@ module.exports = {
 
     categoryAdd: (req, res) => {
         res.render("admin/categories/addCategory", {
+            postHeader: "Nueva Categoría",
             titulo: "Agregar categoria"
         })
     },
@@ -39,6 +41,7 @@ module.exports = {
         db.categories.findByPk(categoryId)
         .then((category) => {
             res.render('admin/categories/editCategory', {
+                postHeader: "Editar Categoría",
                 titulo: "Editar Categorias",
                 category
             })
