@@ -1,7 +1,7 @@
-const {getUsers, writeUsers} = require('../data/data');
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
+const db = require('../database/models')
 
 
 
@@ -17,26 +17,36 @@ module.exports= {
         let errors = validationResult(req);
         
         if(errors.isEmpty()){
-            let user = getUsers.find(user => user.email === req.body.email)
+            db.users.findOne({
+                where: {
+                    email: req.body.email
+                }
+            })
+            .then((user) => {
+                console.log(user)
+                    req.session.user = {
+                        name: user.name,
+                        surname: user.lastName,
+                        email: user.email,
+                        pass: user.pass,
+                        img: user.img,
+                        rol:user.rol
+                        }
+                         if(req.body.remember){
+                             const TIME_IN_MILISECONS=60000;
+                             res.cookie('tea',req.session.user,{
+                                expires: new Date (Date.now()+ TIME_IN_MILISECONS),
+                                httpOnly: true,
+                                secure:true,})
+                         }
+                        res.locals.user = req.session.user
+            
+                        res.redirect("/")
+                
+            })
+            .catch((error) => { res.send(error)})
 
-            req.session.user = {
-            name: user.name,
-            lastName: user.lastName,
-            email: user.email,
-            pass:user.pass,
-            img: user.img,
-            rol:user.rol
-            }
-             if(req.body.remember){
-                 const TIME_IN_MILISECONS=60000;
-                 res.cookie('tea',req.session.user,{
-                    expires: new Date (Date.now()+ TIME_IN_MILISECONS),
-                    httpOnly: true,
-                    secure:true,})
-             }
-            res.locals.user = req.session.user
-
-            res.redirect("/")
+            
         } else {
             res.render("users/login",{
                 titulo:"Iniciar Sesión",
@@ -60,29 +70,20 @@ module.exports= {
     newAcount: (req, res) => {
         let errors = validationResult(req)
         if(errors.isEmpty()){
-                let lastId = 0;
-
-            getUsers.forEach((e)=>{
-                if(e.id > lastId){
-                    lastId = e.id
-                }
-            })
-
-            let newUser = {
-                id: lastId + 1,
+            db.users.create({
                 name: req.body.name,
-                lastName: req.body.lastName,
+                surname: req.body.lastName,
                 email: req.body.email,
                 pass: bcrypt.hashSync(req.body.pass, 10),
                 img: req.file ? req.file.filename : "defaultAvatar.png",
-                rol: "user"
-            }
+                rol: "user",
+                address_id: req.body.address ? req.body.address : req.body.address = +1
+            })
+            .then(() => { 
+                res.redirect('/login')
+            })
+            .catch((error) => { res.send(error)})
 
-            getUsers.push(newUser)
-
-            writeUsers(getUsers)
-
-            res.redirect('/login')
         }else{
             res.render('users/register',{
                 titulo: 'Registrarse',
@@ -95,10 +96,75 @@ module.exports= {
 
     profile:(req,res)=>{
         
-        res.render("users/profile",{
-            titulo:"Mi perfil",
-            session:req.session
+        db.users.findOne({
+            where:{
+                id: req.session.users.id,
+            },
+            include: [{ association: "address" }]
         })
+        .then((user) => {
+            res.render("users/profile",{
+                    titulo:"Mi perfil",
+                    session: req.session,
+                    user
+                })
+        })
+        .catch((error) => { res.render(error)})
+
+    },
+
+    profileUpdate: (req, res) => {
+        let errors = validationResult(req);
+
+        if(errors.isEmpty()){
+            db.users.update({
+                ...req.doby
+            })
+            .then(() => {
+                res.rendirect("users/profile")
+            })
+            .catch((error) => { res.render(error)})
+        }else{
+            db.users.findOne({
+                where:{
+                    id: req.session.users.id
+                },
+                include: [{ association: "address"}]
+            })
+            .then((user) => {
+                res.render("users/profile",{
+                    titulo:"Mi perfil",
+                    session: req.session,
+                    user,
+                    errors: errors.mapped()
+                })
+            })
+            .catch((error) => {
+                res.send(error)
+            })
+        }
+    },
+
+    addressCreate: (req, res) => {
+        db.address.create({
+            ...req.body,
+        })
+        .then(() => {
+            res.render('users/profile')
+        })
+        .catch((error) => { res.render(error)})
+    },
+
+    addressDelete: (req, res) => {
+        db.address.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(() => {
+            res.redirect('users/profile')
+        })
+        .catch((error) => { res.render(error)})
     },
 
     logout:(req, res)=>{

@@ -24,7 +24,7 @@ module.exports= (sequelize,dataType)  =>{
         type:dataType.STRING(100)
     },
     rol:{
-        type:dataType.BOOLEAN,
+        type:dataType.INTEGER,
         allowNull:false,
     },
     address_id:{
@@ -34,6 +34,7 @@ module.exports= (sequelize,dataType)  =>{
     email:{
         type:dataType.STRING(50),
         allowNull:false,
+        unique: true
     }
 }
 let config= {

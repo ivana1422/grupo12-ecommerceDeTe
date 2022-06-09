@@ -14,19 +14,20 @@ module.exports= (sequelize,dataTypes)  =>{
             }
 
         }
-        
-            let config= {
+    
+    let config= {
             tableName: "address",
             timestamps:false
         }
-           const Address= sequelize.define(alias,cols,config)
+    const Address= sequelize.define(alias,cols,config)
            
-           Address.associate=(models)=>{
-            Address.hasMany(models.users,{
-                as:"users",
-                foreignKey:"address_id"
-            })
-        }
-        return Address;
+        Address.associate=(models)=>{
+         Address.hasMany(models.users,{
+             as:"users",
+             foreignKey:"address_id"
+         })
+
+    }
+    return Address;
 }
          

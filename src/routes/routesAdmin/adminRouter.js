@@ -4,6 +4,7 @@ const router = express.Router();
 
 const adminController = require("../../controllers/adminControllers/adminController");
 const adminProductsController = require("../../controllers/adminControllers/adminProductsController");
+const adminCategoriesController = require("../../controllers/adminControllers/adminCategoriesController")
 
 //Se require el modulo de multer
 const uploadImgProducts = require("../../middlewares/uploadImgProducts");
@@ -30,8 +31,22 @@ router.delete("/productos/eliminar/:id", adminProductsController.delete);
 
 router.get('/productos/buscar', userActive, userAdminCheck, adminProductsController.search);
 
-//CRUD Usuarios
+
 
 //CRUD Categorias
+
+router.get('/categories', userActive, userAdminCheck, adminCategoriesController.list );
+
+router.get('/categories/addCategory', userActive, userAdminCheck, adminCategoriesController.categoryAdd );
+
+router.post('/categories', adminCategoriesController.categoryCreate );
+
+router.get('/categories/editCategory/:id', userActive, userAdminCheck, adminCategoriesController.categoryEdit );
+
+router.put('/categories/:id', adminCategoriesController.categoryUpdate );
+
+router.delete('/categories/delete/:id', adminCategoriesController.categoryDelete);
+
+
  
 module.exports = router

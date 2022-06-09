@@ -1,6 +1,7 @@
 const {check, body}=require("express-validator");
-const {getUsers}= require("../data/data");
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
+const db = require('../database/models');
+// const res = require("express/lib/response");
 
 let loginValidator = [
     check('email')
@@ -8,14 +9,25 @@ let loginValidator = [
                 .isEmail().withMessage('Debe ingresar un email válido').bail(),
 
     body('pass').custom((value,{req})=>{
-        let user = getUsers.find(user => user.email === req.body.email)
+        return db.users.findOne({
+            where: {
+                email: req.body.email
+            }
+        })        
+        .then((user) => {
+            if(user){
+                if(!bcrypt.compareSync(req.body.pass,user.pass)){
+                    return Promise.resolve()
+                } 
+            }
+              
+        })
+        .catch((error) => {
+            return Promise.reject("Email o contraseña Incorrecta")
+        })
 
-        if(bcrypt.compareSync(req.body.pass,user.pass)){
-            return true
-        }
-
-        return false;
-    }).withMessage("Email o contraseña Incorrecta").bail(),
+        
+    }),
 
     body('pass').notEmpty().withMessage('Ingrese su contraseña').bail()
 ]
