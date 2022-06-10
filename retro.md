@@ -89,3 +89,36 @@
 * Dejar para ultimo momento las tereas que tenemos.
 * No asumir los propios errores.
 
+
+# RETROSPECTIVA DE 5to SPRINT
+
+## SEGUIR HACIENDO..
+
+* Darle prioridad al proyecto.
+* Seguir aportando ideas.
+* Mantener el trabajo en equipo.
+
+
+## HACER MÁS..
+
+* Darle importancia al Trello.
+* Leer documentación de las tecnologás usadas para encontrar respuestas a los problemas surgidos.
+* Permanecer en comunicación constante.
+
+## EMPEZAR A HACER..
+
+* Poner fechas límites a las tareas.
+* Respetar las fechas acordadas para no perjudicar los tiempos de los compañeros
+* Ponerse al día con las actividades
+* Mantener la comunicación, asi sea para informar que no se pudo lograr la tarea asignada
+
+## HACER MENOS..
+
+* No buscar en fuentes alternativas de información.
+
+## DEJAR DE HACER..
+
+* No pensar en los tiempos de los compañeros
+* Dejar para último momento las tareas asignadas
+* Procrastinar.
+* No aprovechar el tiempo.
