@@ -39,7 +39,11 @@
                         <tr class="text-center">
                             <th scope="row"><%=usuario.id%></th>
                             <td class="texto-corto"><%=usuario.name%></td>
-                            <td>$<%=usuario.rol%></td>
+                            <% if (usuario.rol == 0) { %>
+                              <td>user</td>
+                            <% } else if (usuario.rol == 1){ %>
+                              <td>admin</td>
+                              <% } %>
 
                             <td class="btn-edit">
                               <a href="/admin/users/profile/<%- usuario.id %>" class="btn btn-success">
