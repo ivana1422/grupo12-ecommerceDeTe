@@ -1,4 +1,6 @@
 const db = require("../../database/models");
+const {Op} = db.Sequelize;
+
 
 module.exports = {
     listaProductos: (req,res) =>{
@@ -115,37 +117,29 @@ module.exports = {
         .catch( error => res.send(error))
     },
 
+    
     search: (req, res) => {
-        let search = req.query.search;
-
-        let searchProduct = search.toLowerCase()
-
-
-        db.products.findAll()
-        .then((e) => {
-
-            let result = []
-
-            e.forEach((producto) => {
-                const removeAccents = (str) => {
-                    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                  }
+            let search = req.query.search;
+            let searchProduct = search.toLowerCase()
     
-                let temp = removeAccents(producto.name.toLowerCase())
-    
-    
-                if(temp.includes(searchProduct)){
-                    result.push(producto)
+            db.products.findAll({
+                where:{
+                    name:{[Op.like]:`%${searchProduct}%`}
                 }
             })
-
-            res.render('admin/products/resultProductsAdmin',{
-                titulo: `resultados de ${searchProduct}`,
-                postHeader: `resultados de ${searchProduct}`,
-                producto: result,
-                session:req.session
-              })
-        })
-        .catch((error) => { res.send(error)})
-    }
+            .then(producto=>{
+    
+                res.render('admin/products/resultProductsAdmin',{
+                   titulo: `resultados de ${searchProduct}`,
+                   postHeader: `resultados de ${searchProduct}`,
+                   producto,
+                   session:req.session
+                 })
+            })
+            .catch((error) => { res.send(error)})
+    
+        }
+    
+        
+    
 }

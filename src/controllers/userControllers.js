@@ -33,7 +33,7 @@ module.exports= {
                         rol:user.rol
                         }
                          if(req.body.remember){
-                             const TIME_IN_MILISECONS=60000;
+                             const TIME_IN_MILISECONS=60000 * 10;
                              res.cookie('tea',req.session.user,{
                                 expires: new Date (Date.now()+ TIME_IN_MILISECONS),
                                 httpOnly: true,
