@@ -1,3 +1,4 @@
+const { promiseImpl } = require("ejs");
 const db = require("../../database/models");
 const {Op} = db.Sequelize;
 
@@ -26,23 +27,43 @@ module.exports = {
     },
     createProduct: (req,res)=>{
 
-        let images = []
-
-        req.files.forEach((file)=>{
-            images.push(file.filename)
-        })
-
         db.products.create({
             name : req.body.name,
             description: req.body.description,
             price: req.body.price,
             coment : req.body.coment,
-            image: req.files ? [...images] : ["default.jpg"],
-            ingredients: [req.body.ingredient1,req.body.ingredient2,req.body.ingredient3],
+            category: req.body.category,
             stock: req.body.stock ? req.body.stock : req.body.stock = 0 
-        })
-        .then((result) => {
-            res.redirect("/admin")
+        }, {include: [{ association: "images"}, { association: "ingredients"}]})
+        .then((product) => {
+
+            let arrayImages = req.files.map(image => {
+                return {
+                    src: image.filename, 
+                    product_id: product.id
+                }
+            })
+
+            let ingredients = [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3]
+            
+            let arrayIngredients = ingredients.map( ingredient => {
+                return {
+                    name: ingredient,
+                    product_id: product.id
+                }
+            })
+
+            let imagenes = db.images.bulkCreate(arrayImages)
+            let ingredientes = db.ingredients.bulkCreate(arrayIngredients)
+
+            Promise.all([imagenes, ingredientes])
+                .then(result => {
+                    res.redirect("/admin")
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+           
         })
         .catch((error) => {
             res.send(error)

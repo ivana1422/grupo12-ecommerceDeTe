@@ -1,6 +1,6 @@
 const process = require('process');
 require('dotenv').config();
-const PORT_DB = process.env.PORT_DB || 33065;
+const PORT_DB = process.env.PORT_DB || 3306;
 
 module.exports= {
   "development": {

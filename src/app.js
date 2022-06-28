@@ -18,8 +18,24 @@ const productsRouter = require("../src/routes/productsRouter");
 const adminRouter = require("../src/routes/routesAdmin/adminRouter");
 const carritoRouter = require("../src/routes/carritoRouter");
 
+// const mysql = require('mysql');
+// const myconn = require('express-myconnection');
+// const cors = require('cors');
+
+
 
 //Middlewares
+
+// app.use(myconn(mysql, {
+//     host: 'localhost',
+//     port: 3306,
+//     user: 'root',
+//     password: null, 
+//     database: 'tea'
+// }));
+
+// app.use(cors());
+
 app.use(express.static(path.join(__dirname, "../public")))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -51,4 +67,4 @@ app.listen(PORT, function(){
 })
 
 
-///asdasdasdasdasdasdsadas
+// /asdasdasdasdasdasdsadas

@@ -1,7 +1,9 @@
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
-const db = require('../database/models')
+const db = require('../database/models');
+const path = require('path');
+const fs = require('fs');
 
 
 
@@ -23,7 +25,7 @@ module.exports= {
                 }
             })
             .then((user) => {
-                console.log(user)
+
                     req.session.user = {
                         name: user.name,
                         surname: user.lastName,
@@ -75,8 +77,8 @@ module.exports= {
                 surname: req.body.lastName,
                 email: req.body.email,
                 pass: bcrypt.hashSync(req.body.pass, 10),
-                img: req.file ? req.file.filename : "defaultAvatar.png",
-                rol: "user",
+                avatar: req.file ? req.file.filename : "defaultAvatar.png",
+                rol: 0,
                 address_id: req.body.address ? req.body.address : req.body.address = +1
             })
             .then(() => { 
@@ -92,6 +94,18 @@ module.exports= {
                 session:req.session
             })
         }
+
+        // req.getConnection((err, conn) => {
+        //     if(err) return res.status(500).send('server error')
+
+        //     const avatar = fs.readFileSync(path.join(__dirname, '../../public/img/' + req.file.filename))
+
+        //     conn.query('INSERT INTO users (avatar) set ?', [{avatar}], (err, rows) => {
+        //         if(err) return res.status(500).send('server error')
+
+        //         console.log('imagen guardada en la BD con exito')
+        //     })
+        // })
     },
 
     profile:(req,res)=>{
@@ -105,7 +119,7 @@ module.exports= {
         .then((user) => {
             res.render("users/profile",{
                     titulo:"Mi perfil",
-                    session: req.session,
+                    session: req.session.users.id,
                     user
                 })
         })

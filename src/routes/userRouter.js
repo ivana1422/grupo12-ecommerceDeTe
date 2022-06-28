@@ -7,11 +7,9 @@ const fileUpload = require('../data/multer/multer');
 const loginValidator = require("../validations/loginValidator");
 const validateRegister = require('../validations/registerValidator');
 
-
 //middlewares
 const userOnline = require("../middlewares/userOnline");
 const userActive = require("../middlewares/userActive");
-const userControllers = require("../controllers/userControllers");
 
 router.get("/login",userOnline, userController.login);
 router.post("/login", loginValidator,userController.processLogin)
