@@ -83,6 +83,39 @@ main form{
     margin: 5px;
 }
 
+
+.inp-cont-category{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    
+
+}
+
+.divCategory{
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    border: 1px solid var(--negro);
+}
+
+.divCategory div{
+    margin: 5px;
+    padding-top: 3px;
+}
+
+
+
+.labelCategories{
+    width: 50%;
+}
+
+.inputCategory{
+    width: 20px;
+}
+
+
 .check-ing .ingrediente{
     margin-bottom: 5px;
 }

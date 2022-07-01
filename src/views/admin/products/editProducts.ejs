@@ -11,6 +11,19 @@
                 <label for="name">Nombre del producto</label>
                 <input type="text" name="name" value="<%=product.name%>" id="name">
             </div>
+
+            <div class="inp-cont-category">
+                
+                <label for="category">Categoria del Producto</label>
+                <div class="divCategory">
+                <% category.forEach( (e) => {  %> 
+                    <div>
+                        <input type="radio" name="category" value="<%=e.name %>"id="category" class="inputCategory">
+                        <label for="category" class="labelCategories"><%=e.name %></label>
+                    </div>
+                <% }) %> 
+                </div>
+            </div>
             
             <div class="inp-cont">
                 <label for="price">Precio</label>
