@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const db = require('../../database/models');
 const { reset } = require('nodemon');
-
+const {Op} = db.Sequelize;
 
 module.exports = {
     list: (req, res) => {
@@ -86,5 +86,26 @@ module.exports = {
         })
         .catch((error) => { res.send(error)})
     },
+
+    searchCategory: (req, res) => {
+        let search = req.query.search;
+        let searchCategory = search.toLowerCase()
+
+        db.categories.findAll({
+            where:{
+                name:{[Op.like]:`%${searchCategory}%`}
+            }
+        })
+        .then(categorias=>{
+                res.render('admin/categories/resultCategoryAdmin',{
+                    titulo: `resultados de ${searchCategory}`,
+                    postHeader: `resultados de ${searchCategory}`,
+                    categorias,
+                    session:req.session
+                })
+        })
+        .catch((error) => { res.send(error)})
+
+}
 
 };

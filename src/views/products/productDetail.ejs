@@ -53,15 +53,15 @@
                         <h2>Detalles</h2>
                         <p>-<%=producto.description%> </p>
                         <p class="precio">$<%=producto.price%></p>
-                        <% if(producto.ingredients > 0){ %>
+                        <% if(ingrediente){ %>
                             <p>Ingredientes:</p>
                             <ul>
-                                <% for(let i = 0; i < producto.ingredients.length; i++) { %>
-                                <li><%= producto.ingredients[i].name%></li>
+                                <% for(let i = 0; i < ingrediente.length; i++) { %>
+                                <li><%=ingrediente[i].name%></li>
                                 <%}%>
                             </ul>
                          <%}%>
-                        
+                           
                         <p><%=producto.coment%></p>
                     </div>
                 </div>

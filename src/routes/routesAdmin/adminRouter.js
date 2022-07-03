@@ -49,6 +49,8 @@ router.put('/categories/editCategory/:id', adminCategoriesController.categoryUpd
 
 router.delete('/categories/delete/:id', adminCategoriesController.categoryDelete);
 
+router.get('/categories/searchCategory', adminCategoriesController.searchCategory)
+
 //CRUD users
 
 

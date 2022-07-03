@@ -16,6 +16,7 @@ module.exports = {
                 product,
                 session:req.session
             })
+            
         })
         .catch((error) => { res.send(error)})
 
@@ -45,10 +46,10 @@ module.exports = {
             price: req.body.price,
             coment : req.body.coment,
             category: req.body.category,
-            stock: req.body.stock ? req.body.stock : req.body.stock = 0 
+            stock: req.body.stock ? req.body.stock : req.body.stock = 0,
+            discount: req.body.discount ? req.body.discount : req.body.discount = 0 
         }, {include: [{ association: "images"}, { association: "ingredients"}]})
         .then((product) => {
-            console.log(product)
             let arrayImages = req.files.map(image => {
                 return {
                     src: image.filename, 
@@ -68,8 +69,6 @@ module.exports = {
             let imagenes = db.images.bulkCreate(arrayImages)
             let ingredientes = db.ingredients.bulkCreate(arrayIngredients)
 
-            console.log(req.body.category)//aca
-
             Promise.all([imagenes, ingredientes])
             .then(() => {
                 db.categories.findAll({
@@ -78,11 +77,8 @@ module.exports = {
                     }
                 })
                 .then((categoryResult) => { 
-
-                    console.log(categoryResult)
                     let idCategory = categoryResult[0].id
-                    console.log(idCategory)
-
+                 
                     let productCategories = {
                         product_id: product.id,
                         category_id: idCategory
@@ -95,32 +91,6 @@ module.exports = {
                         console.log(error)
                     })
                 })
-                // .then((categoryResult) => {
-                //     console.log(categoryResult)
-                //     let categoria = categoryResult.find((e) => {
-                //         e.dataValues.name == req.body.category
-                //         // if(e.name == req.body.category){
-                //         //     return e.id
-                //         // }else{
-                //         //     console.log(e.name)//aca
-                //         //     console.log('Hubo un error.')
-                //         // }
-                //     })
-
-                //     console.log(categoria)
-                //     let categoryT = {
-                //         product_id: product.id,
-                //         category_id: categoria
-                //     }
-
-                //     db.product_category.create(categoryT)
-                //     .then(() => {
-                //         res.redirect("/admin/products")
-                //     })
-                //     .catch((error) => {
-                //         console.log(error)
-                //     })  
-                // }) 
             })
             .catch((error) => {
                  console.log(error)
@@ -139,13 +109,22 @@ module.exports = {
         .then((product) => { 
             db.categories.findAll()
             .then((category) => {
-                res.render('admin/products/editProducts', {
-                    postHeader: "Editar Producto",
-                    titulo: "Edición",
-                    product,
-                    category,
-                    session:req.session
+                db.ingredients.findAll({
+                    where: {
+                        product_id: product.id
+                    }
                 })
+                .then((ingredients) => {
+                    res.render('admin/products/editProducts', {
+                        postHeader: "Editar Producto",
+                        titulo: "Edición",
+                        product,
+                        category,
+                        ingredients,
+                        session:req.session
+                    })
+                })
+                
             })
          })
         .catch((error) => {
@@ -162,7 +141,8 @@ module.exports = {
             description: req.body.description,
             price: req.body.price,
             coment: req.body.coment,
-            stock: req.body.stock ? req.body.stock : req.body.stock = 0 
+            stock: req.body.stock ? req.body.stock : req.body.stock = 0,
+            discount: req.body.discount ? req.body.discount : req.body.discount = 0 
 
         },{
             where: {
@@ -170,92 +150,95 @@ module.exports = {
             }
         })
         .then(() => {
-
-            db.ingredients.destroy({
+            
+           return db.ingredients.destroy({
                 where: {
+                    product_id: +req.params.id
+                }
+            })
+        })
+
+        .then(() => {
+            let ingredientess = [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3]
+            let arrayIngredients = ingredientess.map((e) => {
+                return {
+                    name: e,
                     product_id: req.params.id
                 }
             })
-            .then(() => {
-                let ingredients = [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3]
-                let arrayIngredients = ingredients.map((e) => {
-                    return {
-                        name: e,
-                        product_id: req.params.id
+
+            return db.ingredients.bulkCreate(arrayIngredients)
+        })
+
+        .then(() => {
+            if(req.files !== undefined && req.files.length > 0){
+                return db.images.findAll({
+                    where: {
+                        product_id: +req.params.id
                     }
                 })
-
-                db.ingredients.bulkCreate(arrayIngredients)
-                .then(() => {
-                    if(req.files !== undefined && req.files.length > 0){
-                        db.images.findAll({
-                            where: {
+                .then((images) => {
+                    images.forEach( image => {
+                        if(fs.existsSync(path.join(__dirname, `../../../public/img/products/${image.src}`))){
+                            fs.unlinkSync(path.join(__dirname, `../../../public/img/products/${image.src}`))
+                        }else{
+                            console.log('la imagen no se encontro o no existe')
+                        }
+                    })
+        
+                    db.images.destroy({
+                        where: {
+                            product_id: req.params.id
+                        }
+                    })
+                    .then(() => {
+                        let arrayImages = req.files.map(image => {
+                            return {
+                                src: image.filename,
                                 product_id: req.params.id
                             }
                         })
-                        .then((images) => {
-                            images.forEach( image => {
-                                if(fs.existsSync(path.join(__dirname, `../../../public/img/products/${image.src}`))){
-                                    fs.unlinkSync(path.join(__dirname, `../../../public/img/products/${image.src}`))
-                                }else{
-                                    console.log('la imagen no se encontro o no existe')
-                                }
-                            })
-
-                            db.images.destroy({
-                                where: {
-                                    product_id: req.params.id
-                                }
-                            })
-                            
-                            .then(() => {
-                                let arrayImages = req.files.map(image => {
-                                    return {
-                                        src: image.filename,
-                                        product_id: req.params.id
-                                    }
-                                })
-
-                                db.images.bulkCreate(arrayImages)
-                                
-                                .then(() => {
-                                    db.product_category.destroy({
-                                        where: {
-                                            product_id: req.params.id
-                                        }
-                                    })
-                                    .then(() => {
-
-                                        db.categories.findAll({
-                                            where:{
-                                                name: req.body.category
-                                            }
-                                        })
-                                        .then((categ) => {
-                                            let idCategory = categ[0].id
-                                            
-                                            let editCategory = {
-                                                product_id: req.params.id,
-                                                category_id: idCategory
-                                            }
-                                            db.product_category.create(editCategory)
-                                            .then(() => {
-                                                res.redirect("/admin")
-                                            })
-                                        })
-
-                                    })
-                                    
-                                })
-                            })
-                        })
-
-
-                    }
+            
+                        return db.images.bulkCreate(arrayImages)
+                        
+                        
+                    })
+                    
+                    
                 })
-            })
+
+            }
         })
-        .catch((error) => { res.send(error)})
+        .then(() => {
+            return db.product_category.destroy({
+                where: {
+                    product_id: req.params.id
+                }
+            })  
+        })
+
+        .then(() => {
+            console.log(req.body.category)
+            db.categories.findAll({
+                where:{
+                    name: req.body.category
+                }
+            })
+            .then((categ) => {
+                let idCategory = categ[0].id
+                
+                let editCategory = {
+                    product_id: +req.params.id,
+                    category_id: idCategory
+                }
+    
+                db.product_category.create(editCategory)
+            })
+            .then(() => {
+                res.redirect("/admin")
+            })
+            .catch((error) => { console.log(error)})
+        })
     },
 
     delete: (req,res)=>{
@@ -335,8 +318,6 @@ module.exports = {
             })
             .catch((error) => { res.send(error)})
     
-        }
-    
-        
+    }
     
 }

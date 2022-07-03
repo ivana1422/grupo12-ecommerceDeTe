@@ -18,7 +18,7 @@
                 <div class="divCategory">
                 <% category.forEach( (e) => {  %> 
                     <div>
-                        <input type="radio" name="category" value="<%=e.name %>"id="category" class="inputCategory">
+                        <input type="radio" name="category" value="<%=e.name%>"id="category" class="inputCategory">
                         <label for="category" class="labelCategories"><%=e.name %></label>
                     </div>
                 <% }) %> 
@@ -29,22 +29,34 @@
                 <label for="price">Precio</label>
                 <input type="number" name="price" value="<%=product.price%>" id="price">
             </div>
+
+            <div class="inp-cont">
+                <label for="stock">Stock del Producto</label>
+                <input type="number" name="stock" value="<%=product.stock%>" id="stock">
+            </div>
+
+            <div class="inp-cont">
+                <label for="discount">Descuento</label>
+                <input type="number" name="discount" value="<%=product.discount%>" id="price">
+            </div>
             
             <div class="inp-cont">
                 <label for="description">Descripción del producto</label>
                 <textarea name="description" id="description" cols="25" rows="10" ><%=product.description%></textarea>
             </div>
 
-            <% if (product.ingredients) { %>
+            
                 <div class="inp-cont">
                     <label for="ingredients" class="label-ing">Editar ingredientes:</label>
                     <div class="check-ing">
-                        <input type="text" name="ingredient1" value="<%= product.ingredients[0]%>" class="ingrediente">
-                        <input type="text" name="ingredient2" value="<%= product.ingredients[1]%>" class="ingrediente">
-                        <input type="text" name="ingredient3" value="<%= product.ingredients[2]%>" class="ingrediente">
+                        <% if (ingredients.product_id !== undefined && ingredients.product_id !== null){ %> 
+                        <input type="text" name="ingredient1" value="<%= ingredients[0].name%>" class="ingrediente">
+                        <input type="text" name="ingredient2" value="<%= ingredients[1].name%>" class="ingrediente">
+                        <input type="text" name="ingredient3" value="<%= ingredients[2].name%>" class="ingrediente">
+                        <% } %>
                     </div>
                 </div>
-            <% } %>
+            
 
             <div class="inp-cont">
                 <label for="coment">Comentario adicional</label>

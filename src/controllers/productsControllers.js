@@ -13,11 +13,20 @@ module.exports = {
             include: [{ association: "images"}, { association: "ingredients"}]
         })
         .then((producto) => {
-            res.render("products/productDetail", {
-                titulo: "Tea | Detalle de Producto",
-                producto,
-                session:req.session
+            db.ingredients.findAll({
+                where: {
+                    product_id: producto.id
+                }
             })
+            .then((ingrediente) => {
+                res.render("products/productDetail", {
+                    titulo: "Tea | Detalle de Producto",
+                    producto,
+                    ingrediente,
+                    session:req.session
+                })
+            })
+            
         })
         .catch((error) => { res.send(error)})        
     }
