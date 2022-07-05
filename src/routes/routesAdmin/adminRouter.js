@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const fileUpload = require('../../data/multer/multer');
-const productsValidator = require('../../validations/productsValidator')
+const productsValidator = require('../../validations/productsValidator');
+const categoryValidator = require('../../validations/categoryValidator');
 
 
 const adminController = require("../../controllers/adminControllers/adminController");
@@ -42,11 +43,11 @@ router.get('/categories', userActive, userAdminCheck, adminCategoriesController.
 
 router.get('/categories/addCategory', userActive, userAdminCheck, adminCategoriesController.categoryAdd );
 
-router.post('/categories', adminCategoriesController.categoryCreate );
+router.post('/categories', categoryValidator, adminCategoriesController.categoryCreate );
 
 router.get('/categories/editCategory/:id', userActive, userAdminCheck, adminCategoriesController.categoryEdit );
 
-router.put('/categories/editCategory/:id', adminCategoriesController.categoryUpdate );
+router.put('/categories/editCategory/:id', categoryValidator, adminCategoriesController.categoryUpdate );
 
 router.delete('/categories/delete/:id', adminCategoriesController.categoryDelete);
 
