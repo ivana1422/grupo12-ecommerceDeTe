@@ -2,8 +2,6 @@ function qs (element) {
     return document.querySelector(element)
 }
 
-alert('estas vinculado con javaScript')
-
 window.addEventListener('load', () => {
 
     let inputName = qs('#name')
