@@ -4,8 +4,6 @@ function qs (element) {
     return document.querySelector(element)
 }
 
-alert('el js esta vinculado ')
-
 window.addEventListener('load', () => {
     let inputName = qs("#name")
     let spanNameError = qs("#nameError")
@@ -44,7 +42,6 @@ window.addEventListener('load', () => {
             case !inputName.value.trim():
                 spanNameError.innerHTML = "Campo requerido.";
                 inputName.style.border = '4px solid red';
-                console.log(inputName)
                 break;
             
             case !regExAlpha.test(inputName.value):
@@ -55,7 +52,7 @@ window.addEventListener('load', () => {
             default:
                 inputName.style.border = '4px solid green';
                 spanNameError.innerHTML = "";
-                console.log(inputName)
+
         }
     })
 
@@ -76,7 +73,6 @@ window.addEventListener('load', () => {
             case !inputPrice.value.trim():
                 priceError.innerHTML = "Campo requerido.";
                 inputPrice.style.border = '4px solid red';
-                console.log(inputPrice)
                 break;
             
             case !validarNum.test(inputPrice.value):
@@ -87,7 +83,7 @@ window.addEventListener('load', () => {
             default:
                 inputPrice.style.border = '4px solid green';
                 priceError.innerHTML = "";
-                console.log(inputPrice)
+
         }
     })
 
@@ -96,13 +92,11 @@ window.addEventListener('load', () => {
             case !inputStock.value.trim():
                 stockError.innerHTML = "Campo requerido.";
                 inputStock.style.border = '4px solid red';
-                console.log(inputStock)
                 break;
 
             default:
                 inputStock.style.border = '4px solid green';
                 stockError.innerHTML = "";
-                console.log(inputStock)
         }
     })
 
@@ -195,8 +189,6 @@ window.addEventListener('load', () => {
         event.preventDefault()
         let elementsForm = this.elements
         let errores = false;
-        console.log(elementsForm)
-
 
         for(let j = 0; j < elementsForm.length -1 ; j++){
 
@@ -224,7 +216,6 @@ window.addEventListener('load', () => {
         }
 
         if(!errores){
-            alert('es valido bb')
             form.submit()
         }
     })
