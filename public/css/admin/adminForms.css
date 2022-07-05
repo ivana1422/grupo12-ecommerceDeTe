@@ -40,6 +40,19 @@ main form{
     outline:none;
     width: 100%;
 }
+.spanError {
+    color: red;
+    text-align: center;
+    margin-top: 6px;
+}
+.errorsFront {
+    padding: 2px;
+    border: 1px solid red;
+    border-radius: 3px;
+    outline:none;
+    width: 100%;;
+    
+}
 
 .inp-cont input:focus,
 .inp-cont textarea:focus{

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fileUpload = require('../../data/multer/multer');
+const productsValidator = require('../../validations/productsValidator')
 
 
 const adminController = require("../../controllers/adminControllers/adminController");
@@ -23,11 +24,11 @@ router.get("/productos", userActive, userAdminCheck, adminProductsController.lis
 
 router.get("/productos/agregar", userActive, userAdminCheck, adminProductsController.addProduct);
 
-router.post("/productos", uploadImgProducts.array("image", 3) ,adminProductsController.createProduct); //Se añade el middleware con metodo single y el name del input file
+router.post("/productos", uploadImgProducts.array("image", 3),productsValidator, adminProductsController.createProduct); //Se añade el middleware con metodo single y el name del input file
 
 router.get("/productos/editar/:id", userActive, userAdminCheck, adminProductsController.editProduct);
 
-router.put("/productos/editar/:id", uploadImgProducts.array("image", 3), adminProductsController.productoEditado);
+router.put("/productos/editar/:id", uploadImgProducts.array("image", 3), productsValidator, adminProductsController.productoEditado);
 
 router.delete("/productos/eliminar/:id", adminProductsController.delete);
 

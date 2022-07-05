@@ -48,7 +48,7 @@
                                 <i class="fa-solid fa-pen-to-square"></i>
                               </a>
                               <form action="/admin/productos/eliminar/<%- producto.id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-danger" type="submit">
+                                <button class="btn btn-danger" type="submit" id="bottomDelete" onclick="return confirmDelete()">
                                   <i class="fa-solid fa-trash-can"></i>
                                 </button>
                               </form>
@@ -61,6 +61,8 @@
 
         <a href="/" class="backToHome">Salir del administrador</a>
     </main>
+
+    <script src="/js/adminJs/adminValidatorDelete.js"></script>
 
     <%-include("../partials/footerAdmin")%>
 </body>
