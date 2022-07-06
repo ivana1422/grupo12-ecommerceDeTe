@@ -39,53 +39,61 @@
 
                 <div class="container-products">
                     <h3>EXTRA SALE!</h3>
-
-                    <% for( let i = 0; i <= 3; i++ ) { %>
-                        <div class="item-products">
-                            <a href="/producto/<%=productos[i].id%>">
-                                <img src="/img/products/<%=productos[i].image[0]%>" alt="Te Verde" class="img-products">
-                                <div>
-                                    <h4><%=productos[i].name%></h4>
-                                    <p class="offer">$<%=(productos[i].price + 150)%></p>
-                                    <p class="actual">$<%=productos[i].price%></p>
-                                </div>
-                            </a>
-                        </div>
-                    <% } %>
+                    <% productos.forEach(producto => { %>
+                        <% if (producto.offer == 1) { %>
+                            
+                            <div class="item-products">
+                                <a href="/productos/<%=producto.id%>">
+                                    <img src="/img/products/<%=producto.images[0].src%>" alt="<%=producto.name%>" class="img-products">
+                                    <div>
+                                        <h4><%=producto.name%></h4>
+                                        <p class="offer">$<%=(producto.price - (producto.price * (producto.discount / 100)))%></p>
+                                        <p class="actual">$<%=producto.price%></p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                        <% } %>
+                    <% }) %>
 
                     <h3>PRODUCTOS DESTACADOS</h3>
-
-                    <% for( let i = 4; i <= 7; i++ ) { %>
-                        <div class="item-products">
-                            <a href="/producto/<%=productos[i].id%>">
-                                <img src="/img/products/<%=productos[i].image[0]%>" alt="Te Verde" class="img-products">
-                                <div>
-                                    <h4><%=productos[i].name%></h4>
-                                    <p class="actual">$<%=productos[i].price%></p>
-                                </div>
-                            </a>
-                        </div>
-                    <% } %>
+                    <% productos.forEach(producto => { %>
+                        <% if(producto.offer == 0){%>
+                            <div class="item-products">
+                                <a href="/productos/<%=producto.id%>">
+                                    <img src="/img/products/<%=producto.images[0].src%>" alt="<%=producto.name%>" class="img-products">
+                                    <div>
+                                        <h4><%=producto.name%></h4>
+                                        <p class="actual">$<%=producto.price%></p>
+                                    </div>
+                                </a>
+                            </div>
+    
+                        <% } %>
+                    <% }) %>
 
                 </div>
 
                 <div class="medios-pago">
                     <h3>PODES ABONAR CON ESTOS MEDIOS DE PAGO</h3>
-                    <div class="tarjeta">
-                        <i class="fa-solid fa-credit-card"></i>
-                        <p>Tarjetas de crédito o débito</p>
-                        <p>Pagá en cuotas sin interés o hacelo al contado con tu tarjeta de débito.</p>
-                    </div>
+                    <div class="medios-pago-correccion">
 
-                    <hr>
-
-                    <div class="efectivo">
-                        <i class="fa-solid fa-money-bill-1-wave"></i>
-                        <p>¿Preferís pagar en efectivo?</p>
-                        <p>Cuando compres, te daremos un código para que puedas pagar en cualquier sucursal.</p>
+                        <div class="tarjeta">
+                            <i class="fa-solid fa-credit-card"></i>
+                            <p>Tarjetas de crédito o débito</p>
+                            <p>Pagá en cuotas sin interés o hacelo al contado con tu tarjeta de débito.</p>
+                        </div>
+    
+                        <hr>
+    
+                        <div class="efectivo">
+                            <i class="fa-solid fa-money-bill-1-wave"></i>
+                            <p>¿Preferís pagar en efectivo?</p>
+                            <p>Cuando compres, te daremos un código para que puedas pagar en cualquier sucursal.</p>
+                        </div><br>
                     </div>
                     <div class="formulario">
-                        <form action="index.html" method="get">
+                        <form action="/sendMail" method="post">
                             <label for="newsletter">
                                 Dejanos tu mail para recibir todas las ofertas!
                                 <input type="email" name="email" id="newsletter" placeholder="Ingresa tu @mail">

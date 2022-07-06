@@ -1,3 +1,5 @@
+const fs = require("fs")
+const path = require("path")
 const {validationResult, body} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
@@ -15,7 +17,7 @@ module.exports= {
         })
         .then((users) => {
             res.render("admin/users/indexUsersAdmin",{
-                titulo: "Administrador de Ususarioss",
+                titulo: "Administrador de Usuarios",
                 postHeader: "Lista de Usuarios",
                 users,
                 session:req.session
@@ -38,15 +40,14 @@ module.exports= {
                     user
                 })
         })
-        .catch((error) => { res.render(error)})
-
+        .catch((error) => { res.send(error)})
     },
 
     editUser: (req, res) => {
         let errors = validationResult(req);
 
         if(errors.isEmpty()){
-            
+            //Corregir()
             db.users.findByPk(req.params.id)
             .then((user) => {
 
@@ -78,7 +79,7 @@ module.exports= {
                 })
                     .catch((error) => { console.log(error)})
             })
-            .catch((error) => { res.send(error)})
+            .catch((error) => { res.send(error)}) 
         }
     },
 
@@ -94,36 +95,69 @@ module.exports= {
 
 
     createUser: (req, res) => {
-        
          let errors = validationResult(req);
-    
         if(errors.isEmpty()){
             db.address.create({
-                location: req.body.location,
+                location: req.body.location ? req.body.location : "Sin domicilio cargado",
          })
             .then((address) => {
                 db.users.create({
                     name: req.body.name,
                     surname: req.body.surname,
                     email: req.body.email,
-                    rol: req.body.rol,
+                    rol: req.body.rol ? req.body.rol : 0,
                     pass: req.body.pass,
                     avatar: req.file ? req.file.filename : "defaultAvatar.png",
-                    address_id: address.id
+                    address_id: address.id 
                 })
                 .then(() =>{
                     res.redirect('/admin/users')
                 })
                 .catch((error) => { console.log(error)})
-                
+            })
+        } else {
+            res.render('admin/users/addUser', {
+                titulo: "Crear usuario",
+                postHeader: "Creacion de usuario",
+                session: req.session,
+                old:req.body,
+                errors:errors.mapped()
             })
         }
         
     },
 
     deleteUser: (req, res) => {
-
+        let address__id = 0
         db.users.findByPk(req.params.id)
+        .then(user=>{
+            address__id = user.address_id
+            if(fs.existsSync(path.join(__dirname, `../../../public/img/users/${user.avatar}`)) && user.avatar != "defaultAvatar.png"){
+                fs.unlinkSync(path.join(__dirname, `../../../public/img/users/${user.avatar}`))
+                     
+            }else{
+                console.log("La imagen no existe!");
+            }
+
+            return db.users.destroy({
+                where:{
+                    id:req.params.id
+                }
+            })
+        })
+        .then(()=>{
+            
+            return db.address.destroy({
+                where:{
+                    id:address__id
+                }
+            })
+        })
+        .then(()=>{
+            res.redirect("/admin/users")
+       })
+       .catch(err=>console.log(err))
+        /*db.users.findByPk(req.params.id)
         .then((user) => {
             let usuarioEliminado = db.users.destroy({
                 where: {
@@ -144,7 +178,7 @@ module.exports= {
             .catch((error) => { res.send(error)})
 
         })
-        .catch((error) => { res.send(error)})
+        .catch((error) => { res.send(error)})*/
     },
    
     search: (req, res) => {

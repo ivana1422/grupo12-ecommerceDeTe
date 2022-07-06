@@ -1,0 +1,17 @@
+main.login input.input__valid{
+    border: 1px solid #198754;
+    outline: none;
+}
+
+main.login input.input__invalid {
+    border: 1px solid #dc3545; 
+    outline: none;
+}
+
+.icon__valid{
+    color:#198754
+}
+
+.icon__invalid{
+    color: #dc3545
+}

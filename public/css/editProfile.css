@@ -1,0 +1,135 @@
+@import url("formulario.css");
+
+.profile__avatar__edit img{
+    width: 150px;
+    border-radius: 50%;
+}
+
+main.addP{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: "Baloo 2";
+}
+
+main h2{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+main form{
+    width:100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    max-width: 550px;
+}
+
+.inp-cont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.inp-cont input,
+.inp-cont textarea{
+    padding: 2px;
+    border: 1px solid var(--negro);
+    border-radius: 3px;
+    outline:none;
+    width: 100%;
+}
+
+.inp-cont input:focus,
+.inp-cont textarea:focus{
+    border: 2px solid var(--rosaOscuro)
+}
+
+.inp-cont textarea{
+    width: 100%;
+}
+
+.file-cont{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.file-cont input[type="file"]{
+    border:none;
+    display:none;
+}
+
+.file-cont label{
+    cursor: pointer;
+    background-color: var(--rosaClaro);
+    width: 60%;
+    margin:0 auto;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.file-cont label:hover{
+    background-color: var(--rosaOscuro);
+}
+
+.label-ing{
+    display: flex;
+}
+
+.label-ing input{
+    width: 15px;
+    margin: 5px;
+}
+
+.check-ing .ingrediente{
+    margin-bottom: 5px;
+}
+
+.btn-add {
+    background-color: transparent;
+    width: 200px;
+    border: 2px solid;
+    border-radius: 3px;
+    cursor: pointer;
+    
+    padding: 8px 12px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: var(--negro);
+    outline: none;
+    border-color: var(--rosaClaro);
+    box-shadow: 0 0 40px 40px var(--rosaClaro) inset;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  .btn-add:hover{
+    box-shadow: 0 0 10px 0 var(--rosaClaro) inset, 0 0 10px 4px var(--rosaClaro);
+  }
+ 
+  
+  .btn-add a{
+    color: var(--negro);
+    text-decoration: none;
+    
+  }
+
+  .btn-add a:hover{
+    color: var(--negro);
+  }
+
+  input.input__valid{
+    border: 1px solid #198754;
+    outline: none;
+}
+
+input.input__invalid {
+    border: 1px solid #dc3545; 
+    outline: none;
+}

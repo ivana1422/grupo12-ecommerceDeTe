@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const fileUpload = require('../../data/multer/multer');
 const productsValidator = require('../../validations/productsValidator');
 const categoryValidator = require('../../validations/categoryValidator');
+const fileUpload = require('../../middlewares/multer');
 
 
 const adminController = require("../../controllers/adminControllers/adminController");
@@ -16,6 +16,10 @@ const uploadImgProducts = require("../../middlewares/uploadImgProducts");
 //middlewares
 const userActive = require("../../middlewares/userActive");
 const userAdminCheck = require('../../middlewares/userAdminCheck');
+
+//validators
+const createUserValidator = require("../../validations/admin/createUserValidator")
+const editUserValidator = require("../../validations/admin/editUserValidator")
 
 //Index
 router.get("/", userActive, userAdminCheck, adminController.indexAdmin);
@@ -60,11 +64,11 @@ router.get('/users', userActive, userAdminCheck, adminUsersController.listUsers 
 
 router.get('/users/addUser', userActive, userAdminCheck, adminUsersController.addUser );
 
-router.post('/users',fileUpload.single('avatar'), adminUsersController.createUser );
+router.post('/users',fileUpload.single('avatar'), createUserValidator ,adminUsersController.createUser );
 
-router.get('/users/profile/:id', userActive, userAdminCheck, adminUsersController.profile );
+router.get('/users/editUser/:id', userActive, userAdminCheck, adminUsersController.profile );
 
-router.put('/users/editUser/:id', fileUpload.single('avatar'), adminUsersController.editUser );
+router.put('/users/editUser/:id', fileUpload.single('avatar'), editUserValidator,adminUsersController.editUser );
 
 router.delete('/users/delete/:id', adminUsersController.deleteUser);
 
