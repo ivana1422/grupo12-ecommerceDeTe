@@ -8,38 +8,66 @@
         <h2><%=postHeader%></h2>
         <form action="/admin/users" method="POST" enctype="multipart/form-data">
             <div class="inp-cont">
-                <label for="name">Nombre</label>
-                <input type="text" name="name" placeholder="Juan" id="name">
+                <label for="">Nombre</label>
+                <div class="input_icon">
+                    <input type="text" name="name" placeholder="Juan" id="input__create__name" value="<%=locals.old && old.name%>">
+                    <i id="icon__create__name"></i>
+                </div>
+                <% if (locals.errors && errors.name) { %>
+                    <span class="error-message text-danger"><%= errors.name.msg %> </span>
+                 <% } %> 
             </div>
 
             <div class="inp-cont">
                 <label for="surname">Apellido</label>
-                <input type="text" name="surname" placeholder="Perez" id="surname">
+                <div class="input_icon">
+                    <input type="text" name="surname" placeholder="Perez" id="input__create__surname" value="<%=locals.old && old.surname%>">
+                    <i id="icon__create__surname"></i>
+                </div>
+                <% if (locals.errors && errors.surname) { %>
+                    <span class="error-message text-danger"><%= errors.surname.msg %> </span>
+                 <% } %> 
             </div>
 
             <div class="inp-cont">
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="user@mail.com" id="email">
+                <div class="input_icon">
+                    <input type="text" name="email" placeholder="user@mail.com" id="input__create__email" value="<%=locals.old && old.email%>">
+                    <i id="icon__create__email"></i>
+                </div>
+                <% if (locals.errors && errors.email) { %>
+                    <span class="error-message text-danger"><%= errors.email.msg %> </span>
+                 <% } %> 
             </div>
 
             <div class="inp-cont">
                 <label for="pass">Contraseña</label>
-                <input type="text" name="pass" placeholder="8 carácteres como mínimo" id="pass">
+                <div class="input_icon">
+                    <input type="text" name="pass" placeholder="8 carácteres como mínimo" id="input__create__pass">
+                    <i id="icon__create__pass"></i>
+                </div>
+                <% if (locals.errors && errors.pass) { %>
+                    <span class="error-message text-danger"><%= errors.pass.msg %> </span>
+                 <% } %> 
             </div>
 
             <div class="inp-cont">
                 <label for="rol">Rol de usuario</label>
-                <input type="number" name="rol" placeholder="0 para user / 1 para admin" id="rol">
+                <input type="number" name="rol" placeholder="0 para user / 1 para admin" id="rol" value="<%=locals.old && old.rol%>">
             </div>
 
             <div class="inp-cont file-cont">
                 <label for="avatar"><i class="fa-solid fa-file-arrow-up"></i>Foto de perfil</label>
                 <input type="file" name="avatar" id="avatar">
+                <span id="file__error"></span>
+                <% if (locals.errors && errors.avatar) { %>
+                    <span class="error-message text-danger"><%= errors.avatar.msg %> </span>
+                 <% } %> 
             </div>
 
             <div class="inp-cont">
                 <label for="location">Domicilio</label>
-                <input type="text" name="location" placeholder="Ej: Pilar 240" id="location">
+                <input type="text" name="location" placeholder="Ej: Pilar 240" id="location" value="<%=locals.old && old.location%>">
             </div>
 
             <div class="inp-cont">
@@ -53,5 +81,6 @@
     </main>
 
     <%-include("../partials/footerAdmin")%>
+    <script src="/js/adminJs/createValidator.js"></script>
 </body>
 </html>

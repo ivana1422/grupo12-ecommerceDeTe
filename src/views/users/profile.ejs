@@ -9,45 +9,44 @@
             <article class="profile__avatar">
                 <div>
                     <div>
-                        <img src="/img/users/<%=session.user.img%>" alt="<%=session.user.name%>">
+                        <img src="/img/users/<%=user.avatar%>" alt="<%=user.name%>">
                     </div>
                     <div>
-                        <a href="">Editar mi perfil</a>
+                        <a href="/profile/<%-user.id-%>">Editar mi perfil</a>
                     </div>
                 </div>
-                
                 <div>
-                    <div>
-                        <a href="">Cambiar contraseña</a>
-                    </div>
-                    
-                    <div>
-                        <a href="">eliminar mi cuenta</a>
-                    </div>
+                    <form action="/profile/change/<%-user.id%>?_method=put" method="post" id="formChange">
+                        <button type="submit" id="changePass" class="btn__profile">Cambiar contraseña</button>
+                    </form>
+                    <form action="/profile/delete/<%-user.id%>?_method=delete" method="post" id="formDelete">
+                        <button type="submit" id="deleteCount" class="btn__profile">eliminar mi cuenta</button>
+                    </form>
                 </div>
             </article>
             <article class="profile__data">
                 <div class="profile__data__container">
                     <h5 class="profile__data__h5">Nombre</h5>
-                    <p class="profile__data__p"><%=session.user.name%></p>
+                    <p class="profile__data__p"><%=user.name%></p>
                 </div>
                 <div class="profile__data__container">
                     <h5 class="profile__data__h5">Apellido</h5>
-                    <p class="profile__data__p"><%=session.user.lastName%></p>
+                    <p class="profile__data__p"><%=user.surname%></p>
                 </div>
                 <div class="profile__data__container">
                     <h5 class="profile__data__h5">Correo electronico</h5>
-                    <p class="profile__data__p"><%=session.user.email%></p>
+                    <p class="profile__data__p"><%=user.email%></p>
                 </div>
                 <div class="profile__data__container">
                     <h5 class="profile__data__h5">Domicilio</h5>
-                    <p class="profile__data__p">aca va el domicilio</p>
+                    <p class="profile__data__p"><%=user.address.location%></p>
                 </div>
-                
             </article>
         </section>
     </main>
 
     <%-include("../partials/footer")%>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/sweetalert.js"></script>
 </body>
 </html>

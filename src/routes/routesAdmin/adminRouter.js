@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const fileUpload = require('../../data/multer/multer');
+const productsValidator = require('../../validations/productsValidator');
+const categoryValidator = require('../../validations/categoryValidator');
+const fileUpload = require('../../middlewares/multer');
 
 
 const adminController = require("../../controllers/adminControllers/adminController");
@@ -15,6 +17,10 @@ const uploadImgProducts = require("../../middlewares/uploadImgProducts");
 const userActive = require("../../middlewares/userActive");
 const userAdminCheck = require('../../middlewares/userAdminCheck');
 
+//validators
+const createUserValidator = require("../../validations/admin/createUserValidator")
+const editUserValidator = require("../../validations/admin/editUserValidator")
+
 //Index
 router.get("/", userActive, userAdminCheck, adminController.indexAdmin);
 
@@ -23,11 +29,11 @@ router.get("/productos", userActive, userAdminCheck, adminProductsController.lis
 
 router.get("/productos/agregar", userActive, userAdminCheck, adminProductsController.addProduct);
 
-router.post("/productos", uploadImgProducts.array("image", 3) ,adminProductsController.createProduct); //Se añade el middleware con metodo single y el name del input file
+router.post("/productos", uploadImgProducts.array("image", 3),productsValidator, adminProductsController.createProduct); //Se añade el middleware con metodo single y el name del input file
 
 router.get("/productos/editar/:id", userActive, userAdminCheck, adminProductsController.editProduct);
 
-router.put("/productos/editar/:id", uploadImgProducts.array("image", 3), adminProductsController.productoEditado);
+router.put("/productos/editar/:id", uploadImgProducts.array("image", 3), productsValidator, adminProductsController.productoEditado);
 
 router.delete("/productos/eliminar/:id", adminProductsController.delete);
 
@@ -41,11 +47,11 @@ router.get('/categories', userActive, userAdminCheck, adminCategoriesController.
 
 router.get('/categories/addCategory', userActive, userAdminCheck, adminCategoriesController.categoryAdd );
 
-router.post('/categories', adminCategoriesController.categoryCreate );
+router.post('/categories', categoryValidator, adminCategoriesController.categoryCreate );
 
 router.get('/categories/editCategory/:id', userActive, userAdminCheck, adminCategoriesController.categoryEdit );
 
-router.put('/categories/editCategory/:id', adminCategoriesController.categoryUpdate );
+router.put('/categories/editCategory/:id', categoryValidator, adminCategoriesController.categoryUpdate );
 
 router.delete('/categories/delete/:id', adminCategoriesController.categoryDelete);
 
@@ -58,11 +64,11 @@ router.get('/users', userActive, userAdminCheck, adminUsersController.listUsers 
 
 router.get('/users/addUser', userActive, userAdminCheck, adminUsersController.addUser );
 
-router.post('/users',fileUpload.single('avatar'), adminUsersController.createUser );
+router.post('/users',fileUpload.single('avatar'), createUserValidator ,adminUsersController.createUser );
 
-router.get('/users/profile/:id', userActive, userAdminCheck, adminUsersController.profile );
+router.get('/users/editUser/:id', userActive, userAdminCheck, adminUsersController.profile );
 
-router.put('/users/editUser/:id', fileUpload.single('avatar'), adminUsersController.editUser );
+router.put('/users/editUser/:id', fileUpload.single('avatar'), editUserValidator,adminUsersController.editUser );
 
 router.delete('/users/delete/:id', adminUsersController.deleteUser);
 

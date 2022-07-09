@@ -6,14 +6,16 @@
     <main class="addP">
 
         <h2><%=postHeader%></h2>
-        <form action="/admin/categories" method="POST">
+        <form action="/admin/categories" method="POST" id="form">
             <div class="inp-cont">
                 <label for="name">Nombre de la Categoría</label>
                 <input type="text" name="name" placeholder="Ej: Accesorios" id="name">
+                <span id="nameError" class="spanError"></span>
             </div>
 
             <div class="inp-cont">
                 <button type="submit" class="btn-add">Crear</button>
+                <span id="submitError" class="spanError"></span>
             </div>
         </form>
 
@@ -21,6 +23,7 @@
             <a href="/admin"><i class="fa-solid fa-circle-arrow-left"></i> Volver</a>
         </div>
     </main>
+    <script src="/js/adminJs/adminValidatorCategory.js"></script>
 
     <%-include("../partials/footerAdmin")%>
 </body>

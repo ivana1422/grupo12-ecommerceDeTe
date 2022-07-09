@@ -6,16 +6,17 @@
     <main class="addP">
 
         <h2><%=postHeader%></h2>
-        <form action="/admin/productos/editar/<%-product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/admin/productos/editar/<%-product.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="form">
             <div class="inp-cont">
                 <label for="name">Nombre del producto</label>
                 <input type="text" name="name" value="<%=product.name%>" id="name">
+                <span id="nameError" class="spanError"></span>
             </div>
 
             <div class="inp-cont-category">
                 
                 <label for="category">Categoria del Producto</label>
-                <div class="divCategory">
+                <div class="divCategory" id="divCategoryFather" >
                 <% category.forEach( (e) => {  %> 
                     <div>
                         <input type="radio" name="category" value="<%=e.name%>"id="category" class="inputCategory">
@@ -23,44 +24,52 @@
                     </div>
                 <% }) %> 
                 </div>
+                <span id="categoryError" class="spanError"></span>
             </div>
             
             <div class="inp-cont">
                 <label for="price">Precio</label>
-                <input type="number" name="price" value="<%=product.price%>" id="price">
+                <input type="text" name="price" value="<%=product.price%>" id="price">
+                <span id="priceError" class="spanError"></span>
             </div>
 
             <div class="inp-cont">
                 <label for="stock">Stock del Producto</label>
                 <input type="number" name="stock" value="<%=product.stock%>" id="stock">
+                <span id="stockError" class="spanError"></span>
             </div>
 
             <div class="inp-cont">
                 <label for="discount">Descuento</label>
-                <input type="number" name="discount" value="<%=product.discount%>" id="price">
+                <input type="number" name="discount" value="<%=product.discount%>" id="discount">
+                <span id="discountError" class="spanError"></span>
             </div>
             
             <div class="inp-cont">
                 <label for="description">Descripción del producto</label>
                 <textarea name="description" id="description" cols="25" rows="10" ><%=product.description%></textarea>
+                <span id="descriptionError" class="spanError"></span>
             </div>
 
             
                 <div class="inp-cont">
+                    <% if (ingredients){ %>
                     <label for="ingredients" class="label-ing">Editar ingredientes:</label>
                     <div class="check-ing">
-                        <% if (ingredients.product_id !== undefined && ingredients.product_id !== null){ %> 
-                        <input type="text" name="ingredient1" value="<%= ingredients[0].name%>" class="ingrediente">
-                        <input type="text" name="ingredient2" value="<%= ingredients[1].name%>" class="ingrediente">
-                        <input type="text" name="ingredient3" value="<%= ingredients[2].name%>" class="ingrediente">
-                        <% } %>
+                         
+                        <input type="text" name="ingredient1" value="<%= ingredients[0].name%>" class="ingrediente" id="ingredient1">
+                        <input type="text" name="ingredient2" value="<%= ingredients[1].name%>" class="ingrediente" id="ingredient2">
+                        <input type="text" name="ingredient3" value="<%= ingredients[2].name%>" class="ingrediente" id="ingredient3">
+                        
                     </div>
+                    <% } %>
                 </div>
             
 
             <div class="inp-cont">
                 <label for="coment">Comentario adicional</label>
                 <textarea name="coment" id="coment" cols="25" rows="10" ><%=product.coment%></textarea>
+                <span id="comentError" class="spanError"></span>
             </div>
             
             <div class="inp-cont file-cont">
@@ -70,6 +79,7 @@
             
             <div class="inp-cont ">
                 <button type="submit" class="btn-add">Guardar</button>
+                <span id="submitError" class="spanError"></span>
             </div>
         </form>
 
@@ -77,7 +87,7 @@
             <a href="/admin"><i class="fa-solid fa-circle-arrow-left"></i> Volver</a>
         </div>
     </main>
-
+    <script src="/js/adminJs/adminValidatorProducts.js"></script>
     <%-include("../partials/footerAdmin")%>
 </body>
 </html>

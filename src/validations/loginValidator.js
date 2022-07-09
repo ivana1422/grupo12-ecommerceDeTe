@@ -9,7 +9,7 @@ let loginValidator = [
                 .isEmail().withMessage('Debe ingresar un email válido').bail(),
 
     body('pass').custom((value,{req})=>{
-        return db.users.findOne({
+        /*return db.users.findOne({
             where: {
                 email: req.body.email
             }
@@ -17,17 +17,25 @@ let loginValidator = [
         .then((user) => {
             if(user){
                 if(!bcrypt.compareSync(req.body.pass,user.pass)){
-                    return Promise.resolve()
+                    return Promise.reject("Email o contraseña Incorrecta")
                 } 
+                return true
             }
               
+        })*/
+        return db.users.findOne({
+            where:{
+                email:req.body.email
+            }
         })
-        .catch((error) => {
-            return Promise.reject("Email o contraseña Incorrecta")
+        .then(user=>{
+            if(bcrypt.compareSync(req.body.pass,user.pass)){
+                return true
+            }
+    
+            return false;
         })
-
-        
-    }),
+    }).withMessage("Email o contraseña Incorrecta"),
 
     body('pass').notEmpty().withMessage('Ingrese su contraseña').bail()
 ]

@@ -29,5 +29,17 @@ module.exports = {
             
         })
         .catch((error) => { res.send(error)})        
+    },
+    allProducts:(req,res)=>{
+        db.products.findAll({
+            include: [{ association: "images"}]
+        })
+            .then(productos=>{
+                res.render("products/allProducts",{
+                    productos,
+                    titulo: "Nuestro Productos",
+                    session:req.session
+                })
+            })
     }
 }

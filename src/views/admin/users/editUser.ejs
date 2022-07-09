@@ -9,17 +9,35 @@
         <form action="/admin/users/editUser/<%-user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="inp-cont">
                 <label for="name">Nombre</label>
-                <input type="text" name="name" placeholder="Juan" id="name" value="<%=user.name%>">
+                <div class="input_icon">
+                    <input type="text" name="name" placeholder="Juan" id="input__create__name" value="<%=user.name%>">
+                    <i id="icon__create__name"></i>
+                </div>
+                <% if (locals.errors && errors.name) { %>
+                    <span class="error-message text-danger"><%= errors.name.msg %> </span>
+                 <% } %>
             </div>
 
             <div class="inp-cont">
                 <label for="surname">Apellido</label>
-                <input type="text" name="surname" placeholder="Perez" id="surname" value="<%=user.surname%>">
+                <div class="input_icon">
+                    <input type="text" name="surname" placeholder="Perez" id="input__create__surname" value="<%=user.surname%>">
+                    <i id="icon__create__surname"></i>
+                </div>
+                <% if (locals.errors && errors.surname) { %>
+                    <span class="error-message text-danger"><%= errors.surname.msg %> </span>
+                 <% } %>
             </div>
 
             <div class="inp-cont">
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="user@mail.com" id="email" value="<%=user.email%>">
+                <div class="input_icon">
+                    <input type="text" name="email" placeholder="user@mail.com" id="input__create__email" value="<%=user.email%>">
+                    <i id="icon__create__email"></i>
+                </div>
+                <% if (locals.errors && errors.email) { %>
+                    <span class="error-message text-danger"><%= errors.email.msg %> </span>
+                 <% } %>
             </div>
 
             <div class="inp-cont">
@@ -30,6 +48,10 @@
             <div class="inp-cont file-cont">
                 <label for="avatar"><i class="fa-solid fa-file-arrow-up"></i>Foto de perfil</label>
                 <input type="file" name="avatar" id="avatar">
+                <span id="file__error"></span>
+                <% if (locals.errors && errors.avatar) { %>
+                    <span class="error-message text-danger"><%= errors.avatar.msg %> </span>
+                 <% } %>
             </div>
 
             <div class="inp-cont">
@@ -38,7 +60,7 @@
             </div>
 
             <div class="inp-cont">
-                <button type="submit" class="btn-add">Crear</button>
+                <button type="submit" class="btn-add">Editar</button>
             </div>
         </form>
 
@@ -48,5 +70,6 @@
     </main>
 
     <%-include("../partials/footerAdmin")%>
+    <script src="/js/adminJs/editValidator.js"></script>
 </body>
 </html>
