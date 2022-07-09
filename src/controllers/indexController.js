@@ -29,7 +29,7 @@ module.exports = {
         });
 
         const mailOptions = {
-            from:"adrian.gonzalez90@outlook.com.ar",
+            from:`${USER_MAIL}`,
             to:req.body.email,
             subject:"Gracias por suscribirte!",
             text:"Gracias por suscribirte, este es un email de prueba para el proyecto E-commerce de Digital House y Fundación Formar",

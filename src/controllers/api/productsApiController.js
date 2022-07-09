@@ -10,7 +10,7 @@ module.exports = {
             where: {
                 id: productoId
             },
-            include: [{ association: "images"}, { association: "ingredients"}]
+            include: [{ association: "images"}, { association: "ingredients"},{association:"categories"}]
         })
         .then((producto) => {
             
