@@ -11,39 +11,32 @@
         <section>
             <article class="back-grad">
 
-                <div class="container-products">
-                    <h3>TODOS NUESTROS PRODUCTOS</h3>
-                    <% productos.forEach(producto => { %>
-                        <% if (producto.offer == 1) { %>
-                            
-                            <div class="item-products">
-                                <a href="/producto/<%=producto.id%>">
-                                    <img src="/img/products/<%=producto.images[0].src%>" alt="<%=producto.name%>" class="img-products">
-                                    <div>
-                                        <h4><%=producto.name%></h4>
-                                        <p class="offer">$<%=(producto.price - (producto.price * (producto.discount / 100)))%></p>
-                                        <p class="actual">$<%=producto.price%></p>
-                                    </div>
-                                </a>
-                            </div>
-                            
-                        <% } %>
-                    <% }) %>
-                    <% productos.forEach(producto => { %>
-                        <% if(producto.offer == 0){%>
-                            <div class="item-products">
-                                <a href="/producto/<%=producto.id%>">
-                                    <img src="/img/products/<%=producto.images[0].src%>" alt="<%=producto.name%>" class="img-products">
-                                    <div>
-                                        <h4><%=producto.name%></h4>
-                                        <p class="actual">$<%=producto.price%></p>
-                                    </div>
-                                </a>
-                            </div>
-    
-                        <% } %>
-                    <% }) %>
+                <h3>TODOS NUESTROS PRODUCTOS</h3>
+                <div class="products__filter__container">
+                    <div class="pf__filters">
+                        <form action="">
+                            <label for="search__product" id="labelSearch">
+                                Buscar
+                                <input type="search" id="search__product">
+                            </label>
 
+                            <div>Filtrar por:</div>
+                            
+                            <select name="categories" id="categories__filter">
+                                <option value="" hidden selected>Seleccione una categoria</option>
+                            </select>
+                            
+                            <select name="price" id="price__filter">
+                                <option value="" hidden selected>Ordenar por</option>
+                                <option value="mayor">Mayor Precio</option>
+                                <option value="menor">Menor Precio</option>
+                            </select>
+                            
+                        </form>
+                    </div>
+                    <div class="container-products pf__products"></div>
+    
+                    </div>
                 </div>
 
             </article>
