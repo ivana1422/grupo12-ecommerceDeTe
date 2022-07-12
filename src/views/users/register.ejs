@@ -13,52 +13,80 @@
             <h2>Registrate</h2>
             <hr>
             <form action="/register" method="post" enctype="multipart/form-data">
+
                 <div class="input-container">
-                    <input type="name" class="input-style" name="name" placeholder="Ingrese su nombre" value="<%= locals.old && old.name %>">
+                    <div class="input_icon">
+                        <input type="text" class="input-style" name="name" placeholder="Ingrese su nombre" value="<%= locals.old && old.name %>" id="input__register__name">
+                        <i id="icon__register__name"></i>
+                    </div>
                     <% if (locals.errors && errors.name) { %>
                     <span class="error-message"><%= errors.name.msg %> </span>
                     <% } %> 
                 </div>
+
                 <div class="input-container">
-                    <input type="name" class="input-style" name="lastName" placeholder="Ingrese su apellido" value="<%= locals.old && old.lastName %>">
+                    <div class="input_icon">
+                        <input type="text" class="input-style" name="lastName" placeholder="Ingrese su apellido" value="<%= locals.old && old.lastName %>" id="input__register__lastName">
+                        <i id="icon__register__lastName"></i>
+                    </div>
                     <% if (locals.errors && errors.lastName) { %>
                         <span class="error-message"><%= errors.lastName.msg %> </span>
                      <% } %>  
                 </div>
+
                 <div class="input-container">
-                    <input type="email" class="input-style" name="email" placeholder="Ingrese su email" value="<%= locals.old && old.email %>">
+                    <div class="input_icon">
+                        <input type="email" class="input-style" name="email" placeholder="Ingrese su email" value="<%= locals.old && old.email %>" id="input__register__email">
+                        <i id="icon__register__email"></i>
+                    </div>
                     <% if (locals.errors && errors.email) { %>
                         <span class="error-message"><%= errors.email.msg %> </span>
                      <% } %> 
                 </div>
+
+                
+
                 <div class="input-container">
-                    <label class="labelMulter">Imagen de perfil</label>
-                    <input type="file" class="inputMulter" name="avatar">
-                    <% if (locals.errors && errors.avatar) { %>
-                        <span class="error-message"><%= errors.avatar.msg %> </span>
-                     <% } %> 
-                </div>
-                <div class="input-container">
-                    <input type="password" class="input-style" name="pass" placeholder="Ingrese una contraseña" value="<%= locals.old && old.pass %>">
+                    <div class="input_icon">
+                        <input type="password" class="input-style" name="pass" placeholder="Ingrese una contraseña" value="<%= locals.old && old.pass %>" id="input__register__pass">
+                        <i id="icon__register__pass"></i>
+                    </div>
                     <% if (locals.errors && errors.pass) { %>
                         <span class="error-message"><%= errors.pass.msg %> </span>
                     <% } %> 
                 </div>
+
                 <div class="input-container">
-                    <input type="password" class="input-style" name="pass2" placeholder="Confirmar contraseña" value="<%= locals.old && old.pass2 %>">
+                    <div class="input_icon">
+                        <input type="password" class="input-style" name="pass2" placeholder="Confirmar contraseña" value="<%= locals.old && old.pass2 %>" id="input__register__pass2">
+                        <i id="icon__register__pass2"></i>
+                    </div>
                     <% if (locals.errors && errors.pass2) { %>
                         <span class="error-message"><%= errors.pass2.msg %> </span>
                     <% }else if ( locals.errors && errors.pass2) { %>
                         <span class="error-message"><%= errors.pass2.msg %> </span>
                     <% } %>  
                 </div>
-                <div class="input_check-container">
+
+                <div class="input-container">
+                    <label class="labelMulter">Imagen de perfil</label>
+                    <input type="file" class="inputMulter" name="avatar" id="avatar">
+                    <span id="file__error"></span>
+                    <% if (locals.errors && errors.avatar) { %>
+                        <span class="error-message"><%= errors.avatar.msg %> </span>
+                     <% } %> 
+                </div>
+
+                <div class="input_check-container text-center">
                     <label for="recordar"> Acepto los <a href="">términos y condiciones</a> 
-                        <input type="checkbox" name="terms" id="recordar"></label>
+                        <input type="checkbox" name="terms" id="terms"> <br>
+                        <span id="icon__register__terms" class="error-message "></span>
+                    </label>
                     <% if (locals.errors && errors.terms) { %>
                         <span class="error-message"><%= errors.terms.msg %> </span>
                      <% } %> 
                 </div>
+                
                 <div class="btn-container">
                     <button type="submit" class="btn btn-submit">Registrate</button>
                 </div>
@@ -71,6 +99,6 @@
 
  
 
-    
+    <script src="js/validationsFront/registerValidator.js"></script>
 </body>
 </html>
