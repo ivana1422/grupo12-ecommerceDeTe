@@ -58,6 +58,8 @@ app.use("/about", aboutUsRouter);
 
 app.use("/api/productos",productsApiRouter)
 
+app.use("/api/productos",productsApiRouter)
+
 
 app.listen(PORT, function(){
     console.log(`Servidor abierto en puerto ${PORT}`)
