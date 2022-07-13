@@ -1,0 +1,427 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    --clippy: polygon(100% 0, 0 0, 0 100%, 56% 63%);;
+}
+
+.bodyAbout{
+    background-image: url(/img/back-img.png);
+}
+
+.mainAbout{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    opacity: 0;
+    height: 94vh;
+    
+    
+}
+
+.conocenosButton{
+    opacity: 0;
+    margin: 20px;
+    margin-top: 30px;
+    border-radius: 10%;
+    width: 150px;
+    background-color: #fbd8dc;
+    transition: all 0.5s;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.primerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+}
+
+.conocenos {
+    display: flex;
+    flex-direction: row;
+    /* clip-path: var(--clippy); */
+    transition: all 1s;
+}
+
+.creadores {
+    margin: 10px;
+    border: 0.1rem solid #7C7E82;
+    border-radius: 13px;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    background-color: #fbd8dc;
+    transition: all 0.5s;
+
+}
+
+.divBottonA{
+    margin: 0px;
+}
+
+.linkA {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 1s;
+}
+
+.linkA:hover{
+    color: red;
+}
+
+.divImg {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    transition: all 0.5s;
+    
+}
+
+.taielImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 0.1rem solid black;
+    
+}
+
+.adrianImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 0.1rem solid black;
+}
+
+.nombresCreadores {
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: cursive;
+}
+
+h7 {
+    font-family: cursive;
+    font-size: 10px;
+}
+
+.parrafoSobreNosotros{
+    font-family: cursive;
+}
+
+.tituloSN{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.overlay{
+    background-color: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overlayAdrian{
+    background-color: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.overlay.active{
+    visibility: visible;
+}
+.overlayAdrian.active{
+    visibility: visible;
+}
+
+.popup{
+    background-color: #fbd8dc;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    font-family: cursive;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    opacity: 0;
+    transition: .3s ease all;
+    transform: scale(0.7);
+}
+.popupAdrian{
+    background-color: #fbd8dc;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    font-family: cursive;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    opacity: 0;
+    transition: .3s ease all;
+    transform: scale(0.7);
+}
+
+.cerrar-popup{
+    font-size: 16px;
+    display: block;
+    line-height: 16px;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+.cerrar-popupAdrian{
+    font-size: 16px;
+    display: block;
+    line-height: 16px;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
+}
+
+.cerrar-popup:hover{
+    color: black
+}
+.cerrar-popupAdrian:hover{
+    color: black
+}
+
+
+.popup h3{
+    font-size: 36px;
+    font-weight: 200;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+.popupAdrian h3{
+    font-size: 36px;
+    font-weight: 200;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+
+.popup p{
+    text-align: left;
+    opacity: 0;
+}
+.popupAdrian p{
+    text-align: left;
+    opacity: 0;
+}
+
+
+.popup.active{
+    opacity: 1;
+    transform: scale(1);
+}
+.popupAdrian.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.popup.active h3 {
+    animation: entradaTitulo .5s ease .3s forwards;
+}
+.popupAdrian.active h3 {
+    animation: entradaTitulo .5s ease .3s forwards;
+}
+
+.links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links a{
+    margin: 10px;
+    margin-top: 20px;
+    opacity: 0;
+    transform: all 1.7s;
+}
+
+.links a:hover{
+    color: red;
+}
+
+.popup.active p{
+    animation: entradaTexto .5s ease .3s forwards;
+}
+.popupAdrian.active p{
+    animation: entradaTexto .5s ease .3s forwards;
+}
+
+.popup.active .links a {
+    animation: entradaLinks .5s ease .3s forwards;
+}
+.popupAdrian.active .links a {
+    animation: entradaLinks .5s ease .3s forwards;
+}
+
+
+@keyframes entradaTitulo {
+    from{
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes entradaTexto {
+    from{
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes entradaLinks {
+    from{
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.creadores:hover{
+    height: 315px;
+    width: 315px;
+    margin: 10px;
+}
+
+.divImg:hover{
+    width: 220px;
+    height: 220px;
+    
+}
+
+
+.conocenosButton:hover{
+    width: 165px;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+@media (max-width: 769px){
+    .parrafoSobreNosotros{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 732px){
+    .primerDiv {
+        width: 500px;
+    }
+
+    .creadores {
+        margin: 10px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .divImg {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+    }
+
+    .nombresCreadores {
+        margin-top: 5px;
+        font-size: 14px;
+        font-family: cursive;
+    }
+
+    h7{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 487px){
+    .creadores {
+        margin: 5px;
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 463px){
+    .primerDiv {
+        width: 400px;
+    }
+
+    .creadores {
+        width: 150px;
+        height: 150px;
+    }
+
+    .divImg {
+        width: 94px;
+        height: 94px;
+        border-radius: 100%;
+    }
+
+    .nombresCreadores {
+        margin-top: 5px;
+        font-size: 14px;
+        font-family: cursive;
+    }
+
+    h7{
+        font-size: 10px;
+    }
+
+    .conocenos {
+        flex-direction: column;
+       
+    }
+
+    .mainAbout{
+        height: 120vh; 
+    }
+}

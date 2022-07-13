@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="/css/about.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <%-include("./partials/head")%>
+    <script src="/js/aboutJquery.js"></script>
+<body class="bodyAbout">
+    <%-include("./partials/header")%>
+    <main class="mainAbout" id="mainAbout">
+        <div class="primerDiv">
+            <div>
+            <h1 class="tituloSN">Sobre Nosotros</h1>
+            </div>
+            <div>
+            <p class="parrafoSobreNosotros">Nuestra historia comienza en Fundacion Formar, donde un grupo de personas con muchas ganas de aprender y mejorar su calidad de vida, penso en realizar un proyecto ecommerce sobre té de calidad y comida saludable.
+            Somos un grupo de personas que nos apasiona la programacion y nos tomamos en serio cada enseñanza, cada codigo hecho.  Desde el comienzo, pusimos muchas ganas y energias en este proyecto. A pesar de los problemas que tuvimos en el medio, pudimos sacarlo adelante y aprender cada dia mas.<br>  
+            <br>
+            Con mucho esfuerzo pudimos avanzar como equipo para estar a la altura de nuestros compañeros y a la altura de un programador full stack. Nos inspirammos en un ecommerce de té porque ademas de gustarnos y consumirlo mucho, fue una muy linda idea para comenzar un proyecto.<br>  
+            <br>
+            Sin la ayuda de Fundacion Formar, Santander Rio y Digital House todo esto no seria posible.<br>
+            <br>
+            Esperamos que disfruten de ver y utilizar este proyecto, les deseamos lo mejor!</p>
+            </div>
+            <div class="divBottonA">
+                <button class="conocenosButton" id="bnC" onclick="mostrar()">Conocenos <i class="fa-solid fa-face-laugh-beam"></i></button>
+                    
+            </div>
+            <div class="conocenos" id="conoc"> 
+                <div class="creadores">   
+                    <a class="linkA" id="linkT">
+                        <div class="divImg">
+                            <img src="/img/taiel.jpg" class="taielImg">
+                        </div>
+                        <div>
+                            <h4 class="nombresCreadores">Taiel Fernandez Jara</h4>
+                            <h7>Desarrollador Full Stack</h7>
+                            
+                        </div>
+                    </a>
+                </div>
+                <div class="creadores" id="creadoress">
+                    <a class="linkA" id="linkAdri">
+                        <div class="divImg">
+                            <img class="adrianImg" src="/img/adrian.jpeg">
+                        </div>
+                        <div>
+                            <h4 class="nombresCreadores">Adrian Gonzales</h4>
+                            <h7>Desarrollador Full Stack</h7>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="overlay">
+            <div class="popup" id="popup">
+                <a href="#" id="cerrar-popup" class="cerrar-popup"><i class="fa-solid fa-xmark"></i></a>
+                <h3>Sobre mi:</h3>
+                <p>Soy una persona organizada, responsable y encontre mi pasion en la programacion.<br> Si queres saber mas sobre mi, te dejo los siguientes links:</p>
+                <div class="links">
+                    <a href="https://github.com/TaielFJ"><i class="fa-brands fa-github" target="_blank"></i> github</a>
+                    <a href="https://www.linkedin.com/in/taiel-fernandez-jara-310803206" target="_blank"><i class="fa-brands fa-linkedin"></i> linkedin</a>
+                    <a href="https://www.instagram.com/lauta.jara/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com/taiel.fernandezjara/" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                </div>
+                
+            </div>
+
+        </div>
+
+        <div class="overlayAdrian" id="overlayAdrian">
+            <div class="popupAdrian" id="popupAdrian">
+                <a href="#" id="cerrar-popupAdrian" class="cerrar-popupAdrian"><i class="fa-solid fa-xmark"></i></a>
+                <h3>Sobre mi:</h3>
+                <p>Soy un crack.<br> Si queres saber mas sobre mi, te dejo los siguientes links:</p>
+                <div class="links">
+                    <a href="https://github.com/adriangonzalez-dev" target="_blank"><i class="fa-brands fa-github"></i> github</a>
+                    <a href="https://www.linkedin.com/in/adrian-edgar-gonzalez-condori" target="_blank"><i class="fa-brands fa-linkedin"></i> linkedin</a>
+                </div>
+                
+            </div>
+
+        </div>
+    </main>
+    <script src="/js/about.js"></script>
+    <%-include("./partials/footer")%>
+</body>
+</html>

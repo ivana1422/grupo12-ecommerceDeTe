@@ -17,24 +17,9 @@ const indexRouter = require("../src/routes/indexRouter");
 const productsRouter = require("../src/routes/productsRouter");
 const adminRouter = require("../src/routes/routesAdmin/adminRouter");
 const carritoRouter = require("../src/routes/carritoRouter");
-
-// const mysql = require('mysql');
-// const myconn = require('express-myconnection');
-// const cors = require('cors');
-
-
+const aboutUsRouter = require('../src/routes/aboutUsRouter');
 
 //Middlewares
-
-// app.use(myconn(mysql, {
-//     host: 'localhost',
-//     port: 3306,
-//     user: 'root',
-//     password: null, 
-//     database: 'tea'
-// }));
-
-// app.use(cors());
 
 app.use(express.static(path.join(__dirname, "../public")))
 app.use(express.urlencoded({extended: true}));
@@ -60,11 +45,10 @@ app.use("/", indexRouter);
 app.use("/producto", productsRouter);
 app.use("/admin", adminRouter);
 app.use("/carrito", carritoRouter);
+app.use("/about", aboutUsRouter);
 
 
 app.listen(PORT, function(){
     console.log(`Servidor abierto en puerto ${PORT}`)
 })
 
-
-// /asdasdasdasdasdasdsadas
