@@ -18,6 +18,7 @@ const indexRouter = require("../src/routes/indexRouter");
 const productsRouter = require("../src/routes/productsRouter");
 const adminRouter = require("../src/routes/routesAdmin/adminRouter");
 const carritoRouter = require("../src/routes/carritoRouter");
+const aboutUsRouter = require('../src/routes/aboutUsRouter');
 
 // const mysql = require('mysql');
 // const myconn = require('express-myconnection');
