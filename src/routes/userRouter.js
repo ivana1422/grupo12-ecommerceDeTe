@@ -1,11 +1,12 @@
 const express = require("express")
 const router= express.Router();
 const userController= require("../controllers/userControllers");
-const fileUpload = require('../data/multer/multer');
+const fileUpload = require('../middlewares/multer');
 
 //validations
 const loginValidator = require("../validations/loginValidator");
 const validateRegister = require('../validations/registerValidator');
+const editUserValidator = require("../validations/admin/editUserValidator")
 
 //middlewares
 const userOnline = require("../middlewares/userOnline");
@@ -16,6 +17,9 @@ router.post("/login", loginValidator,userController.processLogin)
 router.get("/register",userOnline, userController.register);
 router.post('/register', fileUpload.single('avatar'), validateRegister, userController.newAcount);
 router.get('/profile', userActive, userController.profile);
+router.get("/profile/:id",userActive, fileUpload.single('avatar'),userController.profileUpdateForm);
+router.put("/profile/:id",fileUpload.single('avatar'),editUserValidator,userController.profileUpdate);
+router.delete("/profile/delete/:id",userController.deleteCount)
 
 router.get("/logout", userController.logout);
 

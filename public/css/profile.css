@@ -80,3 +80,16 @@
 .profile__data__p{
     font-size: 25px;
 }
+
+.btn__profile{
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.btn__profile:hover{
+    border: none;
+    box-shadow: none;
+    color: #0a58ca;
+}

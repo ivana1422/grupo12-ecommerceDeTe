@@ -1,0 +1,38 @@
+
+    
+.products__filter__container{
+    display: flex;
+    flex-direction: column;
+}
+
+#labelSearch{
+    display: flex;
+    flex-direction: column;
+}
+
+.pf__filters{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pf__filters form{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pf__products{
+    height: 73vh;
+    overflow-y: scroll;
+}
+
+.pf__products::-webkit-scrollbar{
+    width: 8px;
+}
+
+.pf__products::-webkit-scrollbar-thumb{
+    background-color: #F18D9E;
+    border-radius: 5px;
+}

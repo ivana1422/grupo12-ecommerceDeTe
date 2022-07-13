@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<%-include("../partials/head")%>
+
+<body >
+
+    <%-include("../partials/header")%>
+    
+    <main class="back-grad products__filter">
+
+        <section>
+            <article class="back-grad">
+
+                <h3>TODOS NUESTROS PRODUCTOS</h3>
+                <div class="products__filter__container">
+                    <div class="pf__filters">
+                        <form action="">
+                            <label for="search__product" id="labelSearch">
+                                Buscar
+                                <input type="search" id="search__product">
+                            </label>
+
+                            <div>Filtrar por:</div>
+                            
+                            <select name="categories" id="categories__filter">
+                                <option value="" hidden selected>Seleccione una categoria</option>
+                            </select>
+                            
+                            <select name="price" id="price__filter">
+                                <option value="" hidden selected>Ordenar por</option>
+                                <option value="mayor">Mayor Precio</option>
+                                <option value="menor">Menor Precio</option>
+                            </select>
+                            
+                        </form>
+                    </div>
+                    <div class="container-products pf__products"></div>
+    
+                    </div>
+                </div>
+
+            </article>
+
+        </section>
+    </main>
+    <%-include("../partials/footer")%>
+    <script src="/js/products/productsFilter.js"></script>
+</body>
+</html>

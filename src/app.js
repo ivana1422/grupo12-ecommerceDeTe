@@ -10,6 +10,7 @@ const methodOverride = require('method-override');
 const session = require("express-session");
 const cookieParser= require('cookie-parser');
 const reloginCookie = require("./middlewares/reloginCookie");
+const cors = require("cors")
 
 
 const userRouter= require('../src/routes/userRouter');
@@ -17,7 +18,14 @@ const indexRouter = require("../src/routes/indexRouter");
 const productsRouter = require("../src/routes/productsRouter");
 const adminRouter = require("../src/routes/routesAdmin/adminRouter");
 const carritoRouter = require("../src/routes/carritoRouter");
-const aboutUsRouter = require('../src/routes/aboutUsRouter');
+
+// const mysql = require('mysql');
+// const myconn = require('express-myconnection');
+// const cors = require('cors');
+
+//api
+const productsApiRouter = require("./routes/api/productsApiRouter")
+
 
 //Middlewares
 
@@ -33,6 +41,7 @@ app.use(session({
 }));
 app.use(cookieParser());
 app.use(reloginCookie);
+app.use(cors())
 
 
 app.set("view engine","ejs");
@@ -42,10 +51,12 @@ app.set("views", path.join(__dirname, "/views"));
 
 app.use('/', userRouter);
 app.use("/", indexRouter);
-app.use("/producto", productsRouter);
+app.use("/productos", productsRouter);
 app.use("/admin", adminRouter);
 app.use("/carrito", carritoRouter);
 app.use("/about", aboutUsRouter);
+
+app.use("/api/productos",productsApiRouter)
 
 
 app.listen(PORT, function(){

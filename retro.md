@@ -122,3 +122,32 @@
 * Dejar para último momento las tareas asignadas
 * Procrastinar.
 * No aprovechar el tiempo.
+
+
+# RETROSPECTIVA DE 6to SPRINT
+## SEGUIR HACIENDO..
+* Darle prioridad al proyecto.
+* Seguir aportando ideas.
+* Darle importancia al Trello.
+
+## HACER MÁS..
+* Mantener el trabajo en equipo.
+* Poner fechas límites a las tareas.
+* Respetar las fechas acordadas para no perjudicar los tiempos de los compañeros
+* Ponerse al día con las actividades
+## EMPEZAR A HACER..
+* Mantener la comunicación, asi sea para informar que no se pudo lograr la tarea asignada
+* Darle prioridad al proyecto y al sprint para llegar al objetivo
+* Si hay atrasos en los tiempos, informar
+* Si no se puede completar la tarea, informar asi se puede asignar otra
+* Verificar funcionamiento antes de subir a rama principal
+## HACER MENOS..
+* No buscar en fuentes alternativas de información.
+* No involucrarse con el proyecto.
+## DEJAR DE HACER..
+* No contestar mensajes
+* No informar sobre el avance de la tarea asignada
+* No pensar en los tiempos de los compañeros
+* Dejar para último momento las tareas asignadas
+* Procrastinar.
+* No aprovechar el tiempo.

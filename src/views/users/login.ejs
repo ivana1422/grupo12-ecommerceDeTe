@@ -11,13 +11,19 @@
             <hr>
             <form action="/login" method="post">
                 <div class="input-container">
-                    <input type="email" class="input-style" name="email" placeholder="Ingrese su email" value="<%=(locals.old && old.email) ? old.email : ""%>">
+                    <div class="input_icon">
+                        <input type="email" class="input-style" name="email" placeholder="Ingrese su email" id="input__login__email" value="<%=(locals.old && old.email) ? old.email : ""%>">
+                        <i id="icon__login__email"></i>
+                    </div>
                     <% if (locals.errors && errors.email) { %>
                         <span class="error-message"><%=errors.email.msg%></span>
                     <% } %>
                 </div>
                 <div class="input-container">
-                    <input type="password" class="input-style" name="pass" placeholder="Ingrese su contraseña">
+                    <div class="input_icon">
+                        <input type="password" class="input-style" name="pass" id="input__login__pass" placeholder="Ingrese su contraseña">
+                        <i id="icon__login__pass"></i>
+                    </div>
                     <% if (locals.errors && errors.pass) { %>
                         <span class="error-message"><%=errors.pass.msg%></span>
                     <% } %>
@@ -43,6 +49,6 @@
     </main>               
     
     <%-include("../partials/footer")%>
-   
+   <script src="js/validationsFront/loginValidations.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
-@import url("../admin/admin.css");
+@import url("/css/admin/admin.css");
+@import url("/css/validationForms.css");
 
 main.addP{
     margin-top: 20px;
@@ -143,3 +144,26 @@ main form{
     text-decoration:none;
 }
 
+.input_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.inp-cont input.input__valid{
+    border: 1px solid #198754;
+    outline: none;
+}
+
+.inp-cont input.input__invalid {
+    border: 1px solid #dc3545; 
+    outline: none;
+}
+
+.icon__valid{
+    color:#198754
+}
+
+.icon__invalid{
+    color: #dc3545
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+    <%-include("../partials/head")%>
+<body>
+    <%-include("../partials/header")%>
+
+    <main class="back-grad__profile">
+        <section class="edit_profile">
+            <article>
+                <form action="/profile/<%-user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="profile__avatar__edit" id="imagePreview">
+                        <img src="/img/users/<%=user.avatar%>" alt="<%=user.name%>">
+                    </div>
+                    <div class="inp-cont">
+                        <label for="name">Nombre</label>
+                        <div class="input_icon">
+                            <input type="text" name="name" placeholder="Ej: Juan" value="<%=user.name%>" id="input__login__name">
+                            <i id="icon__login__name"></i>
+                        </div>
+                        <% if (locals.errors && errors.name) { %>
+                            <span class="error-message text-danger"><%= errors.name.msg %> </span>
+                         <% } %>
+                    </div>
+        
+                    <div class="inp-cont">
+                        <label for="surname">Apellido</label>
+                        <div class="input_icon">
+                            <input type="text" name="surname" placeholder="Perez" value="<%=user.surname%>" id="input__login__surname">
+                            <i id="icon__login__surname"></i>
+                        </div>
+                        <% if (locals.errors && errors.surname) { %>
+                            <span class="error-message text-danger"><%= errors.surname.msg %> </span>
+                         <% } %>
+                    </div>
+        
+                    <div class="inp-cont">
+                        <label for="email">Email</label>
+                        <div class="input_icon">
+                            <input type="text" name="email" placeholder="user@mail.com" value="<%=user.email%>" id="input__login__email">
+                            <i id="icon__login__email"></i>
+                        </div>
+                        <% if (locals.errors && errors.email) { %>
+                            <span class="error-message text-danger"><%= errors.email.msg %> </span>
+                         <% } %>
+                    </div>
+        
+                    <div class="inp-cont file-cont">
+                        <label for="avatar"><i class="fa-solid fa-file-arrow-up"></i>Foto de perfil</label><br>
+                        <input type="file" name="avatar" id="avatar">
+                        <i id="icon__avatar"></i><span id="file__error" class="error-message text-danger"></span>
+                        <% if (locals.errors && errors.avatar) { %>
+                            <span class="error-message text-danger"><%= errors.avatar.msg %> </span>
+                         <% } %>
+                    </div>
+        
+                    <div class="inp-cont">
+                        <label for="location">Domicilio</label>
+                        <input type="text" name="location" placeholder="Ej: Pilar 240" id="location" value="<%=user.address.location%>">
+                    </div>
+        
+                    <div class="inp-cont">
+                        <button type="submit" class="btn-add">Guardar</button>
+                    </div>
+                </form>
+            </article>
+            <article>
+                <img src="" alt="">
+            </article>
+
+        </section>
+    </main>
+
+    <%-include("../partials/footer")%>
+    <script src="/js/validationsFront/profileValidator.js"></script>
+</body>
+</html>
