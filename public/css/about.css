@@ -313,17 +313,6 @@ h7 {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .creadores:hover{
     height: 315px;
     width: 315px;
@@ -351,6 +340,43 @@ h7 {
 @media (max-width: 769px){
     .parrafoSobreNosotros{
         font-size: 16px;
+    }
+
+    .mainAbout{
+        height: 108vh;
+    }
+
+    .primerDiv {
+        width: 500px;
+    }
+
+    .creadores {
+        margin: 10px;
+        width: 240px;
+        height: 240px;
+    }
+
+    .divImg {
+        width: 120px;
+        height: 120px;
+        border-radius: 100%;
+    }
+
+    .nombresCreadores {
+        margin-top: 6px;
+        font-size: 15px;
+        font-family: cursive;
+    }
+
+    .divImg:hover{
+        width: 160px;
+        height: 160px;
+    }
+
+    .creadores:hover{
+        height: 250px;
+        width: 250px;
+        margin: 10px;
     }
 }
 
@@ -382,6 +408,91 @@ h7 {
     }
 }
 
+@media (max-width: 570px){
+    .parrafoSobreNosotros{
+        font-size: 16px;
+    }
+
+    .mainAbout{
+        height: 110vh;
+    }
+
+    .primerDiv {
+        width: 500px;
+    }
+
+    .creadores {
+        margin: 10px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .divImg {
+        width: 120px;
+        height: 120px;
+        border-radius: 100%;
+    }
+
+    .nombresCreadores {
+        margin-top: 6px;
+        font-size: 15px;
+        font-family: cursive;
+    }
+
+    .divImg:hover{
+        width: 160px;
+        height: 160px;
+    }
+
+    .creadores:hover{
+        height: 220px;
+        width: 220px;
+        margin: 10px;
+    }
+}
+@media (max-width: 530px){
+    .parrafoSobreNosotros{
+        font-size: 16px;
+    }
+
+    .mainAbout{
+        height: 113vh;
+    }
+
+    .primerDiv {
+        width: 500px;
+    }
+
+    .creadores {
+        margin: 10px;
+        width: 190px;
+        height: 190px;
+    }
+
+    .divImg {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+    }
+
+    .nombresCreadores {
+        margin-top: 6px;
+        font-size: 15px;
+        font-family: cursive;
+    }
+
+    .divImg:hover{
+        width: 130px;
+        height: 130px;
+    }
+
+    .creadores:hover{
+        height: 200px;
+        width: 200px;
+        margin: 10px;
+    }
+}
+
 @media (max-width: 487px){
     .creadores {
         margin: 5px;
@@ -389,6 +500,9 @@ h7 {
         height: 200px;
     }
 }
+
+
+
 
 @media (max-width: 463px){
     .primerDiv {
@@ -423,5 +537,43 @@ h7 {
 
     .mainAbout{
         height: 120vh; 
+    }
+}
+
+
+@media (max-width: 454px){
+    .mainAbout{
+        height: 145vh;
+        margin: 10px;
+    }
+}
+@media (max-width: 400px){
+    .mainAbout{
+        height: 150vh;
+        margin: 10px;
+    }
+}
+@media (max-width: 355px){
+    .mainAbout{
+        height: 165vh;
+        margin: 10px;
+    }
+}
+@media (max-width: 350px){
+    .mainAbout{
+        height: 170vh;
+        margin: 10px;
+    }
+}
+@media (max-width: 350px){
+    .mainAbout{
+        height: 180vh;
+        margin: 10px;
+    }
+}
+@media (max-width: 315px){
+    .mainAbout{
+        height: 190vh;
+        margin: 10px;
     }
 }
