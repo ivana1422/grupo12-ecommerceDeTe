@@ -20,7 +20,7 @@
     margin-bottom: 10px;
     margin-top: 20px;
     opacity: 0;
-    height: 94vh;
+    min-height: 94vh;
     
     
 }
@@ -48,7 +48,9 @@
     display: flex;
     flex-direction: row;
     /* clip-path: var(--clippy); */
-    transition: all 1s;
+    /* transition: all 1s; */
+    opacity: 0;
+    transform: all 1.7s;
 }
 
 .creadores {
@@ -266,6 +268,29 @@ h7 {
 .links a:hover{
     color: red;
 }
+
+
+.conocenos.active {
+    /* display: flex;
+    flex-direction: row;
+    /* clip-path: var(--clippy); */
+    /* transition: all 1s;
+    opacity: 0; */ 
+    animation:  aparicionInput .5s ease .3s forwards;
+}
+
+@keyframes aparicionInput {
+    from{
+        opacity: 0;
+        transform: translateY(-25px);
+        
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .popup.active p{
     animation: entradaTexto .5s ease .3s forwards;

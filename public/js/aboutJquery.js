@@ -7,17 +7,17 @@ $(document).ready(() => {
         }, 1000)
     })
 
-    $('#conoc').hide();
+    // $('#conoc').hide();
 
-    $('#bnC').click(function(){
-        if ($('#bnC').text() == 'Conocenos '){
-            $('#conoc').show('slow')
-            $('#bnC').text('Ocultar')
-        }else if($('#bnC').text() == 'Ocultar'){
-            $('#conoc').hide('slow')
-            $('#bnC').text('Conocenos ')
-        }
-    })
+    // $('#bnC').click(function(){
+    //     if ($('#bnC').text() == 'Conocenos '){
+    //         $('#conoc').show('slow')
+    //         $('#bnC').text('Ocultar')
+    //     }else if($('#bnC').text() == 'Ocultar'){
+    //         $('#conoc').hide('slow')
+    //         $('#bnC').text('Conocenos ')
+    //     }
+    // })
 
 })
 
