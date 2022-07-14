@@ -331,19 +331,92 @@ h7 {
     margin-bottom: 15px;
 }
 
+@media (max-width: 1200px){
+    .mainAbout{
+        min-height: 104vh;
+    }
+}
+@media (max-width: 1100px){
+    .mainAbout{
+        min-height: 107vh;
+    }
+}
+
+
+@media (max-width: 980px){
+    .mainAbout{
+        min-height: 108vh;
+    }
+}
+@media (max-width: 900px){
+    .mainAbout{
+        min-height: 110vh;
+    }
+}
+@media (max-width: 830px){
+    .mainAbout{
+        min-height: 112vh;
+    }
+}
+@media (max-width: 800px){
+    .mainAbout{
+        min-height: 115vh;
+    }
+}
 
 
 
-
-
-
-@media (max-width: 769px){
+@media (max-width: 785px){
     .parrafoSobreNosotros{
         font-size: 16px;
     }
 
     .mainAbout{
-        height: 108vh;
+        min-height: 125vh;
+    }
+
+    .primerDiv {
+        width: 500px;
+    }
+
+    .creadores {
+        margin: 10px;
+        width: 240px;
+        height: 240px;
+    }
+
+    .divImg {
+        width: 120px;
+        height: 120px;
+        border-radius: 100%;
+    }
+
+    .nombresCreadores {
+        margin-top: 6px;
+        font-size: 15px;
+        font-family: cursive;
+    }
+
+    .divImg:hover{
+        width: 160px;
+        height: 160px;
+    }
+
+    .creadores:hover{
+        height: 250px;
+        width: 250px;
+        margin: 10px;
+    }
+}
+
+
+@media (max-width: 770px){
+    .parrafoSobreNosotros{
+        font-size: 16px;
+    }
+
+    .mainAbout{
+        min-height: 130vh;
     }
 
     .primerDiv {
@@ -414,7 +487,7 @@ h7 {
     }
 
     .mainAbout{
-        height: 110vh;
+        min-height: 140vh;
     }
 
     .primerDiv {
@@ -499,6 +572,15 @@ h7 {
         width: 200px;
         height: 200px;
     }
+    .mainAbout{
+        height: 130vh;
+    }
+}
+@media (max-width: 483px){
+
+    .mainAbout{
+        min-height: 150vh;
+    }
 }
 
 
@@ -536,44 +618,68 @@ h7 {
     }
 
     .mainAbout{
-        height: 120vh; 
+        height: 181vh; 
     }
 }
 
 
 @media (max-width: 454px){
     .mainAbout{
-        height: 145vh;
+        height: 186vh;
         margin: 10px;
     }
 }
 @media (max-width: 400px){
     .mainAbout{
-        height: 150vh;
+        height: 180vh;
+        margin: 10px;
+    }
+}
+@media (max-width: 362px){
+    .mainAbout{
+        height: 190vh;
         margin: 10px;
     }
 }
 @media (max-width: 355px){
     .mainAbout{
-        height: 165vh;
+        height: 191vh;
         margin: 10px;
     }
 }
 @media (max-width: 350px){
     .mainAbout{
-        height: 170vh;
+        height: 192vh;
         margin: 10px;
     }
 }
 @media (max-width: 350px){
     .mainAbout{
-        height: 180vh;
+        height: 193vh;
+        margin: 10px;
+    }
+}
+@media (max-width: 350px){
+    .mainAbout{
+        height: 197vh;
+        margin: 10px;
+    }
+}
+@media (max-width: 333px){
+    .mainAbout{
+        height: 199vh;
+        margin: 10px;
+    }
+}
+@media (max-width: 326px){
+    .mainAbout{
+        height: 202vh;
         margin: 10px;
     }
 }
 @media (max-width: 315px){
     .mainAbout{
-        height: 190vh;
+        height: 210vh;
         margin: 10px;
     }
 }
