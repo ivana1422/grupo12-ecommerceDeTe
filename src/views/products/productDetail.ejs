@@ -53,7 +53,7 @@
                         <h2>Detalles</h2>
                         <p>-<%=producto.description%> </p>
                         <p class="precio">$<%=producto.price%></p>
-                        <% if(ingrediente){ %>
+                        <% if(ingrediente.length !== 0){ %>
                             <p>Ingredientes:</p>
                             <ul>
                                 <% for(let i = 0; i < ingrediente.length; i++) { %>

@@ -115,12 +115,7 @@ window.addEventListener('load', () => {
     })
 
     inputIngredient1.addEventListener('blur', () => {
-        switch(true) {
-            case !inputIngredient1.value.trim():
-                ingredient1Error.innerHTML = "Campo requerido.";
-                inputIngredient1.style.border = '4px solid red';
-                break;
-            
+        switch(true) {         
             case !regExAlpha.test(inputIngredient1.value):
                 ingredient1Error.innerHTML = "Ingrediente Invalido.";
                 inputIngredient1.style.border = '4px solid red';
@@ -134,12 +129,7 @@ window.addEventListener('load', () => {
     })
     
     inputIngredient2.addEventListener('blur', () => {
-        switch(true) {
-            case !inputIngredient2.value.trim():
-                ingredient2Error.innerHTML = "Campo requerido.";
-                inputIngredient2.style.border = '4px solid red';
-                break;
-            
+        switch(true) {          
             case !regExAlpha.test(inputIngredient2.value):
                 ingredient2Error.innerHTML = "Ingrediente Invalido.";
                 inputIngredient2.style.border = '4px solid red';
@@ -154,12 +144,7 @@ window.addEventListener('load', () => {
 
 
     inputIngredient3.addEventListener('blur', () => {
-        switch(true) {
-            case !inputIngredient3.value.trim():
-                ingredient3Error.innerHTML = "Campo requerido.";
-                inputIngredient3.style.border = '4px solid red';
-                break;
-            
+        switch(true) {          
             case !regExAlpha.test(inputIngredient3.value):
                 ingredient3Error.innerHTML = "Ingrediente Invalido.";
                 inputIngredient3.style.border = '4px solid red';
@@ -207,7 +192,10 @@ window.addEventListener('load', () => {
         for(let i = 0; i < elementsForm.length - 1 ; i++ ){
             if(elementsForm[i].value == ""
                 && elementsForm[i].type !== 'file'
-                && elementsForm[i].name !== 'discount'){
+                && elementsForm[i].name !== 'discount'
+                && elementsForm[i].name !== 'ingredient1'
+                && elementsForm[i].name !== 'ingredient2'
+                && elementsForm[i].name !== 'ingredient3'){
                 elementsForm[i].style.border = '4px solid red'
                 submitError.innerHTML = "los campos senalados son obligatorios"
                 errores = true

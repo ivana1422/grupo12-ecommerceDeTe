@@ -17,12 +17,6 @@ let productsValidator = [
     .isNumeric().withMessage('Debe colocar unicamente numeros'),
     check('description')
     .notEmpty().withMessage('campo requerido'),
-    check('ingredient1')
-    .notEmpty().withMessage('campo requerido'),
-    check('ingredient2')
-    .notEmpty().withMessage('campo requerido'),
-    check('ingredient3')
-    .notEmpty().withMessage('campo requerido'),
     check('coment')
     .notEmpty().withMessage('campo requerido'),
 
