@@ -3,6 +3,8 @@ const db = require("../../database/models");
 const {Op} = db.Sequelize;
 const fs = require('fs');
 const path = require('path');
+const cloudinary = require('cloudinary');
+const { json } = require("body-parser");
 
 
 module.exports = {
@@ -37,8 +39,9 @@ module.exports = {
 
         
     },
-    createProduct: (req,res)=>{
+    createProduct:async (req,res)=>{
 
+        
         db.products.create({
             name : req.body.name,
             description: req.body.description,
@@ -47,10 +50,40 @@ module.exports = {
             category: req.body.category,
             stock: req.body.stock ? req.body.stock : req.body.stock = 0 
         }, {include: [{ association: "images"}, { association: "ingredients"}]})
-        .then((product) => {
-            let arrayImages = req.files.map(image => {
+        .then(async (product) => {
+
+            let pathsArray = []
+            let urlNamesArray = []
+            let tempUrls = []
+            let imageUrl1 = ''
+            let imageUrl2 = ''
+            let imageUrl3 = ''
+
+            req.files.forEach(file=>{
+                pathsArray.push(file.path)
+            })
+
+            imageUrl1 = req.files && req.files[0] ? await cloudinary.v2.uploader.upload(req.files[0].path) : undefined
+            imageUrl2 = req.files && req.files[1] ? await cloudinary.v2.uploader.upload(req.files[1].path) : undefined
+            imageUrl3 = req.files && req.files[2] ? await cloudinary.v2.uploader.upload(req.files[2].path) : undefined
+            tempUrls.push(imageUrl1)
+            tempUrls.push(imageUrl2)
+            tempUrls.push(imageUrl3)
+            
+            tempUrls.forEach(image=>{
+                if(image !== undefined){
+                    urlNamesArray.push(image.secure_url)
+                }
+            })
+            
+            pathsArray.forEach(pathFile=>{
+                fs.unlinkSync(pathFile)
+            })
+
+
+            let arrayImages = urlNamesArray.map(image => {
                 return {
-                    src: image.filename, 
+                    src: image, 
                     product_id: product.id
                 }
             })
@@ -179,13 +212,13 @@ module.exports = {
                     }
                 })
                 .then((images) => {
-                    images.forEach( image => {
+                    /*images.forEach( image => {
                         if(fs.existsSync(path.join(__dirname, `../../../public/img/products/${image.src}`))){
                             fs.unlinkSync(path.join(__dirname, `../../../public/img/products/${image.src}`))
                         }else{
                             console.log('la imagen no se encontro o no existe')
                         }
-                    })
+                    })*/
 
                     return db.images.destroy({
                             where: {
@@ -195,10 +228,39 @@ module.exports = {
                 }) 
             }
         })     
-            .then(() => {
-                let arrayImages = req.files.map(image => {
+            .then(async () => {
+
+                let pathsArray = []
+                let urlNamesArray = []
+                let tempUrls = []
+                let imageUrl1 = ''
+                let imageUrl2 = ''
+                let imageUrl3 = ''
+
+                req.files.forEach(file=>{
+                    pathsArray.push(file.path)
+                })
+
+                imageUrl1 = req.files && req.files[0] ? await cloudinary.v2.uploader.upload(req.files[0].path) : undefined
+                imageUrl2 = req.files && req.files[1] ? await cloudinary.v2.uploader.upload(req.files[1].path) : undefined
+                imageUrl3 = req.files && req.files[2] ? await cloudinary.v2.uploader.upload(req.files[2].path) : undefined
+                tempUrls.push(imageUrl1)
+                tempUrls.push(imageUrl2)
+                tempUrls.push(imageUrl3)
+                
+                tempUrls.forEach(image=>{
+                    if(image !== undefined){
+                        urlNamesArray.push(image.secure_url)
+                    }
+                })
+                
+                pathsArray.forEach(pathFile=>{
+                    fs.unlinkSync(pathFile)
+                })
+
+                let arrayImages = urlNamesArray.map(image => {
                     return {
-                        src: image.filename,
+                        src: image,
                         product_id: req.params.id
                     }
                 })

@@ -11,6 +11,7 @@ const session = require("express-session");
 const cookieParser= require('cookie-parser');
 const reloginCookie = require("./middlewares/reloginCookie");
 const cors = require("cors")
+const cloudinary = require('cloudinary')
 
 
 const userRouter= require('../src/routes/userRouter');
@@ -43,6 +44,11 @@ app.use(session({
 app.use(cookieParser());
 app.use(reloginCookie);
 app.use(cors())
+cloudinary.config({ 
+    cloud_name: 'ecommerce-tea', 
+    api_key: '736727622364223', 
+    api_secret: '4WQg3CgSBjymW8snjgZ0EJDUyR0' 
+    })
 
 
 app.set("view engine","ejs");
