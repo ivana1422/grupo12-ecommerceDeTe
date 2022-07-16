@@ -81,15 +81,44 @@ main.forms section.form-container{
      justify-content: center;
      align-items: center;
  }
+ 
 
  main.forms  form .input-container,
  main.forms  form .btn-container{
      display: flex;
      flex-direction: column;
-     width: 100%;
+     width: 77%;
      margin-bottom: 10px;
      font-family: "Baloo 2";
  }
+
+ .input-container.imagen{
+    position: relative;
+    text-align: center;
+    height: 40px;
+    border-radius: 10px; 
+    border-color: var(--rosaClaro);
+    box-shadow: 0 0 40px 40px var(--rosaClaro) inset;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.input-container.imagen:hover {
+    box-shadow: 0 0 10px 0 var(--rosaClaro) inset, 0 0 10px 4px var(--rosaClaro);
+}
+
+#avatar{
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+
 
  main.forms form span.error-message{
      color: red;
@@ -111,8 +140,11 @@ main.forms section.form-container{
 
  main.forms form label{
      font-size: 14px;
+     margin-top: 10px;
      
  }
+
+
  
  /*button.btn {
     width: 100px;
