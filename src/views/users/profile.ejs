@@ -5,11 +5,11 @@
     <%-include("../partials/header")%>
 
     <main class="back-grad__profile">
-        <section class="profile__body">
+        <section class="profile__body" id="sectionProfileA">
             <article class="profile__avatar">
                 <div>
                     <div>
-                        <img src="/img/users/<%=user.avatar%>" alt="<%=user.name%>">
+                        <img src="/img/users/<%=user.avatar%>" alt="<%=user.name%>" id="avatarProfile">
                     </div>
                     <div>
                         <a href="/profile/<%-user.id-%>">Editar mi perfil</a>
@@ -26,24 +26,25 @@
             </article>
             <article class="profile__data">
                 <div class="profile__data__container">
-                    <h5 class="profile__data__h5">Nombre</h5>
+                    <h5 class="profile__data__h5"><b>Nombre</b></h5>
                     <p class="profile__data__p"><%=user.name%></p>
                 </div>
                 <div class="profile__data__container">
-                    <h5 class="profile__data__h5">Apellido</h5>
+                    <h5 class="profile__data__h5"><b>Apellido</b></h5>
                     <p class="profile__data__p"><%=user.surname%></p>
                 </div>
                 <div class="profile__data__container">
-                    <h5 class="profile__data__h5">Correo electronico</h5>
+                    <h5 class="profile__data__h5"><b>Corre electronico</b></h5>
                     <p class="profile__data__p"><%=user.email%></p>
                 </div>
                 <div class="profile__data__container">
-                    <h5 class="profile__data__h5">Domicilio</h5>
+                    <h5 class="profile__data__h5"><b>Domicilio</b></h5>
                     <p class="profile__data__p"><%=user.address.location%></p>
                 </div>
             </article>
         </section>
     </main>
+    <script src="/js/profile.js"></script> 
 
     <%-include("../partials/footer")%>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

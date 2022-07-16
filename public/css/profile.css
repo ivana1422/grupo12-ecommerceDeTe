@@ -20,7 +20,6 @@
 
 .profile__body{
     width:70%;
-    background-color: white;
     opacity: 0.7;
     height: 80%;
     border-radius: 10px;
@@ -29,6 +28,23 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+    opacity: 0;
+    transform: scale(0.7);
+}
+.profile__body.active{
+    animation: aparicionRA .2s ease .2s forwards;
+}
+
+@keyframes aparicionRA {
+    from{
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+    
 }
 
 .profile__avatar,.profile__data{
@@ -36,6 +52,7 @@
     height: 100%;
     
 }
+
 
 .profile__avatar{
     display: flex;
@@ -54,26 +71,30 @@
 
 .profile__avatar div img{
     width: 150px;
-    border-radius: 50%;
+    border-radius: 10%;
+    box-shadow: 2px 2px 10px black;
 }
 
 .profile__data{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: space-around;
     gap:20px;
     width: 50%;
+    margin-left: 10px;
 }
 
 .profile__data__container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 35px;
 }
 
 .profile__data__h5{
+    
     font-size: 20px;
 }
 
@@ -85,11 +106,76 @@
     background: none;
     border: none;
     text-decoration: underline;
-    font-size: 12px;
+    font-size: 1.5rem;
+    text-decoration: none;
 }
 
 .btn__profile:hover{
     border: none;
     box-shadow: none;
-    color: #0a58ca;
+    color: red;
+}
+
+@media (max-width: 1200px){
+    .profile__data{
+        margin-left: none;
+    }
+
+    .profile__data__container{
+        margin-left: 17px;
+    }
+}
+
+@media (max-width: 1020px){
+    .profile__data__h5{
+    
+        font-size: 16px;
+    }
+
+    .profile__data__p{
+        font-size: 20px;
+    }
+    
+}
+@media (max-width: 830px){
+    .profile__data__h5{
+    
+        font-size: 14px;
+    }
+
+    .profile__data__p{
+        font-size: 16px;
+    }
+    
+}
+@media (max-width: 680px){
+    .profile__data__h5{
+    
+        font-size: 12px;
+    }
+
+    .profile__data__p{
+        font-size: 14px;
+    }
+    
+}
+@media (max-width: 629px){
+    .profile__body{
+        flex-wrap: nowrap;
+    }
+}
+@media (max-width: 612px){
+    .profile__data__h5{
+    
+        font-size: 10px;
+    }
+
+    .profile__data__p{
+        font-size: 12px;
+    }
+}
+@media (max-width: 580px){
+    .profile__data__container{
+        margin-left: 10px;
+    }
 }
