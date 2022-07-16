@@ -21,7 +21,7 @@ section.login.input_check-container{
     padding: 0%;
 }
 
-main.login{
+.login{
     font-size: larger;
     height: 100%;
     min-height: 469px;
@@ -31,7 +31,26 @@ main.login{
     padding: 0 1rem;
     font-family: "baloo 2";
     background: none;
+    opacity: 0;
+    transform: scale(0.7);
+    
 }
+.login.active{
+    animation: aparicionLogin 0.1s ease 0.2s forwards;
+}
+
+@keyframes aparicionLogin {
+    from{
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
 a{
 color: black;
 text-decoration: none;
@@ -60,6 +79,7 @@ main.login section.lg-container{
  box-shadow: 0px 2px 2px #000;
  
 }
+
 
 
 main.login lg{

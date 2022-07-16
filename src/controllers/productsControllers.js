@@ -19,7 +19,6 @@ module.exports = {
                 }
             })
             .then((ingrediente) => {
-                console.log(ingrediente)
                 res.render("products/productDetail", {
                     titulo: "Tea | Detalle de Producto",
                     producto,
