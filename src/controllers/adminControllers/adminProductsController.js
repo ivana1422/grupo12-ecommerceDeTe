@@ -10,7 +10,9 @@ const { json } = require("body-parser");
 module.exports = {
     listaProductos: (req,res) =>{
 
-        db.products.findAll()
+        db.products.findAll({
+            include: [{ association: "ingredients" },{ association: "categories" },{ association: "images" }]
+        })
         .then((product) => {
             res.render("admin/products/indexProductsAdmin",{
                 titulo: "Administrador de productos",
@@ -139,7 +141,9 @@ module.exports = {
     editProduct: (req,res)=>{
         let idProducto = +req.params.id;
 
-        db.products.findByPk(idProducto)
+        db.products.findByPk(idProducto,{
+            include: [{ association: "ingredients" },{ association: "categories" },{ association: "images" }]
+        })
         .then((product) => { 
             db.categories.findAll()
             .then((category) => {
@@ -294,7 +298,7 @@ module.exports = {
                         res.redirect("/admin")
                     })
                 })
-                .catch((error) => { res.send(error)})
+                .catch((error) => { console.log(error)})
             })
             
         },    
