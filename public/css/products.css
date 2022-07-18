@@ -50,13 +50,6 @@ button#btn-menu{
     border: none;
 }
 
-.header-menu i:hover{
-    padding:7px;
-    background-color: #FFC4E1;
-    border-radius: 50%;
-    margin:0;
-}
-
 .header-menu i{
     font-size: 3rem;
     color:var(--verde);
