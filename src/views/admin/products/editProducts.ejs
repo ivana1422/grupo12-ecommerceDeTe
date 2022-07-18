@@ -19,7 +19,7 @@
                 <div class="divCategory" id="divCategoryFather" >
                 <% category.forEach( (e) => {  %> 
                     <div>
-                        <input type="radio" name="category" value="<%=e.name%>"id="category" class="inputCategory">
+                        <input type="radio" name="category" value="<%=e.name%>"id="category" class="inputCategory" <% if (e.id == productCategory[0].category_id){ %> checked <% } %>> 
                         <label for="category" class="labelCategories"><%=e.name %></label>
                     </div>
                 <% }) %> 

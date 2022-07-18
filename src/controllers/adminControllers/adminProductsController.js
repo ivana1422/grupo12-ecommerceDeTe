@@ -45,7 +45,8 @@ module.exports = {
             price: req.body.price,
             coment : req.body.coment,
             category: req.body.category,
-            stock: req.body.stock ? req.body.stock : req.body.stock = 0 
+            stock: req.body.stock ? req.body.stock : req.body.stock = 0,
+            discount: req.body.discount ? req.body.discount : req.body.discount = null
         }, {include: [{ association: "images"}, { association: "ingredients"}]})
         .then((product) => {
             let arrayImages = req.files.map(image => {
@@ -116,17 +117,23 @@ module.exports = {
                     }
                 })
                 .then((ingredients) => {
-                    console.log(ingredients)
-                    res.render('admin/products/editProducts', {
-                        postHeader: "Editar Producto",
-                        titulo: "Edición",
-                        product,
-                        category,
-                        ingredients,
-                        session:req.session
-                        
+
+                    db.product_category.findAll({
+                        where: {
+                            product_id: idProducto
+                        }
                     })
-                    console.log(ingredients)
+                    .then((productCategory) => {
+                        res.render('admin/products/editProducts', {
+                            postHeader: "Editar Producto",
+                            titulo: "Edición",
+                            product,
+                            category,
+                            ingredients,
+                            productCategory,
+                            session:req.session  
+                        })
+                    })
                 })
                 
             })
@@ -145,7 +152,8 @@ module.exports = {
             description: req.body.description,
             price: req.body.price,
             coment: req.body.coment,
-            stock: req.body.stock ? req.body.stock : req.body.stock = 0 
+            stock: req.body.stock ? req.body.stock : req.body.stock = 0,
+            discount: req.body.discount ? req.body.discount : req.body.discount = null 
 
         },{
             where: {
