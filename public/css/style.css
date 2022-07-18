@@ -72,6 +72,7 @@ button#btn-menu{
 button#btn-menu:hover{
     border:none;
     box-shadow: none;
+    
 }
 
 .header-menu i:hover{
@@ -79,6 +80,7 @@ button#btn-menu:hover{
     background-color: #FFC4E1;
     border-radius: 50%;
     margin:0;
+    
 }
 
 .header-menu i,
@@ -104,7 +106,8 @@ nav.nav-bar{
     left:0; 
     
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 0 0 5px 0 ;
+    
     
     
 }
@@ -122,12 +125,9 @@ ul.li-container{
 ul.li-container li{
     list-style: none;
     width: 100%;
-    
     display: flex;
     justify-content: center;
     margin-bottom: 0;
-    
-    
 }
 
 ul.li-container li a{
@@ -147,6 +147,10 @@ ul.li-container li a{
    
 }
 
+ul.li-container li a p{
+    font-size: 16px;
+    font-weight: bold;
+}
 
 ul.li-container li a:hover{
     background-color: var(--verde);
@@ -157,9 +161,10 @@ ul.li-container li a:hover{
 
 
 ul.li-container li a i{
-    
+    font-size: 24px;
     color: var(--verde);
-    text-shadow: 0 0 2px var(--gris);
+    /*text-shadow: 0 0 2px var(--gris);*/
+    text-shadow: 0 0 1px var(--negro)
 }
 
 nav.active{
@@ -176,6 +181,7 @@ nav.active{
 a.logo-container{
     width: 23%;
     max-width: 83px;
+    
 }
 
 .avatar-container{
@@ -570,7 +576,20 @@ footer article.copyright p{
     }
 
     ul.li-container li a{
-        width: 30%;
+        width: fit-content;
+    }
+
+    ul.li-container li a p{
+        display: none;
+    }
+    ul.li-container li a:hover p{
+        display: block;
+        transition: all 450ms;
+    }
+
+    ul.li-container li a p{
+        font-size: 8px;
+        font-weight: bold;
     }
 
     footer{
@@ -637,6 +656,11 @@ footer article.copyright p{
         align-items: center;
         justify-content: center;
         text-align: center;
+    }
+
+    ul.li-container li a p{
+        font-size: 16px;
+        
     }
 
     ul.li-container li a i{

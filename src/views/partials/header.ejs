@@ -6,16 +6,16 @@
     
     <nav class="nav-bar" id="menu">
         <ul class="li-container">
-            <li><a href="/productos"><i class="fa-solid fa-piggy-bank"></i>Nuestros Productos</a></li>
-            <li><a href="/about"><i class="fa-brands fa-product-hunt"></i>Sobre Nosotros</a></li>
+            <li><a href="/productos"><i class="fa-solid fa-piggy-bank"></i><p>Nuestros Productos</p></a></li>
+            <li><a href="/about"><i class="fa-brands fa-product-hunt"></i><p>Sobre Nosotros</p></a></li>
 
             <% if (session.user) { %>
-                <li><a href="/carrito"><i class="fa-solid fa-cart-arrow-down"></i>Mi Carrito</a></li>
-                <li><a href="/profile"><i class="fa-solid fa-user-pen"></i>Mi Perfil</a></li>
+                <li><a href="/carrito"><i class="fa-solid fa-cart-arrow-down"></i><p>Mi Carrito</p></a></li>
+                <li><a href="/profile"><i class="fa-solid fa-user-pen"></i><p>Mi Perfil</p></a></li>
                 <% if (session.user && session.user.rol == 1) { %>
-                    <li><a href="/admin"><i class="fa-solid fa-user-shield"></i>Admin</a></li>
+                    <li><a href="/admin"><i class="fa-solid fa-user-shield"></i><p>Admin</p></a></li>
                 <% } %>
-                <li><a href="/logout"><i class="fa-solid fa-arrow-right-to-bracket"></i></i>Cerrar Sesión</a></li>
+                <li><a href="/logout"><i class="fa-solid fa-arrow-right-to-bracket"></i></i><p>Cerrar Sesión</p></a></li>
                 <div class="avatar-container">
                     <img class="avatar" src="/img/users/<%=session.user.avatar%>" alt="">
                     <% if (typeof session.user != "undefined") { %>
@@ -24,8 +24,8 @@
                     
                 </div>
             <% } else {%>
-                <li><a href="/login"><i class="fa-solid fa-user"></i>Iniciar Sesión</a></li>
-                <li><a href="/register"><i class="fa-solid fa-address-card"></i>Registrarse</a></li>
+                <li><a href="/login"><i class="fa-solid fa-user"></i><p>Iniciar Sesión</p></a></li>
+                <li><a href="/register"><i class="fa-solid fa-address-card"></i><p>Registrarse</p></a></li>
             <% } %> 
             
         </ul>
@@ -33,9 +33,9 @@
     
     <a href="/" class="logo-container"><img src="/img/Logo.png" alt="Logo" class="img-header"></a>
      
-    <div class="carrito header-menu">
+    <!--<div class="carrito header-menu">
         <a href="/carrito"><i class="fa-solid fa-cart-arrow-down"></i></a>
-    </div>
+    </div>-->
 
 </header>
 
