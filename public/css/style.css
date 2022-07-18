@@ -200,6 +200,7 @@ img.avatar{
     height: 100%;
     background: none;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .user-online{
