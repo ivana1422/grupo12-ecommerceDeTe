@@ -5,7 +5,8 @@
 }
 
 .adminIndex__article{
-    width:50%;
+    width:90%;
+    max-width: 450px;
     padding: 15px;
     height: fit-content;
     display: flex;

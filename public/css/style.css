@@ -72,22 +72,22 @@ button#btn-menu{
 button#btn-menu:hover{
     border:none;
     box-shadow: none;
+    
 }
 
 .header-menu i:hover{
-    padding:7px;
-    background-color: #FFC4E1;
-    border-radius: 50%;
-    margin:0;
+    color: var(--rosaClaro);
+    
 }
 
-.header-menu i,
-.header-menu a i{
-    font-size: 3rem;
-    color:var(--verde);
-    text-shadow: 0 0 2px var(--gris);
+.header-menu i{
+    border:none;
+    background: none;
+    font-size: 35px;
+    color: var(--verdeClaro);
+    text-shadow: 0px 0px 2px var(--grisOscuro);
     cursor: pointer;
-    transition: 200ms all;
+    transition: all 450ms;
 }
 
 
@@ -104,7 +104,8 @@ nav.nav-bar{
     left:0; 
     
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 0 0 5px 0 ;
+    
     
     
 }
@@ -122,12 +123,9 @@ ul.li-container{
 ul.li-container li{
     list-style: none;
     width: 100%;
-    
     display: flex;
     justify-content: center;
     margin-bottom: 0;
-    
-    
 }
 
 ul.li-container li a{
@@ -147,6 +145,10 @@ ul.li-container li a{
    
 }
 
+ul.li-container li a p{
+    font-size: 16px;
+    font-weight: bold;
+}
 
 ul.li-container li a:hover{
     background-color: var(--verde);
@@ -157,9 +159,11 @@ ul.li-container li a:hover{
 
 
 ul.li-container li a i{
-    
+    font-size: 24px;
     color: var(--verde);
-    text-shadow: 0 0 2px var(--gris);
+    /*text-shadow: 0 0 2px var(--gris);*/
+    /*text-shadow: 0 0 1px var(--negro)*/
+    -webkit-text-stroke:#000000 0.5px;
 }
 
 nav.active{
@@ -176,6 +180,7 @@ nav.active{
 a.logo-container{
     width: 23%;
     max-width: 83px;
+    
 }
 
 .avatar-container{
@@ -366,6 +371,7 @@ MEDIOS DE PAGO*/
 .medios-pago h3{
     font-size: 1.8rem;
     width: 100%;
+    font-weight: bold;
 }
 
 .medios-pago div{
@@ -400,7 +406,14 @@ div.medios-pago div.efectivo i{
     display: flex;
 
 }
+.p_title{
+    font-size: 16px;
+    font-weight: bolder;
+}
 
+.p_content{
+    font-size: 14px;
+}
 
 .medios-pago div.formulario{
     font-size: 1.4rem;
@@ -495,8 +508,9 @@ footer article.media-socials{
     justify-content: center;
 }
 
-footer article.media-socials p{
-    margin-bottom:10px;
+footer article.media-socials p.rrss,p.rrss{
+    margin-block-end: 0;
+    font-size: 16px;
 }
 
 footer article.media-socials div.redes{
@@ -570,7 +584,20 @@ footer article.copyright p{
     }
 
     ul.li-container li a{
-        width: 30%;
+        width: fit-content;
+    }
+
+    ul.li-container li a p{
+        display: none;
+    }
+    ul.li-container li a:hover p{
+        display: block;
+        transition: all 450ms;
+    }
+
+    ul.li-container li a p{
+        font-size: 8px;
+        font-weight: bold;
     }
 
     footer{
@@ -637,6 +664,11 @@ footer article.copyright p{
         align-items: center;
         justify-content: center;
         text-align: center;
+    }
+
+    ul.li-container li a p{
+        font-size: 16px;
+        
     }
 
     ul.li-container li a i{

@@ -100,7 +100,7 @@ main.login   div.btn-container{
 
 main.login span.error-message{
     color: red;
-    font-size: 10px;
+    font-size: 16px;
     margin: 0 auto;
     display: inline-block;
  
