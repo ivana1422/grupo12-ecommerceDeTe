@@ -34,16 +34,21 @@ cerrarPopupAdrian.addEventListener('click', () => {
     popupAdrian.classList.remove('active')
 })
 
+
 let boton = qs('#bnC');
 
 let inputConocenos = qs('#conoc');
 
 boton.addEventListener('click', () => {
     if(boton.innerHTML == "Conocenos "){
+        // inputConocenos.style.display = 'flex'
+        // inputConocenos.style.height = '325px'
         inputConocenos.classList.add('active')
         boton.innerHTML = "dejar de mostrar "
     }else {
         inputConocenos.classList.remove('active')
+        // inputConocenos.style.height = '150px'
+        // inputConocenos.style.display = 'none'
         boton.innerHTML = "Conocenos "
     }
 })

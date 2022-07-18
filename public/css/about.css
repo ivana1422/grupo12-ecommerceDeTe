@@ -23,6 +23,7 @@
     
 }
 
+
 .conocenosButton{
     opacity: 0;
     margin: 20px;
@@ -49,8 +50,9 @@
     /* transition: all 1s; */
     /* transform: all 1.7s; */
     transition: .3s ease all;
-    transform: scale(0.7);
+    transform: scale(0.3);
     opacity: 0;
+    height: 150px;
 }
 
 .creadores {
@@ -273,6 +275,7 @@ h7 {
 .conocenos.active {
     opacity: 1;
     transform: scale(1);
+    height: 325px;
 }
 
 
@@ -502,6 +505,14 @@ h7 {
     h7{
         font-size: 10px;
     }
+
+    .conocenos{
+        height: 100px;
+    }
+
+    .conocenos.active{
+        height: 220px;
+    }
 }
 
 @media (max-width: 570px){
@@ -553,7 +564,7 @@ h7 {
     }
 
     .mainAbout{
-        height: 890px;
+        height: 800px;
     }
 
     .primerDiv {
@@ -587,6 +598,14 @@ h7 {
         height: 200px;
         width: 200px;
         margin: 10px;
+    }
+
+    .conocenos{
+        height: 100px;
+    }
+
+    .conocenos.active{
+        height: 190px;
     }
 }
 
