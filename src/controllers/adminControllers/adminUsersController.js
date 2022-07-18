@@ -62,7 +62,7 @@ module.exports= {
                     db.users.update({
                         name: req.body.name,
                         surname: req.body.surname,
-                        email: req.body.email,
+                        //email: req.body.email,
                         rol: req.body.rol,
                         avatar: req.file ? req.file.filename : user.avatar,
                         // address_id: address.id

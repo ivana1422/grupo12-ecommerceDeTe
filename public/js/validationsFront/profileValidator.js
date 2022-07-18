@@ -154,7 +154,7 @@ const invalidInput = (input,icon)=>{
 
             form.addEventListener('submit',(e)=>{
                 e.preventDefault()
-                if(emailBoolean && nameBoolean && surnameBoolean){
+                if(/*emailBoolean && */nameBoolean && surnameBoolean){
                     form.submit()
                 } else if (!emailBoolean || !nameBoolean || !surnameBoolean){
                     if(!inputName.classList.contains("input__valid") && !nameBoolean){
@@ -163,9 +163,9 @@ const invalidInput = (input,icon)=>{
                     if(!inputSurname.classList.contains("input__valid") && !surnameBoolean){
                         invalidInput(inputSurname,iconSurname)
                     }
-                    if(!inputEmail.classList.contains("input__valid") && !emailBoolean){
+                    /*if(!inputEmail.classList.contains("input__valid") && !emailBoolean){
                         invalidInput(inputEmail,iconEmail)
-                    }
+                    }*/
                     alert("Debe Completar los campos")
                 }
             })

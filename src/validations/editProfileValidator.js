@@ -1,10 +1,10 @@
 const {body, check} = require('express-validator');
-const db = require('../../database/models');
+//const db = require('../../database/models');
 
-let editUserValidator = [
+let editProfileValidator = [
     check('name').notEmpty().withMessage('Debe colocar un nombre'),
     check('surname').notEmpty().withMessage('Debe colocar su apellido'),
-    check('email').notEmpty().withMessage('Debe colocar una direccion de mail').isEmail().withMessage('Tiene que ser un mail valido'),
+    /*check('email').notEmpty().withMessage('Debe colocar una direccion de mail').isEmail().withMessage('Tiene que ser un mail valido'),
     body('email').custom((value,{req})=>{
         return db.users.findOne({
             where:{
@@ -17,7 +17,7 @@ let editUserValidator = [
                 }
             })
 
-    }).withMessage("Email ya registrado"),
+    }).withMessage("Email ya registrado")*/
 
     // verificacion para multer
     body("avatar")
@@ -34,4 +34,4 @@ let editUserValidator = [
     
 ]
 
-module.exports = editUserValidator;
+module.exports = editProfileValidator;

@@ -36,13 +36,14 @@
                     <div class="inp-cont">
                         <label for="email">Email</label>
                         <div class="input_icon">
-                            <input type="text" name="email" placeholder="user@mail.com" value="<%=user.email%>" id="input__login__email">
+                            <input type="text" name="email" placeholder="user@mail.com" value="<%=user.email%>" id="input__login__email" disabled>
                             <i id="icon__login__email"></i>
                         </div>
                         <% if (locals.errors && errors.email) { %>
                             <span class="error-message text-danger"><%= errors.email.msg %> </span>
                          <% } %>
                     </div>
+                    
         
                     <div class="inp-cont file-cont">
                         <label for="avatar"><i class="fa-solid fa-file-arrow-up"></i>Foto de perfil</label><br>
