@@ -93,3 +93,4 @@ create table orders_product (
   foreign key (product_id) references products(id)
 );
 
+ALTER DATABASE tea CHARACTER SET utf8 COLLATE utf8_general_ci;
