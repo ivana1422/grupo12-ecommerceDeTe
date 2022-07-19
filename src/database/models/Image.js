@@ -14,7 +14,9 @@ module.exports= (sequelize,dataTypes)  =>{
          src:{
                 type:dataTypes.STRING(200)
             },
-
+         public_id:{
+                type:dataTypes.STRING(100)
+            },
          product_id:{
                     type:dataTypes.INTEGER
         

@@ -76,28 +76,41 @@ module.exports = {
                 tempUrls.push(imageUrl1)
                 tempUrls.push(imageUrl2)
                 tempUrls.push(imageUrl3)
-                
+
                 tempUrls.forEach(image=>{
+                    if(image !== undefined){
+                        urlNamesArray.push({
+                            src: image.secure_url,
+                            public_id:image.public_id
+                        })
+                    }
+                })
+                /*tempUrls.forEach(image=>{
                     if(image !== undefined){
                         urlNamesArray.push(image.secure_url)
                     }
-                })
+                })*/
+                
                 
                 pathsArray.forEach(pathFile=>{
                     fs.unlinkSync(pathFile)
                 })
             } else {
-                urlNamesArray.push(defaultImage)
+                urlNamesArray.push({
+                    src:defaultImage,
+                    public_id:''
+                })
             }
 
-            console.log(urlNamesArray)
 
             let arrayImages = urlNamesArray.map(image => {
                 return {
-                    src: image, 
+                    ...image,
+                    //src: image, 
                     product_id: product.id
                 }
             })
+            
 
             let ingredients = [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3]
             
@@ -232,7 +245,7 @@ module.exports = {
                         product_id: req.params.id
                     }
                 })
-                .then((images) => {
+                .then(async (images) => {
                     /*images.forEach( image => {
                         if(fs.existsSync(path.join(__dirname, `../../../public/img/products/${image.src}`))){
                             fs.unlinkSync(path.join(__dirname, `../../../public/img/products/${image.src}`))
@@ -240,6 +253,12 @@ module.exports = {
                             console.log('la imagen no se encontro o no existe')
                         }
                     })*/
+
+                    await images.forEach(async image=>{
+                        if(image.public_id !== '' ){
+                            await cloudinary.v2.uploader.destroy(image.public_id) 
+                        } 
+                    })
 
                     return db.images.destroy({
                             where: {
@@ -271,10 +290,18 @@ module.exports = {
                         tempUrls.push(imageUrl2)
                         tempUrls.push(imageUrl3)
 
-                        tempUrls.forEach(image => {
+                        /*tempUrls.forEach(image => {
                             if (image !== undefined) {
                                 urlNamesArray.push(image.secure_url)
                                 
+                            }
+                        })*/
+                        tempUrls.forEach(image=>{
+                            if(image !== undefined){
+                                urlNamesArray.push({
+                                    src: image.secure_url,
+                                    public_id:image.public_id
+                                })
                             }
                         })
 
@@ -282,19 +309,22 @@ module.exports = {
                             fs.unlinkSync(pathFile)
                     })
                 } else {
-                    urlNamesArray.push(defaultImage)
+                    urlNamesArray.push({
+                        src:defaultImage,
+                        public_id:''
+                    })
                 }
 
                 let arrayImages = urlNamesArray.map(image => {
                     return {
-                        src: image,
+                        ...image,
                         product_id: req.params.id
                     }
                 })
 
                 return db.images.bulkCreate(arrayImages)
             })
-                                
+
             .then(() => {
                 return db.product_category.destroy({
                     where: {
@@ -327,7 +357,7 @@ module.exports = {
         },    
            
     delete: (req,res)=>{
-        cloudinary.v2.uploader.destroy("iphwiszutgj7grygc7tg")
+        
 
         db.ingredients.destroy({
             where: {
@@ -342,11 +372,18 @@ module.exports = {
                 }
             })
             .then((imageFind) => {
-                imageFind.forEach((image) => {
+                
+                imageFind.forEach(async image=>{
+                    if(image.public_id !== '' ){
+                        await cloudinary.v2.uploader.destroy(image.public_id) 
+                    } 
+                })
+
+                /*imageFind.forEach((image) => {
                     if(fs.existsSync(path.join(__dirname, `../../../public/img/products/${image.src}`))){
                         fs.unlinkSync(path.join(__dirname, `../../../public/img/products/${image.src}`))
                     }
-                })
+                })*/
 
                 db.images.destroy({
                     where: {
