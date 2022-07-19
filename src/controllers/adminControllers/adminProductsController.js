@@ -3,12 +3,16 @@ const db = require("../../database/models");
 const {Op} = db.Sequelize;
 const fs = require('fs');
 const path = require('path');
+const cloudinary = require('cloudinary');
+const { json } = require("body-parser");
 
 
 module.exports = {
     listaProductos: (req,res) =>{
 
-        db.products.findAll()
+        db.products.findAll({
+            include: [{ association: "ingredients" },{ association: "categories" },{ association: "images" }]
+        })
         .then((product) => {
             res.render("admin/products/indexProductsAdmin",{
                 titulo: "Administrador de productos",
@@ -37,8 +41,9 @@ module.exports = {
 
         
     },
-    createProduct: (req,res)=>{
+    createProduct:async (req,res)=>{
 
+        
         db.products.create({
             name : req.body.name,
             description: req.body.description,
@@ -48,10 +53,48 @@ module.exports = {
             stock: req.body.stock ? req.body.stock : req.body.stock = 0,
             discount: req.body.discount ? req.body.discount : req.body.discount = null
         }, {include: [{ association: "images"}, { association: "ingredients"}]})
-        .then((product) => {
-            let arrayImages = req.files.map(image => {
+        .then(async (product) => {
+
+            let defaultImage = "https://res.cloudinary.com/ecommerce-tea/image/upload/v1658196622/product_htzrzn.png"
+            let urlNamesArray = []
+
+            if(req.files.length > 0){
+
+                let pathsArray = []
+                let tempUrls = []
+                let imageUrl1 = ''
+                let imageUrl2 = ''
+                let imageUrl3 = ''
+    
+                req.files.forEach(file=>{
+                    pathsArray.push(file.path)
+                })
+    
+                imageUrl1 = req.files && req.files[0] ? await cloudinary.v2.uploader.upload(req.files[0].path) : undefined
+                imageUrl2 = req.files && req.files[1] ? await cloudinary.v2.uploader.upload(req.files[1].path) : undefined
+                imageUrl3 = req.files && req.files[2] ? await cloudinary.v2.uploader.upload(req.files[2].path) : undefined
+                tempUrls.push(imageUrl1)
+                tempUrls.push(imageUrl2)
+                tempUrls.push(imageUrl3)
+                
+                tempUrls.forEach(image=>{
+                    if(image !== undefined){
+                        urlNamesArray.push(image.secure_url)
+                    }
+                })
+                
+                pathsArray.forEach(pathFile=>{
+                    fs.unlinkSync(pathFile)
+                })
+            } else {
+                urlNamesArray.push(defaultImage)
+            }
+
+            console.log(urlNamesArray)
+
+            let arrayImages = urlNamesArray.map(image => {
                 return {
-                    src: image.filename, 
+                    src: image, 
                     product_id: product.id
                 }
             })
@@ -87,7 +130,7 @@ module.exports = {
                     }
                     db.product_category.create(productCategories)
                     .then((result) => {
-                        res.redirect("/admin")
+                        res.redirect("/admin/productos")
                     })
                     .catch((error) => {
                         console.log(error)
@@ -107,7 +150,9 @@ module.exports = {
     editProduct: (req,res)=>{
         let idProducto = +req.params.id;
 
-        db.products.findByPk(idProducto)
+        db.products.findByPk(idProducto,{
+            include: [{ association: "ingredients" },{ association: "categories" },{ association: "images" }]
+        })
         .then((product) => { 
             db.categories.findAll()
             .then((category) => {
@@ -169,6 +214,7 @@ module.exports = {
             })
         })
         .then(() => {
+            
             let ingredients = [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3]
             let arrayIngredients = ingredients.map((e) => {
                 return {
@@ -187,13 +233,13 @@ module.exports = {
                     }
                 })
                 .then((images) => {
-                    images.forEach( image => {
+                    /*images.forEach( image => {
                         if(fs.existsSync(path.join(__dirname, `../../../public/img/products/${image.src}`))){
                             fs.unlinkSync(path.join(__dirname, `../../../public/img/products/${image.src}`))
                         }else{
                             console.log('la imagen no se encontro o no existe')
                         }
-                    })
+                    })*/
 
                     return db.images.destroy({
                             where: {
@@ -203,10 +249,45 @@ module.exports = {
                 }) 
             }
         })     
-            .then(() => {
-                let arrayImages = req.files.map(image => {
+            .then(async () => {
+                let urlNamesArray = []
+                let defaultImage = "https://res.cloudinary.com/ecommerce-tea/image/upload/v1658196622/product_htzrzn.png"
+
+                if(req.files.length > 0){
+                        let pathsArray = []
+                        let tempUrls = []
+                        let imageUrl1 = ''
+                        let imageUrl2 = ''
+                        let imageUrl3 = ''
+
+                        req.files.forEach(file => {
+                            pathsArray.push(file.path)
+                        })
+
+                        imageUrl1 = req.files && req.files[0] ? await cloudinary.v2.uploader.upload(req.files[0].path) : undefined
+                        imageUrl2 = req.files && req.files[1] ? await cloudinary.v2.uploader.upload(req.files[1].path) : undefined
+                        imageUrl3 = req.files && req.files[2] ? await cloudinary.v2.uploader.upload(req.files[2].path) : undefined
+                        tempUrls.push(imageUrl1)
+                        tempUrls.push(imageUrl2)
+                        tempUrls.push(imageUrl3)
+
+                        tempUrls.forEach(image => {
+                            if (image !== undefined) {
+                                urlNamesArray.push(image.secure_url)
+                                
+                            }
+                        })
+
+                        pathsArray.forEach(pathFile => {
+                            fs.unlinkSync(pathFile)
+                    })
+                } else {
+                    urlNamesArray.push(defaultImage)
+                }
+
+                let arrayImages = urlNamesArray.map(image => {
                     return {
-                        src: image.filename,
+                        src: image,
                         product_id: req.params.id
                     }
                 })
@@ -237,15 +318,16 @@ module.exports = {
                     }
                     db.product_category.create(editCategory)
                     .then(() => {
-                        res.redirect("/admin")
+                        res.redirect("/admin/productos")
                     })
                 })
-                .catch((error) => { res.send(error)})
+                .catch((error) => { console.log(error)})
             })
             
         },    
            
     delete: (req,res)=>{
+        cloudinary.v2.uploader.destroy("iphwiszutgj7grygc7tg")
 
         db.ingredients.destroy({
             where: {

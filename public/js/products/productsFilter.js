@@ -14,7 +14,7 @@ fetch(`${URL_API}`)
         productos.forEach(producto => {
             container.innerHTML +=`<div class="item-products">
             <a href="/productos/${producto.id}">
-            <img src="/img/products/${producto.images[0].src}" alt="${producto.name}" class="img-products">
+            <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
                                         <div>
                                             <h4>${producto.name}</h4>
                                             <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
@@ -45,7 +45,7 @@ fetch(`${URL_API}`)
             productoPorCategoria.forEach(producto => {
                 container.innerHTML +=`<div class="item-products">
                 <a href="/productos/${producto.id}">
-                <img src="/img/products/${producto.images[0].src}" alt="${producto.name}" class="img-products">
+                <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
                                             <div>
                                                 <h4>${producto.name}</h4>
                                                 <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
@@ -73,7 +73,7 @@ fetch(`${URL_API}`)
                   productos.forEach(producto => {
                     container.innerHTML +=`<div class="item-products">
                     <a href="/productos/${producto.id}">
-                    <img src="/img/products/${producto.images[0].src}" alt="${producto.name}" class="img-products">
+                    <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
                                                 <div>
                                                     <h4>${producto.name}</h4>
                                                     <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
@@ -96,7 +96,7 @@ fetch(`${URL_API}`)
                   productos.forEach(producto => {
                     container.innerHTML +=`<div class="item-products">
                     <a href="/productos/${producto.id}">
-                    <img src="/img/products/${producto.images[0].src}" alt="${producto.name}" class="img-products">
+                    <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
                                                 <div>
                                                     <h4>${producto.name}</h4>
                                                     <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
