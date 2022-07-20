@@ -1,4 +1,4 @@
-let container = document.querySelector(".container-products")
+/*let container = document.querySelector(".container-products")
 let selectCategories = document.getElementById("categories__filter")
 let selectPrice = document.getElementById('price__filter')
 let searchProduct = document.getElementById('search__product')
@@ -9,8 +9,7 @@ fetch(`${URL_API}`)
     .then(result=>result.json())
     .then(data=>{
         let productos = data.products
-        console.log(productos)
-        
+
         productos.forEach(producto => {
             container.innerHTML +=`<div class="item-products">
             <a href="/productos/${producto.id}">
@@ -23,7 +22,7 @@ fetch(`${URL_API}`)
                                             </a>
                                             </div>`
                                         });
-                                        
+
                                         let categorias = data.categories
         categorias.forEach(categoria => {
             selectCategories.innerHTML += `<option value="${categoria.id}" id="categoria${categoria.id}">${categoria.name}</option>`
@@ -127,6 +126,11 @@ fetch(`${URL_API}`)
         })
 
 
-        })
+        })*/
 
+let shareProduct = document.querySelector(".shareProduct")
 
+shareProduct.addEventListener("click",(e)=>{
+    e.preventDefault()
+    console.log(e)
+})

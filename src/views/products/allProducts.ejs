@@ -24,6 +24,9 @@
                             
                             <select name="categories" id="categories__filter">
                                 <option value="" hidden selected>Seleccione una categoria</option>
+                                <% categories.forEach(categoria => { %>
+                                    <option value="<%=categoria.id%>"><%=categoria.name%> </option>
+                                <% }) %>
                             </select>
                             
                             <select name="price" id="price__filter">
@@ -34,8 +37,29 @@
                             
                         </form>
                     </div>
-                    <div class="container-products pf__products"></div>
-    
+                    <div class="pf__products">
+
+                        <% productos.forEach(producto => { %>
+                         
+                            <div class="pf__products__card">
+                                <img src="<%=producto.images[0].src%>" alt="<%=producto.name%>" class="pf__products__image">
+                                <div class="pf__products__info_container">
+                                    <h3 class="pf__products__title"><%=producto.name%></h3>
+                                    <p class="pf__products__price">Precio: $<%=producto.price%></p>
+                                    <p class="pf__products__coment"><%=producto.coment%> </p>
+                                    <div class="pf__products__links">
+                                        <button class="buttonProduct"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                                        <button class="buttonProduct_responsive"><i class="fa-solid fa-cart-shopping styleFont"></i></button>
+                                        
+                                            <button class="shareProduct" href="" onclick="navigator.share({url:'/productos/<%=producto.id%>',text:'Hey! Mira este producto!'})"><i class="fa-solid fa-share-nodes styleFont"></i></button>
+                                        
+                                        <a href="/productos/<%=producto.id%>" class="buttonProduct">Detalle</a>
+                                        <a href="/productos/<%=producto.id%>" class="buttonProduct_responsive"><i class="fa-solid fa-circle-info styleFont"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
                     </div>
                 </div>
 

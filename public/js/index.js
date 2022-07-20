@@ -13,3 +13,4 @@ function shareProduct(id){
         url:`/productos/${id}`
     })
 }
+

@@ -63,9 +63,7 @@ app.use("/admin", adminRouter);
 app.use("/carrito", carritoRouter);
 app.use("/about", aboutUsRouter);
 
-app.use("/api/productos",productsApiRouter)
-
-app.use("/api/productos",productsApiRouter)
+//app.use("/api/productos",productsApiRouter)
 
 
 app.listen(PORT, function(){

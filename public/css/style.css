@@ -392,8 +392,6 @@ body{
         border-color: var(--rosaClaro);
         box-shadow: 0 0 40px 40px var(--rosaClaro) inset;
         transition: box-shadow 0.1s ease-in-out;
-        margin: 0 auto;
-   
 }
 
 .shareProduct{
@@ -404,9 +402,8 @@ body{
 }
 
 .shareProduct:hover{
-    background-color: var(--rosaClaro);
-    padding: 2px;
-    border-radius: 50%;
+    
+    
     box-shadow: none;
     outline: none;
 }
