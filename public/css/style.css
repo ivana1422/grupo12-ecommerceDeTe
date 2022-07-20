@@ -240,33 +240,64 @@ img.avatar{
   Productos
 ***********/
 
-
+body{
+    overflow-x: hidden;
+}
 .back-grad{
     /*width: 100%;
     
     background: rgb(91,200,172);
     background: linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%); */
     background-image: url("/img/back-img.png");
-    background-size:contain;
+    /*background-size:contain;
     background-attachment: fixed;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    overflow-x: hidden;*/
+    background-size:contain;
+    background-attachment: fixed;
+    min-height:76vh;
+    background-size:contain;
     
 }
 
 .container-products{
-    width: 100%;
-    max-width: 1024px;
+    box-sizing: border-box;
+    
+    overflow-x: hidden;
+    
+    /*max-width: 1024px;
     padding: 1.6rem;
     display: flex;
     
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
-
+    flex-wrap: wrap;*/
+    
 }
+
+.div_container-products{
+    width: 95%;
+    /*overflow-x:scroll;
+    height: 400px;*/
+    padding: 1rem 0;
+    overflow-x:scroll;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    height: 400px;
+    
+    margin:0 auto;
+}
+
+.div_container-products::-webkit-scrollbar{
+    background: var(--rosaOscuro);
+    border-radius: 5px;
+    height: 5px;
+}
+
 
 .container-products h3{
     width: 100%;
@@ -276,18 +307,19 @@ img.avatar{
     font-size: 20px;
     margin: 15px 0;
     user-select: none;
+    font-weight: bold;
 }
 .item-products{
     width: 30%;
     max-width: 200px;
     min-width: 236px;
-    min-height: 277px;
+    height: 250px;
     padding: 1rem;
     background: #FFFFFF;
-    border: .1rem solid #7C7E82;
+    scroll-snap-align: center;
     
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 13px;
+    border-radius: 5px;
     display: flex;
     
     justify-content: center;
@@ -296,32 +328,95 @@ img.avatar{
     font-family: "Baloo 2";
     text-align: center;
     margin: 5px;
+    position:relative
 }
 
-.item-products a{
-    display: flex;
-    
-    flex-direction: column;
-  justify-content: space-between;
-    align-items: center;
-    height: 270px;
-    
-}
-
-.item-products a div{
+/*.item-products a div{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 32%;
-}
+}*/
 
 .img-products{
-    width: 70%;
-    border-radius: 50%;
-    border: 0.1rem solid #7C7E82;
+    width: 100%;
+    border-radius: 5px;
+    
 }
 
+.item-product-price,
+.item-product-discount{
+    position: absolute;
+}
+
+.item-product-price{
+    width: 200px;
+    height:fit-content;
+    background-color: var(--blanco);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    bottom: -70px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.item-product-discount{
+    background-color: var(--rosaOscuro);
+    border-radius: 0 15px 15px 0;
+    width: 150px;
+    padding: 5px 0;
+    left: 0;
+    top: 30px;
+}
+
+.item-product-price div{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+}
+.buttonProduct{
+    
+        background-color: transparent;
+        width: fit-content;
+        border: 2px solid;
+        border-radius: 3px;
+        cursor: pointer;
+        padding: 4px 6px;
+        font-size: 16px;
+        color: var(--negro);
+        outline: none;
+        border-color: var(--rosaClaro);
+        box-shadow: 0 0 40px 40px var(--rosaClaro) inset;
+        transition: box-shadow 0.1s ease-in-out;
+        margin: 0 auto;
+   
+}
+
+.shareProduct{
+    background: none;
+    border:none;
+    cursor: pointer;
+    outline: none;
+}
+
+.shareProduct:hover{
+    background-color: var(--rosaClaro);
+    padding: 2px;
+    border-radius: 50%;
+    box-shadow: none;
+    outline: none;
+}
+
+
+.buttonProduct:hover{
+    border: 1px solid #FFC4E1;
+    box-shadow: 0px 0px 4px #FFC4E1;
+   
+}
 
 
 .item-products h4{
@@ -338,20 +433,20 @@ img.avatar{
 }
 
 .item-products:hover{
-    transform: scale(1.05);
+    transform: scale(1.01);
     transition: 0.5s;
 }
 
-.item-products p.actual:hover{
-    color:var(--verde);
-    font-size: 2rem;
+.item-products p.actual{
+    font-weight: bold;
+    font-size: 1.6rem;
     
 }
 
 .item-products p.offer{
-    font-size: 1rem;
-    color: var(--gris);
-    text-decoration:line-through;
+    font-size: 1.6rem;
+    color: var(--negro);
+    
 }
 /*MAIN
 MEDIOS DE PAGO*/
