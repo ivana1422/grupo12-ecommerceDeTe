@@ -27,6 +27,7 @@ const aboutUsRouter = require('../src/routes/aboutUsRouter');
 
 //api
 const productsApiRouter = require("./routes/api/productsApiRouter")
+const usersApiRouter = require('./routes/api/usersApiRouter')
 
 
 //Middlewares
@@ -63,7 +64,8 @@ app.use("/admin", adminRouter);
 app.use("/carrito", carritoRouter);
 app.use("/about", aboutUsRouter);
 
-//app.use("/api/productos",productsApiRouter)
+app.use("/api/productos",productsApiRouter);
+app.use('/api/users', usersApiRouter)
 
 
 app.listen(PORT, function(){

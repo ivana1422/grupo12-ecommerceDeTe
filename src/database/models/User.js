@@ -23,6 +23,9 @@ module.exports= (sequelize,dataType)  =>{
     avatar:{
         type:dataType.STRING(100)
     },
+    avatar_public_id:{
+        type:dataType.STRING(100)
+    },
     rol:{
         type:dataType.INTEGER,
         allowNull:false,
