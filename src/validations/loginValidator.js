@@ -13,15 +13,15 @@ let loginValidator = [
             where: {
                 email: req.body.email
             }
-        })        
+        })
         .then((user) => {
             if(user){
                 if(!bcrypt.compareSync(req.body.pass,user.pass)){
                     return Promise.reject("Email o contraseña Incorrecta")
-                } 
+                }
                 return true
             }
-              
+
         })*/
         return db.users.findOne({
             where:{
@@ -29,11 +29,13 @@ let loginValidator = [
             }
         })
         .then(user=>{
-            if(bcrypt.compareSync(req.body.pass,user.pass)){
-                return true
+            if(!bcrypt.compareSync(req.body.pass,user.pass)){
+                return Promise.reject('credenciales invalidas')
             }
-    
             return false;
+        })
+        .catch(error=>{
+            return Promise.reject("Email o contraseña incorrecto")
         })
     }).withMessage("Email o contraseña Incorrecta"),
 
