@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+    <link rel="stylesheet" href="/css/changePassword.css" type="text/css">
+    <%-include("../partials/head")%>
+    
+<body>
+    <%-include("../partials/header")%>
+
+    <main id="mainChange">
+        <div id="containerChange">
+            <div id="primerDivChange">
+                <div id="segundoDiv">
+                    <h2>Coloque su contraseña actual</h2>
+                </div>
+                <div id="segundoDiv">
+                    <form action="/profile/change/<%= session.user.id %>" method="post">
+                        <input type="password" id="inCA" name="pass" >
+                        <button type="submit" id="BVerificar">Verificar</button>
+                        <% if (locals.errors && errors.pass) { %>
+                            <span class="error-message"><%=errors.pass.msg%></span>
+                        <% } %>
+                    </form>
+                     
+                    <!-- <span id="spanchange"></span> -->
+                </div>
+                
+                <div class="butonVe">
+                    <button type="submit" id="BVerificar">Verificar</button>
+                </div>
+                
+            </div>
+            <div id="primerDivChange2">
+                <div id="segundoDiv">
+                    <h2>Coloque la nueva contraseña</h2>
+                </div>
+                <div id="segundoDiv">
+                    <input type="password">
+                </div>
+            </div>
+            <div id="primerDivChange3">
+                <div id="segundoDiv">
+                    <h2>Repita la nueva contraseña</h2>
+                </div>
+                <div id="segundoDiv">
+                    <input type="password">
+                </div>
+            </div>
+            <div class="botonChange" id="primerDivButtons">
+                <button type="submit">cambiar</button>
+                <button type="submit">Cancelar</button>
+            </div>
+        </div>
+        
+    </main>
+    <script src="/js/changePassword.js"></script>
+    <%-include("../partials/footer")%>
+</body>
+</html>

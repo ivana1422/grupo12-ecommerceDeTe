@@ -17,7 +17,6 @@ module.exports= {
 
     processLogin: (req,res)=>{
         let errors = validationResult(req);
-        
         if(errors.isEmpty()){
             db.users.findOne({
                 where: {
@@ -35,7 +34,7 @@ module.exports= {
                         rol:user.rol
                         }
                          if(req.body.remember){
-                             const TIME_IN_MILISECONS=60000 * 10;
+                             const TIME_IN_MILISECONS=60000 * 100;
                              res.cookie('tea',req.session.user,{
                                 expires: new Date (Date.now()+ TIME_IN_MILISECONS),
                                 httpOnly: true,
@@ -57,7 +56,6 @@ module.exports= {
                 session:req.session
             })
         }
-
         
     },
 
@@ -91,19 +89,7 @@ module.exports= {
                     res.redirect('/login')
                 })
                 .catch((error) => { res.send(error)})
-            /*db.users.create({
-                name: req.body.name,
-                surname: req.body.lastName,
-                email: req.body.email,
-                pass: bcrypt.hashSync(req.body.pass, 10),
-                avatar: req.file ? req.file.filename : "defaultAvatar.png",
-                rol: 0,
-                address_id: req.body.address ? req.body.address : req.body.address = +1
-            })
-            .then(() => { 
-                res.redirect('/login')
-            })
-            .catch((error) => { res.send(error)})*/
+
 
         }else{
             res.render('users/register',{
@@ -114,18 +100,8 @@ module.exports= {
             })
         }
 
-        // req.getConnection((err, conn) => {
-        //     if(err) return res.status(500).send('server error')
-
-        //     const avatar = fs.readFileSync(path.join(__dirname, '../../public/img/' + req.file.filename))
-
-        //     conn.query('INSERT INTO users (avatar) set ?', [{avatar}], (err, rows) => {
-        //         if(err) return res.status(500).send('server error')
-
-        //         console.log('imagen guardada en la BD con exito')
-        //     })
-        // })
     },
+
 
     profile:(req,res)=>{
 
@@ -144,6 +120,42 @@ module.exports= {
         })
         .catch((error) => { console.log(error)})
 
+    },
+
+    change: (req, res) => {
+
+        db.users.findByPk(req.params.id,{
+            include:[{association:"address"}]
+        })
+        .then((user) => {
+            res.render("users/change", {
+                titulo: "cambiar contrase;a",
+                session: req.session,
+                user
+            } )
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+        
+    },
+    changeProcess: (req, res) => {
+
+        let errors = validationResult(req);
+        // res.send(errors)
+        if(errors.isEmpty()){
+            console.log('enviado')
+        }else{
+            res.render('users/change', {
+                titulo: "cambiar contra",
+                errors:errors.mapped(),
+                old:req.body,
+                session:req.session
+            })
+        }
+
+        
     },
 
     profileUpdateForm:(req,res)=>{
@@ -203,37 +215,6 @@ module.exports= {
                             })
                         })
                 }
-
-
-        /*let errors = validationResult(req);
-
-        if(errors.isEmpty()){
-            db.users.update({
-                ...req.doby
-            })
-            .then(() => {
-                res.rendirect("users/profile")
-            })
-            .catch((error) => { res.render(error)})
-        }else{
-            db.users.findOne({
-                where:{
-                    id: req.session.users.id
-                },
-                include: [{ association: "address"}]
-            })
-            .then((user) => {
-                res.render("users/profile",{
-                    titulo:"Mi perfil",
-                    session: req.session,
-                    user,
-                    errors: errors.mapped()
-                })
-            })
-            .catch((error) => {
-                res.send(error)
-            })
-        }*/
     },
 
     addressCreate: (req, res) => {
@@ -307,5 +288,7 @@ module.exports= {
          if(req.cookies.tea){
         res.cookie('tea',"",{maxAge:-1})
         }
-    }
+    },
+
+  
 }
