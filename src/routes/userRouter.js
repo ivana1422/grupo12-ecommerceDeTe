@@ -7,11 +7,13 @@ const fileUpload = require('../middlewares/multer');
 const loginValidator = require("../validations/loginValidator");
 const validateRegister = require('../validations/registerValidator');
 const editUserValidator = require("../validations/admin/editUserValidator");
-const editProfileValidator = require('../validations/editProfileValidator')
+const editProfileValidator = require('../validations/editProfileValidator');
+
 
 //middlewares
 const userOnline = require("../middlewares/userOnline");
 const userActive = require("../middlewares/userActive");
+const changeValidator = require("../validations/changeValidator");
 
 router.get("/login",userOnline, userController.login);
 router.post("/login", loginValidator,userController.processLogin)
@@ -21,6 +23,8 @@ router.get('/profile', userActive, userController.profile);
 router.get("/profile/:id",userActive, fileUpload.single('avatar'),userController.profileUpdateForm);
 router.put("/profile/:id",fileUpload.single('avatar'),editProfileValidator,userController.profileUpdate);
 router.delete("/profile/delete/:id",userController.deleteCount)
+router.get('/profile/change/:id', userActive, userController.change)
+router.post('/profile/change/:id', changeValidator, userController.changeProcess)
 
 router.get("/logout", userController.logout);
 
