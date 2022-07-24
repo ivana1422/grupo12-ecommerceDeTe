@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <form action="/profile/change/<%-user.id%>?_method=put" method="post" id="formChange">
-                        <button type="submit" id="changePass" class="btn__profile">Cambiar contraseña</button>
+                        <a href="/profile/change/<%-user.id %> ">Cambiar contraseña</a>
                     </form>
                     <form action="/profile/delete/<%-user.id%>?_method=delete" method="post" id="formDelete">
                         <button type="submit" id="deleteCount" class="btn__profile">eliminar mi cuenta</button>
