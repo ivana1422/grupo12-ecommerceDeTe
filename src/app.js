@@ -11,6 +11,7 @@ const session = require("express-session");
 const cookieParser= require('cookie-parser');
 const reloginCookie = require("./middlewares/reloginCookie");
 const cors = require("cors")
+const cloudinary = require('cloudinary')
 
 
 const userRouter= require('../src/routes/userRouter');
@@ -26,6 +27,7 @@ const aboutUsRouter = require('../src/routes/aboutUsRouter');
 
 //api
 const productsApiRouter = require("./routes/api/productsApiRouter")
+const usersApiRouter = require('./routes/api/usersApiRouter')
 
 
 //Middlewares
@@ -43,6 +45,11 @@ app.use(session({
 app.use(cookieParser());
 app.use(reloginCookie);
 app.use(cors())
+cloudinary.config({ 
+    cloud_name: 'ecommerce-tea', 
+    api_key: '736727622364223', 
+    api_secret: '4WQg3CgSBjymW8snjgZ0EJDUyR0' 
+    })
 
 
 app.set("view engine","ejs");
@@ -57,9 +64,8 @@ app.use("/admin", adminRouter);
 app.use("/carrito", carritoRouter);
 app.use("/about", aboutUsRouter);
 
-app.use("/api/productos",productsApiRouter)
-
-app.use("/api/productos",productsApiRouter)
+app.use("/api/productos",productsApiRouter);
+app.use('/api/users', usersApiRouter)
 
 
 app.listen(PORT, function(){

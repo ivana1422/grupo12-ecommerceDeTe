@@ -8,5 +8,9 @@ button.addEventListener("click", function(){
 
 })
 
-
+function shareProduct(id){
+    navigator.share({
+        url:`/productos/${id}`
+    })
+}
 

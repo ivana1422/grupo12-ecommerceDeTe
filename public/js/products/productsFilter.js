@@ -1,4 +1,4 @@
-let container = document.querySelector(".container-products")
+/*let container = document.querySelector(".container-products")
 let selectCategories = document.getElementById("categories__filter")
 let selectPrice = document.getElementById('price__filter')
 let searchProduct = document.getElementById('search__product')
@@ -9,12 +9,11 @@ fetch(`${URL_API}`)
     .then(result=>result.json())
     .then(data=>{
         let productos = data.products
-        console.log(productos)
-        
+
         productos.forEach(producto => {
             container.innerHTML +=`<div class="item-products">
             <a href="/productos/${producto.id}">
-            <img src="/img/products/${producto.images[0].src}" alt="${producto.name}" class="img-products">
+            <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
                                         <div>
                                             <h4>${producto.name}</h4>
                                             <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
@@ -23,7 +22,7 @@ fetch(`${URL_API}`)
                                             </a>
                                             </div>`
                                         });
-                                        
+
                                         let categorias = data.categories
         categorias.forEach(categoria => {
             selectCategories.innerHTML += `<option value="${categoria.id}" id="categoria${categoria.id}">${categoria.name}</option>`
@@ -45,7 +44,7 @@ fetch(`${URL_API}`)
             productoPorCategoria.forEach(producto => {
                 container.innerHTML +=`<div class="item-products">
                 <a href="/productos/${producto.id}">
-                <img src="/img/products/${producto.images[0].src}" alt="${producto.name}" class="img-products">
+                <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
                                             <div>
                                                 <h4>${producto.name}</h4>
                                                 <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
@@ -73,7 +72,7 @@ fetch(`${URL_API}`)
                   productos.forEach(producto => {
                     container.innerHTML +=`<div class="item-products">
                     <a href="/productos/${producto.id}">
-                    <img src="/img/products/${producto.images[0].src}" alt="${producto.name}" class="img-products">
+                    <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
                                                 <div>
                                                     <h4>${producto.name}</h4>
                                                     <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
@@ -96,7 +95,7 @@ fetch(`${URL_API}`)
                   productos.forEach(producto => {
                     container.innerHTML +=`<div class="item-products">
                     <a href="/productos/${producto.id}">
-                    <img src="/img/products/${producto.images[0].src}" alt="${producto.name}" class="img-products">
+                    <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
                                                 <div>
                                                     <h4>${producto.name}</h4>
                                                     <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
@@ -114,7 +113,7 @@ fetch(`${URL_API}`)
                     container.innerHTML += //html
                         `<div class="item-products">
                                 <a href="/productos/${producto.id}">
-                                    <img src="/img/products/${producto.images[0].src}" alt="${producto.name}" class="img-products">
+                                    <img src=${producto.images[0].src} alt="${producto.name}" class="img-products">
                                     <div>
                                         <h4>${producto.name}</h4>
                                         <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
@@ -127,6 +126,11 @@ fetch(`${URL_API}`)
         })
 
 
-        })
+        })*/
 
+let shareProduct = document.querySelector(".shareProduct")
 
+shareProduct.addEventListener("click",(e)=>{
+    e.preventDefault()
+    console.log(e)
+})

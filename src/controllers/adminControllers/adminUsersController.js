@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const db = require('../../database/models');
 const {Op} = db.Sequelize;
+const cloudinary = require('cloudinary')
 
 
 
@@ -58,13 +59,31 @@ module.exports= {
                         id: user.address_id
                     }
                 })
-                .then((address) => {
+                .then(async (address) => {
+                    let imageUser = ''
+                    let imagePublicId = ''
+                    let tempUrl = ''
+
+                    if (req.file) {
+                        if (user.avatar_public_id !== '') {
+                            cloudinary.v2.uploader.destroy(user.avatar_public_id)
+                        }
+                        tempUrl = await cloudinary.v2.uploader.upload(req.file.path)
+                        imageUser = tempUrl.secure_url
+                        imagePublicId = tempUrl.public_id
+                        fs.unlinkSync(req.file.path)
+                    } else {
+                        imageUser = user.avatar
+                        imagePublicId = user.avatar_public_id ? user.avatar_public_id : ''
+                    }
+
                     db.users.update({
                         name: req.body.name,
                         surname: req.body.surname,
                         //email: req.body.email,
                         rol: req.body.rol,
-                        avatar: req.file ? req.file.filename : user.avatar,
+                        avatar: imageUser,//req.file ? req.file.filename : user.avatar,
+                        avatar_public_id:imagePublicId
                         // address_id: address.id
                     },{
                         where: {
@@ -75,7 +94,6 @@ module.exports= {
                         res.redirect('/admin/users')
                     })
                     .catch((error) => { console.log(error)})
-                    
                 })
                     .catch((error) => { console.log(error)})
             })
@@ -100,14 +118,31 @@ module.exports= {
             db.address.create({
                 location: req.body.location ? req.body.location : "Sin domicilio cargado",
          })
-            .then((address) => {
+            .then(async (address) => {
+
+                let defaultAvatar = "https://res.cloudinary.com/ecommerce-tea/image/upload/v1658409640/defaultAvatar_o0pfsw.png"
+                let imageUser = ''
+                let imagePublicId = ''
+                let tempUrl = ''
+
+                if (req.file) {
+                    tempUrl = await cloudinary.v2.uploader.upload(req.file.path)
+                    imageUser = tempUrl.secure_url
+                    imagePublicId = tempUrl.public_id
+                    fs.unlinkSync(req.file.path)
+                } else {
+                    imageUser = defaultAvatar
+                    imagePublicId = ''
+                }
+
                 db.users.create({
                     name: req.body.name,
                     surname: req.body.surname,
                     email: req.body.email,
                     rol: req.body.rol ? req.body.rol : 0,
                     pass: req.body.pass,
-                    avatar: req.file ? req.file.filename : "defaultAvatar.png",
+                    avatar: imageUser,//req.file ? req.file.filename : "defaultAvatar.png",
+                    avatar_public_id: imagePublicId,
                     address_id: address.id 
                 })
                 .then(() =>{
@@ -130,14 +165,15 @@ module.exports= {
     deleteUser: (req, res) => {
         let address__id = 0
         db.users.findByPk(req.params.id)
-        .then(user=>{
+        .then(async user=>{
             address__id = user.address_id
-            if(fs.existsSync(path.join(__dirname, `../../../public/img/users/${user.avatar}`)) && user.avatar != "defaultAvatar.png"){
+            /*if(fs.existsSync(path.join(__dirname, `../../../public/img/users/${user.avatar}`)) && user.avatar != "defaultAvatar.png"){
                 fs.unlinkSync(path.join(__dirname, `../../../public/img/users/${user.avatar}`))
                      
             }else{
                 console.log("La imagen no existe!");
-            }
+            }*/
+            await cloudinary.v2.uploader.destroy(user.avatar_public_id)
 
             return db.users.destroy({
                 where:{

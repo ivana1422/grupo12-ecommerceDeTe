@@ -31,15 +31,22 @@ module.exports = {
         .catch((error) => { res.send(error)})        
     },
     allProducts:(req,res)=>{
-        db.products.findAll({
-            include: [{ association: "images"}]
+        let products = db.products.findAll({
+            include: [{ association: "images"}, { association: "ingredients"},{association:"categories"}]
         })
-            .then(productos=>{
+
+        let categories = db.categories.findAll()
+        
+        Promise.all([products,categories])
+            .then(result=>{
+                
                 res.render("products/allProducts",{
-                    productos,
+                    productos:result[0],
+                    categories:result[1],
                     titulo: "Nuestro Productos",
                     session:req.session
                 })
+                
             })
-    }
+        }
 }

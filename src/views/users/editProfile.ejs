@@ -8,12 +8,9 @@
         <section class="edit_profile">
             <article>
                 <form action="/profile/<%-user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-                    
-                        <div class="profile__avatar__edit" id="imagePreview">
-                            <img src="/img/users/<%=user.avatar%>" alt="<%=user.name%>">
-                        </div>
-                
-                    
+                    <div class="profile__avatar__edit" id="imagePreview">
+                        <img src="<%=user.avatar%>" alt="<%=user.name%>">
+                    </div>
                     <div class="inp-cont">
                         <label for="name">Nombre</label>
                         <div class="input_icon">

@@ -94,3 +94,7 @@ create table orders_product (
 );
 
 ALTER DATABASE tea CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE tea.images ADD public_id varchar(100) NULL;
+
+ALTER TABLE tea.users ADD avatar_public_id varchar(100) NULL;

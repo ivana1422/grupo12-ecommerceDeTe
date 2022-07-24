@@ -17,7 +17,7 @@
                 
                 <label for="category">Categoria del Producto</label>
                 <div class="divCategory" id="divCategoryFather" >
-                <% category.forEach( (e) => {  %> 
+                <% category.forEach((e) => {  %> 
                     <div>
                         <input type="radio" name="category" value="<%=e.name%>"id="category" class="inputCategory" <% if (e.id == productCategory[0].category_id){ %> checked <% } %>> 
                         <label for="category" class="labelCategories"><%=e.name %></label>
@@ -52,18 +52,18 @@
             </div>
 
             
+            <% if (product.ingredients.length > 0){ %>
                 <div class="inp-cont">
-                    <% if (ingredients.length !== 0){ %>
                     <label for="ingredients" class="label-ing">Editar ingredientes:</label>
                     <div class="check-ing">
                          
-                        <input type="text" name="ingredient1" value="<%= ingredients[0].name%>" class="ingrediente" id="ingredient1">
-                        <input type="text" name="ingredient2" value="<%= ingredients[1].name%>" class="ingrediente" id="ingredient2">
-                        <input type="text" name="ingredient3" value="<%= ingredients[2].name%>" class="ingrediente" id="ingredient3">
+                        <input type="text" name="ingredient1" value="<%= product.ingredients[0].name%>" class="ingrediente" id="ingredient1">
+                        <input type="text" name="ingredient2" value="<%= product.ingredients[1].name%>" class="ingrediente" id="ingredient2">
+                        <input type="text" name="ingredient3" value="<%= product.ingredients[2].name%>" class="ingrediente" id="ingredient3">
                         
                     </div>
-                    <% } %>
                 </div>
+                    <% } %>
             
 
             <div class="inp-cont">
@@ -74,7 +74,7 @@
             
             <div class="inp-cont file-cont">
                 <label for="image"><i class="fa-solid fa-file-arrow-up"></i> Cargar Imagenes</label>
-                <input type="file" name="image" id="image">
+                <input type="file" name="image" id="image" multiple>
             </div>
             
             <div class="inp-cont ">
