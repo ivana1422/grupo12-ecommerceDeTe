@@ -14,6 +14,7 @@ module.exports = {
             include: [{ association: "ingredients" },{ association: "categories" },{ association: "images" }]
         })
         .then((product) => {
+            console.log(product.categories)
             res.render("admin/products/indexProductsAdmin",{
                 titulo: "Administrador de productos",
                 postHeader: "Lista de Productos",
@@ -54,7 +55,6 @@ module.exports = {
             discount: req.body.discount ? req.body.discount : req.body.discount = null
         }, {include: [{ association: "images"}, { association: "ingredients"}]})
         .then(async (product) => {
-
             let defaultImage = "https://res.cloudinary.com/ecommerce-tea/image/upload/v1658196622/product_htzrzn.png"
             let urlNamesArray = []
 
