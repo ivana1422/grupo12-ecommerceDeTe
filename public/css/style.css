@@ -268,8 +268,8 @@ body{
 .container-products{
     box-sizing: border-box;
     
-    overflow-x: hidden;
-    
+    overflow: hidden;
+    position: relative;
     /*max-width: 1024px;
     padding: 1.6rem;
     display: flex;
@@ -278,6 +278,24 @@ body{
     align-items: center;
     flex-wrap: wrap;*/
     
+}
+/*Slider*/
+.arrowSlider{
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 9999;
+}
+
+.arrowSliderRight{
+    top:45%;
+    right: 15px;
+
+}
+
+.arrowSliderLeft{
+    top:45%;
+    left: 15px;
 }
 
 .div_container-products{
@@ -291,6 +309,7 @@ body{
     height: 400px;
     
     margin:0 auto;
+    scroll-behavior: smooth;
 }
 
 .div_container-products::-webkit-scrollbar{
