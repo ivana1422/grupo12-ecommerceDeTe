@@ -13,6 +13,16 @@
 
                 <h3>TODOS NUESTROS PRODUCTOS</h3>
                 <div class="products__filter__container">
+                    <div class="containerCategory">
+                        <a class="cardCategory cardCategoryAll" href="/productos/all">
+                            <h3 class="cardCategory_name">Todos</h3>
+                        </a>
+                        <% categories.forEach(category => { %>
+                            <a class="cardCategory <%=`cardCategory${category.id}`%>" href="/productos/all/<%=category.id%>">
+                                <h3 class="cardCategory_name"><%= category.name%></h3>
+                            </a>
+                        <% }) %>
+                    </div>
                     <div class="pf__filters">
                         <form action="">
                             <label for="search__product" id="labelSearch">
@@ -20,15 +30,6 @@
                                 <input type="search" id="search__product">
                             </label>
 
-                            <div>Filtrar por:</div>
-                            
-                            <select name="categories" id="categories__filter">
-                                <option value="" hidden selected>Seleccione una categoria</option>
-                                <% categories.forEach(categoria => { %>
-                                    <option value="<%=categoria.id%>"><%=categoria.name%> </option>
-                                <% }) %>
-                            </select>
-                            
                             <select name="price" id="price__filter">
                                 <option value="" hidden selected>Ordenar por</option>
                                 <option value="mayor">Mayor Precio</option>

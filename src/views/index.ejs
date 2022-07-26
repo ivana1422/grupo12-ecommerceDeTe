@@ -70,6 +70,15 @@
                     </div>
 
                 </div>
+                <!--Categorias-->
+                <h3 class="text-center m-3">PRODUCTOS POR CATEGORÍA</h3>
+                <div class="containerCategory">
+                    <% categories.forEach(category => { %>
+                        <a class="cardCategory <%=`cardCategory${category.id}`%>" href="/productos/all/<%=category.id%>">
+                            <h3 class="cardCategory_name"><%= category.name%></h3>
+                        </a>
+                    <% }) %>
+                </div>
 
                 <div class="medios-pago">
                     <h3>PODES ABONAR CON ESTOS MEDIOS DE PAGO</h3>

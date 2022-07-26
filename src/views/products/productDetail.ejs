@@ -57,13 +57,17 @@
                         <h2>Detalles</h2>
                         <p>-<%=producto.description%> </p>
                         <p class="precio">$<%=producto.price%></p>
-                        <% if(ingrediente.length !== 0){ %>
+                        <% if(producto.ingredients.length > 0 && producto.ingredients[0] !== ''){ %>
                             <p>Ingredientes:</p>
-                            <ul>
-                                <% for(let i = 0; i < ingrediente.length; i++) { %>
-                                <li><%=ingrediente[i].name%></li>
+
+                            <% producto.ingredients.forEach(ingrediente => { %>
+                              <li><%=ingrediente.name%></li>
+                            <% }) %>
+                            <!--<ul>
+                                <% for(let i = 0; i < producto.ingredients.length; i++) { %>
+                                <li><%=producto.ingredients[i].name%></li>
                                 <%}%>
-                            </ul>
+                            </ul>-->
                          <%}%>
                            
                         <p><%=producto.coment%></p>

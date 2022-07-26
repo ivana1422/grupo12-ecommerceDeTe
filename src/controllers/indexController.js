@@ -7,16 +7,20 @@ const PASS_MAIL = process.env.PASS_MAIL
 
 module.exports = {
     index: (req,res) => {
-        db.products.findAll({
+        let products = db.products.findAll({
             include: [{ association: "images"}]
         })
-            .then(productos=>{
-                res.render("index",{
-                    productos,
-                    titulo: "Tea | Tienda de té",
-                    session:req.session
-                })
+        let categories = db.categories.findAll()
+
+        Promise.all([products,categories])
+        .then(result=>{
+            res.render("index",{
+                productos:result[0],
+                categories:result[1],
+                titulo: "Tea | Tienda de té",
+                session:req.session
             })
+        })
     },
     sendMail:async (req,res)=>{
 

@@ -31,8 +31,9 @@
 }
 
 .pf__products{
-    background-color:rgba(125, 125, 125, .3);
-    
+    background-color:rgba(125, 125, 125, .2);
+    box-shadow: 0 8px 32px 0 rgba(241, 242, 245, 0.37);
+    backdrop-filter: blur(10px);
     border-radius: 5px;
     width: 90%;
     padding: 15px;

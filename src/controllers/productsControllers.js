@@ -13,25 +13,21 @@ module.exports = {
             include: [{ association: "images"}, { association: "ingredients"}]
         })
         .then((producto) => {
-            db.ingredients.findAll({
-                where: {
-                    product_id: producto.id
-                }
-            })
-            .then((ingrediente) => {
-                res.render("products/productDetail", {
-                    titulo: "Tea | Detalle de Producto",
-                    producto,
-                    ingrediente,
-                    session:req.session
-                })
-            })
             
+            res.render("products/productDetail", {
+            titulo: "Tea | Detalle de Producto",
+            producto,
+            session:req.session
+            })
+
         })
         .catch((error) => { res.send(error)})        
     },
-    allProducts:(req,res)=>{
+    allProductsByCategory:(req,res)=>{
         let products = db.products.findAll({
+            where: {
+                category_id: +req.params.id
+            },
             include: [{ association: "images"}, { association: "ingredients"},{association:"categories"}]
         })
 
@@ -43,10 +39,33 @@ module.exports = {
                 res.render("products/allProducts",{
                     productos:result[0],
                     categories:result[1],
-                    titulo: "Nuestro Productos",
+                    titulo: "Nuestro Productos por categoría",
                     session:req.session
                 })
                 
             })
+        },
+        allProducts:(req,res)=>{
+            let products = db.products.findAll({
+                include: [
+                    { association: "images"}, 
+                    { association: "ingredients"},
+                    {association:"categories"}
+                    ]
+            })
+    
+            let categories = db.categories.findAll()
+            
+            Promise.all([products,categories])
+                .then(result=>{
+                    
+                    res.render("products/allProducts",{
+                        productos:result[0],
+                        categories:result[1],
+                        titulo: "Nuestro Productos",
+                        session:req.session
+                    })
+                    
+                })
         }
 }
