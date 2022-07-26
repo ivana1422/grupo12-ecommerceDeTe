@@ -19,8 +19,10 @@
                 <div class="divCategory" id="divCategoryFather">
                 <% category.forEach( (e) => {  %> 
                     <div>
-                        <input type="radio" name="category" value="<%=e.name%>" id="category" class="inputCategory">
-                        <label for="category" class="labelCategories"><%=e.name%></label>
+                        <label class="labelCategories">
+                            <input type="radio" name="category" value="<%=e.id%>" id="category" class="inputCategory">
+                            <%=e.name%>
+                        </label>
                     </div>
                 <% }) %> 
                 </div>
