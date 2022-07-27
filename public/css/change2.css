@@ -1,0 +1,97 @@
+.mainChange2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    opacity: 0;
+    transform: scale(0.7);
+}
+.mainChange2.active{
+    animation: aparicionMainChange2 .2s ease .2s forwards;
+}
+
+@keyframes aparicionMainChange2 {
+    from{
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+}
+
+.formChange2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fbd8dc;
+    transform: scale(1);
+    border-radius: 6%;
+    transition: all 1.5s;
+}
+
+.formChange2:hover{
+    transition: all 1.5s;
+    transform: scale(1.1);
+}
+
+.divChange2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60%;
+}
+
+.h3Change2{
+    margin-bottom: 16px;
+}
+
+.divButtonChange2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+    width: 60%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.spanchange2{
+    color: red;
+    
+}
+
+.buttonChange2 {
+    width: 34%;
+    border: none;
+    box-shadow: 0px 1px 0px 2px grey;
+    background-color: #fbd8dc;
+}
+
+.inputChange2{
+    width: 70%;
+    
+}
+
+
+@media (max-width: 600px){
+    .formChange2{
+        width: 400px;
+    }
+}
+@media (max-width: 400px){
+    .formChange2{
+        width: 300px;
+    }
+    .divChange2{
+        width: 80%;
+    }
+}

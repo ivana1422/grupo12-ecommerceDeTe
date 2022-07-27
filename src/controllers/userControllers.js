@@ -149,7 +149,7 @@ module.exports= {
         })
         .then((user) => {
             res.render("users/change", {
-                titulo: "cambiar contrase;a",
+                titulo: "cambiar contraseña",
                 session: req.session,
                 user
             } )
@@ -163,12 +163,11 @@ module.exports= {
     changeProcess: (req, res) => {
 
         let errors = validationResult(req);
-        // res.send(errors)
         if(errors.isEmpty()){
-            console.log('enviado')
+            res.redirect('/profile/change2/:id')
         }else{
             res.render('users/change', {
-                titulo: "cambiar contra",
+                titulo: "cambiar contraseña",
                 errors:errors.mapped(),
                 old:req.body,
                 session:req.session
@@ -176,6 +175,50 @@ module.exports= {
         }
 
         
+    },
+
+    change2: (req, res) => {
+        db.users.findByPk(req.params.id,{
+            include:[{association:"address"}]
+        })
+        .then((user) => {
+            res.render("users/change2", {
+                titulo: "cambiar contraseña",
+                session: req.session,
+                user
+            } )
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+    },
+
+    change2Process: (req, res) => {
+        let errors = validationResult(req);
+
+        if(errors.isEmpty()){
+            db.users.update({
+                pass: bcrypt.hashSync(req.body.pass2, 10)
+            }, {
+                where:{
+                    id: req.params.id
+                }
+            })
+            .then((user) => {
+                res.redirect('/profile')
+            })
+            .catch( error => {
+                console.log(error)
+            })
+        }else{
+            res.render('users/change2', {
+                titulo: "cambiar contraseña",
+                errors: errors.mapped(),
+                old: req.body,
+                session: req.session
+            })
+        }
     },
 
     profileUpdateForm:(req,res)=>{

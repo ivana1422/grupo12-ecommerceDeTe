@@ -78,80 +78,80 @@ insert into product_category (product_id,category_id) values
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854338/nwf4iwlhjtcdqc6p1hln.png', product_id=1, public_id=NULL
-WHERE id=49;
+WHERE id=1;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854343/e8pb31b5vs7ly3avajf1.png', product_id=1, public_id=NULL
-WHERE id=50;
+WHERE id=2;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854350/vb7wdja5ejq4ucbvmf8z.png', product_id=1, public_id=NULL
-WHERE id=51;
+WHERE id=3;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854452/ggskmhrmiwdysrlvtckc.png', product_id=2, public_id=NULL
-WHERE id=52;
+WHERE id=4;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854457/ewvuzau3of5ajwah22kc.png', product_id=2, public_id=NULL
-WHERE id=53;
+WHERE id=5;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854463/kxknwlvo0ztmlznrzl1s.png', product_id=2, public_id=NULL
-WHERE id=54;
+WHERE id=6;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854516/linnlpftdjaoqlsmb22x.png', product_id=3, public_id=NULL
-WHERE id=55;
+WHERE id=7;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854521/od4bfzfny3hztp3hwl2j.png', product_id=3, public_id=NULL
-WHERE id=56;
+WHERE id=8;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854528/yomouv6vpwq36jtmwim3.png', product_id=3, public_id=NULL
-WHERE id=57;
+WHERE id=9;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884319/vkw5rnxnfqwtt0t18fgw.jpg', product_id=4, public_id=NULL
-WHERE id=58;
+WHERE id=10;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884322/cqshchhoudwxg9dxf9la.jpg', product_id=4, public_id=NULL
-WHERE id=59;
+WHERE id=11;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884325/m9f2avernjyev7fro5si.jpg', product_id=4, public_id=NULL
-WHERE id=60;
+WHERE id=12;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884607/ek95dr2wvxcr37u2vc4n.png', product_id=5, public_id=NULL
-WHERE id=61;
+WHERE id=13;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884612/b6jlfandim5cwmnliez0.png', product_id=5, public_id=NULL
-WHERE id=62;
+WHERE id=14;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884771/mqfs9fvj8z6untprjx0n.jpg', product_id=6, public_id=NULL
-WHERE id=63;
+WHERE id=15;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884773/ttoe6qmvem9cvahwygyn.jpg', product_id=6, public_id=NULL
-WHERE id=64;
+WHERE id=16;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884806/i653em1s0sbegzjzh8pr.png', product_id=7, public_id=NULL
-WHERE id=65;
+WHERE id=17;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884811/ljfl5fghyisnvknb4fzv.png', product_id=7, public_id=NULL
-WHERE id=66;
+WHERE id=18;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884893/gmtepduiz0jml5ujoebb.jpg', product_id=8, public_id=NULL
-WHERE id=67;
+WHERE id=19;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884895/ewydsm4qhqonlobr4hxx.jpg', product_id=8, public_id=NULL
-WHERE id=68;
+WHERE id=20;

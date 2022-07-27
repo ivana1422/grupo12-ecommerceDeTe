@@ -14,16 +14,12 @@ let changeValidator = [
             }
         })
         .then(user=>{
-            
-            console.log(user.pass)
-            console.log(req.body.pass)
-            console.log(bcrypt.compareSync(req.body.pass, user.pass))
             if(!bcrypt.compareSync(req.body.pass, user.pass)){
                 return Promise.reject()
             }
         })
         .catch(error => {
-            return Promise.reject("email o contra incorrecto")
+            return Promise.reject("contraseña incorrecta")
         })
     })
 ]

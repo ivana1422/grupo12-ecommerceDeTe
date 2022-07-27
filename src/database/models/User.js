@@ -17,7 +17,7 @@ module.exports= (sequelize,dataType)  =>{
         allowNull:false,
     },
     pass:{
-        type:dataType.STRING(50),
+        type:dataType.STRING(100),
         allowNull:false,
     },
     avatar:{

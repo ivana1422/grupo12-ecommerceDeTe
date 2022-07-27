@@ -8,12 +8,14 @@ const loginValidator = require("../validations/loginValidator");
 const validateRegister = require('../validations/registerValidator');
 const editUserValidator = require("../validations/admin/editUserValidator");
 const editProfileValidator = require('../validations/editProfileValidator');
+const changeValidator = require("../validations/changeValidator");
+const change2Validator = require("../validations/change2Validator");
 
 
 //middlewares
 const userOnline = require("../middlewares/userOnline");
 const userActive = require("../middlewares/userActive");
-const changeValidator = require("../validations/changeValidator");
+
 
 router.get("/login",userOnline, userController.login);
 router.post("/login", loginValidator,userController.processLogin)
@@ -22,9 +24,12 @@ router.post('/register', fileUpload.single('avatar'), validateRegister, userCont
 router.get('/profile', userActive, userController.profile);
 router.get("/profile/:id",userActive, fileUpload.single('avatar'),userController.profileUpdateForm);
 router.put("/profile/:id",fileUpload.single('avatar'),editProfileValidator,userController.profileUpdate);
-router.delete("/profile/delete/:id",userController.deleteCount)
-router.get('/profile/change/:id', userActive, userController.change)
-router.post('/profile/change/:id', changeValidator, userController.changeProcess)
+router.delete("/profile/delete/:id",userController.deleteCount);
+router.get('/profile/change/:id', userActive, userController.change);
+router.post('/profile/change/:id', changeValidator, userController.changeProcess);
+router.get('/profile/change2/:id',userActive, userController.change2);
+router.put('/profile/change2/:id', change2Validator, userController.change2Process);
+
 
 router.get("/logout", userController.logout);
 

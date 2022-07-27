@@ -13,9 +13,12 @@
                     <h2>Coloque su contraseña actual</h2>
                 </div>
                 <div id="segundoDiv">
-                    <form action="/profile/change/<%= session.user.id %>" method="post">
+                    <form action="/profile/change/<%= session.user.id %>" method="post" class="formChange">
                         <input type="password" id="inCA" name="pass" >
-                        <button type="submit" id="BVerificar">Verificar</button>
+                        <div class="butonVe">
+                            <button type="submit" id="BVerificar">Verificar</button>
+                        </div>
+                        
                         <% if (locals.errors && errors.pass) { %>
                             <span class="error-message"><%=errors.pass.msg%></span>
                         <% } %>
@@ -23,32 +26,6 @@
                      
                     <!-- <span id="spanchange"></span> -->
                 </div>
-                
-                <div class="butonVe">
-                    <button type="submit" id="BVerificar">Verificar</button>
-                </div>
-                
-            </div>
-            <div id="primerDivChange2">
-                <div id="segundoDiv">
-                    <h2>Coloque la nueva contraseña</h2>
-                </div>
-                <div id="segundoDiv">
-                    <input type="password">
-                </div>
-            </div>
-            <div id="primerDivChange3">
-                <div id="segundoDiv">
-                    <h2>Repita la nueva contraseña</h2>
-                </div>
-                <div id="segundoDiv">
-                    <input type="password">
-                </div>
-            </div>
-            <div class="botonChange" id="primerDivButtons">
-                <button type="submit">cambiar</button>
-                <button type="submit">Cancelar</button>
-            </div>
         </div>
         
     </main>

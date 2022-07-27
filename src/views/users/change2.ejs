@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+    <link rel="stylesheet" href="/css/change2.css" type="text/css">
+    <%-include("../partials/head")%>
+    
+<body>
+    <%-include("../partials/header")%>
+    <main class="mainChange2" id="mainchange2">
+        <form class="formChange2"  action="/profile/change2/<%= session.user.id %>?_method=PUT" method="POST">
+            <div class="divChange2">
+                <h3 class="h3Change2">Coloque su nueva contraseña</h3>
+                <input type="password" class="inputChange2" name="pass">
+                <% if (locals.errors && errors.pass) { %>
+                    <span class="spanchange2"><%=errors.pass.msg%></span>
+                <% } %>
+            </div>
+            <div class="divChange2">
+                <h3 class="h3Change2">Repita su nueva contraseña</h3>
+                <input type="password" class="inputChange2" name="pass2">
+                <% if (locals.errors && errors.pass2) { %>
+                    <span class="spanchange2"><%=errors.pass2.msg%></span>
+                <% } %>
+            </div>
+            <div class="divButtonChange2">
+                <button class="buttonChange2" type="submit">confirmar</button>
+                <button class="buttonChange2">cancelar</button>
+                
+
+            </div>
+        </form>
+    </main>
+
+    <script src="/js/change2.js"></script>
+    <%-include("../partials/footer")%>
+</body>
+</html>
