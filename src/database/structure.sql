@@ -99,12 +99,4 @@ ALTER TABLE tea.images ADD public_id varchar(100) NULL;
 
 ALTER TABLE tea.users ADD avatar_public_id varchar(100) NULL;
 
-/*Ejecutar para corregir problema de categorias*/
-
-ALTER TABLE tea.users MODIFY COLUMN pass varchar(200) NOT NULL;
-
-ALTER TABLE tea.products ADD category_id int(11) NULL;
-
-DROP TABLE tea.product_category
-
-ALTER TABLE tea.products ADD CONSTRAINT products_FK FOREIGN KEY (category_id) REFERENCES tea.categories(id);
+ALTER TABLE products ADD CONSTRAINT products_FK FOREIGN KEY (category_id) REFERENCES categories(id);
