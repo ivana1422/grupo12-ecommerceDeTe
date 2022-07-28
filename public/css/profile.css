@@ -79,7 +79,8 @@
     justify-content: space-around;
     gap:20px;
     width: 50%;
-    margin-left: 10px;
+    padding: 15px;
+    
 }
 
 .profile__data__container{
@@ -87,32 +88,49 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 35px;
+    
     font-size: 18px;
 }
 
 .profile__data__h5{
     
-    font-size: 17px;
+    font-size: 25px;
+    font-family: 'Baloo 2';
 }
 
 .profile__data__p{
-    font-size: 16px;
+    font-family: 'Baloo 2';
+    font-size: 25px;
+    font-weight: 500;
 }
 
-.btn__profile{
-    background: none;
-    border: none;
-    text-decoration: underline;
-    font-size: 1.5rem;
-    text-decoration: none;
-}
-
-.btn__profile:hover{
+button.links_profile,
+.links_profile{
+    padding: 0;
+    background:none;
     border: none;
     box-shadow: none;
-    color: red;
+    transition: none;
+    font-size: 1.6rem;
+    text-align: center;
+    transition: all 450ms unset;
 }
+button.links_profile:hover,
+.links_profile:hover{
+    background-color: var(--rosaClaro);
+    padding: 5px ;
+    border-radius: 5px;
+}
+
+#formChange,
+    #formDelete{
+        padding: 0;
+    }
+
+    #formChange:hover,
+    #formDelete:hover{
+        padding: 0;
+    }
 
 @media (max-width: 1200px){
     .profile__data{
@@ -120,7 +138,7 @@
     }
 
     .profile__data__container{
-        margin-left: 17px;
+        
     }
 }
 
@@ -154,9 +172,9 @@
         height: 710px; 
     }
 
-    .profile__data__p {
-        font-size: 13px;
-    }
+
+
+    
 }
 
 @media (max-width: 629px){

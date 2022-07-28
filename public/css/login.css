@@ -24,7 +24,7 @@ section.login.input_check-container{
 .login{
     font-size: larger;
     height: 100px;
-    min-height: 469px;
+    min-height: 76vh;
     display: flex;
     justify-content: center;
     align-items: center;
