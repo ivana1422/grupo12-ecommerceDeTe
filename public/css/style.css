@@ -4,18 +4,19 @@
     padding:0;
     margin:0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 :root{
     --verde: #98DBC6;
     --gris: #7C7E82;
 
-    --grisClaro: #E5E5E5;
+    --grisClaro: rgb(229, 229, 229);
     --grisOscuro: #7C7E82;
-    --rosaClaro: #FFC4E1;
-    --rosaOscuro: #F18D9E;
-    --verdeClaro: #98DBC6;
-    --verdeOscuro: #5BC8AC;
+    --rosaClaro: #ffc4e1;
+    --rosaOscuro: #f18d9e;
+    --verdeClaro: #98dbc6;
+    --verdeOscuro: #5bc8ac;
     --amarillo: #E6D72A;
     --negro: #000;
     --blanco: #fff;
@@ -267,8 +268,8 @@ body{
 .container-products{
     box-sizing: border-box;
     
-    overflow-x: hidden;
-    
+    overflow: hidden;
+    position: relative;
     /*max-width: 1024px;
     padding: 1.6rem;
     display: flex;
@@ -277,6 +278,24 @@ body{
     align-items: center;
     flex-wrap: wrap;*/
     
+}
+/*Slider*/
+.arrowSlider{
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 8000;
+}
+
+.arrowSliderRight{
+    top:45%;
+    right: 15px;
+
+}
+
+.arrowSliderLeft{
+    top:45%;
+    left: 15px;
 }
 
 .div_container-products{
@@ -290,6 +309,7 @@ body{
     height: 400px;
     
     margin:0 auto;
+    scroll-behavior: smooth;
 }
 
 .div_container-products::-webkit-scrollbar{
@@ -402,14 +422,13 @@ body{
 }
 
 .shareProduct:hover{
-    
-    
     box-shadow: none;
     outline: none;
 }
 
 
 .buttonProduct:hover{
+    color:var(--negro);
     border: 1px solid #FFC4E1;
     box-shadow: 0px 0px 4px #FFC4E1;
    
@@ -445,6 +464,93 @@ body{
     color: var(--negro);
     
 }
+/*seccion categorias*/
+.containerCategory {  
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height:fit-content;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+ .cardCategory{
+    height:100px;
+    padding: 5px;
+    width: 25%;
+    max-width: 250px;
+    min-width: 200px;
+    
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 rgba(241, 242, 245, 0.37);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: all 450ms ;
+ }
+
+ .cardCategory:hover{
+    color: #000;
+    border: 10px solid var(--rosaOscuro);
+ }
+
+ .cardCategory_name{
+    font-family: var(--fontPrincipal);
+    font-size: 25px;
+    
+    border-radius: 10px;
+ }
+
+ .cardCategory1{
+    border: 2px solid rgba(114,255,255,0.2);
+ }
+
+ .cardCategory2{
+    border: 2px solid rgba(0,215,255,0.2);
+ }
+
+ .cardCategory3{
+    border: 2px solid rgba(0,150,255,0.2);
+ }
+
+ .cardCategory4{
+    border: 2px solid rgba(88,0,255,0.2);
+ }
+
+ .cardCategoryAll{
+    border: 2px solid rgba(229,229,229,0.2);
+ }
+ .cardCategory1{
+    background-color: rgba(114,255,255,0.2);
+ }
+
+
+ .cardCategory2{
+    background-color: rgba(0,215,255,0.2);
+ }
+
+ .cardCategory3{
+    background-color: rgba(0,150,255,0.2);
+ }
+
+ .cardCategory4{
+    background-color: rgba(88,0,255,0.2);
+ }
+ .cardCategoryAll{
+    background-color:rgba(229,229,229,0.2);
+ }
+
+ /*.cardCategory_name:hover{
+    background-color: var(--rosaOscuro);
+    padding: 10px;
+    border-radius: 10px;
+ }*/
+
 /*MAIN
 MEDIOS DE PAGO*/
 

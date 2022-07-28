@@ -14,6 +14,7 @@ module.exports = {
             include: [{ association: "ingredients" },{ association: "categories" },{ association: "images" }]
         })
         .then((product) => {
+            console.log(product.categories)
             res.render("admin/products/indexProductsAdmin",{
                 titulo: "Administrador de productos",
                 postHeader: "Lista de Productos",
@@ -43,18 +44,18 @@ module.exports = {
     },
     createProduct:async (req,res)=>{
 
+        console.log(req.body)
         
         db.products.create({
             name : req.body.name,
             description: req.body.description,
             price: req.body.price,
             coment : req.body.coment,
-            category: req.body.category,
+            category_id: req.body.category,
             stock: req.body.stock ? req.body.stock : req.body.stock = 0,
             discount: req.body.discount ? req.body.discount : req.body.discount = null
         }, {include: [{ association: "images"}, { association: "ingredients"}]})
         .then(async (product) => {
-
             let defaultImage = "https://res.cloudinary.com/ecommerce-tea/image/upload/v1658196622/product_htzrzn.png"
             let urlNamesArray = []
 
@@ -124,48 +125,67 @@ module.exports = {
             let imagenes = db.images.bulkCreate(arrayImages)
             let ingredientes = db.ingredients.bulkCreate(arrayIngredients)
 
-            Promise.all([imagenes, ingredientes])
-            .then(() => {
-                db.categories.findAll({
-                    where: {
-                        name: req.body.category
-                    }
-                })
-                .then((categoryResult) => { 
-
-                    console.log(categoryResult)
-                    let idCategory = categoryResult[0].id
-                    console.log(idCategory)
-
-                    let productCategories = {
-                        product_id: product.id,
-                        category_id: idCategory
-                    }
-                    db.product_category.create(productCategories)
-                    .then((result) => {
-                        res.redirect("/admin/productos")
-                    })
-                    .catch((error) => {
-                        console.log(error)
-                    })
-                })
+            return Promise.all([imagenes, ingredientes])
+            
+        })
+        .then(() => {
+            /*db.categories.findAll({
+                where: {
+                    name: req.body.category
+                }
             })
-            .catch((error) => {
-                 console.log(error)
-            })
-           
+            .then((categoryResult) => { 
+
+                console.log(categoryResult)
+                let idCategory = categoryResult[0].id
+                console.log(idCategory)
+
+                let productCategories = {
+                    product_id: product.id,
+                    category_id: idCategory
+                }
+                db.product_category.create(productCategories)
+                .then((result) => {*/
+                    res.redirect("/admin/productos")
+                /*})
+                .catch((error) => {
+                    console.log(error)
+                })
+            })*/
         })
         .catch((error) => {
-            res.send(error)
+             console.log(error)
         })
     },
 
     editProduct: (req,res)=>{
         let idProducto = +req.params.id;
 
-        db.products.findByPk(idProducto,{
+        let product = db.products.findByPk(idProducto,{
             include: [{ association: "ingredients" },{ association: "categories" },{ association: "images" }]
         })
+
+        let categories = db.categories.findAll()
+
+        Promise.all([product,categories])
+
+        .then(result=>{
+            res.render('admin/products/editProducts', {
+                postHeader: "Editar Producto",
+                titulo: "Edición",
+                product:result[0],
+                category:result[1],
+                /*ingredients,
+                productCategory,*/
+                session:req.session  
+            })
+        })
+        .catch((error) => {
+            res.send(error)
+         })
+        
+
+        /*
         .then((product) => { 
             db.categories.findAll()
             .then((category) => {
@@ -198,7 +218,7 @@ module.exports = {
          })
         .catch((error) => {
             res.send(error)
-         })
+         })*/
     },
 
     productoEditado: (req,res)=>{
@@ -210,6 +230,7 @@ module.exports = {
             description: req.body.description,
             price: req.body.price,
             coment: req.body.coment,
+            category_id:req.body.category,
             stock: req.body.stock ? req.body.stock : req.body.stock = 0,
             discount: req.body.discount ? req.body.discount : req.body.discount = null 
 
@@ -326,20 +347,20 @@ module.exports = {
             })
 
             .then(() => {
-                return db.product_category.destroy({
+                /*return db.product_category.destroy({
                     where: {
                         product_id: req.params.id
                     }
                 })
             })
-            .then(() => {
+            .then(() => {*/
 
-                db.categories.findAll({
+                /*db.categories.findAll({
                     where:{
                         name: req.body.category
                     }
-                })
-                .then((categ) => {
+                })*/
+                /*.then((categ) => {
                     let idCategory = categ[0].id
                                             
                     let editCategory = {
@@ -347,12 +368,12 @@ module.exports = {
                         category_id: idCategory
                     }
                     db.product_category.create(editCategory)
-                    .then(() => {
+                    .then(() => {*/
                         res.redirect("/admin/productos")
-                    })
+                    /*})*/
                 })
                 .catch((error) => { console.log(error)})
-            })
+            /*})*/
             
         },    
            
@@ -391,33 +412,33 @@ module.exports = {
                     }
                 })
                 .then(() => {
-                    db.product_category.destroy({
+                    /*db.product_category.destroy({
                         where:{
                             product_id: req.params.id
                         }
                     })
-                    .then(() => {
-                        db.products.destroy({
+                    .then(() => {*/
+                        return db.products.destroy({
                             where: {
                                 id: req.params.id
                             }
                         })
-                        .then((result) => {
-                            if(result){
-                                res.redirect('/admin/productos')
-                            }else{
-                                res.render('no se pudo eliminar el producto')
-                            }
-                        })
+                    })
+                    .then((result) => {
+                        if(result){
+                            res.redirect('/admin/productos')
+                        }else{
+                            res.render('no se pudo eliminar el producto')
+                        }
                     })
                     
+                    .catch((error) => {
+                        res.send(error)
+                        console.log('Hubo un problema.')
+                    })
                 })
             })
-        })
-        .catch((error) => {
-            res.send(error)
-            console.log('Hubo un problema.')
-        })
+        /*})*/
     },
 
     

@@ -1,16 +1,16 @@
-let button = document.querySelector("#btn-menu")
 
-let menu = document.querySelector("#menu")
-
-button.addEventListener("click", function(){
+    let button = document.querySelector("#btn-menu")
     
-    menu.classList.toggle("active")
-
-})
-
-function shareProduct(id){
-    navigator.share({
-        url:`/productos/${id}`
+    let menu = document.querySelector("#menu")
+    
+    button.addEventListener("click", function(){
+        
+        menu.classList.toggle("active")
+    
     })
-}
-
+    
+    function shareProduct(id){
+        navigator.share({
+            url:`/productos/${id}`
+        })
+    }

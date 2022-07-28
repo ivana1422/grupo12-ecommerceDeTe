@@ -341,7 +341,7 @@ module.exports= {
             }else{
                 console.log("La imagen no existe!");
             }*/
-            await cloudinary.v2.uploader.destroy(user.avatar_public_id)
+            user.avatar_public_id !== '' && await cloudinary.v2.uploader.destroy(user.avatar_public_id)
             
             return db.users.destroy({
                 where:{

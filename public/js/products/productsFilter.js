@@ -1,136 +1,138 @@
-/*let container = document.querySelector(".container-products")
-let selectCategories = document.getElementById("categories__filter")
-let selectPrice = document.getElementById('price__filter')
-let searchProduct = document.getElementById('search__product')
+window.addEventListener('load',async ()=>{
+    let containerCategory = document.querySelector('.containerCategory')
+    let containerProducts = document.querySelector('.pf__products')
+    let inputSearch = document.querySelector('#search__product')
+    
 
-URL_API = "http://localhost:5000/api/productos/"
+    let response = await fetch(`${location.origin}/api/productos`)
+    let data = await response.json()
 
-fetch(`${URL_API}`)
-    .then(result=>result.json())
-    .then(data=>{
-        let productos = data.products
+    //Tarjetas de categorias
+    data.categories.map(category=>{
+        return (
+            containerCategory.innerHTML += `<a class="cardCategory cardCategory${category.id}" href="">
+                                                <h3 class="cardCategory_name">${category.name}</h3>
+                                            </a>`
+        )
+    })
 
-        productos.forEach(producto => {
-            container.innerHTML +=`<div class="item-products">
-            <a href="/productos/${producto.id}">
-            <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
-                                        <div>
-                                            <h4>${producto.name}</h4>
-                                            <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
-                                            <p class="actual">$${producto.price}</p>
-                                            </div>
-                                            </a>
-                                            </div>`
-                                        });
+    const cardCategoryAll = document.querySelector('.cardCategoryAll')
+    const cardCategory1 = document.querySelector('.cardCategory1')
+    const cardCategory2 = document.querySelector('.cardCategory2')
+    const cardCategory3 = document.querySelector('.cardCategory3')
+    const cardCategory4 = document.querySelector('.cardCategory4')
 
-                                        let categorias = data.categories
-        categorias.forEach(categoria => {
-            selectCategories.innerHTML += `<option value="${categoria.id}" id="categoria${categoria.id}">${categoria.name}</option>`
-        })
-
-        selectCategories.addEventListener("click",(e)=>{
-            e.preventDefault()
-            let productoPorCategoria = []
+    //Funcion reutilizable para filtrar por categorias
+    const FilterProducts = (card,num) =>{
+        let productosFiltrados = []
+        card.addEventListener('click',(e)=>{
+            e.preventDefault();
+            productosFiltrados = data.products.filter(product=>product.categories.id===num)
             
-            productos.forEach(producto=>{
-                producto.categories.forEach(category=>{
-                    if(category.id == +e.target.value){
-                        productoPorCategoria.push(producto)
-                    }
-                })
+            containerProducts.innerHTML = null
+            containerProducts.innerHTML += productosFiltrados.map(product=>CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id))
+        })
+    }
+
+    //Trae todos los productos cuando selecciona la tarjeta "todos"
+    cardCategoryAll.addEventListener('click',(e)=>{
+        e.preventDefault();
+        containerProducts.innerHTML = null
+        containerProducts.innerHTML += data.products.map(product=>CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id))
+    })
+
+    //Se ejecuta la funcion para cada categoria
+    FilterProducts(cardCategory1,1)
+    FilterProducts(cardCategory2,2)
+    FilterProducts(cardCategory3,3)
+    FilterProducts(cardCategory4,4)
+
+    //Seccion de productos
+
+    //Tarjeta de productos guardada en funcion para ser reutilizada
+    let CardProduct = (image,name,price,coment,id) =>{
+        return (
+            `<div class="pf__products__card">
+                <img src="${image}" alt="${name}" class="pf__products__image">
+                <div class="pf__products__info_container">
+                    <h3 class="pf__products__title">${name}</h3>
+                    <p class="pf__products__price">Precio: $${price}</p>
+                    <p class="pf__products__coment">${coment}</p>
+                    <div class="pf__products__links">
+                        <button class="buttonProduct"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                        <button class="buttonProduct_responsive"><i class="fa-solid fa-cart-shopping styleFont"></i></button>
+                        <button class="shareProduct" href="" onclick="navigator.share({url:'/productos/${id}',text:'Hey! Mira este producto!'})"><i class="fa-solid fa-share-nodes styleFont"></i></button>
+                    <a href="/productos/${id}" class="buttonProduct">Detalle</a>
+                    <a href="/productos/${id}" class="buttonProduct_responsive"><i class="fa-solid fa-circle-info styleFont"></i></a>
+                </div>
+                </div>
+            </div>`
+        )
+    }
+
+    //Ingresa todos los productos una vez que carga la pagina
+    data.products.map(product=> {
+        return containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
+    })
+
+    //Buscador live search
+    const removeAccents = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    inputSearch.addEventListener('keyup',(e)=>{
+        let search = e.target.value
+        let results = data.products.filter(product=>{
+                return removeAccents(product.name.toLowerCase()).includes(search.toLowerCase())
+        })
+        containerProducts.innerHTML = null
+        if(results.length > 0){
+            
+            results.map(product=> {
+                return containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
             })
-            container.innerHTML = 'cargando...'
-            container.innerHTML = ''
-            productoPorCategoria.forEach(producto => {
-                container.innerHTML +=`<div class="item-products">
-                <a href="/productos/${producto.id}">
-                <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
-                                            <div>
-                                                <h4>${producto.name}</h4>
-                                                <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
-                                                <p class="actual">$${producto.price}</p>
-                                                </div>
-                                                </a>
-                                                </div>`
-                                            });
-        })
+        } else {
+            containerProducts.innerHTML = 'No existen resultados'
+        }
+    })
 
-        selectPrice.addEventListener("click",(e)=>{
-            e.preventDefault()
-            if(e.target.value == 'mayor'){
-                productos.sort(function (a, b) {
-                    if (a.price < b.price) {
-                      return 1;
-                    }
-                    if (a.price > b.price) {
-                      return -1;
-                    }
-                    // a must be equal to b
-                    return 0;
-                  });
-                  container.innerHTML = ''
-                  productos.forEach(producto => {
-                    container.innerHTML +=`<div class="item-products">
-                    <a href="/productos/${producto.id}">
-                    <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
-                                                <div>
-                                                    <h4>${producto.name}</h4>
-                                                    <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
-                                                    <p class="actual">$${producto.price}</p>
-                                                    </div>
-                                                    </a>
-                                                    </div>`
-                                                });
-            } else if(e.target.value == 'menor'){
-                productos.sort(function (a, b) {
-                    if (a.price > b.price) {
-                      return 1;
-                    }
-                    if (a.price < b.price) {
-                      return -1;
-                    }
-                    return 0;
-                  });
-                  container.innerHTML = ''
-                  productos.forEach(producto => {
-                    container.innerHTML +=`<div class="item-products">
-                    <a href="/productos/${producto.id}">
-                    <img src="${producto.images[0].src}" alt="${producto.name}" class="img-products">
-                                                <div>
-                                                    <h4>${producto.name}</h4>
-                                                    <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
-                                                    <p class="actual">$${producto.price}</p>
-                                                    </div>
-                                                    </a>
-                                                    </div>`
-                                                });
-            }
-        })
-        searchProduct.addEventListener("keyup",(e)=>{
-            container.innerHTML=''
-            productos.forEach(producto=>{
-                if(producto.name.toLowerCase().includes(e.target.value.toLowerCase())){
-                    container.innerHTML += //html
-                        `<div class="item-products">
-                                <a href="/productos/${producto.id}">
-                                    <img src=${producto.images[0].src} alt="${producto.name}" class="img-products">
-                                    <div>
-                                        <h4>${producto.name}</h4>
-                                        <p class="offer">$${(producto.price - (producto.price * (producto.discount / 100)))}</p>
-                                        <p class="actual">$${producto.price}</p>
-                                    </div>
-                                </a>
-                            </div>`
-                } 
+    //Ordenar elementos por precio
+    let priceSelect = document.getElementById('price__filter')
+
+    priceSelect.addEventListener('change',(e)=>{
+        if(e && e.target.value == 'menor'){
+            containerProducts.innerHTML = null
+            let mayor = data.products.sort(function (a, b) {
+                if (a.price > b.price) {
+                  return 1;
+                }
+                if (a.price < b.price) {
+                  return -1;
+                }
+                // a must be equal to b
+                return 0;
+              });
+            mayor.map(product=> {
+                return containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
             })
-        })
+
+        } else if(e && e.target.value == 'mayor'){
+            containerProducts.innerHTML = null
+            let menor = data.products.sort(function (a, b) {
+                if (a.price < b.price) {
+                  return 1;
+                }
+                if (a.price > b.price) {
+                  return -1;
+                }
+                // a must be equal to b
+                return 0;
+              });
+            menor.map(product=> {
+                return containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
+            })
+        }
+    })
 
 
-        })*/
-
-let shareProduct = document.querySelector(".shareProduct")
-
-shareProduct.addEventListener("click",(e)=>{
-    e.preventDefault()
-    console.log(e)
 })

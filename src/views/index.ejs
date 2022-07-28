@@ -35,40 +35,46 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-            
 
                 <div class="container-products">
 
                     <h3>PRODUCTOS DESTACADOS</h3>
-                    <div class="div_container-products">
+                    <span class="arrowSlider arrowSliderLeft"><i class="fa-solid fa-chevron-left"></i></span>
+                    <div class="div_container-products slider">
 
                         <% productos.forEach(producto => { %>
-                            
-    
+
                                 <a href="/productos/<%=producto.id%>" class="item-products">
                                     <img src="<%=producto.images[0].src%>" alt="<%=producto.name%>" class="img-products">
                                     <div class="item-product-price">
                                         <h4><%=producto.name%></h4>
                                         <p class="actual">Precio: $<%=producto.price%></p>
-                                        
+
                                             <button class="buttonProduct"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
-                                            
-                                        
+
                                     </div>
                                     <% if (producto.discount > 0) { %>
-                                     
+
                                         <div class="item-product-discount">
                                             <p class="offer"><%=producto.discount%>% de descuento</p>
                                         </div>
                                     <% } %>
-                                    
-                                </a>
-                                
-                                
-                           
-                        <% }) %>
-                    </div>
 
+                                </a>
+
+                        <% }) %>
+
+                    </div>
+                    <span class="arrowSlider arrowSliderRight"><i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+                <!--Categorias-->
+                <h3 class="text-center m-3">PRODUCTOS POR CATEGORÍA</h3>
+                <div class="containerCategory">
+                    <% categories.forEach(category => { %>
+                        <a class="cardCategory <%=`cardCategory${category.id}`%>" href="/productos/all/<%=category.id%>">
+                            <h3 class="cardCategory_name"><%= category.name%></h3>
+                        </a>
+                    <% }) %>
                 </div>
 
                 <div class="medios-pago">
@@ -105,6 +111,6 @@
         </section>
     </main>
     <%-include("./partials/footer")%>
-
+    <script src="/js/slider.js"></script>
 </body>
 </html>

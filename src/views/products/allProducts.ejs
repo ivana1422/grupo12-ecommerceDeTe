@@ -13,61 +13,34 @@
 
                 <h3>TODOS NUESTROS PRODUCTOS</h3>
                 <div class="products__filter__container">
+                    <div class="containerCategory">
+                        <a class="cardCategory cardCategoryAll" href="/productos/all">
+                            <h3 class="cardCategory_name">Todos</h3>
+                        </a>
+                        <!--Container de categorias-->
+                    </div>
                     <div class="pf__filters">
-                        <form action="">
-                            <label for="search__product" id="labelSearch">
-                                Buscar
-                                <input type="search" id="search__product">
-                            </label>
+                            <input type="search" id="search__product" placeholder="Buscar productos">
 
-                            <div>Filtrar por:</div>
-                            
-                            <select name="categories" id="categories__filter">
-                                <option value="" hidden selected>Seleccione una categoria</option>
-                                <% categories.forEach(categoria => { %>
-                                    <option value="<%=categoria.id%>"><%=categoria.name%> </option>
-                                <% }) %>
-                            </select>
-                            
                             <select name="price" id="price__filter">
                                 <option value="" hidden selected>Ordenar por</option>
                                 <option value="mayor">Mayor Precio</option>
                                 <option value="menor">Menor Precio</option>
                             </select>
-                            
-                        </form>
                     </div>
                     <div class="pf__products">
-
-                        <% productos.forEach(producto => { %>
-                         
-                            <div class="pf__products__card">
-                                <img src="<%=producto.images[0].src%>" alt="<%=producto.name%>" class="pf__products__image">
-                                <div class="pf__products__info_container">
-                                    <h3 class="pf__products__title"><%=producto.name%></h3>
-                                    <p class="pf__products__price">Precio: $<%=producto.price%></p>
-                                    <p class="pf__products__coment"><%=producto.coment%> </p>
-                                    <div class="pf__products__links">
-                                        <button class="buttonProduct"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
-                                        <button class="buttonProduct_responsive"><i class="fa-solid fa-cart-shopping styleFont"></i></button>
-                                        
-                                            <button class="shareProduct" href="" onclick="navigator.share({url:'/productos/<%=producto.id%>',text:'Hey! Mira este producto!'})"><i class="fa-solid fa-share-nodes styleFont"></i></button>
-                                        
-                                        <a href="/productos/<%=producto.id%>" class="buttonProduct">Detalle</a>
-                                        <a href="/productos/<%=producto.id%>" class="buttonProduct_responsive"><i class="fa-solid fa-circle-info styleFont"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        <% }) %>
+                        <!--Container de productos-->
                     </div>
                     </div>
                 </div>
 
             </article>
+            
 
         </section>
     </main>
     <%-include("../partials/footer")%>
     <script src="/js/products/productsFilter.js"></script>
+    
 </body>
 </html>

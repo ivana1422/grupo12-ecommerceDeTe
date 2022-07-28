@@ -37,6 +37,10 @@ module.exports= (sequelize,dataType)  =>{
         },
         weight:{
             type:dataType.STRING(50)
+        },
+        category_id:{
+            type:dataType.INTEGER,
+            allowNull:false,
         }
     }
 let config= {
@@ -57,12 +61,9 @@ Product.associate=(models)=>{
         foreignKey:"product_id"
     })
 
-    Product.belongsToMany(models.categories,{
+    Product.belongsTo(models.categories,{
         as:"categories",
-        through:"product_category",
-        foreignKey:"product_id",
-        otherKey:"category_id",
-        timestamps:false
+        foreignKey:"category_id",
     })
 
     Product.belongsToMany(models.orders,{

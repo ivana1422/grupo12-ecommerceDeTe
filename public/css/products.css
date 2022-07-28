@@ -147,7 +147,7 @@ a.logo-container{
 main section article {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    padding-top: 20px;
     align-items: center;
     justify-content: center;
 }
