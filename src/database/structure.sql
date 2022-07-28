@@ -101,4 +101,6 @@ ALTER TABLE tea.users ADD avatar_public_id varchar(100) NULL;
 
 DROP TABLE tea.product_category
 
+ALTER TABLE tea.products ADD category_id int NULL;
+
 ALTER TABLE products ADD CONSTRAINT products_FK FOREIGN KEY (category_id) REFERENCES categories(id);
