@@ -2,7 +2,7 @@ window.addEventListener('load',async ()=>{
     let containerCategory = document.querySelector('.containerCategory')
     let containerProducts = document.querySelector('.pf__products')
     let inputSearch = document.querySelector('#search__product')
-    let priceSelect = document.querySelector('#price__filter')
+    
 
     let response = await fetch(`${location.origin}/api/productos`)
     let data = await response.json()
@@ -69,7 +69,7 @@ window.addEventListener('load',async ()=>{
             </div>`
         )
     }
-    
+
     //Ingresa todos los productos una vez que carga la pagina
     data.products.map(product=> {
         return containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
@@ -97,8 +97,10 @@ window.addEventListener('load',async ()=>{
     })
 
     //Ordenar elementos por precio
+    let priceSelect = document.getElementById('price__filter')
+
     priceSelect.addEventListener('change',(e)=>{
-        if(e.target.value == 'menor'){
+        if(e && e.target.value == 'menor'){
             containerProducts.innerHTML = null
             let mayor = data.products.sort(function (a, b) {
                 if (a.price > b.price) {
@@ -114,7 +116,7 @@ window.addEventListener('load',async ()=>{
                 return containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
             })
 
-        } else if(e.target.value == 'mayor'){
+        } else if(e && e.target.value == 'mayor'){
             containerProducts.innerHTML = null
             let menor = data.products.sort(function (a, b) {
                 if (a.price < b.price) {
