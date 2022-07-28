@@ -18,7 +18,7 @@ create table users (
   name varchar(50) not null,
   surname varchar(50) not null,
   email varchar(50) not null unique key,
-  pass varchar(50) not null,
+  pass varchar(100) not null,
   avatar varchar(100),
   rol tinyint(4) not null default 0,
   address_id int(11) not null,

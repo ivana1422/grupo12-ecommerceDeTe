@@ -6,17 +6,19 @@
 <body>
     <%-include("../partials/header")%>
     <main class="mainChange2" id="mainchange2">
-        <form class="formChange2"  action="/profile/change2/<%= session.user.id %>?_method=PUT" method="POST">
+        <form class="formChange2"  action="/profile/change2/<%= session.user.id %>?_method=PUT" method="POST" id="formChange2">
             <div class="divChange2">
                 <h3 class="h3Change2">Coloque su nueva contraseña</h3>
-                <input type="password" class="inputChange2" name="pass">
+                <input type="password" class="inputChange2" name="pass" id="passChange2">
+                <span id="spanChange1" class="spanchange2"></span>
                 <% if (locals.errors && errors.pass) { %>
                     <span class="spanchange2"><%=errors.pass.msg%></span>
                 <% } %>
             </div>
             <div class="divChange2">
                 <h3 class="h3Change2">Repita su nueva contraseña</h3>
-                <input type="password" class="inputChange2" name="pass2">
+                <input type="password" class="inputChange2" name="pass2" id="pass2Change2">
+                <span id="spanChange2" class="spanchange2"></span>
                 <% if (locals.errors && errors.pass2) { %>
                     <span class="spanchange2"><%=errors.pass2.msg%></span>
                 <% } %>

@@ -14,6 +14,7 @@ module.exports = {
 
         Promise.all([products,categories])
         .then(result=>{
+            // res.send(result[0])
             res.render("index",{
                 productos:result[0],
                 categories:result[1],
