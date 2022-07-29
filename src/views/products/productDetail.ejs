@@ -6,11 +6,11 @@
 
     <main class="back-grad">
         <section >
-            <article>
+            <article class="article__d">
                 <div class="containerCaja1-2" >
                     <div class="primerCaja" >
-                        <h2><%=producto.name%></h2>
-                        <div class="container carousel-edit1">
+                        
+                        <div class="container carousel-dark carousel-edit1">
                           <div id="carouselExampleIndicators" class="carousel slide d-flex justify-content-center" data-bs-ride="carousel" >
                             <div class="carousel-indicators">
                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -47,31 +47,56 @@
                           </div>
                         </div>
                         
-                        <div class="tercerCaja"> 
-                                <input type="button" value="Comprar ya!">
-                                <input type="button" value="Agregar al Carrito">
-                        </div>
+                        
                     </div>
                         
                     <div class="segundaCaja">
-                        <h2>Detalles</h2>
-                        <p>-<%=producto.description%> </p>
-                        <p class="precio">$<%=producto.price%></p>
-                        <% if(producto.ingredients.length > 0 && producto.ingredients[0] !== ''){ %>
-                            <p>Ingredientes:</p>
+                      <div class="products__indicators">
+                        <h2 class="h2__d"><%=producto.name%></h2>
+                        <div>
+                          <a class="__indicators" href="/productos/<%=producto.id - 1 ? producto.id - 1 : producto.id%>"><i class="fa-solid fa-chevron-left"></i></a>
+                          <a class="__indicators" href="/productos/<%=producto.id + 1 ? producto.id + 1 : producto.id%>"><i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
+                      </div>
+                      <div class="description__d">
+                        <p class="description__sub"><%=producto.description%></p>
+                        <p class="description__price">$<%=producto.price%></p>
 
-                            <% producto.ingredients.forEach(ingrediente => { %>
-                              <li><%=ingrediente.name%></li>
+                        <% if(ingredients[0].name !== ''){ %>
+                            <p>Ingredientes:</p>
+                          <ul class="description__ul">
+                            <% ingredients.forEach(ingrediente => { %>
+                              <li class="description__li"><%=ingrediente.name%></li>
                             <% }) %>
-                            <!--<ul>
-                                <% for(let i = 0; i < producto.ingredients.length; i++) { %>
-                                <li><%=producto.ingredients[i].name%></li>
-                                <%}%>
-                            </ul>-->
+                          </ul>
+
                          <%}%>
-                           
                         <p><%=producto.coment%></p>
+                        <div class="tercerCaja"> 
+                          <div class="description__box">
+                            <span class="box__button box__button__left">-</span>
+                            <span class="description__cant" >0</span>
+                            <span class="box__button box__button__right">+</span>
+                          </div>
+                          <input type="button" class="description__chart" value="Agregar al Carrito">
+                        </div>
+                      </div>
+                      <div class="description__footer">
+                        <a href="#" class="description__activate">Más productos similares</a>
+                        <div class="description__similar">
+                          
+                        </div>
+                        <div class="description__share">
+                          <p>Comparte: </p>
+                          <a href='https://www.facebook.com/sharer/sharer.php?u=#' class="icon__description ic__f"><i class="fa-brands fa-facebook"></i></a>
+                          <a href="https://twitter.com/intent/tweet?text=[text]&url=[url]&hashtags=[hashtag]" class="icon__description ic__t"><i class="fa-brands fa-twitter"></i></i></a>
+                          <a href="https://api.whatsapp.com/send?text=http://localhost:5000" class="icon__description ic__w"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                      </div>
                     </div>
+
+                    
+                    
                 </div>
 
                 
@@ -88,6 +113,6 @@
         </section>
     </main>
     <%-include("../partials/footer")%>
-    
+    <script src="/js/products/detailProduct.js"></script>
 </body>
 </html>

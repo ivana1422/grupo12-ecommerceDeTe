@@ -10,7 +10,7 @@ window.addEventListener('load',async ()=>{
     //Tarjetas de categorias
     data.categories.map(category=>{
         return (
-            containerCategory.innerHTML += `<a class="cardCategory cardCategory${category.id}" href="">
+            containerCategory.innerHTML += `<a class="cardCategory cardCategory${category.id}" href="/productos/${producto.id}">
                                                 <h3 class="cardCategory_name">${category.name}</h3>
                                             </a>`
         )
