@@ -1,0 +1,128 @@
+/*Background*/
+.burbuja{
+    border-radius:50%;
+    background:#000;
+    opacity: 0;
+    position:absolute;
+    
+    animation:burbujas 3s linear infinite;
+    z-index:-9999;
+  }
+  
+  .burbuja:nth-child(1){
+    width:80px;
+    height: 80px;
+    left:5%;
+    background:#98DBC6;
+    animation-duration:3s;
+    animation-delay:3s;
+  }
+  
+  .burbuja:nth-child(2){
+    width:100px;
+    height: 100px;
+    left:35%;
+    background:#F18D9E;
+    animation-duration:3s;
+    animation-delay:5s;
+  }
+  
+  .burbuja:nth-child(3){
+    width:20px;
+    height: 20px;
+    background:#F18D9E;
+    left:15%;
+    animation-duration:1.5s;
+    animation-delay:7s;
+  }
+  
+  .burbuja:nth-child(4){
+    width:50px;
+    height: 50px;
+    left:90%;
+    background:#F18D9E;
+    animation-duration:6s;
+    animation-delay:3s;
+  }
+  
+  .burbuja:nth-child(5){
+    width:70px;
+    height: 70px;
+    left:65%;
+    background:#E6D72A;
+    animation-duration:3s;
+    animation-delay:1s;
+  }
+  
+  .burbuja:nth-child(6){
+    width:20px;
+    height: 20px;
+    background:#5BC8AC;
+    left:50%;
+    animation-duration:4s;
+    animation-delay:5s;
+  }
+  
+  .burbuja:nth-child(7){
+    width:20px;
+    height: 20px;
+    left:50%;
+    background:#FFC4E1;
+    animation-duration:4s;
+    animation-delay:5s;
+  }
+  
+  .burbuja:nth-child(8){
+    width:101px;
+    height: 101px;
+    left:52%;
+    background:#5BC8AC;
+    animation-duration:4s;
+    animation-delay:5s;
+  }
+  
+  .burbuja:nth-child(9){
+    width:65px;
+    height: 65px;
+    left:51%;
+    background:#5BC8AC;
+    animation-duration:3s;
+    animation-delay:2s;
+  }
+  
+  .burbuja:nth-child(10){
+    width:60px;
+    height: 60px;
+    left:35%;
+    background:#FFC4E1;
+    animation-duration:3s;
+    animation-delay:4s;
+  }
+  
+  .burbuja:nth-child(11){
+    width:12px;
+    height: 12px;
+    left:25%;
+    background:#98DBC6;
+    animation-duration:3s;
+    animation-delay:5s;
+  }
+  
+  @keyframes burbujas{
+    0%{
+      bottom:0;
+      opacity:0;
+    }
+    30%{
+      transform: translateX(30px);
+      opacity: .4; 
+    }
+    50%{
+      opacity: .4; 
+    }
+    100%{
+      bottom:100vh;
+      opacity: .0; 
+      
+    }
+  }
