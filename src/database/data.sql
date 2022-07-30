@@ -38,45 +38,60 @@ insert into users (name, surname, email, pass, avatar, rol, address_id) values
 ('Glennis', 'Sleet', 'gsleetn@tumblr.com', 'XNk84hD9B', 'https://robohash.org/eteumreprehenderit.png?size=50x50&set=set1', 0, 40),
 ('Beaufort', 'Gauche', 'bgaucheo@gizmodo.com', 'j8F3Te2qtzqG', 'https://robohash.org/nullarepellendusiure.png?size=50x50&set=set1', 1, 11);
 
-insert into products(name, price, description,coment,weight,offer,stock,discount) values 
-('T� negro en hebras cortas',350,'T� negro en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde!','Lata 65g',1,10,10),
-('T� verde en hebras cortas',350,'T� verde en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde, de sabor dulce y delicado!','Lata 65g',1,10,10),
-('T� rojo en hebras cortas',350,'T� rojo en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores, Dulce y entrador!','Lata 65g',1,5,10),
-('Tetera Artesanal de Cer�mica',1980,'Teteras de cer�mica hechas a mano, Capacidad 1 litro. Combinable con set de cuencos','Hermosa tetera para disfrutar de un rico te en hebras', null, 1,3,5),
-('Cucharita de la Aldea',80,'Cucharita hecha en bamb� o cedro, ideal para servir hebras o az�car','Cucharita de calidad!',null,0,30,0),
-('Infusor artesanal con cord�n',720,'Infusor hecho a mano con fibras naturales.','Infusor estetico y de buena calidad! Sirve para todo tipo de tazas',null,0,10,0),
-('Mielera de la Aldea',90,'Mielera en madera ideal para acompa�ar tus momentos de conexi�n con las hebras misioneras.','Excelente producto para disfrutar a�n mas de nuestros tes',null,0,5,0),
-('Cuenco de cer�mica',820,'Cuenco de cer�mica hecho a mano. Con inscripci�n Iguaz�. Combinable con teteras.','Cuenco artesanal para las buenas energias',null,0,3,0);
+insert into products(name, price, description,coment,weight,offer,stock,discount,category_id) values 
+('Té negro en hebras cortas',350,'Té negro en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde!','Lata 65g',1,10,10,1),
+('Té verde en hebras cortas',350,'Té verde en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde, de sabor dulce y delicado!','Lata 65g',1,10,10,2),
+('Té rojo en hebras cortas',350,'Té rojo en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores, Dulce y entrador!','Lata 65g',1,5,10,2),
+('Tetera Artesanal de Cerámica',1980,'Teteras de cerámica hechas a mano, Capacidad 1 litro. Combinable con set de cuencos','Hermosa tetera para disfrutar de un rico te en hebras', null, 1,3,5,4),
+('Cucharita de la Aldea',80,'Cucharita hecha en bambú o cedro, ideal para servir hebras o azúcar','Cucharita de calidad!',null,0,30,0,4),
+('Infusor artesanal con cordón',720,'Infusor hecho a mano con fibras naturales.','Infusor estetico y de buena calidad! Sirve para todo tipo de tazas',null,0,10,0,4),
+('Mielera de la Aldea',90,'Mielera en madera ideal para acompañar tus momentos de conexión con las hebras misioneras.','Excelente producto para disfrutar aún mas de nuestros tes',null,0,5,0,4),
+('Cuenco de cerámica',820,'Cuenco de cerámica hecho a mano. Con inscripción Iguazú. Combinable con teteras.','Cuenco artesanal para las buenas energias',null,0,3,0,4),
+('Coffee Pack', 950, 'Degustación de cafés Consultar stock!', 'Pack regalo de 2 mini frascos de café instantáneos gourmet. Caramel Machiato, con vainilla y caramel', '70g', 0, 5, NULL, 3), /*Producto 9*/
+('Varieté', 1400, 'Presentación ideal para regalo con 5 tubitos de diferentes blends de nuestros tés en hebras. Incluím', 'Caja degustación de té', NULL, 0, 10, 20, 4),
+('Alma Flamenca', 500, 'Yerba orgánica tipo barbacuá, canchada gruesa, secada a la leña, con suave aroma ahumado, con cascar', 'Con naranja y pomelo', NULL, 0, 5, NULL, 2),
+('Infusor de té de metal bolita', 600, 'Infusor de té de metal para taza o tetera.', 'infusor para disfrutar nuestros exquisitos tés', NULL, 0, 3, 25, 4),
+('Tea for one', 1500, 'taza + tetera para uno', 'tetera de cerámica, pintada a mano, varios modelos', NULL, 0, 10, 10, 4),
+('Morning Boost', 550, 'Té rojo orgánico en hebras, almendras en trozos, jengibre rallado, gingseng, semillas de hinojo y ca', 'Para despertarte! Es un producto natural, NO un remedio.', NULL, 0, 15, 10, 1),
+('Miracle Organic Matcha', 3200, 'El milagroso Té Verde molido japonés, de calidad ceremonial, un elixir de sabor para regenerarte cad', 'No contiene azúcares ni alérgenos. No recomendado para niños y embarazadas', NULL, 0, 23, 5, 2),
+('Infusión Magic Alkaline', 1200, 'Infusión aromáticamente balsámica y dulce con virtudes alcalinizantes que aportan un equilibrio del ', 'Sorprenderá el contraste armonioso del balsámico de la melisa, el romero y la lavanda con un toque p', NULL, 0, 10, 25, 3),
+('Infusión Cocoa Orange', 800, 'Fragante y antioxidante infusión con todo el sabor del cacao y el picante del jengibre.', 'Una infusión sin teína, ideal con leche o bebida vegetal  para un desayuno o merienda cremosa y natu', NULL, 0, 5, 5, 3),
+('Té rojo praliné', 900, 'Auténtico praliné con Pu Erh, algarroba, manzana, avellana, canela, achicoria y flores.', 'Delicioso Té Rojo Pu Erh, similar a la famosa especialidad "praliné" originaria de la ciudad frances', NULL, 0, 15, NULL, 1),
+('Té negro Pakistaní', 700, 'Té Negro con especias de Oriente donde los intensos sabores animan a comenzar el día con energía.', 'Relaja los músculos, mantiene despierto el cuerpo y la mente. Posee un efecto diurético y antioxidan', NULL, 0, 14, 5, 1);
 
 insert into ingredients (name,product_id)values
 ('Canela',1),('Arandanos',1),('Clavo de olor',1),('Ralladura de naranja',1),
-('Durazno',2),('P�talos de rosas amarillas',2),('Cardamomo',2),('Aroma frutal',2),
+('Durazno',2),('Pétalos de rosas amarillas',2),('Cardamomo',2),('Aroma frutal',2),
 ('Hebras de Yunnan', 3),('Cacao',3),('Coco',3),('Trocitos de Toffee',3),('Vainilla',3);
 
-insert into images(src, product_id) values
-('te-negro.jpg',1),('te-negro2.jpg',1),('te-negro3.jpg',1),
-('te-verde.jpg',2),('te-verde2.jpg',2),('te-verde3.jpg',2),
-('te-rojo.jpg',3),('te-rojo2.jpg',3),('te-rojo3.jpg',3),
-('tetera.jpg',4),('tetera2.jpg',4),('tetera3.jpg',4),
-('cucharita-aldea.jpg',5),('cucharita-aldea2.jpg',5),
-('infusor.jpg',6),('infusor2.jpg',6),
-('mielera.jpg',7),('mielera2.jpg',7),
-('cuenca.jpg',8),('cuenca2.jpg',8);
+insert into images(src, product_id, public_id) values
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854338/nwf4iwlhjtcdqc6p1hln.png',1,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854343/e8pb31b5vs7ly3avajf1.png',1,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854350/vb7wdja5ejq4ucbvmf8z.png',1,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854452/ggskmhrmiwdysrlvtckc.png',2,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854457/ewvuzau3of5ajwah22kc.png',2,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854463/kxknwlvo0ztmlznrzl1s.png',2,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854516/linnlpftdjaoqlsmb22x.png',3,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854521/od4bfzfny3hztp3hwl2j.png',3,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854528/yomouv6vpwq36jtmwim3.png',3,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884319/vkw5rnxnfqwtt0t18fgw.jpg',4,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884322/cqshchhoudwxg9dxf9la.jpg',4,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884325/m9f2avernjyev7fro5si.jpg',4,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884607/ek95dr2wvxcr37u2vc4n.png',5,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884612/b6jlfandim5cwmnliez0.png',5,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884771/mqfs9fvj8z6untprjx0n.jpg',6,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884773/ttoe6qmvem9cvahwygyn.jpg',6,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884806/i653em1s0sbegzjzh8pr.png',7,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884811/ljfl5fghyisnvknb4fzv.png',7,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884893/gmtepduiz0jml5ujoebb.jpg',8,NULL),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884895/ewydsm4qhqonlobr4hxx.jpg',8,null);
 
 insert into categories (name) values
-('T� Puro'),('T� Aromatizado'),('Infusi�n Herbal'),('Accesorios');
+('Té Puro'),('Té Aromatizado'),('Infusión Herbal'),('Accesorios');
 
-insert into product_category (product_id,category_id) values
-(1,1),(1,2),(1,3),
-(2,1),(2,3),
-(3,1),(3,2),(3,3),
-(4,2),(4,3),
-(5,4),
-(6,4),
-(7,4),
-(8,4);
 
-UPDATE tea.images
+
+/*UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854338/nwf4iwlhjtcdqc6p1hln.png', product_id=1, public_id=NULL
 WHERE id=1;
 
@@ -154,182 +169,57 @@ WHERE id=19;
 
 UPDATE tea.images
 SET src='https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884895/ewydsm4qhqonlobr4hxx.jpg', product_id=8, public_id=NULL
-WHERE id=68;
+WHERE id=68;*/
 
 /*Insertar nuevos productos*/
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(164, 'Coffee Pack', 950, 'Degustación de cafés Consultar stock!
-', 'Pack regalo de 2 mini frascos de café instantáneos gourmet. Caramel Machiato, con vainilla y caramel', '70g', 0, 5, NULL, 3);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(163, 'Varieté', 1400, 'Presentación ideal para regalo con 5 tubitos de diferentes blends de nuestros tés en hebras. Incluím', 'Caja degustación de té
-', NULL, 0, 10, 20, 4);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(165, 'Alma Flamenca', 500, 'Yerba orgánica tipo barbacuá, canchada gruesa, secada a la leña, con suave aroma ahumado, con cascar', 'Con naranja y pomelo', NULL, 0, 5, NULL, 2);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(166, 'Infusor de té de metal bolita', 600, 'Infusor de té de metal para taza o tetera.', 'infusor para disfrutar nuestros exquisitos tés', NULL, 0, 3, 25, 4);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(167, 'Tea for one', 1500, 'taza + tetera para uno', 'tetera de cerámica, pintada a mano, varios modelos', NULL, 0, 10, 10, 4);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(168, 'Morning Boost', 550, 'Té rojo orgánico en hebras, almendras en trozos, jengibre rallado, gingseng, semillas de hinojo y ca', 'Para despertarte!
-Es un producto natural, NO un remedio.', NULL, 0, 15, 10, 1);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(169, 'Miracle Organic Matcha', 3200, 'El milagroso Té Verde molido japonés, de calidad ceremonial, un elixir de sabor para regenerarte cad', 'No contiene azúcares ni alérgenos. No recomendado para niños y embarazadas', NULL, 0, 23, 5, 2);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(170, 'Infusión Magic Alkaline', 1200, 'Infusión aromáticamente balsámica y dulce con virtudes alcalinizantes que aportan un equilibrio del ', 'Sorprenderá el contraste armonioso del balsámico de la melisa, el romero y la lavanda con un toque p', NULL, 0, 10, 25, 3);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(171, 'Infusión Cocoa Orange', 800, 'Fragante y antioxidante infusión con todo el sabor del cacao y el picante del jengibre.
-', 'Una infusión sin teína, ideal con leche o bebida vegetal  para un desayuno o merienda cremosa y natu', NULL, 0, 5, 5, 3);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(172, 'Té rojo praliné', 900, 'Auténtico praliné con Pu Erh, algarroba, manzana, avellana, canela, achicoria y flores.
-', 'Delicioso Té Rojo Pu Erh, similar a la famosa especialidad "praliné" originaria de la ciudad frances', NULL, 0, 15, NULL, 1);
-
-INSERT INTO tea.products
-(id, name, price, description, coment, weight, offer, stock, discount, category_id)
-VALUES(173, 'Té negro Pakistaní', 700, 'Té Negro con especias de Oriente donde los intensos sabores animan a comenzar el día con energía. 
-', 'Relaja los músculos, mantiene despierto el cuerpo y la mente. Posee un efecto diurético y antioxidan', NULL, 0, 14, 5, 1);
 
 
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(251, 'canchada gruesa', 165);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(252, 'Yerba orgánica tipo barbacuá', 165);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(253, 'cascaritas de naranja y pomelo', 165);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(260, 'Manzana', 168);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(261, 'Romero', 168);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(262, 'Pétalos y botones de rosa', 168);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(263, 'Flores de lavanda', 169);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(264, 'Flores de manzanilla', 169);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(265, 'Raíz de diente de león', 169);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(266, 'Melisa', 170);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(267, 'Pera', 170);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(268, 'Jengibre', 170);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(269, 'Cáscara de cacao orgánico', 171);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(270, 'Jengibre', 171);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(271, 'Naranja', 171);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(272, 'Algarroba', 172);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(273, 'Manzana', 172);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(274, 'Canela', 172);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(275, 'Canela', 173);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(276, 'Cardamomo', 173);
-INSERT INTO tea.ingredients
-(id, name, product_id)
-VALUES(277, 'Clavo', 173);
+
+
+
+INSERT INTO tea.ingredients (name, product_id) 
+VALUES ('canchada gruesa', 165), /*producto 9*/
+('Yerba orgánica tipo barbacuá', 165),
+('cascaritas de naranja y pomelo', 165),
+('Manzana', 168), /*producto 12*/
+('Romero', 168),
+('Pétalos y botones de rosa', 168),
+('Flores de lavanda', 169), /*Producto 13*/
+('Flores de manzanilla', 169),
+('Raíz de diente de león', 169),
+('Melisa', 170), /*producto 14*/
+('Pera', 170),
+('Jengibre', 170),
+('Cáscara de cacao orgánico', 171), /*producto 15*/
+('Jengibre', 171),
+('Naranja', 171),
+('Algarroba', 172), /*producto 16*/
+('Manzana', 172),
+('Canela', 172),
+('Canela', 173), /*producto 17*/
+('Cardamomo', 173),
+('Clavo', 173);
 
 
 INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(108, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879628/jmezivatnbsgt2zmhfeq.png', 163, 'jmezivatnbsgt2zmhfeq');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(109, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879725/qtyhjcvat2a2ahgfyt4i.png', 164, 'qtyhjcvat2a2ahgfyt4i');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(110, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879995/qfs32un5sowbi8azmhdi.png', 165, 'qfs32un5sowbi8azmhdi');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(111, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883608/rmtswyokmbz0yzebxrhc.png', 166, 'rmtswyokmbz0yzebxrhc');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(112, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883846/iaqs0uouaqjjnasskuet.png', 167, 'iaqs0uouaqjjnasskuet');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(113, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883849/hnvpihrc5qlu8xrf0cvz.png', 167, 'hnvpihrc5qlu8xrf0cvz');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(114, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884116/of3lkudzlyncolo9pla3.png', 168, 'of3lkudzlyncolo9pla3');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(115, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884622/nlrrcexue1kj8mzkm282.jpg', 169, 'nlrrcexue1kj8mzkm282');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(116, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884626/n6en4utqy9oorqokgtm9.jpg', 169, 'n6en4utqy9oorqokgtm9');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(117, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884627/i7yhdobokag33y2cudwz.jpg', 169, 'i7yhdobokag33y2cudwz');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(118, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885340/jdqsixyityskrpp9flud.jpg', 170, 'jdqsixyityskrpp9flud');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(119, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885342/hkuuqn8r5qztepzvqvwu.jpg', 170, 'hkuuqn8r5qztepzvqvwu');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(120, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885344/ogtuajxoaapmks3bkjx2.jpg', 170, 'ogtuajxoaapmks3bkjx2');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(121, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885642/dlykpfzxoy2rkhrki3wa.jpg', 171, 'dlykpfzxoy2rkhrki3wa');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(122, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885644/owhzi8idnz1t3q4ohzzf.jpg', 171, 'owhzi8idnz1t3q4ohzzf');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(123, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885917/k5f4vp2xr75jk9o9jdly.jpg', 172, 'k5f4vp2xr75jk9o9jdly');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(124, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885919/lln3tjqwkwo2e1tdjuxy.jpg', 172, 'lln3tjqwkwo2e1tdjuxy');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(125, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885920/hanlkxvqqe7pvnvwxqim.jpg', 172, 'hanlkxvqqe7pvnvwxqim');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(126, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886214/ai4z4ngbdyvc4tf19cfz.jpg', 173, 'ai4z4ngbdyvc4tf19cfz');
-INSERT INTO tea.images
-(id, src, product_id, public_id)
-VALUES(127, 'https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886215/oqvbie7dc6uwhspezet6.jpg', 173, 'oqvbie7dc6uwhspezet6');
+(src, product_id, public_id)
+VALUES('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879628/jmezivatnbsgt2zmhfeq.png', 163, 'jmezivatnbsgt2zmhfeq'), /*9*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879725/qtyhjcvat2a2ahgfyt4i.png', 164, 'qtyhjcvat2a2ahgfyt4i'), /*10*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879995/qfs32un5sowbi8azmhdi.png', 165, 'qfs32un5sowbi8azmhdi'), /*11*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883608/rmtswyokmbz0yzebxrhc.png', 166, 'rmtswyokmbz0yzebxrhc'), /*12*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883846/iaqs0uouaqjjnasskuet.png', 167, 'iaqs0uouaqjjnasskuet'), /*13*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883849/hnvpihrc5qlu8xrf0cvz.png', 167, 'hnvpihrc5qlu8xrf0cvz'), /*13*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884116/of3lkudzlyncolo9pla3.png', 168, 'of3lkudzlyncolo9pla3'), /*14*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884622/nlrrcexue1kj8mzkm282.jpg', 169, 'nlrrcexue1kj8mzkm282'), /*15*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884626/n6en4utqy9oorqokgtm9.jpg', 169, 'n6en4utqy9oorqokgtm9'), /*15*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884627/i7yhdobokag33y2cudwz.jpg', 169, 'i7yhdobokag33y2cudwz'), /*15*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885340/jdqsixyityskrpp9flud.jpg', 170, 'jdqsixyityskrpp9flud'), /*16*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885342/hkuuqn8r5qztepzvqvwu.jpg', 170, 'hkuuqn8r5qztepzvqvwu'), /*16*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885344/ogtuajxoaapmks3bkjx2.jpg', 170, 'ogtuajxoaapmks3bkjx2'), /*16*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885642/dlykpfzxoy2rkhrki3wa.jpg', 171, 'dlykpfzxoy2rkhrki3wa'), /*17*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885644/owhzi8idnz1t3q4ohzzf.jpg', 171, 'owhzi8idnz1t3q4ohzzf'), /*17*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885917/k5f4vp2xr75jk9o9jdly.jpg', 172, 'k5f4vp2xr75jk9o9jdly'), /*18*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885919/lln3tjqwkwo2e1tdjuxy.jpg', 172, 'lln3tjqwkwo2e1tdjuxy'), /*18*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885920/hanlkxvqqe7pvnvwxqim.jpg', 172, 'hanlkxvqqe7pvnvwxqim'), /*18*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886214/ai4z4ngbdyvc4tf19cfz.jpg', 173, 'ai4z4ngbdyvc4tf19cfz'), /*19*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886215/oqvbie7dc6uwhspezet6.jpg', 173, 'oqvbie7dc6uwhspezet6'); /*19*/
