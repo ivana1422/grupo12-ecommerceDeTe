@@ -16,11 +16,10 @@ module.exports = {
 
             if(producto){
                 
-                let ingredients = producto.ingredients.filter(ingrediente=>ingrediente=>ingrediente.name !== '')
+                
                 res.render("products/productDetail", {
                 titulo: "Tea | Detalle de Producto",
                 producto,
-                ingredients,
                 session:req.session
                 })
 

@@ -2,7 +2,7 @@ create database tea;
 
 use tea;
 
-/*USUARIOS*/
+/USUARIOS/
 
 create table address (
   id int(11) not null auto_increment primary key,
@@ -18,18 +18,24 @@ create table users (
   name varchar(50) not null,
   surname varchar(50) not null,
   email varchar(50) not null unique key,
-  pass varchar(50) not null,
+  pass varchar(100) not null,
   avatar varchar(100),
   rol tinyint(4) not null default 0,
+  avatar_public_id varchar(100) null,
   address_id int(11) not null,
   foreign key (address_id) references address(id)
  );
 
-/*PRODUCTOS*/
+/PRODUCTOS/
 
 /*Offer se identificara con:
  * 0 para productos sin descuentos (sin oferta)
  * 1 para productos con descuentos (en oferta)*/
+
+create table categories (
+  id int not null auto_increment primary key,
+  name varchar(50) not null
+);
  
 create table products (
   id int not null auto_increment primary key,
@@ -40,12 +46,15 @@ create table products (
   weight varchar(50),
   offer tinyint(4) default 0,
   stock int not null default 0,
-  discount int
+  category_id int null,
+  discount int,
+  FOREIGN KEY (category_id) REFERENCES tea.categories(id)
 );
 
 create table images (
   id int not null auto_increment primary key,
   src varchar(200) not null,
+  public_id varchar(100) null,
   product_id int not null,
   foreign key(product_id) references products(id)
 );
@@ -57,20 +66,7 @@ create table ingredients (
   foreign key (product_id) references products(id)  
 );
 
-create table categories (
-  id int not null auto_increment primary key,
-  name varchar(50) not null
-);
-
-create table product_category (
-  id int not null auto_increment primary key,
-  product_id int not null,
-  category_id int not null,
-  foreign key(product_id) references products(id),
-  foreign key(category_id) references categories(id)
-);
-
-/*ORDENES DE COMPRA (CARRITO)*/
+/ORDENES DE COMPRA (CARRITO)/
 
 /*state determina con: 
  * 0 carrito no vendido (stock de productos a�n vigentes)
@@ -94,13 +90,3 @@ create table orders_product (
 );
 
 ALTER DATABASE tea CHARACTER SET utf8 COLLATE utf8_general_ci;
-
-ALTER TABLE tea.images ADD public_id varchar(100) NULL;
-
-ALTER TABLE tea.users ADD avatar_public_id varchar(100) NULL;
-
-DROP TABLE tea.product_category
-
-ALTER TABLE tea.products ADD category_id int NULL;
-
-ALTER TABLE products ADD CONSTRAINT products_FK FOREIGN KEY (category_id) REFERENCES categories(id);

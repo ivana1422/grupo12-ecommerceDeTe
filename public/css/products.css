@@ -12,9 +12,10 @@
 .containerCaja1-2 {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     max-width: 1000px;
+    gap: 20px;
 }
 
 .primerCaja {
@@ -22,9 +23,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    object-fit: cover;
     padding: 20px;
     max-width:450px;
+    max-height: 450px;
 }
 
 .carousel-edit1{
@@ -44,6 +46,7 @@
     width:100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .__indicators{
     padding: 1px;
@@ -140,18 +143,16 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    opacity: .7;
+}
+
+.description__similar__img:hover{
+    opacity: 1;
 }
 
 .description__activate{
     font-size: 16px;
     font-weight: 700;
-}
-
-.description__activate:hover{
-    background-color: var(--rosaClaro);
-    border-radius: 3px;
-    width: 190px;
-    text-align: center;
 }
 
 .description__share{
@@ -230,7 +231,7 @@
 }
 
 .cuartaCaja{
-    flex: 100%;
+    width: 70%;
     padding: 40px 60px 90px 60px;
     text-align: center;
 }
@@ -238,23 +239,52 @@
 .cuartaCaja h2 {
     text-align: left;
     font-family: 'Baloo 2';
-    font-size: 40px;
+    font-size: 20px;
+}
+
+.detail__pago{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.detail__pago__cards{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+}
+
+.detail__pago__cards_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .cuartaCaja div {
     text-align: left;
     
     border-style: solid;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 50px;
     background-color: white;
 }
 
-.cuartaCaja div p {
-    margin-bottom: 20px;
+.cards__div_img{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
 }
 
-@media (max-width: 1440px){
+/*@media (max-width: 1440px){
     .img-container img {
         width: 450px;
     }
@@ -354,4 +384,4 @@
         font-size: 16px;
         padding: 10px 15px;
     }
-}
+}*/
