@@ -1,5 +1,3 @@
-
-
 function qs (element) {
     return document.querySelector(element)
 }
@@ -14,8 +12,6 @@ window.addEventListener('load', () => {
     let priceError = qs('#priceError')
     let inputStock = qs("#stock")
     let stockError = qs('#stockError')
-    let inputDiscount = qs("#discount")
-    let discountError = qs('#discountError')
     let inputDescription = qs("#description")
     let descriptionError = qs('#descriptionError')
     let inputIngredient1 = qs("#ingredient1")
@@ -33,9 +29,6 @@ window.addEventListener('load', () => {
 
     let regExAlpha = /^[a-zA-z\sñáéíóúü]*$/
     let validarNum = /^[0-9]*(\.?)[0-9]+$/
-    let unoACien = /^[1-9][0-9]?$|^100$/
-
-
 
     inputName.addEventListener('blur', () => {
         switch(true) {
@@ -174,14 +167,19 @@ window.addEventListener('load', () => {
         event.preventDefault()
         let elementsForm = this.elements
         let errores = false;
-
+        let count = 1;
         for(let j = 0; j < elementsForm.length -1 ; j++){
+            
+            if(elementsForm[j].type == 'radio'){
+                if(elementsForm[j].checked == true) {
+                    divCategory.style.border = '4px solid green';
+                    errores = false
+                    break
+                }
+                count ++
+            }
 
-            if(elementsForm[j].checked == true && elementsForm[j].type == 'radio') {
-                divCategory.style.border = '4px solid green';
-                errores = false
-                break
-            }else if(elementsForm[j].checked == false && elementsForm[j].type == 'radio'){
+            if(elementsForm[j].type !== 'radio' && count == j){
                 divCategory.style.border = '4px solid red';
                 errores = true
                 submitError.innerHTML = "los campos senalados son obligatorios"
