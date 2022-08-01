@@ -1,10 +1,10 @@
 insert into categories (name) values
-('T� Puro'),('T� Aromatizado'),('Infusi�n Herbal'),('Accesorios');
+('Té Puro'),('Té Aromatizado'),('Infusi�n Herbal'),('Accesorios');
 
 insert into products(name, price, description,coment,weight,offer,stock,discount,category_id) values 
-('T� negro en hebras cortas',350,'T� negro en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde!','Lata 65g',1,10,10,1),
-('T� verde en hebras cortas',350,'T� verde en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde, de sabor dulce y delicado!','Lata 65g',1,10,10,2),
-('T� rojo en hebras cortas',350,'T� rojo en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores, Dulce y entrador!','Lata 65g',1,5,10,2),
+('Té negro en hebras cortas',350,'Té negro en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde!','Lata 65g',1,10,10,1),
+('Té verde en hebras cortas',350,'Té verde en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde, de sabor dulce y delicado!','Lata 65g',1,10,10,2),
+('Té rojo en hebras cortas',350,'Té rojo en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores, Dulce y entrador!','Lata 65g',1,5,10,2),
 ('Tetera Artesanal de Cer�mica',1980,'Teteras de cer�mica hechas a mano, Capacidad 1 litro. Combinable con set de cuencos','Hermosa tetera para disfrutar de un rico te en hebras', null, 1,3,5,4),
 ('Cucharita de la Aldea',80,'Cucharita hecha en bamb� o cedro, ideal para servir hebras o az�car','Cucharita de calidad!',null,0,30,0,4),
 ('Infusor artesanal con cord�n',720,'Infusor hecho a mano con fibras naturales.','Infusor estetico y de buena calidad! Sirve para todo tipo de tazas',null,0,10,0,4),
