@@ -98,7 +98,7 @@ window.addEventListener('load', () =>{
             if(!inputEmail.classList.contains("input__valid")){
                 invalidInput(inputEmail,iconEmail)
             }
-            alert("Debe Completar 652626")
+            alert("Debe Completar los campos")
         }else if (!passBoolean){
             if(!inputPass.classList.contains("input__valid")){
                 invalidInput(inputPass,iconPass)

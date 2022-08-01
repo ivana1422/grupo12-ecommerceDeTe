@@ -10,7 +10,9 @@
         <section class="lg-container register" id="sectionLogin">
             <h2>Iniciar sesion</h2>
             <hr>
+            
             <form action="/login" method="post">
+                
                 <div class="input-container">
                     <div class="input_icon">
                         <input type="email" class="input-style" name="email" placeholder="Ingrese su email" id="input__login__email" value="<%=(locals.old && old.email) ? old.email : ""%>">
@@ -37,20 +39,71 @@
                     </label>
 
                 </div>
-
-            
+                
+                <!--Login con Google-->
+                    <div id="g_id_onload" 
+                    data-client_id="974873086159-jrho6q9f2c4tagpn6gm07g6puf9tj2ql.apps.googleusercontent.com" 
+                    data-auto_prompt="false"
+                    data-callback="handleCredentialResponse">
+                </div>
+                <div class="g_id_signin margin-google"
+                    data-type="standard"
+                    data-shape="pill"
+                    data-theme="filled_blue"
+                    data-text="$ {button.text}"
+                    data-size="large"
+                    data-locale="es-419"
+                    data-logo_alignment="left">
+                </div>
+                <!--Fin-->
                 <div class="btn-container">
                     <button type="submit" class="btn btn-submit">Ingresar</button>
                 </div>
+                
                 <span id="olvidoContrasenia"><a  href="">¿Olvidaste tu contraseña?</a></span>
                 <span id="center"><a  href="/register">¿No tenes cuenta? Registrate</a></span>
             </form>
-    
+            
         </section>
     </main>     
     <script src="/js/login.js"></script>          
     
     <%-include("../partials/footer")%>
    <script src="js/validationsFront/loginValidations.js"></script>
+   <script src="https://accounts.google.com/gsi/client" async defer></script>
+   <script>
+        function handleCredentialResponse(response) {
+            
+            const id_token=response.credential;
+            let data = { id_token };
+            
+            let url = `${location.origin}/google`
+            /*let url = (window.location.hostname.includes('localhost') )
+                    ? 'http://localhost:5000/google'
+                    : 'https://abcde.herokuapp.com/api/auth/google'*/
+    
+            let myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+    
+            let myInit = { method: 'POST',
+                        headers: myHeaders,
+                        mode: 'cors',
+                        cache: 'default',
+                        body: JSON.stringify(data) };
+    
+            let myRequest = new Request(url, myInit);
+        
+        
+            fetch( myRequest )
+            .then(resp => resp.json() )
+            .then(data =>{
+                if(typeof data.redirect === 'string'){
+                    window.location = data.redirect
+                }
+            })
+            .catch( console.log );
+        }
+  </script>
+   
 </body>
 </html>

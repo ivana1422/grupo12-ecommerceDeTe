@@ -4,8 +4,10 @@ const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const db = require('../database/models');
-const process = require('process')
-let cloudinary = require('cloudinary')
+const process = require('process');
+let cloudinary = require('cloudinary');
+
+const googleVerify = require('../middlewares/google-verify')
 
 
 
@@ -369,6 +371,47 @@ module.exports= {
         res.cookie('tea',"",{maxAge:-1})
         }
     },
+    googleSignIn:async (req,res)=>{
+        let errors = validationResult(req)
+        const {id_token} = req.body;
+        
+        if(errors.isEmpty()){
 
+            
+
+            const {name,surname, email, avatar} = await googleVerify(id_token);
+            
+    
+            db.users.findOne({
+                where:{
+                     email:email
+                    }
+            })
+            .then((user) => {
+                req.session.user = {
+                    id: user.id,
+                    name: user.name,
+                    surname: user.surname,
+                    email: user.email,
+                    avatar: user.avatar,
+                    rol:user.rol
+                    }
+                    res.locals.user = req.session.user
+
+                    res.send({redirect:'/'});
+                })
+                
+
+            } else {
+                
+                res.render("users/login",{
+                    titulo:"Iniciar Sesión",
+                    errors:errors.mapped(),
+                    old:req.body,
+                    session:req.session
+                })
+            
+        }
+    }
   
 }
