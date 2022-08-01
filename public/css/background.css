@@ -1,127 +1,362 @@
 /*Background*/
 .burbuja{
     border-radius:50%;
-    background:#000;
     opacity: 0;
     position:absolute;
     
     animation:burbujas 3s linear infinite;
     z-index:-9999;
+    width: 15px;
+    height: 15px;
   }
   
   .burbuja:nth-child(1){
-    width:80px;
+    /*width:80px;
     height: 80px;
     left:5%;
-    background:#98DBC6;
+    background:#98DBC6;*/
     animation-duration:3s;
     animation-delay:3s;
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    left:5%
   }
   
   .burbuja:nth-child(2){
-    width:100px;
+    /*width:100px;
     height: 100px;
+    background:#F18D9E;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
     left:35%;
-    background:#F18D9E;
     animation-duration:3s;
     animation-delay:5s;
   }
   
   .burbuja:nth-child(3){
-    width:20px;
+    /*width:20px;
     height: 20px;
-    background:#F18D9E;
+    background:#F18D9E;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
     left:15%;
     animation-duration:1.5s;
     animation-delay:7s;
   }
   
   .burbuja:nth-child(4){
-    width:50px;
+    /*width:50px;
     height: 50px;
+    background:#F18D9E;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
     left:90%;
-    background:#F18D9E;
     animation-duration:6s;
     animation-delay:3s;
   }
   
   .burbuja:nth-child(5){
-    width:70px;
+    /*width:70px;
     height: 70px;
+    background:#E6D72A;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
     left:65%;
-    background:#E6D72A;
     animation-duration:3s;
     animation-delay:1s;
   }
   
   .burbuja:nth-child(6){
-    width:20px;
+    /*width:20px;
     height: 20px;
-    background:#5BC8AC;
-    left:50%;
+    background:#5BC8AC;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+    left:73%;
     animation-duration:4s;
     animation-delay:5s;
   }
   
   .burbuja:nth-child(7){
-    width:20px;
+    /*width:20px;
     height: 20px;
+    background:#FFC4E1;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
     left:50%;
-    background:#FFC4E1;
     animation-duration:4s;
     animation-delay:5s;
   }
   
   .burbuja:nth-child(8){
-    width:101px;
+    /*width:101px;
     height: 101px;
-    left:52%;
-    background:#5BC8AC;
+    background:#5BC8AC;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+    left:57%;
     animation-duration:4s;
     animation-delay:5s;
   }
   
   .burbuja:nth-child(9){
-    width:65px;
+    /*width:65px;
     height: 65px;
-    left:51%;
-    background:#5BC8AC;
-    animation-duration:3s;
+    background:#5BC8AC;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    left:45%;
+    animation-duration:5s;
     animation-delay:2s;
   }
   
   .burbuja:nth-child(10){
-    width:60px;
+    /*width:60px;
     height: 60px;
+    background:#FFC4E1;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
     left:35%;
-    background:#FFC4E1;
     animation-duration:3s;
     animation-delay:4s;
   }
   
   .burbuja:nth-child(11){
-    width:12px;
+    /*width:12px;
     height: 12px;
+    background:#98DBC6;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
     left:25%;
-    background:#98DBC6;
     animation-duration:3s;
     animation-delay:5s;
+  }
+  .burbuja:nth-child(12){
+    /*width:80px;
+    height: 80px;
+    left:5%;
+    background:#98DBC6;*/
+    animation-duration:2s;
+    animation-delay:5s;
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    left:12%
+  }
+  
+  .burbuja:nth-child(13){
+    /*width:100px;
+    height: 100px;
+    background:#F18D9E;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+    left:25%;
+    animation-duration:5s;
+    animation-delay:2s;
+  }
+  
+  .burbuja:nth-child(14){
+    /*width:20px;
+    height: 20px;
+    background:#F18D9E;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    left:99%;
+    animation-duration:1s;
+    animation-delay:5s;
+  }
+  
+  .burbuja:nth-child(15){
+    /*width:50px;
+    height: 50px;
+    background:#F18D9E;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+    left:87%;
+    animation-duration:6s;
+    animation-delay:3s;
+  }
+  
+  .burbuja:nth-child(16){
+    /*width:70px;
+    height: 70px;
+    background:#E6D72A;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    left:56%;
+    animation-duration:1s;
+    animation-delay:3s;
+  }
+  
+  .burbuja:nth-child(17){
+    /*width:20px;
+    height: 20px;
+    background:#5BC8AC;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+    left:37%;
+    animation-duration:5s;
+    animation-delay:4s;
+  }
+  
+  .burbuja:nth-child(18){
+    /*width:20px;
+    height: 20px;
+    background:#FFC4E1;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    left:8%;
+    animation-duration:5s;
+    animation-delay:4s;
+  }
+  
+  .burbuja:nth-child(19){
+    /*width:101px;
+    height: 101px;
+    background:#5BC8AC;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+    left:75%;
+    animation-duration:8s;
+    animation-delay:4s;
+  }
+  
+  .burbuja:nth-child(20){
+    /*width:65px;
+    height: 65px;
+    background:#5BC8AC;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    left:81%;
+    animation-duration:2s;
+    animation-delay:5s;
+  }
+  
+  .burbuja:nth-child(21){
+    /*width:60px;
+    height: 60px;
+    background:#FFC4E1;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+    left:53%;
+    animation-duration:4s;
+    animation-delay:3s;
+  }
+  
+  .burbuja:nth-child(22){
+    /*width:12px;
+    height: 12px;
+    background:#98DBC6;*/
+    /*width: 30px;
+    height:30px;*/
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    left:15%;
+    animation-duration:5s;
+    animation-delay:3s;
   }
   
   @keyframes burbujas{
     0%{
       bottom:0;
       opacity:0;
+      display: none;
     }
+    
     30%{
       transform: translateX(30px);
-      opacity: .4; 
+      opacity: .7; 
     }
     50%{
-      opacity: .4; 
+      opacity: .7; 
     }
     100%{
-      bottom:100vh;
+      bottom:150vh;
       opacity: .0; 
       
     }

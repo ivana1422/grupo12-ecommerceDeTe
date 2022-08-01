@@ -9,9 +9,9 @@
     --clippy: polygon(100% 0, 0 0, 0 100%, 56% 63%);;
 }
 
-.bodyAbout{
+/*.bodyAbout{
     background-image: url(/img/back-img.png);
-}
+}*/
 
 .mainAbout{
     display: flex;
@@ -28,7 +28,7 @@
     opacity: 0;
     margin: 20px;
     margin-top: 30px;
-    border-radius: 10%;
+    border-radius: 5px;
     width: 150px;
     background-color: #fbd8dc;
     transition: all 0.5s;
