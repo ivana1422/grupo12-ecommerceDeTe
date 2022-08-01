@@ -3,14 +3,14 @@
     <%-include("../partials/head")%>
 <body>
     <%-include("../partials/header")%>
-
+    <%-include("../partials/background")%>
     <main class="back-grad">
         <section >
-            <article>
+            <article class="article__d">
                 <div class="containerCaja1-2" >
                     <div class="primerCaja" >
-                        <h2><%=producto.name%></h2>
-                        <div class="container carousel-edit1">
+                        
+                        <div class="container carousel-dark carousel-edit1">
                           <div id="carouselExampleIndicators" class="carousel slide d-flex justify-content-center" data-bs-ride="carousel" >
                             <div class="carousel-indicators">
                               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -47,31 +47,95 @@
                           </div>
                         </div>
                         
-                        <div class="tercerCaja"> 
-                                <input type="button" value="Comprar ya!">
-                                <input type="button" value="Agregar al Carrito">
-                        </div>
+                        
                     </div>
                         
                     <div class="segundaCaja">
-                        <h2>Detalles</h2>
-                        <p>-<%=producto.description%> </p>
-                        <p class="precio">$<%=producto.price%></p>
-                        <% if(producto.ingredients.length > 0 && producto.ingredients[0] !== ''){ %>
-                            <p>Ingredientes:</p>
+                      <div class="products__indicators">
+                        <h2 class="h2__d"><%=producto.name%></h2>
+                        <div>
+                          <a class="__indicators" href="/productos/<%=producto.id - 1 ? producto.id - 1 : producto.id%>"><i class="fa-solid fa-chevron-left"></i></a>
+                          <a class="__indicators" href="/productos/<%=producto.id + 1 ? producto.id + 1 : producto.id%>"><i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
+                      </div>
+                      <div class="description__d">
+                        <p class="description__sub"><%=producto.description%></p>
+                        <p class="description__price">$<%=producto.price%></p>
 
+                        <% if(producto.ingredients[0].name !== ''){ %>
+                            <p>Ingredientes:</p>
+                          <ul class="description__ul">
                             <% producto.ingredients.forEach(ingrediente => { %>
-                              <li><%=ingrediente.name%></li>
+                              <li class="description__li"><%=ingrediente.name%></li>
                             <% }) %>
-                            <!--<ul>
-                                <% for(let i = 0; i < producto.ingredients.length; i++) { %>
-                                <li><%=producto.ingredients[i].name%></li>
-                                <%}%>
-                            </ul>-->
+                          </ul>
+
                          <%}%>
-                           
                         <p><%=producto.coment%></p>
+                        <div class="tercerCaja"> 
+                          <div class="description__box">
+                            <span class="box__button box__button__left">-</span>
+                            <span class="description__cant" >0</span>
+                            <span class="box__button box__button__right">+</span>
+                          </div>
+                          <input type="button" class="description__chart" value="Agregar al Carrito">
+                        </div>
+                      </div>
+                      <div class="description__footer">
+                        <a href="#" class="description__activate">Más productos similares</a>
+                        <div class="description__similar">
+                          
+                        </div>
+                        <div class="description__share">
+                          <p>Comparte: </p>
+                          <a href='https://www.facebook.com/sharer/sharer.php?u=#' class="icon__description ic__f"><i class="fa-brands fa-facebook"></i></a>
+                          <a href="https://twitter.com/intent/tweet?text=[text]&url=[url]&hashtags=[hashtag]" class="icon__description ic__t"><i class="fa-brands fa-twitter"></i></i></a>
+                          <a href="https://api.whatsapp.com/send?text=http://localhost:5000" class="icon__description ic__w"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                      </div>
                     </div>
+
+                    
+                    
+                </div>
+                <div class="detail__pago">
+                  <div class="detail__pago__header">
+                    <h2>Medios de pago</h2>
+                    <h4>Podés pagar tus compras con cualquiera de estos medios. Es rápido y seguro, siempre.</h4>
+                  </div>
+                  <div class="detail__pago__cards">
+                    <div class="detail__pago__cards_div">
+                      <p class="cards__div_title">12 cuotas sin tarjeta!</p>
+                      <div class="cards__div_img">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/51b446b0-571c-11e8-9a2d-4b2bd7b1bf77-m.svg" alt="">
+                      </div>
+                    </div>
+                    <div class="detail__pago__cards_div">
+                      <p class="cards__div_title">Tarjetas de crédito</p>
+                      <div class="cards__div_img">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg" alt="">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/b2c93a40-f3be-11eb-9984-b7076edb0bb7-m.svg" alt="">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/992bc350-f3be-11eb-826e-6db365b9e0dd-m.svg" alt="">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg" alt="">
+                      </div>
+                    </div>
+                    <div class="detail__pago__cards_div">
+                      <p class="cards__div_title">Tarjetas de débito</p>
+                      <div class="cards__div_img">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/312238e0-571b-11e8-823a-758d95db88db-m.svg" alt="">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/ce454480-445f-11eb-bf78-3b1ee7bf744c-m.svg" alt="">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/157dce60-571b-11e8-95d8-631c1a9a92a9-m.svg" alt="">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/cb0af1c0-f3be-11eb-8e0d-6f4af49bf82e-m.svg" alt="">
+                      </div>
+                    </div>
+                    <div class="detail__pago__cards_div">
+                      <p class="cards__div_title">Efectivo</p>
+                      <div class="cards__div_img">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/fec5f230-06ee-11ea-8e1e-273366cc763d-m.svg" alt="">
+                        <img src="https://http2.mlstatic.com/storage/logos-api-admin/443c34d0-571b-11e8-823a-758d95db88db-m.svg" alt="">
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 
@@ -88,6 +152,6 @@
         </section>
     </main>
     <%-include("../partials/footer")%>
-    
+    <script src="/js/products/detailProduct.js"></script>
 </body>
 </html>

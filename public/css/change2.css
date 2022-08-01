@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 350px;
+    height: 76vh;
     opacity: 0;
     transform: scale(0.7);
 }
@@ -29,13 +29,13 @@
     flex-direction: column;
     background-color: #fbd8dc;
     transform: scale(1);
-    border-radius: 6%;
+    border-radius: 5px;
     transition: all 1.5s;
 }
 
 .formChange2:hover{
     transition: all 1.5s;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .divChange2{
@@ -71,9 +71,12 @@
 
 .buttonChange2 {
     width: 34%;
-    border: none;
-    box-shadow: 0px 1px 0px 2px grey;
+    /*border: none;
+    box-shadow: 0px 1px 0px 2px grey;*/
     background-color: #fbd8dc;
+    border: 2px solid var(--rosaOscuro);
+    box-shadow: none;
+    border-radius: 5px;
 }
 
 .inputChange2{
