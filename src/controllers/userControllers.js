@@ -387,18 +387,44 @@ module.exports= {
                      email:email
                     }
             })
-            .then((user) => {
-                req.session.user = {
-                    id: user.id,
-                    name: user.name,
-                    surname: user.surname,
-                    email: user.email,
-                    avatar: user.avatar,
-                    rol:user.rol
-                    }
-                    res.locals.user = req.session.user
+            .then(async (user) => {
+                if(user){
+                    req.session.user = {
+                        id: user.id,
+                        name: user.name,
+                        surname: user.surname,
+                        email: user.email,
+                        avatar: user.avatar,
+                        rol:user.rol
+                        }
+                        res.locals.user = req.session.user
+    
+                        res.send({redirect:'/'});
+                } else {
+                    let usuario = await db.users.create({
+                        name,
+                        surname,
+                        email,
+                        pass: '123456789',
+                        avatar,
+                        avatar_public_id:null,
+                        rol: 0,
+                        address_id: 18
+                    })
 
-                    res.send({redirect:'/'});
+                    req.session.user = {
+                        id: usuario.id,
+                        name: usuario.name,
+                        surname: usuario.surname,
+                        email: usuario.email,
+                        avatar: usuario.avatar,
+                        rol:usuario.rol
+                        }
+                        res.locals.user = req.session.user
+    
+                        res.send({redirect:'/'});
+
+                }
                 })
                 
 
