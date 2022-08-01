@@ -8,12 +8,11 @@ window.addEventListener('load',async ()=>{
     let data = await response.json()
 
     //Tarjetas de categorias
-    data.categories.map(category=>{
-        return (
-            containerCategory.innerHTML += `<a class="cardCategory cardCategory${category.id}" href="">
+    data.categories.forEach(category=>{
+        containerCategory.innerHTML += `<a class="cardCategory cardCategory${category.id}" href="/productos/${category.id}">
                                                 <h3 class="cardCategory_name">${category.name}</h3>
                                             </a>`
-        )
+        
     })
 
     const cardCategoryAll = document.querySelector('.cardCategoryAll')
@@ -30,7 +29,10 @@ window.addEventListener('load',async ()=>{
             productosFiltrados = data.products.filter(product=>product.categories.id===num)
             
             containerProducts.innerHTML = null
-            containerProducts.innerHTML += productosFiltrados.map(product=>CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id))
+            productosFiltrados.forEach(product=>{
+
+                containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
+            })
         })
     }
 
@@ -38,10 +40,14 @@ window.addEventListener('load',async ()=>{
     cardCategoryAll.addEventListener('click',(e)=>{
         e.preventDefault();
         containerProducts.innerHTML = null
-        containerProducts.innerHTML += data.products.map(product=>CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id))
+        data.products.forEach(product=>{
+
+            containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
+        })
     })
 
     //Se ejecuta la funcion para cada categoria
+    
     FilterProducts(cardCategory1,1)
     FilterProducts(cardCategory2,2)
     FilterProducts(cardCategory3,3)
@@ -71,8 +77,8 @@ window.addEventListener('load',async ()=>{
     }
 
     //Ingresa todos los productos una vez que carga la pagina
-    data.products.map(product=> {
-        return containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
+    data.products.forEach(product=> {
+        containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
     })
 
     //Buscador live search
@@ -83,13 +89,13 @@ window.addEventListener('load',async ()=>{
     inputSearch.addEventListener('keyup',(e)=>{
         let search = e.target.value
         let results = data.products.filter(product=>{
-                return removeAccents(product.name.toLowerCase()).includes(search.toLowerCase())
+                return removeAccents(product.name.toLowerCase()).includes(removeAccents(search.toLowerCase()))
         })
         containerProducts.innerHTML = null
         if(results.length > 0){
             
-            results.map(product=> {
-                return containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
+            results.forEach(product=> {
+                containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
             })
         } else {
             containerProducts.innerHTML = 'No existen resultados'
