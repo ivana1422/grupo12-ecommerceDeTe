@@ -13,12 +13,21 @@ module.exports = {
             include: [{ association: "images"}, { association: "ingredients"}]
         })
         .then((producto) => {
+
+            if(producto){
+                
+                
+                res.render("products/productDetail", {
+                titulo: "Tea | Detalle de Producto",
+                producto,
+                session:req.session
+                })
+
+            } else {
+                
+                res.redirect('/')
+            }
             
-            res.render("products/productDetail", {
-            titulo: "Tea | Detalle de Producto",
-            producto,
-            session:req.session
-            })
 
         })
         .catch((error) => { res.send(error)})        

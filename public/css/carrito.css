@@ -1,9 +1,9 @@
 
 .main-carrito {
-    height: 100%;
-    background-image: url('/img/back-img.png');
+    height: 76vh;
+    /*background-image: url('/img/back-img.png');
     background-size: contain;
-    background-attachment: fixed;
+    background-attachment: fixed;*/
 }
 
 .contenedor {
@@ -129,10 +129,10 @@ button:hover{
 }
 
 @media (max-width: 768px){
-    p {
+    /*p {
         font-size: 12px;
     }
-
+*/
     h2{
         font-size: 16px;
     }
@@ -185,9 +185,9 @@ button:hover{
         height: 13%;
     }
     
-    p {
+    /*p {
         font-size: 10px;
-    }
+    }*/
 }
 
 @media (max-width: 320px){

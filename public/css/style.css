@@ -1,4 +1,4 @@
-
+@import url('./background.css');
 
 *{
     padding:0;
@@ -33,6 +33,13 @@ html{
 
 body{
     font-size: 1.6rem;
+    min-height: 100vh;
+    /*
+    dark-mode;
+    background-color: #151e21;
+    color:white;
+    */
+    
 }
 
 a{
@@ -246,25 +253,17 @@ body{
     overflow-x: hidden;
 }
 .back-grad{
-    /*width: 100%;
-    
-    background: rgb(91,200,172);
-    background: linear-gradient(0deg, rgba(91,200,172,1) 0%, rgba(255,255,255,0.5) 100%); */
-    background-image: url("/img/back-img.png");
-    /*background-size:contain;
-    background-attachment: fixed;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    overflow-x: hidden;*/
+    /*background-image: url("/img/back-img.png");
     background-size:contain;
     background-attachment: fixed;
     min-height:76vh;
-    background-size:contain;
-    
+    background-size:contain;*/
+
+    position: relative;
+    width: 100%;
 }
+
+
 
 .container-products{
     box-sizing: border-box;
