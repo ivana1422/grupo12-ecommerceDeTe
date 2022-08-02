@@ -1,4 +1,4 @@
-use tea;
+use tea3;
 
 insert into users (name, surname, email, pass, avatar, rol, address) values 
 ('Andonis', 'Gladden', 'agladden0@foxnews.com', 'DxBR5Fe8hi', 'https://robohash.org/veniamundeofficiis.png?size=50x50&set=set1', 1, '7184 Goodland Point'),
@@ -9,7 +9,7 @@ insert into users (name, surname, email, pass, avatar, rol, address) values
 ('Van', 'Francecione', 'vfrancecione5@live.com', '2LcHzb', 'https://robohash.org/officiisuttenetur.png?size=50x50&set=set1', 0, '7338 Eliot Lane'),
 ('Maurine', 'Martinello', 'mmartinello6@squarespace.com', 'QEUaasQS', 'https://robohash.org/perferendisfugitnecessitatibus.png?size=50x50&set=set1', 0, '38510 Manufacturers Junction'),
 ('Karalynn', 'Sulland', 'ksulland7@reference.com', 'PKeL1f', 'https://robohash.org/modiveronihil.png?size=50x50&set=set1', 1, '7338 Eliot Lane'),
-('Dominick', 'Wapple', 'dwapple8@tripod.com', 'vMrS6iI81rIU', 'https://robohash.org/facilisestmodi.png?size=50x50&set=set1', 1, '9 Forest Run Trail'),
+('Dominick', 'Wapple', 'dwapple8@tripod.com', 'vMrS6iI81rIU', 'https://robohash.org/facilisestmodi.png?size=50x50&set=set1', 1, '9 Forest Run Trail');
 
 
 /*PRODUCTOS*/

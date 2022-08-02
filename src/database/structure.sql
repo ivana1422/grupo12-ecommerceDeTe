@@ -1,6 +1,6 @@
-create database tea;
+create database tea3;
 
-use tea;
+use tea3;
 
 /USUARIOS/
 
