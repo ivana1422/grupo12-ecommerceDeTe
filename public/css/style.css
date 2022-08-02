@@ -262,6 +262,76 @@ body{
     width: 100%;
 }
 
+/*Darkmode*/
+.darkModeContainer{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: #A5C9CA;
+    color:black;
+    gap: 3px;
+    padding:5px;
+    width:fit-content;
+    border-radius:0 0 5px 5px;
+    position:absolute;
+    bottom:-30px;
+    right: 40px;
+  }
+
+  .darkModeContainer .fa-sun{
+    color:#E7F6F2;
+  }
+
+  .darkModeContainer .fa-moon{
+    color: #2d3434
+  }
+
+  
+  .toggle__container{
+    --width:40px;
+    --height: calc(var(--width)/2);
+    --border-radius: calc(var(--height)/2);
+    display:inline-block;
+    cursor:pointer;
+  }
+  
+  .toggle__input{
+    display:none;
+  }
+  
+  .toggle__fill{
+    position:relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    background: #E7F6F2;
+    transition: background 0.2s;
+  }
+  
+  .toggle__input:checked ~ .toggle__fill{
+    background: #395b64
+  }
+  
+  .toggle__fill::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    height: var(--height);
+    width:var(--height);
+    background: #2d3434;
+    box-sizing: 0 0 10px rgba(0,0,0,0.25);
+    border-radius: var(--border-radius);
+    transition: transform 0.2s
+  }
+  
+  .toggle__input:checked ~ .toggle__fill::after{
+    transform: translateX(var(--height))
+  }
+  
+
+/*Fin darkmode*/
+
 
 
 .container-products{

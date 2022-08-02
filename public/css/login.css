@@ -15,12 +15,6 @@ section.login.input_check-container{
     --gris: #7C7E82;
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0%;
-}
-
 .margin-google{
     width: fit-content;
     margin: 5px 0;
