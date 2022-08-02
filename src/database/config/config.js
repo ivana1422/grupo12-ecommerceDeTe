@@ -6,7 +6,7 @@ module.exports= {
   "development": {
     "username": "root",
     "password": null,
-    "database": "tea",
+    "database": "tea3",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "port": `${PORT_DB}`

@@ -1,0 +1,83 @@
+:root{
+    --backColor : #2d3434;
+    --backColor2:#395b64;
+    --backColor3: #A5C9CA;
+    --backFont:#E7F6F2;
+}
+
+header,
+nav.nav-bar,
+ul.li-container,
+body{
+    background-color: var(--backColor);
+}
+
+ul.li-container li a p,
+.container-products h3,
+h3,
+.p_title,
+.p_content,
+.p_content,
+.medios-pago div.formulario form label,
+footer article.media-socials p.rrss, 
+p.rrss,
+footer article.middle-footer div.middle-box1 a,
+footer article.copyright p,
+footer article.media-socials div.redes a,
+.tituloSN,
+.parrafoSobreNosotros,
+button.links_profile, 
+.links_profile,
+.profile__data__h5,
+.profile__data__p,
+b, strong,
+.p__carrito,
+.h2__d,
+.description__sub,
+.description__price,
+p,
+.description__activate,
+h2,
+h4,
+.__indicators,
+.description__li,
+.arrowSlider i
+{
+    color: var(--backFont)
+}
+
+footer article.media-socials div.redes a:hover{
+    color:black
+}
+ul.li-container li a:hover,
+footer{
+    background-color: var(--backColor2);
+}
+
+.cardCategory,
+.pf__filters,
+.pf__products{
+    box-shadow: none;
+}
+
+.pf__products__title,
+.author-coment,
+.author-coment strong,
+.pf__products__price,
+.pf__products__coment{
+    color: black;
+}
+.profile__avatar div img{
+    box-shadow: 2px 2px 10px var(--backColor3);
+}
+
+.pf__products__card,
+.description__cant,
+.item-products,
+.item-product-price{
+    background-color: var(--backColor3);
+}
+
+.pf__products__links i{
+    color: var(--backColor);
+}

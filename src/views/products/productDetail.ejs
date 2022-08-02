@@ -62,7 +62,7 @@
                         <p class="description__sub"><%=producto.description%></p>
                         <p class="description__price">$<%=producto.price%></p>
 
-                        <% if(producto.ingredients[0].name !== ''){ %>
+                        <% if(producto.ingredients[0] && producto.ingredients[0].name !== ''){ %>
                             <p>Ingredientes:</p>
                           <ul class="description__ul">
                             <% producto.ingredients.forEach(ingrediente => { %>
@@ -143,9 +143,9 @@
                 <div class="cuartaCaja">
                     <h2>Comentarios</h2>
                     <div>
-                        <p><strong>De: MiguelAngel</strong> <br> muy buen te la verdad!</p><hr>
-                        <p><strong>De: GomezAgustin </strong><br> me gusto el te y su presentacion, tambien la puntualidad en la que me llego! lo recomiendo</bt></p><hr>
-                        <p><strong>De: AnaliaRossi </strong> <br> qur rico te! lastima el pequeño inconveniente que hubo con la forma de pago pero lo demas todo bien</p><hr>
+                        <p class="author-coment"><strong>De: MiguelAngel</strong> <br> muy buen te la verdad!</p><hr>
+                        <p class="author-coment"><strong>De: GomezAgustin </strong><br> me gusto el te y su presentacion, tambien la puntualidad en la que me llego! lo recomiendo</bt></p><hr>
+                        <p class="author-coment"><strong>De: AnaliaRossi </strong> <br> qur rico te! lastima el pequeño inconveniente que hubo con la forma de pago pero lo demas todo bien</p><hr>
                     </div>
                 </div>
             </article>

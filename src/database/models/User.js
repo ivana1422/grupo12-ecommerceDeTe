@@ -30,15 +30,16 @@ module.exports= (sequelize,dataType)  =>{
         type:dataType.INTEGER,
         allowNull:false,
     },
-    address_id:{
-        type:dataType.INTEGER,
+    address:{
+        type:dataType.STRING(100),
         allowNull:false,
     },
     email:{
         type:dataType.STRING(50),
         allowNull:false,
         unique: true
-    }
+    },
+
 }
 let config= {
     tableName: "users",
@@ -47,10 +48,6 @@ let config= {
 const User= sequelize.define(alias,cols,config)
 
 User.associate=(models)=>{
-    User.belongsTo(models.address,{
-        as:"address",
-        foreignKey:"address_id"
-    })
 
     User.hasMany(models.orders,{
         as:"orders",

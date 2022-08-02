@@ -1,9 +1,7 @@
 @import url("style.css");
 
 .back-grad__profile{
-    /*background-image: url("/img/back-img.png");
-    background-size:contain;
-    background-attachment: fixed;*/
+
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -11,8 +9,6 @@
     height: 700px;
     
 }
-
-
 
 .profile__body{
     width:70%;

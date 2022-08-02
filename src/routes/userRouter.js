@@ -10,6 +10,7 @@ const editUserValidator = require("../validations/admin/editUserValidator");
 const editProfileValidator = require('../validations/editProfileValidator');
 const changeValidator = require("../validations/changeValidator");
 const change2Validator = require("../validations/change2Validator");
+const googleValidator = require('../validations/googleValidator')
 
 
 //middlewares
@@ -29,6 +30,8 @@ router.get('/profile/change/:id', userActive, userController.change);
 router.post('/profile/change/:id', changeValidator, userController.changeProcess);
 router.get('/profile/change2/:id',userActive, userController.change2);
 router.put('/profile/change2/:id', change2Validator, userController.change2Process);
+
+router.post('/google',googleValidator,userController.googleSignIn)
 
 
 router.get("/logout", userController.logout);

@@ -1,4 +1,6 @@
 /*Background*/
+
+
 .burbuja{
     border-radius:50%;
     opacity: 0;
@@ -6,176 +8,170 @@
     
     animation:burbujas 3s linear infinite;
     z-index:-9999;
-    width: 15px;
-    height: 15px;
+    width: 5px;
+    height: 5px;
   }
   
-  .burbuja:nth-child(1){
-    /*width:80px;
-    height: 80px;
-    left:5%;
-    background:#98DBC6;*/
+  .burbuja1{
     animation-duration:3s;
     animation-delay:3s;
-    /*width: 30px;
-    height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:5%
   }
   
-  .burbuja:nth-child(2){
+  .burbuja2{
     /*width:100px;
     height: 100px;
     background:#F18D9E;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:35%;
     animation-duration:3s;
     animation-delay:5s;
   }
   
-  .burbuja:nth-child(3){
+  .burbuja3{
     /*width:20px;
     height: 20px;
     background:#F18D9E;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:15%;
     animation-duration:1.5s;
     animation-delay:7s;
   }
   
-  .burbuja:nth-child(4){
+  .burbuja4{
     /*width:50px;
     height: 50px;
     background:#F18D9E;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:90%;
     animation-duration:6s;
     animation-delay:3s;
   }
   
-  .burbuja:nth-child(5){
+  .burbuja5{
     /*width:70px;
     height: 70px;
     background:#E6D72A;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:65%;
     animation-duration:3s;
     animation-delay:1s;
   }
   
-  .burbuja:nth-child(6){
+  .burbuja6{
     /*width:20px;
     height: 20px;
     background:#5BC8AC;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:73%;
     animation-duration:4s;
     animation-delay:5s;
   }
   
-  .burbuja:nth-child(7){
+  .burbuja7{
     /*width:20px;
     height: 20px;
     background:#FFC4E1;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:50%;
     animation-duration:4s;
     animation-delay:5s;
   }
   
-  .burbuja:nth-child(8){
+  .burbuja8{
     /*width:101px;
     height: 101px;
     background:#5BC8AC;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:57%;
     animation-duration:4s;
     animation-delay:5s;
   }
   
-  .burbuja:nth-child(9){
+  .burbuja9{
     /*width:65px;
     height: 65px;
     background:#5BC8AC;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:45%;
     animation-duration:5s;
     animation-delay:2s;
   }
   
-  .burbuja:nth-child(10){
+  .burbuja10{
     /*width:60px;
     height: 60px;
     background:#FFC4E1;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:35%;
     animation-duration:3s;
     animation-delay:4s;
   }
   
-  .burbuja:nth-child(11){
+  .burbuja11{
     /*width:12px;
     height: 12px;
     background:#98DBC6;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:25%;
     animation-duration:3s;
     animation-delay:5s;
   }
-  .burbuja:nth-child(12){
+  .burbuja12{
     /*width:80px;
     height: 80px;
     left:5%;
@@ -185,157 +181,157 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:12%
   }
   
-  .burbuja:nth-child(13){
+  .burbuja13{
     /*width:100px;
     height: 100px;
     background:#F18D9E;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:25%;
     animation-duration:5s;
     animation-delay:2s;
   }
   
-  .burbuja:nth-child(14){
+  .burbuja14{
     /*width:20px;
     height: 20px;
     background:#F18D9E;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:99%;
     animation-duration:1s;
     animation-delay:5s;
   }
   
-  .burbuja:nth-child(15){
+  .burbuja15{
     /*width:50px;
     height: 50px;
     background:#F18D9E;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:87%;
     animation-duration:6s;
     animation-delay:3s;
   }
   
-  .burbuja:nth-child(16){
+  .burbuja16{
     /*width:70px;
     height: 70px;
     background:#E6D72A;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:56%;
     animation-duration:1s;
     animation-delay:3s;
   }
   
-  .burbuja:nth-child(17){
+  .burbuja17{
     /*width:20px;
     height: 20px;
     background:#5BC8AC;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:37%;
     animation-duration:5s;
     animation-delay:4s;
   }
   
-  .burbuja:nth-child(18){
+  .burbuja18{
     /*width:20px;
     height: 20px;
     background:#FFC4E1;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:8%;
     animation-duration:5s;
     animation-delay:4s;
   }
   
-  .burbuja:nth-child(19){
+  .burbuja19{
     /*width:101px;
     height: 101px;
     background:#5BC8AC;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:75%;
     animation-duration:8s;
     animation-delay:4s;
   }
   
-  .burbuja:nth-child(20){
+  .burbuja20{
     /*width:65px;
     height: 65px;
     background:#5BC8AC;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:81%;
     animation-duration:2s;
     animation-delay:5s;
   }
   
-  .burbuja:nth-child(21){
+  .burbuja21{
     /*width:60px;
     height: 60px;
     background:#FFC4E1;*/
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:53%;
     animation-duration:4s;
     animation-delay:3s;
   }
   
-  .burbuja:nth-child(22){
+  .burbuja22{
     /*width:12px;
     height: 12px;
     background:#98DBC6;*/
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:15%;
     animation-duration:5s;
     animation-delay:3s;
@@ -349,14 +345,13 @@
     }
     
     30%{
-      transform: translateX(30px);
-      opacity: .7; 
+      opacity: .5; 
     }
     50%{
-      opacity: .7; 
+      opacity: .8; 
     }
     100%{
-      bottom:150vh;
+      bottom:100vh;
       opacity: .0; 
       
     }
