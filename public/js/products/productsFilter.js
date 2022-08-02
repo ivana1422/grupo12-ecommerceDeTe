@@ -6,6 +6,7 @@ window.addEventListener('load',async ()=>{
 
     let response = await fetch(`${location.origin}/api/productos`)
     let data = await response.json()
+    // console.log(data)
 
     //Tarjetas de categorias
     data.categories.forEach(category=>{
@@ -65,7 +66,7 @@ window.addEventListener('load',async ()=>{
                     <p class="pf__products__price">Precio: $${price}</p>
                     <p class="pf__products__coment">${coment}</p>
                     <div class="pf__products__links">
-                        <button class="buttonProduct"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+                        <button class="buttonProduct agregarB" id="buttonAgregar" onclick="return addProduct()"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
                         <button class="buttonProduct_responsive"><i class="fa-solid fa-cart-shopping styleFont"></i></button>
                         <button class="shareProduct" href="" onclick="navigator.share({url:'/productos/${id}',text:'Hey! Mira este producto!'})"><i class="fa-solid fa-share-nodes styleFont"></i></button>
                     <a href="/productos/${id}" class="buttonProduct">Detalle</a>
@@ -76,10 +77,16 @@ window.addEventListener('load',async ()=>{
         )
     }
 
+    //aca
+    
     //Ingresa todos los productos una vez que carga la pagina
     data.products.forEach(product=> {
         containerProducts.innerHTML += CardProduct(product.images[0].src,product.name,product.price,product.coment,product.id)
     })
+
+    //aca
+    
+
 
     //Buscador live search
     const removeAccents = (str) => {
