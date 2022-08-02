@@ -62,7 +62,7 @@
                         <p class="description__sub"><%=producto.description%></p>
                         <p class="description__price">$<%=producto.price%></p>
 
-                        <% if(producto.ingredients[0].name !== ''){ %>
+                        <% if(producto.ingredients[0] && producto.ingredients[0].name !== ''){ %>
                             <p>Ingredientes:</p>
                           <ul class="description__ul">
                             <% producto.ingredients.forEach(ingrediente => { %>

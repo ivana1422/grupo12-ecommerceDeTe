@@ -78,7 +78,7 @@ module.exports = {
                 tempUrls.push(imageUrl2)
                 tempUrls.push(imageUrl3)
 
-                tempUrls.forEach(image=>{
+                tempUrls.forEach(async image=>{
                     if(image !== undefined){
                         urlNamesArray.push({
                             src: image.secure_url,
@@ -113,19 +113,23 @@ module.exports = {
             })
             
 
-            let ingredients = [req.body.ingredient1, req.body.ingredient2, req.body.ingredient3]
+            let ingredients = [req.body.ingredient1 ? req.body.ingredient1 : null,
+                                req.body.ingredient2 ? req.body.ingredient1 : null,
+                                 req.body.ingredient3 ? req.body.ingredient1 : null]
+
             
             let arrayIngredients = ingredients.map( ingredient => {
+                if(ingredient !== null)
                 return {
                     name: ingredient,
                     product_id: product.id
                 }
             })
 
-            let imagenes = db.images.bulkCreate(arrayImages)
-            let ingredientes = db.ingredients.bulkCreate(arrayIngredients)
+            let imagenes = await db.images.bulkCreate(arrayImages);
+            let ingredientes = await db.ingredients.bulkCreate(arrayIngredients)
 
-            return Promise.all([imagenes, ingredientes])
+            return Promise.all([imagenes, ingredientes > 0 && ingredientes])
             
         })
         .then(() => {
