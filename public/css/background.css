@@ -8,17 +8,17 @@
     
     animation:burbujas 3s linear infinite;
     z-index:-9999;
-    width: 15px;
-    height: 15px;
+    width: 5px;
+    height: 5px;
   }
   
   .burbuja1{
     animation-duration:3s;
     animation-delay:3s;
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:5%
   }
   
@@ -29,9 +29,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:35%;
     animation-duration:3s;
     animation-delay:5s;
@@ -44,9 +44,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:15%;
     animation-duration:1.5s;
     animation-delay:7s;
@@ -59,9 +59,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:90%;
     animation-duration:6s;
     animation-delay:3s;
@@ -74,9 +74,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:65%;
     animation-duration:3s;
     animation-delay:1s;
@@ -89,9 +89,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:73%;
     animation-duration:4s;
     animation-delay:5s;
@@ -104,9 +104,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:50%;
     animation-duration:4s;
     animation-delay:5s;
@@ -119,9 +119,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:57%;
     animation-duration:4s;
     animation-delay:5s;
@@ -134,9 +134,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:45%;
     animation-duration:5s;
     animation-delay:2s;
@@ -149,9 +149,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:35%;
     animation-duration:3s;
     animation-delay:4s;
@@ -164,9 +164,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:25%;
     animation-duration:3s;
     animation-delay:5s;
@@ -181,9 +181,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:12%
   }
   
@@ -194,9 +194,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:25%;
     animation-duration:5s;
     animation-delay:2s;
@@ -209,9 +209,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:99%;
     animation-duration:1s;
     animation-delay:5s;
@@ -224,9 +224,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:87%;
     animation-duration:6s;
     animation-delay:3s;
@@ -239,9 +239,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:56%;
     animation-duration:1s;
     animation-delay:3s;
@@ -254,9 +254,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:37%;
     animation-duration:5s;
     animation-delay:4s;
@@ -269,9 +269,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:8%;
     animation-duration:5s;
     animation-delay:4s;
@@ -284,9 +284,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:75%;
     animation-duration:8s;
     animation-delay:4s;
@@ -299,9 +299,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:81%;
     animation-duration:2s;
     animation-delay:5s;
@@ -314,9 +314,9 @@
     /*width: 30px;
     height:30px;*/
     background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544,
+    0 0 20px #ff2d75,
+    0 0 30px #ff2d75;
     left:53%;
     animation-duration:4s;
     animation-delay:3s;
@@ -329,9 +329,9 @@
     /*width: 30px;
     height:30px;*/
     background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 5px #4fc3dc44,
+    0 0 20px #4fc3dc,
+    0 0 30px #4fc3dc;
     left:15%;
     animation-duration:5s;
     animation-delay:3s;
