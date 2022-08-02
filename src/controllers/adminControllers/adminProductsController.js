@@ -14,7 +14,7 @@ module.exports = {
             include: [{ association: "ingredients" },{ association: "categories" },{ association: "images" }]
         })
         .then((product) => {
-            console.log(product.categories)
+            
             res.render("admin/products/indexProductsAdmin",{
                 titulo: "Administrador de productos",
                 postHeader: "Lista de Productos",
@@ -44,7 +44,7 @@ module.exports = {
     },
     createProduct:async (req,res)=>{
 
-        console.log(req.body)
+        
         
         db.products.create({
             name : req.body.name,
@@ -113,49 +113,38 @@ module.exports = {
             })
             
 
-            let ingredients = [req.body.ingredient1 ? req.body.ingredient1 : null,
-                                req.body.ingredient2 ? req.body.ingredient1 : null,
-                                 req.body.ingredient3 ? req.body.ingredient1 : null]
+            let ingredients = [req.body.ingredient1 ? req.body.ingredient1 : '',
+                                req.body.ingredient2 ? req.body.ingredient1 : '',
+                                 req.body.ingredient3 ? req.body.ingredient1 : '']
 
+            let ingredientes;
             
             let arrayIngredients = ingredients.map( ingredient => {
-                if(ingredient !== null)
+                if(ingredient !== '')
                 return {
                     name: ingredient,
                     product_id: product.id
                 }
             })
 
-            let imagenes = await db.images.bulkCreate(arrayImages);
-            let ingredientes = await db.ingredients.bulkCreate(arrayIngredients)
+            if(arrayIngredients > 0){
+                
+                let imagenes = db.images.bulkCreate(arrayImages);
+                ingredientes = db.ingredients.bulkCreate(arrayIngredients)
 
-            return Promise.all([imagenes, ingredientes > 0 && ingredientes])
+                return Promise.all([imagenes, ingredientes > 0 && ingredientes])
+            } else {
+                let imagenes = db.images.bulkCreate(arrayImages);
+                return Promise.all([imagenes])
+            }
+
+
             
         })
         .then(() => {
-            /*db.categories.findAll({
-                where: {
-                    name: req.body.category
-                }
-            })
-            .then((categoryResult) => { 
-
-                console.log(categoryResult)
-                let idCategory = categoryResult[0].id
-                console.log(idCategory)
-
-                let productCategories = {
-                    product_id: product.id,
-                    category_id: idCategory
-                }
-                db.product_category.create(productCategories)
-                .then((result) => {*/
-                    res.redirect("/admin/productos")
-                /*})
-                .catch((error) => {
-                    console.log(error)
-                })
-            })*/
+            
+            res.redirect("/admin/productos")
+            
         })
         .catch((error) => {
              console.log(error)
@@ -271,13 +260,6 @@ module.exports = {
                     }
                 })
                 .then(async (images) => {
-                    /*images.forEach( image => {
-                        if(fs.existsSync(path.join(__dirname, `../../../public/img/products/${image.src}`))){
-                            fs.unlinkSync(path.join(__dirname, `../../../public/img/products/${image.src}`))
-                        }else{
-                            console.log('la imagen no se encontro o no existe')
-                        }
-                    })*/
 
                     await images.forEach(async image=>{
                         if(image.public_id !== '' ){

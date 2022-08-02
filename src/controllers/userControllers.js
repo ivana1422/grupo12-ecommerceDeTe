@@ -35,6 +35,7 @@ module.exports= {
                         email: user.email,
                         pass: user.pass,
                         avatar: user.avatar,
+                        address: user.address,
                         rol:user.rol
                         }
                          if(req.body.remember){
@@ -73,47 +74,42 @@ module.exports= {
 
     newAcount: async (req, res) => {
         let errors = validationResult(req)
-        console.log(req.file)
-        if(errors.isEmpty()){
-            db.address.create({
-                location: req.body.location ? req.body.location : "Domicilio no cargado"
+        console.log(req.body.email)
+        if (errors.isEmpty()) {
+
+            let defaultAvatar = "https://res.cloudinary.com/ecommerce-tea/image/upload/v1658409640/defaultAvatar_o0pfsw.png"
+            let imageUser = ''
+            let imagePublicId = ''
+            let tempUrl = ''
+
+            if (req.file) {
+                tempUrl = await cloudinary.v2.uploader.upload(req.file.path)
+                imageUser = tempUrl.secure_url
+                imagePublicId = tempUrl.public_id
+                fs.unlinkSync(req.file.path)
+            } else {
+                imageUser = defaultAvatar
+                imagePublicId = ''
+            }
+
+            db.users.create({
+                name: req.body.name,
+                surname: req.body.lastName,
+                email: req.body.email,
+                pass: bcrypt.hashSync(req.body.pass, 10),
+                avatar: imageUser,/*req.file ? req.file.filename : "defaultAvatar.png",*/
+                avatar_public_id: imagePublicId,
+                rol: 0,
+                address: req.body.location ? req.body.location : 'Sin domicilio cargado'
             })
-                .then(async address=>{
 
-                    let defaultAvatar = "https://res.cloudinary.com/ecommerce-tea/image/upload/v1658409640/defaultAvatar_o0pfsw.png"
-                    let imageUser = ''
-                    let imagePublicId = ''
-                    let tempUrl = ''
-                    
-                    if(req.file){
-                        tempUrl = await cloudinary.v2.uploader.upload(req.file.path)
-                        imageUser = tempUrl.secure_url
-                        imagePublicId = tempUrl.public_id
-                        fs.unlinkSync(req.file.path)
-                    } else {
-                        imageUser = defaultAvatar
-                        imagePublicId = ''
-                    }
-                    
+            .then(() => {
+                res.redirect('/login')
+            })
+            .catch((error) => { res.send(error) })
 
-                    return db.users.create({
-                        name: req.body.name,
-                        surname: req.body.lastName,
-                        email: req.body.email,
-                        pass: bcrypt.hashSync(req.body.pass, 10),
-                        avatar: imageUser,/*req.file ? req.file.filename : "defaultAvatar.png",*/
-                        avatar_public_id:imagePublicId,
-                        rol: 0,
-                        address_id: address.id
-                    })
-                })
-                
-                .then(()=>{
-                    res.redirect('/login')
-                })
-                .catch((error) => { res.send(error)})
+        } else {
 
-        }else{
             res.render('users/register',{
                 titulo: 'Registrarse',
                 errors: errors.mapped(),
@@ -130,8 +126,7 @@ module.exports= {
         db.users.findOne({
             where:{
                 email: req.session.user.email,
-            },
-            include: [{ association: "address" }]
+            }
         })
         .then((user) => {
             res.render("users/profile",{
@@ -146,9 +141,8 @@ module.exports= {
 
     change: (req, res) => {
 
-        db.users.findByPk(req.params.id,{
-            include:[{association:"address"}]
-        })
+        db.users.findByPk(req.params.id)
+
         .then((user) => {
             res.render("users/change", {
                 titulo: "cambiar contraseña",
@@ -180,9 +174,7 @@ module.exports= {
     },
 
     change2: (req, res) => {
-        db.users.findByPk(req.params.id,{
-            include:[{association:"address"}]
-        })
+        db.users.findByPk(req.params.id)
         .then((user) => {
             res.render("users/change2", {
                 titulo: "cambiar contraseña",
@@ -224,9 +216,7 @@ module.exports= {
     },
 
     profileUpdateForm:(req,res)=>{
-        db.users.findByPk(req.params.id,{
-            include:[{association:"address"}]
-        })
+        db.users.findByPk(req.params.id)
             .then(user=>{
                 res.render("users/editProfile",{
                     titulo:"Editar mi perfil",
@@ -239,88 +229,59 @@ module.exports= {
     profileUpdate: async (req, res) => {
         let errors = validationResult(req);
 
-        if(errors.isEmpty()){
-                db.users.findByPk(req.params.id)
-                    .then(user=>{
-                        db.address.update({
-                            location:req.body.location
-                        },{
-                            where:{
-                                id:user.address_id
-                            }
-                        })
-                        .then(async ()=>{
+        if (errors.isEmpty()) {
+            db.users.findByPk(req.params.id)
+                .then(async user=>{
 
-                            let imageUser = ''
-                            let imagePublicId = ''
-                            let tempUrl = ''
-
-                            if (req.file) {
-                                if(user.avatar_public_id !== ''){
-                                    cloudinary.v2.uploader.destroy(user.avatar_public_id)
-                                }
-                                tempUrl = await cloudinary.v2.uploader.upload(req.file.path)
-                                imageUser = tempUrl.secure_url
-                                imagePublicId = tempUrl.public_id
-                                fs.unlinkSync(req.file.path)
-                            } else {
-                                imageUser = user.avatar
-                                imagePublicId = user.avatar_public_id ? user.avatar_public_id : ''
-                            }
-                            return db.users.update({
-                                name: req.body.name,
-                                surname: req.body.surname,
-                                email: req.body.email,
-                                avatar: imageUser, /*req.file ? req.file.filename : user.avatar,*/
-                                avatar_public_id:imagePublicId
-                            },{
-                                where:{
-                                    id:req.params.id
-                                }
-                            })
-                        })
-                        .then(()=>{
-                            res.redirect("/profile")
-                        })
-                        .catch(err=>console.log(err))
+                    let imageUser = ''
+                    let imagePublicId = ''
+                    let tempUrl = ''
+        
+                    if (req.file) {
+                        if (user.avatar_public_id !== '') {
+                            cloudinary.v2.uploader.destroy(user.avatar_public_id)
+                        }
+                        tempUrl = await cloudinary.v2.uploader.upload(req.file.path)
+                        imageUser = tempUrl.secure_url
+                        imagePublicId = tempUrl.public_id
+                        fs.unlinkSync(req.file.path)
+                    } else {
+                        imageUser = user.avatar
+                        imagePublicId = user.avatar_public_id ? user.avatar_public_id : ''
+                    }
+                    return db.users.update({
+                        name: req.body.name,
+                        surname: req.body.surname,
+                        email: req.body.email,
+                        avatar: imageUser, /*req.file ? req.file.filename : user.avatar,*/
+                        avatar_public_id: imagePublicId,
+                        address: req.body.location
+                    }, {
+                        where: {
+                            id: req.params.id
+                        }
                     })
-                } else {
-                    db.users.findByPk(req.params.id,{
-                        include:[{association:"address"}]
+                })
+                .then(() => {
+                    res.redirect("/profile")
+                })
+                .catch(err => console.log(err))
+
+        } else {
+            db.users.findByPk(req.params.id)
+
+                .then(user => {
+                    res.render("users/editProfile", {
+                        titulo: "Editar mi perfil",
+                        session: req.session,
+                        old: req.body,
+                        errors: errors.mapped(),
+                        user
                     })
-                        .then(user=>{
-                            res.render("users/editProfile",{
-                                titulo:"Editar mi perfil",
-                                session: req.session,
-                                old:req.body,
-                                errors:errors.mapped(),
-                                user
-                            })
-                        })
-                }
+                })
+        }
     },
 
-    addressCreate: (req, res) => {
-        db.address.create({
-            ...req.body,
-        })
-        .then(() => {
-            res.render('users/profile')
-        })
-        .catch((error) => { res.render(error)})
-    },
-
-    addressDelete: (req, res) => {
-        db.address.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
-        .then(() => {
-            res.redirect('users/profile')
-        })
-        .catch((error) => { res.render(error)})
-    },
 
     logout:(req, res)=>{
         
@@ -333,18 +294,15 @@ module.exports= {
     },
     deleteCount: (req, res) => {
 
-        let address__id = 0
         db.users.findByPk(req.params.id)
         .then(async user=>{
             /*address__id = user.address_id
             if(fs.existsSync(path.join(__dirname, `../../../public/img/users/${user.avatar}`)) && user.avatar != "defaultAvatar.png"){
                 fs.unlinkSync(path.join(__dirname, `../../../public/img/users/${user.avatar}`))
-                     
             }else{
                 console.log("La imagen no existe!");
             }*/
             user.avatar_public_id !== '' && await cloudinary.v2.uploader.destroy(user.avatar_public_id)
-            
             return db.users.destroy({
                 where:{
                     id:req.params.id
@@ -352,16 +310,8 @@ module.exports= {
             })
         })
         .then(()=>{
-            
-            return db.address.destroy({
-                where:{
-                    id:address__id
-                }
-            })
-        })
-        .then(()=>{
             res.redirect("/")
-            
+
         })
         .catch(err=>console.log(err))
         
@@ -395,7 +345,8 @@ module.exports= {
                         surname: user.surname,
                         email: user.email,
                         avatar: user.avatar,
-                        rol:user.rol
+                        rol:user.rol,
+                        address:user.address
                         }
                         res.locals.user = req.session.user
     
@@ -409,7 +360,8 @@ module.exports= {
                         avatar,
                         avatar_public_id:null,
                         rol: 0,
-                        address_id: 18
+                        address:'Sin domicilio cargado'
+                        
                     })
 
                     req.session.user = {

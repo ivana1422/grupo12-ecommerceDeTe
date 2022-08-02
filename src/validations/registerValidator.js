@@ -12,11 +12,12 @@ let validateRegister = [
                 email: req.body.email
             }
         })
-            .then(user=>{
-                if(user){
-                    return Promise.reject("El email ya se encuentra registrado")
-                }
-            })
+        .then(user=>{
+            if(!user){
+                return true
+            }
+            return Promise.reject("El email ya se encuentra registrado")
+        })
 
     }).withMessage("Email ya registrado"),
     body('pass2').notEmpty().withMessage('Debe colocar de nuevo su contraseña').isLength({min: 5}).withMessage('La contrasenia debe tener un minimo de 5 caracteres').custom((value, {req}) =>{

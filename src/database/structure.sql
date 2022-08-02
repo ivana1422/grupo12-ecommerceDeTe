@@ -4,11 +4,6 @@ use tea;
 
 /USUARIOS/
 
-create table address (
-  id int(11) not null auto_increment primary key,
-  location varchar(50) not null
-);
-
 /*Rol de usuario se identifica con:
  * 0 para usuarios comunes
  * 1 para usuarios admins */
@@ -22,8 +17,7 @@ create table users (
   avatar varchar(100),
   rol tinyint(4) not null default 0,
   avatar_public_id varchar(100) null,
-  address_id int(11) not null,
-  foreign key (address_id) references address(id)
+  address varchar(100) not null
  );
 
 /PRODUCTOS/
