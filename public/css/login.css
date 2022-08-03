@@ -15,10 +15,9 @@ section.login.input_check-container{
     --gris: #7C7E82;
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0%;
+.margin-google{
+    width: fit-content;
+    margin: 5px 0;
 }
 
 .login{
@@ -77,7 +76,9 @@ main.login section.lg-container{
  width: 100%;
  background-color: rgba(226, 226, 226, 0.685);
  box-shadow: 0px 2px 2px #000;
- 
+ display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
