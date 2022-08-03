@@ -1,42 +1,20 @@
 use tea;
 
-insert into address (location) values 
-('7184 Goodland Point'),('36695 Carey Parkway'),('285 Forest Run Avenue'),('990 Hermina Parkway'),('8 Commercial Court'),
-('3862 Gulseth Plaza'),('7589 Holmberg Hill'),('15 Sloan Park'),('5 Oak Way'),('51659 Schurz Parkway'),('0777 Mallory Street'),
-('20371 Redwing Trail'),('1799 Jana Point'),('62 Summit Avenue'),('03 Porter Park'),('8478 Graedel Road'),('41727 Haas Drive'),
-('740 Norway Maple Hill'),('97866 Calypso Place'),('709 Parkside Point'),('47 Karstens Court'),('2570 Rockefeller Drive'),('7536 Saint Paul Avenue'),
-('21281 Brickson Park Place'),('00859 Sachtjen Pass'),('30801 Sunnyside Trail'),('2 Dapin Circle'),('9 Forest Run Trail'),
-('699 Corben Street'),('982 Paget Drive'),('4094 Hayes Road'),('2090 Summit Drive'),('2575 Iowa Circle'),('06464 Sherman Park'),('7338 Eliot Lane'),
-('8 Hansons Circle'),('5 Saint Paul Avenue'),('7778 Crownhardt Center'),('72882 Sachs Hill'),('60168 Fairview Drive'),('14857 Nevada Drive'),
-('234 Canary Road'),('9 Corry Pass'),('1329 Muir Point'),('77649 Di Loreto Park'),('80 Buena Vista Alley'),('38510 Manufacturers Junction'),
-('6 Loeprich Court'),('7 Coolidge Court'),('843 Havey Lane');
+insert into users (name, surname, email, pass, avatar, rol, address) values 
+('Andonis', 'Gladden', 'agladden0@foxnews.com', 'DxBR5Fe8hi', 'https://robohash.org/veniamundeofficiis.png?size=50x50&set=set1', 1, '7184 Goodland Point'),
+('Niki', 'Volet', 'nvolet1@prnewswire.com', 'QXLPkshC', 'https://robohash.org/quiaatquenobis.png?size=50x50&set=set1', 1, '36695 Carey Parkway'),
+('Sandi', 'Jaime', 'sjaime2@a8.net', 'hs2UlQ2pq', 'https://robohash.org/atoptioqui.png?size=50x50&set=set1', 0, '8 Commercial Court'),
+('Devinne', 'Doggerell', 'ddoggerell3@dion.ne.jp', 'ObVkU5l', 'https://robohash.org/etveritatismagni.png?size=50x50&set=set1', 0, '0777 Mallory Street'),
+('Fionnula', 'Peggs', 'fpeggs4@kickstarter.com', '2kz00bvXBvB', 'https://robohash.org/molestiaedictanulla.png?size=50x50&set=set1', 0, '41727 Haas Drive'),
+('Van', 'Francecione', 'vfrancecione5@live.com', '2LcHzb', 'https://robohash.org/officiisuttenetur.png?size=50x50&set=set1', 0, '7338 Eliot Lane'),
+('Maurine', 'Martinello', 'mmartinello6@squarespace.com', 'QEUaasQS', 'https://robohash.org/perferendisfugitnecessitatibus.png?size=50x50&set=set1', 0, '38510 Manufacturers Junction'),
+('Karalynn', 'Sulland', 'ksulland7@reference.com', 'PKeL1f', 'https://robohash.org/modiveronihil.png?size=50x50&set=set1', 1, '7338 Eliot Lane'),
+('Dominick', 'Wapple', 'dwapple8@tripod.com', 'vMrS6iI81rIU', 'https://robohash.org/facilisestmodi.png?size=50x50&set=set1', 1, '9 Forest Run Trail'),
 
-insert into users (name, surname, email, pass, avatar, rol, address_id) values 
-('Andonis', 'Gladden', 'agladden0@foxnews.com', 'DxBR5Fe8hi', 'https://robohash.org/veniamundeofficiis.png?size=50x50&set=set1', 1, 38),
-('Niki', 'Volet', 'nvolet1@prnewswire.com', 'QXLPkshC', 'https://robohash.org/quiaatquenobis.png?size=50x50&set=set1', 1, 30),
-('Sandi', 'Jaime', 'sjaime2@a8.net', 'hs2UlQ2pq', 'https://robohash.org/atoptioqui.png?size=50x50&set=set1', 0, 43),
-('Devinne', 'Doggerell', 'ddoggerell3@dion.ne.jp', 'ObVkU5l', 'https://robohash.org/etveritatismagni.png?size=50x50&set=set1', 0, 42),
-('Fionnula', 'Peggs', 'fpeggs4@kickstarter.com', '2kz00bvXBvB', 'https://robohash.org/molestiaedictanulla.png?size=50x50&set=set1', 0, 15),
-('Van', 'Francecione', 'vfrancecione5@live.com', '2LcHzb', 'https://robohash.org/officiisuttenetur.png?size=50x50&set=set1', 0, 48),
-('Maurine', 'Martinello', 'mmartinello6@squarespace.com', 'QEUaasQS', 'https://robohash.org/perferendisfugitnecessitatibus.png?size=50x50&set=set1', 0, 6),
-('Karalynn', 'Sulland', 'ksulland7@reference.com', 'PKeL1f', 'https://robohash.org/modiveronihil.png?size=50x50&set=set1', 1, 18),
-('Dominick', 'Wapple', 'dwapple8@tripod.com', 'vMrS6iI81rIU', 'https://robohash.org/facilisestmodi.png?size=50x50&set=set1', 1, 4),
-('Elyse', 'Winchester', 'ewinchester9@cnbc.com', '8AyXP0', 'https://robohash.org/evenietoditpossimus.png?size=50x50&set=set1', 1, 7),
-('Ly', 'Ranson', 'lransona@joomla.org', 'Y5RvafZT', 'https://robohash.org/quiaundesoluta.png?size=50x50&set=set1', 0, 7),
-('Murray', 'Swendell', 'mswendellb@github.com', 'jnFB5m84y2d', 'https://robohash.org/sitlaboreinventore.png?size=50x50&set=set1', 0, 29),
-('Andrea', 'Goodsall', 'agoodsallc@walmart.com', 'TYjLmtz', 'https://robohash.org/possimusmolestiaeexercitationem.png?size=50x50&set=set1', 0, 23),
-('Suellen', 'Hedgeley', 'shedgeleyd@mac.com', 'wGibGH', 'https://robohash.org/mollitiamodimolestiae.png?size=50x50&set=set1', 1, 4),
-('Yancy', 'Paty', 'ypatye@umich.edu', 'G1BGJiVDDrM', 'https://robohash.org/eligendiidnumquam.png?size=50x50&set=set1', 0, 36),
-('Glenden', 'Francesch', 'gfranceschf@gizmodo.com', 'MZZh1LwT', 'https://robohash.org/commodiquiset.png?size=50x50&set=set1', 0, 44),
-('Jakie', 'Rozea', 'jrozeag@deliciousdays.com', 'OXmUwZtK', 'https://robohash.org/repudiandaepariaturnisi.png?size=50x50&set=set1', 0, 8),
-('Hersh', 'Quittonden', 'hquittondenh@e-recht24.de', 'DkpMski3Xpa4', 'https://robohash.org/placeatquisa.png?size=50x50&set=set1', 1, 3),
-('Sheba', 'Le Page', 'slepagei@canalblog.com', 'EbBVzVduU3SK', 'https://robohash.org/aaliquidqui.png?size=50x50&set=set1', 1, 19),
-('Niven', 'Polglase', 'npolglasej@yahoo.com', 'jHpDmJG', 'https://robohash.org/consequaturutprovident.png?size=50x50&set=set1', 1, 25),
-('Yehudi', 'Flanne', 'yflannek@4shared.com', 'darCDFtnvpTk', 'https://robohash.org/autemdoloresrem.png?size=50x50&set=set1', 0, 48),
-('Eugene', 'Hanford', 'ehanfordl@comsenz.com', '9ejbfBg', 'https://robohash.org/iustomaioresincidunt.png?size=50x50&set=set1', 0, 41),
-('Wilek', 'Orwin', 'worwinm@liveinternet.ru', 'u2908c3', 'https://robohash.org/adipiscicupiditateoccaecati.png?size=50x50&set=set1', 1, 28),
-('Glennis', 'Sleet', 'gsleetn@tumblr.com', 'XNk84hD9B', 'https://robohash.org/eteumreprehenderit.png?size=50x50&set=set1', 0, 40),
-('Beaufort', 'Gauche', 'bgaucheo@gizmodo.com', 'j8F3Te2qtzqG', 'https://robohash.org/nullarepellendusiure.png?size=50x50&set=set1', 1, 11);
+
+/*PRODUCTOS*/
+insert into categories (name) values
+('Té Puro'),('Té Aromatizado'),('Infusión Herbal'),('Accesorios');
 
 insert into products(name, price, description,coment,weight,offer,stock,discount,category_id) values 
 ('Té negro en hebras cortas',350,'Té negro en hebras cortas, cosechado y producido en Misiones, Argentina.','Excelente mezcla de sabores para disfrutar de un rico te por la tarde!','Lata 65g',1,10,10,1),
@@ -62,7 +40,14 @@ insert into products(name, price, description,coment,weight,offer,stock,discount
 insert into ingredients (name,product_id)values
 ('Canela',1),('Arandanos',1),('Clavo de olor',1),('Ralladura de naranja',1),
 ('Durazno',2),('Pétalos de rosas amarillas',2),('Cardamomo',2),('Aroma frutal',2),
-('Hebras de Yunnan', 3),('Cacao',3),('Coco',3),('Trocitos de Toffee',3),('Vainilla',3);
+('Hebras de Yunnan', 3),('Cacao',3),('Coco',3),('Trocitos de Toffee',3),('Vainilla',3),
+('canchada gruesa', 9),('Yerba orgánica tipo barbacuá', 9),('cascaritas de naranja y pomelo', 9),
+('Manzana', 12),('Romero', 12),('Pétalos y botones de rosa', 12),
+('Flores de lavanda', 13),('Flores de manzanilla', 13),('Raíz de diente de león', 13),
+('Melisa', 14), ('Pera', 14),('Jengibre', 14),
+('Cáscara de cacao orgánico', 15), ('Jengibre', 15),('Naranja', 15),
+('Algarroba', 16),('Manzana', 16),('Canela', 16),
+('Canela', 17),('Cardamomo', 17),('Clavo', 17);
 
 insert into images(src, product_id, public_id) values
 ('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657854338/nwf4iwlhjtcdqc6p1hln.png',1,NULL),
@@ -84,61 +69,50 @@ insert into images(src, product_id, public_id) values
 ('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884806/i653em1s0sbegzjzh8pr.png',7,NULL),
 ('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884811/ljfl5fghyisnvknb4fzv.png',7,NULL),
 ('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884893/gmtepduiz0jml5ujoebb.jpg',8,NULL),
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884895/ewydsm4qhqonlobr4hxx.jpg',8,null);
-
-insert into categories (name) values
-('Té Puro'),('Té Aromatizado'),('Infusión Herbal'),('Accesorios');
-
-
-/*Insertar nuevos productos*/
-
-
-
-
-
-INSERT INTO tea.ingredients (name, product_id) 
-VALUES ('canchada gruesa', 165), /*producto 9*/
-('Yerba orgánica tipo barbacuá', 165),
-('cascaritas de naranja y pomelo', 165),
-('Manzana', 168), /*producto 12*/
-('Romero', 168),
-('Pétalos y botones de rosa', 168),
-('Flores de lavanda', 169), /*Producto 13*/
-('Flores de manzanilla', 169),
-('Raíz de diente de león', 169),
-('Melisa', 170), /*producto 14*/
-('Pera', 170),
-('Jengibre', 170),
-('Cáscara de cacao orgánico', 171), /*producto 15*/
-('Jengibre', 171),
-('Naranja', 171),
-('Algarroba', 172), /*producto 16*/
-('Manzana', 172),
-('Canela', 172),
-('Canela', 173), /*producto 17*/
-('Cardamomo', 173),
-('Clavo', 173);
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1657884895/ewydsm4qhqonlobr4hxx.jpg',8,null),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879628/jmezivatnbsgt2zmhfeq.png', 9, 'jmezivatnbsgt2zmhfeq'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879725/qtyhjcvat2a2ahgfyt4i.png', 10, 'qtyhjcvat2a2ahgfyt4i'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879995/qfs32un5sowbi8azmhdi.png', 11, 'qfs32un5sowbi8azmhdi'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883608/rmtswyokmbz0yzebxrhc.png', 12, 'rmtswyokmbz0yzebxrhc'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883846/iaqs0uouaqjjnasskuet.png', 13, 'iaqs0uouaqjjnasskuet'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883849/hnvpihrc5qlu8xrf0cvz.png', 13, 'hnvpihrc5qlu8xrf0cvz'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884116/of3lkudzlyncolo9pla3.png', 14, 'of3lkudzlyncolo9pla3'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884622/nlrrcexue1kj8mzkm282.jpg', 15, 'nlrrcexue1kj8mzkm282'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884626/n6en4utqy9oorqokgtm9.jpg', 15, 'n6en4utqy9oorqokgtm9'),
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884627/i7yhdobokag33y2cudwz.jpg', 15, 'i7yhdobokag33y2cudwz'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885340/jdqsixyityskrpp9flud.jpg', 16, 'jdqsixyityskrpp9flud'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885342/hkuuqn8r5qztepzvqvwu.jpg', 16, 'hkuuqn8r5qztepzvqvwu'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885344/ogtuajxoaapmks3bkjx2.jpg', 16, 'ogtuajxoaapmks3bkjx2'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885642/dlykpfzxoy2rkhrki3wa.jpg', 17, 'dlykpfzxoy2rkhrki3wa'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885644/owhzi8idnz1t3q4ohzzf.jpg', 17, 'owhzi8idnz1t3q4ohzzf'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885917/k5f4vp2xr75jk9o9jdly.jpg', 18, 'k5f4vp2xr75jk9o9jdly'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885919/lln3tjqwkwo2e1tdjuxy.jpg', 18, 'lln3tjqwkwo2e1tdjuxy'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885920/hanlkxvqqe7pvnvwxqim.jpg', 18, 'hanlkxvqqe7pvnvwxqim'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886214/ai4z4ngbdyvc4tf19cfz.jpg', 19, 'ai4z4ngbdyvc4tf19cfz'), 
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886215/oqvbie7dc6uwhspezet6.jpg', 19, 'oqvbie7dc6uwhspezet6'); 
 
 
-INSERT INTO tea.images
+
+
+INSERT INTO images
 (src, product_id, public_id)
-VALUES('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879628/jmezivatnbsgt2zmhfeq.png', 163, 'jmezivatnbsgt2zmhfeq'), /*9*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879725/qtyhjcvat2a2ahgfyt4i.png', 164, 'qtyhjcvat2a2ahgfyt4i'), /*10*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879995/qfs32un5sowbi8azmhdi.png', 165, 'qfs32un5sowbi8azmhdi'), /*11*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883608/rmtswyokmbz0yzebxrhc.png', 166, 'rmtswyokmbz0yzebxrhc'), /*12*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883846/iaqs0uouaqjjnasskuet.png', 167, 'iaqs0uouaqjjnasskuet'), /*13*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883849/hnvpihrc5qlu8xrf0cvz.png', 167, 'hnvpihrc5qlu8xrf0cvz'), /*13*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884116/of3lkudzlyncolo9pla3.png', 168, 'of3lkudzlyncolo9pla3'), /*14*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884622/nlrrcexue1kj8mzkm282.jpg', 169, 'nlrrcexue1kj8mzkm282'), /*15*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884626/n6en4utqy9oorqokgtm9.jpg', 169, 'n6en4utqy9oorqokgtm9'), /*15*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884627/i7yhdobokag33y2cudwz.jpg', 169, 'i7yhdobokag33y2cudwz'), /*15*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885340/jdqsixyityskrpp9flud.jpg', 170, 'jdqsixyityskrpp9flud'), /*16*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885342/hkuuqn8r5qztepzvqvwu.jpg', 170, 'hkuuqn8r5qztepzvqvwu'), /*16*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885344/ogtuajxoaapmks3bkjx2.jpg', 170, 'ogtuajxoaapmks3bkjx2'), /*16*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885642/dlykpfzxoy2rkhrki3wa.jpg', 171, 'dlykpfzxoy2rkhrki3wa'), /*17*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885644/owhzi8idnz1t3q4ohzzf.jpg', 171, 'owhzi8idnz1t3q4ohzzf'), /*17*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885917/k5f4vp2xr75jk9o9jdly.jpg', 172, 'k5f4vp2xr75jk9o9jdly'), /*18*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885919/lln3tjqwkwo2e1tdjuxy.jpg', 172, 'lln3tjqwkwo2e1tdjuxy'), /*18*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885920/hanlkxvqqe7pvnvwxqim.jpg', 172, 'hanlkxvqqe7pvnvwxqim'), /*18*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886214/ai4z4ngbdyvc4tf19cfz.jpg', 173, 'ai4z4ngbdyvc4tf19cfz'), /*19*/
-('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886215/oqvbie7dc6uwhspezet6.jpg', 173, 'oqvbie7dc6uwhspezet6'); /*19*/
+VALUES('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879628/jmezivatnbsgt2zmhfeq.png', 9, 'jmezivatnbsgt2zmhfeq'), /*9*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879725/qtyhjcvat2a2ahgfyt4i.png', 10, 'qtyhjcvat2a2ahgfyt4i'), /*10*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658879995/qfs32un5sowbi8azmhdi.png', 11, 'qfs32un5sowbi8azmhdi'), /*11*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883608/rmtswyokmbz0yzebxrhc.png', 12, 'rmtswyokmbz0yzebxrhc'), /*12*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883846/iaqs0uouaqjjnasskuet.png', 13, 'iaqs0uouaqjjnasskuet'), /*13*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658883849/hnvpihrc5qlu8xrf0cvz.png', 13, 'hnvpihrc5qlu8xrf0cvz'), /*13*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884116/of3lkudzlyncolo9pla3.png', 14, 'of3lkudzlyncolo9pla3'), /*14*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884622/nlrrcexue1kj8mzkm282.jpg', 15, 'nlrrcexue1kj8mzkm282'), /*15*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884626/n6en4utqy9oorqokgtm9.jpg', 15, 'n6en4utqy9oorqokgtm9'), /*15*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658884627/i7yhdobokag33y2cudwz.jpg', 15, 'i7yhdobokag33y2cudwz'), /*15*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885340/jdqsixyityskrpp9flud.jpg', 16, 'jdqsixyityskrpp9flud'), /*16*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885342/hkuuqn8r5qztepzvqvwu.jpg', 16, 'hkuuqn8r5qztepzvqvwu'), /*16*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885344/ogtuajxoaapmks3bkjx2.jpg', 16, 'ogtuajxoaapmks3bkjx2'), /*16*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885642/dlykpfzxoy2rkhrki3wa.jpg', 17, 'dlykpfzxoy2rkhrki3wa'), /*17*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885644/owhzi8idnz1t3q4ohzzf.jpg', 17, 'owhzi8idnz1t3q4ohzzf'), /*17*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885917/k5f4vp2xr75jk9o9jdly.jpg', 18, 'k5f4vp2xr75jk9o9jdly'), /*18*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885919/lln3tjqwkwo2e1tdjuxy.jpg', 18, 'lln3tjqwkwo2e1tdjuxy'), /*18*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658885920/hanlkxvqqe7pvnvwxqim.jpg', 18, 'hanlkxvqqe7pvnvwxqim'), /*18*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886214/ai4z4ngbdyvc4tf19cfz.jpg', 19, 'ai4z4ngbdyvc4tf19cfz'), /*19*/
+('https://res.cloudinary.com/ecommerce-tea/image/upload/v1658886215/oqvbie7dc6uwhspezet6.jpg', 19, 'oqvbie7dc6uwhspezet6'); /*19*/
