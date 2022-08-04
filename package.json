@@ -39,6 +39,7 @@
     "mysql2": "^2.3.3",
     "nodemailer": "^6.7.5",
     "nodemon": "^2.0.19",
-    "sequelize": "^6.20.1"
+    "sequelize": "^6.20.1",
+    "sweetalert2": "^11.4.24"
   }
 }

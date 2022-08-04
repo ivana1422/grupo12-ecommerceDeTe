@@ -5,10 +5,11 @@
     </button>
     
     <nav class="nav-bar" id="menu">
-
         <ul class="li-container">
-           
+           <% if(session.user) { %> 
             <li><a href="/productos/all"><i class="fa-solid fa-mug-hot"></i><p>Nuestros Productos</p></a></li>
+            <% } %> 
+                
             <li><a href="/about"><i class="fa-solid fa-user-group"></i><p>Sobre Nosotros</p></a></li>
 
             <% if (session.user) { %>
@@ -37,8 +38,7 @@
     
     <a href="/" class="logo-container"><img src="/img/Logo.png" alt="Logo" class="img-header"></a>
      
-<<<<<<< HEAD
-=======
+
     <!--<div class="carrito header-menu">
         <a href="/carrito"><i class="fa-solid fa-cart-arrow-down"></i></a>
     </div>-->
@@ -51,6 +51,6 @@
           </label>
           <i class="fa-solid fa-moon"></i>
       </div>
->>>>>>> 8adeab0b77a5a73633a594f02890b1379349cd2b
+
 </header>
 

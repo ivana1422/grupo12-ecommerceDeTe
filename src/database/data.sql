@@ -1,4 +1,4 @@
-use tea;
+use tea3;
 
 insert into users (name, surname, email, pass, avatar, rol, address) values 
 ('Andonis', 'Gladden', 'agladden0@foxnews.com', 'DxBR5Fe8hi', 'https://robohash.org/veniamundeofficiis.png?size=50x50&set=set1', 1, '7184 Goodland Point'),
