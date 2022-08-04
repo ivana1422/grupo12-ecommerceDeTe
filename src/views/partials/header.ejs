@@ -5,10 +5,11 @@
     </button>
     
     <nav class="nav-bar" id="menu">
-
         <ul class="li-container">
-           
+           <% if(session.user) { %> 
             <li><a href="/productos/all"><i class="fa-solid fa-mug-hot"></i><p>Nuestros Productos</p></a></li>
+            <% } %> 
+                
             <li><a href="/about"><i class="fa-solid fa-user-group"></i><p>Sobre Nosotros</p></a></li>
 
             <% if (session.user) { %>

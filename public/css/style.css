@@ -33,13 +33,7 @@ html{
 
 body{
     font-size: 1.6rem;
-    min-height: 100vh;
-    /*
-    dark-mode;
-    background-color: #151e21;
-    color:white;
-    */
-    
+    min-height: 100vh;  
 }
 
 a{
@@ -166,7 +160,6 @@ ul.li-container li a:hover{
 }
 
 
-
 ul.li-container li a i{
     font-size: 24px;
     color: var(--verde);
@@ -191,6 +184,140 @@ a.logo-container{
     max-width: 83px;
     
 }
+
+
+.main-carrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    padding: 30px;
+}
+
+
+.section-pedidos{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+    gap: 130px;
+}
+
+.carritouwu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.listaCarrito {
+    display: flex;
+    justify-content: space-around;
+    width: 800px;
+    
+}
+
+.divPrincipalCarrito{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 30px;
+    width: 1050px;
+}
+
+.divClassCarrito{
+    flex-basis: 90px;
+}
+
+.inputPLS{
+    width: 30px;
+    
+}
+
+.divdebotonescarrito{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.mensajevaciocarrito{
+    margin: 20px;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.totalCarrito{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.subtotalTTT{
+    text-align: center;
+    font-size: 24px;
+}
+
+.botonDepagar{
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+.botondelcarrito{
+    background-color: transparent;
+    width: 200px;
+    border: 2px solid;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: var(--negro);
+    outline: none;
+    border-color: var(--rosaClaro);
+    box-shadow: 0 0 40px 40px var(--rosaClaro) inset;
+    transition: box-shadow 0.1s ease-in-out;
+    margin: 10px;
+}
+.botondelcarritoA{
+    background-color: transparent;
+    width: 200px;
+    border: 2px solid;
+    border-radius: 3px;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: var(--negro);
+    outline: none;
+    border-color: var(--rosaClaro);
+    box-shadow: 0 0 40px 40px var(--rosaClaro) inset;
+    transition: box-shadow 0.1s ease-in-out;
+    margin: 10px;
+}
+
+.botondelcarrito:hover{
+    box-shadow: 0 0 10px 0 var(--rosaClaro) inset, 0 0 10px 4px var(--rosaClaro);
+}
+.botondelcarritoA:hover{
+    box-shadow: 0 0 10px 0 var(--rosaClaro) inset, 0 0 10px 4px var(--rosaClaro);
+}
+
+#carritonone{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .avatar-container{
     width: 100px;
@@ -959,6 +1086,9 @@ footer article.copyright p{
 
     
 }
+
+
+
 
 @media (min-width:1102px){
     ul.li-container li a{

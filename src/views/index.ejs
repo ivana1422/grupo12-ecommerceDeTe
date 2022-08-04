@@ -43,8 +43,28 @@
                     <div class="div_container-products slider">
 
                         <% productos.forEach(producto => { %>
+                            <% if(session.user){  %> 
 
-                                <a href="/productos/<%=producto.id%>" class="item-products">
+                                <a href="/productos/<%=producto.id%>" class="item-products" id="<%=producto.id%>">
+                                    <img src="<%=producto.images[0].src%>" alt="<%=producto.name%>" class="img-products">
+                                    <div class="item-product-price">
+                                        <h4><%=producto.name%></h4>
+                                        <p class="actual">$<%=producto.price%></p>
+
+                                            <button class="buttonProduct" id="<%=producto.id%>"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
+
+                                    </div>
+                                    <% if (producto.discount > 0) { %>
+
+                                        <div class="item-product-discount">
+                                            <p class="offer"><%=producto.discount%>% de descuento</p>
+                                        </div>
+                                    <% } %>
+
+                            
+                                </a>
+                            <% }else {  %>     
+                                <a href="/login" class="item-products" id="<%=producto.id%>">
                                     <img src="<%=producto.images[0].src%>" alt="<%=producto.name%>" class="img-products">
                                     <div class="item-product-price">
                                         <h4><%=producto.name%></h4>
@@ -60,8 +80,9 @@
                                         </div>
                                     <% } %>
 
+                            
                                 </a>
-
+                            <% } %> 
                         <% }) %>
 
                     </div>
@@ -106,11 +127,23 @@
                     </div>
                 </div>
 
+                <div class="carritouwu" id="carritonone">
+                    <div id="listaCarrito">
+
+                    </div>
+                    <button type="submit"  id="vaciarCarro">vaciar carrito</button>
+                    <button type="submit" id="irACarritoEntero">ir al carrito entero</button>
+                </div>
+
             
 
         </section>
     </main>
     <%-include("./partials/footer")%>
     <script src="/js/slider.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(session.user) { %> 
+    <script src="/js/products/zcarrito.js"></script>
+    <% } %> 
 </body>
 </html>
