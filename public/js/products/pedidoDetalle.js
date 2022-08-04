@@ -2,19 +2,20 @@ window.addEventListener('load', () => {
     class Carrito {
         comprarProducto(e){
             e.preventDefault();
-            if(e.target.classList.contains('buttonProduct')){
-                const producto = e.target.parentElement.parentElement;
+            if(e.target.classList.contains('tttttt')){
+                const producto = e.target.parentElement.parentElement.parentElement;
                 this.leerDatosProducto(producto)
+                // console.log(producto)
             }
         }
 
         leerDatosProducto(producto){
             const infoProducto = {
-                imagen: producto.querySelector('img').src,
-                titulo: producto.querySelector('h4').textContent,
-                precio: producto.querySelector('.actual').textContent,
-                id: producto.querySelector('button').getAttribute('id'),
-                cantidad: 1
+                imagen: producto.querySelector('#imagencarrodetalle').src,
+                titulo: producto.querySelector('#namedetallecarro').textContent,
+                precio: producto.querySelector('#preciodetallecarro').textContent,
+                id: producto.querySelector('.primerCaja').getAttribute('id'),
+                cantidad: producto.querySelector('#cantidad').textContent
             }
 
             let productosLS;
@@ -181,108 +182,16 @@ window.addEventListener('load', () => {
 
     const carro = new Carrito();
     const listaProductos = document.querySelector('#listaCarrito')
-    const carrito = document.querySelector('.carritouwu')
-    const productos = document.querySelectorAll(`.buttonProduct`)
-    const vaciarCarritoBtn = document.getElementById('vaciarCarro')
-    const procesarPedidoBtn = document.getElementById('irACarritoEntero')
-
-
-
-
-    const producto1 = productos[0]
-    const producto2 = productos[1]
-    const producto3 = productos[2]
-    const producto4 = productos[3]
-    const producto5 = productos[4]
-    const producto6 = productos[5]
-    const producto7 = productos[6]
-    const producto8 = productos[7]
-    const producto9 = productos[8]
-    const producto10 = productos[9]
-    const producto11 = productos[10]
-    const producto12 = productos[11]
-    const producto13 = productos[12]
-    const producto14 = productos[13]
-    const producto15 = productos[14]
-    const producto16 = productos[15]
-    const producto17 = productos[16]
-    const producto18 = productos[17]
-    const producto19 = productos[18]
-    
-    console.log(carrito)
+    // const carrito = document.querySelector('.carritouwu')
+    const productos = document.getElementById('botoncarritodetalle')
+    // const vaciarCarritoBtn = document.getElementById('vaciarCarro')
+    // const procesarPedidoBtn = document.getElementById('irACarritoEntero')
 
     cargarEventos()
     function cargarEventos(){
-        producto1.addEventListener('click', (e) => {
+        productos.addEventListener('click', (e) => {
             carro.comprarProducto(e)
         })
-
-        carrito.addEventListener('click', (e) => {
-            carro.eliminarProducto(e)
-        })
-
-        vaciarCarritoBtn.addEventListener('click', (e) => {
-            carro.vaciarCarrito(e)
-        })  
-
-        producto2.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto3.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto4.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto5.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto6.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto7.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto8.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto9.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto10.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto11.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto12.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto13.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto14.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto15.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto16.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto17.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto18.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-        producto19.addEventListener('click', (e) => {
-            carro.comprarProducto(e)
-        })
-
-        document.addEventListener('DOMContentLoaded', carro.leerLocalStorage())
-
-        procesarPedidoBtn.addEventListener('click', (e) => {carro.procesarPedido(e)})
     }
     
     

@@ -66,7 +66,6 @@ window.addEventListener('load',async ()=>{
                     <p class="pf__products__price">Precio: $${price}</p>
                     <p class="pf__products__coment">${coment}</p>
                     <div class="pf__products__links">
-                        <button class="buttonProduct agregarB" id="buttonAgregar" onclick="return addProduct()"><i class="fa-solid fa-cart-shopping"></i> Agregar</button>
                         <button class="buttonProduct_responsive"><i class="fa-solid fa-cart-shopping styleFont"></i></button>
                         <button class="shareProduct" href="" onclick="navigator.share({url:'/productos/${id}',text:'Hey! Mira este producto!'})"><i class="fa-solid fa-share-nodes styleFont"></i></button>
                     <a href="/productos/${id}" class="buttonProduct">Detalle</a>
