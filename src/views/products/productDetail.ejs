@@ -60,7 +60,7 @@
                       </div>
                       <div class="description__d">
                         <p class="description__sub"><%=producto.description%></p>
-                        <p class="description__price" id="preciodetallecarro"><%=producto.price%></p>
+                        <p class="description__price" id="preciodetallecarro">$<%=producto.price%></p>
                         <button type="submit" class="description__chart tttttt" id="botoncarritodetalle">Agregar al carrito</button>  
                         <% if(producto.ingredients[0] && producto.ingredients[0].name !== ''){ %>
                             <p>Ingredientes:</p>
@@ -75,7 +75,7 @@
                         <div class="tercerCaja"> 
                           <div class="description__box">
                             <span class="box__button box__button__left">-</span>
-                            <span class="description__cant" id="cantidad">0</span>
+                            <span class="description__cant" id="cantidad">1</span>
                             <span class="box__button box__button__right">+</span>
                           </div>
                           <!-- <button type="submit" class="description__chart" value="Agregar al Carrito" id="botoncarritodetalle">Agregar al carrito</button>   -->

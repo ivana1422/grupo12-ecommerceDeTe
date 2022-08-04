@@ -229,6 +229,7 @@ const carrito = document.querySelector('.carritouwu')
 const continuarComprando = document.getElementById('continuarCarrito')
 const realizarCompra = document.getElementById('irAPagar')
 
+
 cargarEventos()
 
  function cargarEventos(){
